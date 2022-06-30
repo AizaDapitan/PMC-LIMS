@@ -107,7 +107,4 @@
         return date;
       }
     </script>
-
-    <script src="{{env('APP_URL')}}/assets/js/dashforge.js"></script>
-    <script src="{{env('APP_URL')}}/assets/js/dashforge.aside.js"></script>
 @endsection

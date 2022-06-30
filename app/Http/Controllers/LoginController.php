@@ -34,7 +34,7 @@ class LoginController extends Controller
     // }
     public function index()
     {
-        return auth()->check() ? redirect()->route('deptUserdashboard') : view('auth.login');
+        return auth()->check() ? redirect()->route('deptUser.dashboard') : view('auth.login');
     }
 
     public function forgot_password()
@@ -48,8 +48,7 @@ class LoginController extends Controller
     {
         $checker = auth()->attempt([
             'username' => $request->username,
-            'password' => $request->password,
-            'active' => 1,
+            'password' => $request->password
         ]);
         if ($checker) {
             return response()->json(['result' => 'Success']);
