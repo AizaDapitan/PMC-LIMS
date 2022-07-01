@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\DeptUserController;
+use App\Http\Controllers\DeptOfficerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +25,21 @@ Route::post('auth/login', [LoginController::class, 'login'])->name("auth.login")
 Route::middleware(['auth'])->group(function () {
 
     Route::get('logout', [LoginController::class, 'logout'])->name("logout");
-    Route::group(['prefix' => 'deptUser'], function () {
-        Route::get('/dashboard', [HomeController::class, 'index'])->name("deptUser.dashboard");
+
+    // Dept User Controller
+    Route::group(
+        ['prefix' => 'deptuser'], 
+        function () {
+            Route::get('/list', [DeptUserController::class, 'index'])->name("deptuser.index");
     });
+
+    // Dept Officer Controller
+    Route::group(
+        ['prefix' => 'deptofficer'], 
+        function () {
+            Route::get('/list', [DeptOfficerController::class, 'index'])->name("deptofficer.index");
+    });    
+
     // Role Controller
     Route::group(
         ['prefix' => 'roles'],
@@ -54,4 +68,6 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/getPermission_selected', [PermissionController::class, 'getPermission_selected'])->name("permissions.getPermission_selected");
         }
     );
+
+
 });

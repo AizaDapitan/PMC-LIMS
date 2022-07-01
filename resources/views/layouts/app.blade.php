@@ -60,9 +60,9 @@
       <ul class="nav nav-aside">
         <li class="nav-label">LIMS</li>
         <li class="nav-item with-sub">
-          <a href="#" class="nav-link"><i data-feather="home"></i> <span>Dept. Requesters</span></a>
+          <a href="#" class="nav-link"><i data-feather="home"></i> <span>Department Requesters</span></a>
           <ul>
-            <li class="active"><a href="dashboard-dept-user.html">Dashboard</a></li>
+            <li class="active"><a href="{{ route('deptuser.index') }}">Dashboard</a></li>
             <li><a href="create-form-transmittal-dept-user.html">Create</a></li>
           </ul>
         </li>

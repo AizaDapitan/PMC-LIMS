@@ -34,7 +34,7 @@ class LoginController extends Controller
     // }
     public function index()
     {
-        return auth()->check() ? redirect()->route('deptUser.dashboard') : view('auth.login');
+        return auth()->check() ? redirect()->route('deptuser.index') : view('auth.login');
     }
 
     public function forgot_password()

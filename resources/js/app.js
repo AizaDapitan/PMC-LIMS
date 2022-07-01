@@ -25,10 +25,7 @@ app.component(
     "login-component",
     require("./components/auth/login.vue").default
 );
-app.component(
-    "deptuser-dashboard",
-    require("./components/deptuser/dashboard.vue").default
-);
+
 app.component(
     "create_role-component",
     require("./components/role/create_role.vue").default
@@ -54,6 +51,18 @@ app.component(
     "edit_permission-component",
     require("./components/permission/edit_permission.vue").default
 );
+
+app.component(
+    "index_deptuser-component",
+    require("./components/deptuser/index_deptuser.vue").default
+);
+
+app.component(
+    "index_deptofficer-component",
+    require("./components/deptofficer/index_deptofficer.vue").default
+);
+
+
 app.component("DataTable", DataTable);
 app.component("Column", Column);
 app.component("Toolbar", Toolbar);
