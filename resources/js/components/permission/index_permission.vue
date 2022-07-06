@@ -56,71 +56,7 @@
           </template>
         </Toolbar>
         <div class="table-list mg-b-10">
-          <div class="table-responsive-lg">
-            <DataTable
-              ref="dt"
-              :value="permissions"
-              :paginator="true"
-              :rows="10"
-              stripedRows
-              removableSort
-              paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-              :rowsPerPageOptions="[10, 20, 50]"
-              responsiveLayout="scroll"
-              :loading="loading1"
-              currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
-              v-model:filters="filters"
-              filterDisplay="menu"
-              :globalFilterFields="[
-                'application_description',
-                'module_description',
-                'description',
-                'status',
-              ]"
-            >
-              <template #empty> No record found. </template>
-              <template #loading> Loading data. Please wait. </template>
-
-              <Column
-                field="module_type"
-                header="Module"
-                :sortable="true"
-              ></Column>
-              <Column
-                field="description"
-                header="Description"
-                :sortable="true"
-              ></Column>
-
-              <Column field="status" header="Status" hidden></Column>
-              <Column
-                field="active"
-                header="Status"
-                :sortable="true"
-                :exportable="false"
-              >
-                <template #body="slotProps">
-                  <span v-if="slotProps.data.active == '1'">Active</span>
-                  <span v-else style="color: red">Inactive</span>
-                </template>
-              </Column>
-
-              <Column
-                :exportable="false"
-                style="min-width: 8rem"
-                header="Actions"
-              >
-                <template #body="slotProps">
-                  <Button
-                    v-bind:title="editMsg"
-                    icon="pi pi-pencil"
-                    class="p-button-rounded p-button-success mr-2"
-                    @click="editPermission(slotProps)"
-                  />
-                </template>
-              </Column>
-            </DataTable>
-          </div>
+         
         </div>
       </div>
       <!-- End Pages -->

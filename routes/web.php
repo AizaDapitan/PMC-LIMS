@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\DeptUserController;
 use App\Http\Controllers\DeptOfficerController;
+use App\Http\Controllers\TransmittalItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +30,22 @@ Route::middleware(['auth'])->group(function () {
     Route::group(
         ['prefix' => 'deptuser'], 
         function () {
-            Route::get('/list', [DeptUserController::class, 'index'])->name("deptuser.index");
+            Route::get('/dashboard', [DeptUserController::class, 'index'])->name("deptuser.index");
+            Route::post('/getDeptUsers', [DeptUserController::class, 'getDeptUsers'])->name("deptuser.getDeptUsers");
+            Route::get('/create-transmittal', [DeptUserController::class, 'create'])->name("deptuser.create");
+            Route::get('/edit-transmittal/{id}', [DeptUserController::class, 'edit'])->name("deptuser.edit");
+            Route::post('/store', [DeptUserController::class, 'store'])->name("deptuser.store");
+            Route::post('/update', [DeptUserController::class, 'update'])->name("deptuser.update");
+            Route::post('/delete', [DeptUserController::class, 'delete'])->name("deptuser.delete");
+    });
+    Route::group(
+        ['prefix' => 'transItem'], 
+        function () {
+            Route::post('/store', [TransmittalItemController::class, 'store'])->name("transItem.store");
+            Route::post('/getItems', [TransmittalItemController::class, 'getItems'])->name("transItem.getItems");
+            Route::post('/uploaditems', [TransmittalItemController::class, 'uploadItems'])->name("transItem.uploadItems");
+            Route::post('/delete', [TransmittalItemController::class, 'delete'])->name("transItem.delete");
+            Route::post('/update', [TransmittalItemController::class, 'update'])->name("transItem.update");
     });
 
     // Dept Officer Controller

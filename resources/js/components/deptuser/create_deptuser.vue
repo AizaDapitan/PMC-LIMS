@@ -1,0 +1,521 @@
+<template>
+  <div class="container-fluid mx-wd-1500 pd-x-0">
+    <div
+      class="
+        d-sm-flex
+        align-items-center
+        justify-content-between
+        mg-b-20 mg-lg-b-25 mg-xl-b-30
+      "
+    >
+      <div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+            <li class="breadcrumb-item" aria-current="page">
+              <a :href="dashboard">LIMS</a>
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+              <a :href="dashboard">Dept. Requesters</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Create</li>
+          </ol>
+        </nav>
+        <h4 class="mg-b-0 tx-spacing--1">Create Transmittal - Dept.User</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="d-lg-flex justify-content-lg-end">
+          <div
+            class="
+              form-group
+              d-flex
+              flex-column flex-lg-row
+              align-items-lg-center
+            "
+          >
+            <label for="customFile" class="mg-r-10">Attached COC</label>
+            <div class="custom-file mb-0 mb-lg-2">
+              <input
+                type="file"
+                class="custom-file-input"
+                id="customFile"
+                ref="cocFile"
+                name="attached-csv"
+                @change="onCoCFileChange"
+              />
+              <label
+                class="custom-file-label"
+                for="customFile"
+                data-button-label="Upload"
+                >{{ cocFileLabel }}</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="transmittal-no">Transmittal No.</label>
+          <input
+            type="text"
+            class="form-control"
+            id="transmittal-no"
+            name="transmittal-no"
+            v-model="form.transmittalno"
+            @change="onTransmittalNoChange"
+          />
+        </div>
+
+        <div class="row row-sm">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="date-submitted">Date Submitted</label>
+              <input
+                type="text"
+                class="form-control"
+                id="date-submitted"
+                name="date-submitted"
+                pattern="\d{2}\/\d{2}\/\d{4}"
+                placeholder="mm/dd/yyyy"
+              />
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="time-submitted">Time Submitted</label>
+              <input
+                type="time"
+                class="form-control"
+                id="time-submitted"
+                name="time-submitted"
+                v-model="form.timesubmitted"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email-address">Email Address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email-address"
+            name="email-address"
+            v-model="form.email_address"
+          />
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="purpose">Purpose</label>
+          <input
+            type="text"
+            class="form-control"
+            id="purpose"
+            name="purpose"
+            v-model="form.purpose"
+          />
+        </div>
+
+        <div class="row row-sm">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="date-needed">Date Needed</label>
+              <input
+                type="text"
+                class="form-control"
+                id="date-needed"
+                name="date-needed"
+                pattern="\d{2}\/\d{2}\/\d{4}"
+                placeholder="mm/dd/yyyy"
+              />
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="priority">Priority</label>
+              <select
+                class="custom-select tx-base"
+                id="priority"
+                v-model="form.priority"
+                name="priority"
+              >
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select
+                class="custom-select tx-base"
+                id="status"
+                name="status"
+                v-model="form.status"
+              >
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="source">Source</label>
+          <input
+            type="text"
+            class="form-control"
+            id="source"
+            name="source"
+            v-model="form.source"
+          />
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <hr class="mg-t-10 mg-b-30" />
+      </div>
+    </div>
+
+    <div class="row row-xs">
+      <div class="col-lg-12">
+        <button
+          class="btn btn-primary tx-13 btn-uppercase mg-b-25"
+          @click="showDialog"
+          :disabled="disableUpload"
+        >
+          <i data-feather="plus" class="mg-r-5"></i> Add Item
+        </button>
+      </div>
+      <div class="col-lg-12">
+        <div class="table-responsive-lg">
+          <DataTable
+            ref="dt"
+            :value="items"
+            :paginator="true"
+            :rows="10"
+            stripedRows
+            paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+            :rowsPerPageOptions="[10, 20, 50]"
+            responsiveLayout="scroll"
+            :loading="loading"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
+            v-model:filters="filters"
+            filterDisplay="menu"
+            rowIndexVar
+          >
+            <template #empty> No record found. </template>
+            <template #loading> Loading data. Please wait. </template>
+
+            <Column header="Item No.">
+              <template #body="slotProps">
+                {{ slotProps.index + 1 }}
+              </template></Column
+            >
+            <Column field="id" hidden="true"></Column>
+            <Column field="sampleno" header="Sample No."></Column>
+            <Column field="description" header="Description"></Column>
+            <Column field="elements" header="Elements"></Column>
+            <Column field="methodcode" header="Method Code"></Column>
+            <Column field="comments" header="Comments"></Column>
+
+            <Column
+              :exportable="false"
+              style="min-width: 8rem"
+              header="Actions"
+            >
+              <template #body="slotProps">
+                <Button
+                  v-bind:title="edititem"
+                  icon="pi pi-pencil"
+                  class="p-button-rounded p-button-success mr-2"
+                  @click="editItem(slotProps)"
+                />
+                <Button
+                  v-bind:title="deleteitem"
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-warning mr-2"
+                  @click="deleteItem(slotProps)"
+                />
+              </template>
+            </Column>
+          </DataTable>
+        </div>
+      </div>
+    </div>
+    <!-- row -->
+
+    <hr class="mg-t-30 mg-b-30" />
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="d-lg-flex justify-content-lg-end">
+          <div
+            class="
+              form-group
+              d-flex
+              flex-column flex-lg-row
+              align-items-lg-center
+            "
+          >
+            <input type="hidden" v-model="form.itemFile" />
+            <label for="customFile" class="mg-r-10">Attached CSV</label>
+            <div class="custom-file mb-0 mb-lg-2">
+              <input
+                type="file"
+                class="custom-file-input"
+                id="customFile"
+                ref="file"
+                name="attached-csv"
+                v-on:change="onFileChange"
+                :disabled="disableUpload"
+                accept=".csv"
+              />
+              <label
+                class="custom-file-label"
+                for="customFile"
+                data-button-label="Browse"
+                >{{ fileLabel }}</label
+              >
+            </div>
+            <button
+              type="submit"
+              class="
+                btn btn-primary
+                tx-13
+                btn-uppercase
+                mr-2
+                mb-2
+                ml-lg-1
+                mr-lg-0
+              "
+              :disabled="disableUpload"
+              @click.prevent="uploadItem"
+            >
+              <i data-feather="upload" class="mg-r-5"></i> Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row flex-column-reverse flex-lg-row">
+      <div class="col-lg-6">
+        <a :href="dashboard" class="btn btn-white tx-13 btn-uppercase"
+          ><i data-feather="arrow-left" class="mg-r-5"></i> Back to Dashboard</a
+        >
+      </div>
+      <div class="col-lg-6 d-flex justify-content-start justify-content-lg-end">
+        <button
+          type="reset"
+          class="btn btn-white tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
+          @click.prevent="reset"
+        >
+          <i data-feather="x-circle" class="mg-r-5"></i> Cancel
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
+          @click.prevent="saveTransmittal"
+        >
+          <i data-feather="save" class="mg-r-5"></i> Save
+        </button>
+      </div>
+    </div>
+
+    <div class="cms-footer mg-t-50">
+      <hr />
+      <p class="tx-gray-500 tx-10">
+        Admin Portal v1.0 • Developed by WebFocus Solutions, Inc. 2022
+      </p>
+    </div>
+  </div>
+  <toast
+    :breakpoints="{ '920px': { width: '100%', right: '0', left: '0' } }"
+  ></toast>
+  <DynamicDialog />
+  <ConfirmDialog></ConfirmDialog>
+</template>
+<script>
+import item from "./item";
+import { h } from "vue";
+import Button from "primevue/button";
+export default {
+  data() {
+    return {
+      dashboard: this.$env_Url + "/deptuser/dashboard",
+      loading: true,
+      disableUpload: true,
+      items: [],
+      itemFile: null,
+      COCitemFile: null,
+      fileLabel: "Choose File",
+      cocFileLabel: "Choose File",
+      form: {
+        transmittalno: null,
+        purpose: "",
+        datesubmitted: "",
+        timesubmitted: "",
+        date_needed: "",
+        priority: "Low",
+        status: "Pending",
+        email_address: "",
+        source: "",
+        itemID: "",
+      },
+    };
+  },
+  created() {
+    this.fetchItems();
+    this.loading = false;
+  },
+  updated() {
+    this.disableUpload = true;
+    var transno = this.form.transmittalno;
+    if (transno == null) {
+      transno = "";
+    }
+    if (transno != "") {
+      this.disableUpload = false;
+    }
+  },
+  methods: {
+    onFileChange(e) {
+      this.itemFile = this.$refs.file.files[0];
+      this.fileLabel = this.itemFile.name;
+    },
+    onCoCFileChange(e) {
+      this.COCitemFile = this.$refs.cocFile.files[0];
+      this.cocFileLabel = this.COCitemFile.name;
+    },
+    onTransmittalNoChange() {
+      this.fetchItems();
+    },
+    async fetchItems() {
+      const res = await this.callApiwParam(
+        "post",
+        "/transItem/getItems",
+        this.form
+      );
+      this.items = res.data;
+    },
+    async uploadItem() {
+      this.fileLabel = this.form.transmittalno + "_" + this.fileLabel;
+      let form = new FormData();
+      form.append("itemFile", this.itemFile);
+      _.each(this.form, (value, key) => {
+        form.append(key, value);
+      });
+      const res = await this.submit("post", "/transItem/uploaditems", form, {
+        headers: {
+          "Content-Type":
+            "multipart/form-data; charset=utf-8; boundary=" +
+            Math.random().toString().substr(2),
+        },
+      });
+      if (res.status === 200) {
+        this.smessage();
+        this.fetchItems();
+      } else {
+        this.ermessage(res.data.errors);
+      }
+    },
+    async saveTransmittal() {
+      this.form.date_needed = document.getElementById("date-needed").value;
+      this.form.datesubmitted = document.getElementById("date-submitted").value;
+      this.cocFileLabel = this.form.transmittalno + "_" + this.cocFileLabel;
+      let form = new FormData();
+      form.append("cocFile", this.COCitemFile);
+      _.each(this.form, (value, key) => {
+        form.append(key, value);
+      });
+      const res = await this.submit("post", "/deptuser/store", form, {
+        headers: {
+          "Content-Type":
+            "multipart/form-data; charset=utf-8; boundary=" +
+            Math.random().toString().substr(2),
+        },
+      });
+      if (res.status === 200) {
+        window.location.href = this.$env_Url + "/deptuser/dashboard";
+      } else {
+        this.ermessage(res.data.errors);
+      }
+    },
+
+    showDialog(data) {
+      const dialogRef = this.$dialog.open(item, {
+        props: {
+          header: "Transmittal item",
+          style: {
+            width: "50vw",
+          },
+          breakpoints: {
+            "960px": "75vw",
+            "640px": "90vw",
+          },
+          modal: true,
+        },
+        data: {
+          transmittalno: this.form.transmittalno,
+          id: data.id,
+          sampleno: data.sampleno,
+          description: data.description,
+          elements: data.elements,
+          methodcode: data.methodcode,
+          comments: data.comments,
+        },
+        onClose: (options) => {
+          this.fetchItems();
+        },
+      });
+    },
+    reset() {
+      this.form.transmittalno = null;
+      this.form.purpose = "";
+      this.form.datesubmitted = "";
+      this.form.timesubmitted = "";
+      this.form.date_needed = "";
+      this.form.priority = "Low";
+      this.form.status = "Pending";
+      this.form.email_address = "";
+      this.form.source = "";
+    },
+    deleteItem(data) {
+      let src = data.data.id,
+        alt = data.data.id;
+      this.form.itemID = alt;
+
+      this.$confirm.require({
+        message: "Do you want to delete this item?",
+        header: "Delete Confirmation",
+        icon: "pi pi-info-circle",
+        acceptClass: "p-button-danger",
+        accept: async () => {
+          const res = await this.deleteRecord("post", "/transItem/delete", {
+            id: data.data.id,
+          });
+          if (res.status === 200) {
+            this.rmessage();
+            this.fetchItems();
+          } else {
+            this.ermessage();
+          }
+        },
+      });
+    },
+    editItem(data) {
+      this.showDialog(data.data);
+    },
+  },
+};
+</script>

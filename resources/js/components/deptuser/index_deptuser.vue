@@ -1,16 +1,27 @@
 <template>
   <div class="container pd-x-0">
-    <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
-        <div>
-            <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                <li class="breadcrumb-item" aria-current="page">LIMS</li>
-                <li class="breadcrumb-item" aria-current="page">Department Requesters</li>
-                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-            </ol>
-            </nav>
-            <h4 class="mg-b-0 tx-spacing--1">Home/Dashboard - Department User</h4>
-        </div>
+    <div
+      class="
+        d-sm-flex
+        align-items-center
+        justify-content-between
+        mg-b-20 mg-lg-b-25 mg-xl-b-30
+      "
+    >
+      <div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+            <li class="breadcrumb-item" aria-current="page">LIMS</li>
+            <li class="breadcrumb-item" aria-current="page">
+              Department Requesters
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Dashboard
+            </li>
+          </ol>
+        </nav>
+        <h4 class="mg-b-0 tx-spacing--1">Home/Dashboard - Department User</h4>
+      </div>
     </div>
 
     <div class="row row-sm">
@@ -64,46 +75,99 @@
               currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
               v-model:filters="filters"
               filterDisplay="menu"
-              :globalFilterFields="['transmittal_no', 'date_time_submitted','email_address','purpose', 'date_needed', 'priority_status', 'source', 'status']"
+              :globalFilterFields="[
+                'transmittalno',
+                'date_time_submitted',
+                'email_address',
+                'purpose',
+                'date_needed',
+                'priority_status',
+                'source',
+                'status',
+              ]"
             >
               <template #empty> No record found. </template>
               <template #loading> Loading data. Please wait. </template>
+              <Column field="id" hidden="true"></Column>
+              <Column
+                field="transmittalno"
+                header="Transmittal No"
+                :sortable="true"
+              ></Column>
+              <Column
+                field="datesubmitted"
+                header="Date Submitted"
+                :sortable="true"
+              ></Column>
+              <Column
+                field="timesubmitted"
+                header="Time Submitted"
+                :sortable="true"
+              ></Column>
+              <Column
+                field="email_address"
+                header="Email Address"
+                :sortable="true"
+              ></Column>
+              <Column
+                field="purpose"
+                header="Purpose"
+                :sortable="true"
+              ></Column>
+              <Column
+                field="date_needed"
+                header="Date Needed"
+                :sortable="true"
+              ></Column>
 
-              <Column field="transmittal_no" header="Transmittal No" :sortable="true"></Column>
-              <Column field="date_time_submitted" header="Date/Time Submitted" :sortable="true"></Column>
-              <Column field="email_address" header="Email Address" :sortable="true"></Column>
-              <Column field="purpose" header="Purpose" :sortable="true"></Column>
-              <Column field="date_needed" header="Date Needed" :sortable="true"></Column>
-              
-              <Column field="priority_status" header="Priority" hidden></Column>
-              <Column field="priority" header="Priority" :sortable="true" :exportable="false">
+              <Column
+                field="priority"
+                header="Priority"
+                :sortable="true"
+                :exportable="false"
+              >
                 <template #body="slotProps">
-                    <span v-if="slotProps.data.priority == '1'" style="color:red">High</span>
-                    <span v-if="slotProps.data.priority == '2'" style="color:orange">Medium</span>
-                    <span v-if="slotProps.data.priority == '3'" style="color:green">Low</span>
-                </template>                
+                  <span
+                    v-if="slotProps.data.priority == 'High'"
+                    style="color: red"
+                    >High</span
+                  >
+                  <span
+                    v-if="slotProps.data.priority == 'Medium'"
+                    style="color: orange"
+                    >Medium</span
+                  >
+                  <span
+                    v-if="slotProps.data.priority == 'Low'"
+                    style="color: green"
+                    >Low</span
+                  >
+                </template>
               </Column>
 
               <Column field="source" header="Source" :sortable="true"></Column>
-              
+              <Column field="status" header="Status" :sortable="true"></Column>
               <Column field="status" header="Status" hidden></Column>
-              <Column field="active" header="Status" :sortable="true" :exportable="false">
-                <template #body="slotProps">
-                    <span v-if="slotProps.data.active == '1'" style="color:green">Active</span>
-                    <span v-else style="color:red">Inactive</span>
-                </template>                
-              </Column>
 
               <Column
                 :exportable="false"
                 style="min-width: 8rem"
-                header="Actions">
+                header="Actions"
+              >
                 <template #body="slotProps">
                   <Button
-                    v-bind:title='editMsg'
+                    v-bind:title="editMsg"
                     icon="pi pi-pencil"
                     class="p-button-rounded p-button-success mr-2"
                     @click="editDeptUser(slotProps)"
+                   :disabled="slotProps.data.status == 'Approved'"
+                  />
+                  <Button
+                    v-bind:title="deleteMsg"
+                    icon="pi pi-trash"
+                    class="p-button-rounded p-button-warning mr-2"
+                    @click="deleteTrans(slotProps)"
+                   :disabled="slotProps.data.status == 'Approved'"
                   />
                 </template>
               </Column>
@@ -118,23 +182,34 @@
   <toast
     :breakpoints="{ '920px': { width: '100%', right: '0', left: '0' } }"
   ></toast>
-
+  <ConfirmDialog></ConfirmDialog>
 </template>
 <script>
 import { FilterMatchMode, FilterOperator } from "primevue/api";
 export default {
-  props: ["deptusers"],
+  // props: ["deptusers"],
   data() {
     return {
-      dashboard: this.$env_Url + "/dashboard",
+      deptusers: [],
+      dashboard: this.$env_Url + "deptuser/dashboard",
       filters: null,
-      editMsg: "Edit Department User",
+      editMsg: "Edit Department User Transmittal",
+      deleteMsg: "Delete Department User Transmittal",
     };
   },
   created() {
+    this.fetchRecord();
     this.initFilters();
   },
   methods: {
+    async fetchRecord() {
+      const res = await this.callApiwParam(
+        "post",
+        "/deptuser/getDeptUsers",
+        this.form
+      );
+      this.deptusers = res.data;
+    },
     initFilters() {
       this.filters = {
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -144,17 +219,37 @@ export default {
       this.filters["global"].value = null;
     },
     addNew() {
-      window.location.href = this.$env_Url + "/deptusers/create";
+      window.location.href = this.$env_Url + "/deptuser/create-transmittal";
     },
 
     editDeptUser(data) {
-        let src = data.data.id,
+      let src = data.data.id,
         alt = data.data.id;
-        window.location.href = this.$env_Url + "/deptusers/edit/" + alt;
+      window.location.href =
+        this.$env_Url + "/deptuser/edit-transmittal/" + alt;
     },
 
     exportCSV() {
       this.$refs.dt.exportCSV();
+    },
+    deleteTrans(data) {
+      this.$confirm.require({
+        message: "Do you want to delete this record?",
+        header: "Delete Confirmation",
+        icon: "pi pi-info-circle",
+        acceptClass: "p-button-danger",
+        accept: async () => {
+          const res = await this.deleteRecord("post", "/deptuser/delete", {
+            id: data.data.id,
+          });
+          if (res.status === 200) {
+            this.rmessage();
+            this.fetchRecord();
+          } else {
+            this.ermessage();
+          }
+        },
+      });
     },
   },
 };

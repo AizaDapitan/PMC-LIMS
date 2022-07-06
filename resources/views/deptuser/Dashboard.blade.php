@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<deptuser-dashboard></deptuser-dashboard>
 @endsection
 
 @section('pagejs')

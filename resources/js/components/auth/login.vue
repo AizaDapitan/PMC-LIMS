@@ -73,12 +73,11 @@ export default {
           .post(this.$env_Url + "/auth/login", this.input)
           .then((response) => {
             if (response.data.result == "Success") {
-              window.location.href = this.$env_Url + "/deptUser/dashboard";
+              window.location.href = this.$env_Url + "/deptuser/dashboard";
             } else {
               this.errors.push("Invalid Credential.");
             }
           })
-
           .catch(function (error) {});
       }
 

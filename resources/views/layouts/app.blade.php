@@ -59,10 +59,17 @@
       </div><!-- aside-loggedin -->
       <ul class="nav nav-aside">
         <li class="nav-label">LIMS</li>
-        <li class="nav-item with-sub">
-          <a href="#" class="nav-link"><i data-feather="home"></i> <span>Department Requesters</span></a>
+        <li class="nav-item with-sub {{ (request()->is('deptuser/*')) ? 'active show' : '' }}">
+          <a href="" class="nav-link"><i data-feather="home"></i> <span>Dept. Requesters(User)</span></a>
           <ul>
-            <li class="active"><a href="{{ route('deptuser.index') }}">Dashboard</a></li>
+            <li class="{{ (request()->is('deptuser/dashboard*')) ? 'active' : '' }}"><a href="{{ route('deptuser.index') }}">Dashboard</a></li>
+            <li class="{{ (request()->is('deptuser/create-transmittal')) ? 'active' : '' }}"><a href="{{ route('deptuser.create') }}">Create Transmittal</a></li>
+          </ul>
+        </li>
+        <li class="nav-item with-sub">
+          <a href="#" class="nav-link"><i data-feather="home"></i> <span>Dept. Requesters(Officer)</span></a>
+          <ul>
+            <li class="active"><a href="{{ route('deptofficer.index') }}">Dashboard</a></li>
             <li><a href="create-form-transmittal-dept-user.html">Create</a></li>
           </ul>
         </li>
