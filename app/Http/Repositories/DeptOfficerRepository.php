@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Repositories\Interfaces\DeptOfficerRepositoryInterface;
 use App\DeptOfficer;
 
-class DeptOfficerRepository implements DeptOfficerRepositoryInterface
+class DeptUOfficerRepository implements DeptOfficerRepositoryInterface
 {
     protected $deptofficer;
 

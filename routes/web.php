@@ -52,8 +52,12 @@ Route::middleware(['auth'])->group(function () {
     Route::group(
         ['prefix' => 'deptofficer'], 
         function () {
-            Route::get('/list', [DeptOfficerController::class, 'index'])->name("deptofficer.index");
-    });    
+            Route::get('/dashboard', [DeptOfficerController::class, 'index'])->name("deptofficer.index");
+            Route::post('/getDeptOfficers', [DeptOfficerController::class, 'getDeptOfficers'])->name("deptofficer.getDeptOfficers");
+            Route::get('/edit-transmittal/{id}', [DeptOfficerController::class, 'edit'])->name("deptofficer.edit");
+            Route::post('/update', [DeptOfficerController::class, 'update'])->name("deptofficer.update");
+            Route::get('/view-transmittal/{id}', [DeptOfficerController::class, 'view'])->name("deptofficer.view");
+    });  
 
     // Role Controller
     Route::group(

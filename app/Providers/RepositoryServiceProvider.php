@@ -34,7 +34,7 @@ class RepositoryServiceProvider extends ServiceProvider
             'model' => [
                 'App\Models\DeptOfficer',
             ],
-        ),        
+        ),      
         
     );
     public function register()

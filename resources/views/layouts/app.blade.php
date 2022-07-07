@@ -70,7 +70,7 @@
           <a href="#" class="nav-link"><i data-feather="home"></i> <span>Dept. Requesters(Officer)</span></a>
           <ul>
             <li class="active"><a href="{{ route('deptofficer.index') }}">Dashboard</a></li>
-            <li><a href="create-form-transmittal-dept-user.html">Create</a></li>
+            <li><a href="#">Approval</a></li>
           </ul>
         </li>
         <li class="nav-item"><a href="dashboard-qa-qc-receiver.html" class="nav-link"><i data-feather="bell"></i> <span>QA/QC Receiving</span></a></li>

@@ -17,10 +17,10 @@
             <li class="breadcrumb-item" aria-current="page">
               <a :href="dashboard">Dept. Requesters</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">Edit</li>
+            <li class="breadcrumb-item active" aria-current="page">View</li>
           </ol>
         </nav>
-        <h4 class="mg-b-0 tx-spacing--1">Edit Transmittal - Dept.User</h4>
+        <h4 class="mg-b-0 tx-spacing--1">View Transmittal - Dept.View</h4>
       </div>
     </div>
 
@@ -37,20 +37,15 @@
           >
             <label for="customFile" class="mg-r-10">Attached COC</label>
             <div class="custom-file mb-0 mb-lg-2">
-              <input
-                type="file"
-                class="custom-file-input"
-                id="attached-csv"
-                ref="cocFile"
-                name="attached-csv"
-                @change="onCoCFileChange"
-              />
-              <label
-                class="custom-file-label"
-                for="customFile"
-                data-button-label="Upload"
-                >{{ cocFileLabel }}</label
-              >
+            <input
+              type="text"
+              class="form-control"
+              id="attached-csv"
+              name="attached-csv"
+              v-model="form.cocFile"
+              disabled="true"
+            />
+
             </div>
           </div>
         </div>
@@ -80,6 +75,7 @@
                 name="date-submitted"
                 pattern="\d{2}\/\d{2}\/\d{4}"
                 placeholder="mm/dd/yyyy"
+                disabled="true"
               />
             </div>
           </div>
@@ -92,6 +88,7 @@
                 class="form-control"
                 id="time-submitted"
                 name="time-submitted"
+                disabled="true"
                 v-model="form.timesubmitted"
               />
             </div>
@@ -105,6 +102,7 @@
             class="form-control"
             id="email-address"
             name="email-address"
+            disabled="true"
             v-model="form.email_address"
           />
         </div>
@@ -118,6 +116,7 @@
             class="form-control"
             id="purpose"
             name="purpose"
+            disabled="true"
             v-model="form.purpose"
           />
         </div>
@@ -133,6 +132,7 @@
                 name="date-needed"
                 pattern="\d{2}\/\d{2}\/\d{4}"
                 placeholder="mm/dd/yyyy"
+                disabled="true"
               />
             </div>
           </div>
@@ -145,6 +145,7 @@
                 id="priority"
                 v-model="form.priority"
                 name="priority"
+                disabled="true"
               >
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
@@ -160,6 +161,7 @@
                 class="custom-select tx-base"
                 id="status"
                 name="status"
+                disabled="true"
                 v-model="form.status"
               >
                 <option value="Pending">Pending</option>
@@ -176,6 +178,7 @@
             class="form-control"
             id="source"
             name="source"
+            disabled="true"
             v-model="form.source"
           />
         </div>
@@ -187,15 +190,7 @@
     </div>
 
     <div class="row row-xs">
-      <div class="col-lg-12">
-        <button
-          class="btn btn-primary tx-13 btn-uppercase mg-b-25"
-          @click="showDialog"
-          :disabled="disableUpload"
-        >
-          <i data-feather="plus" class="mg-r-5"></i> Add Item
-        </button>
-      </div>
+
       <div class="col-lg-12">
         <div class="table-responsive-lg">
           <DataTable
@@ -228,26 +223,6 @@
             <Column field="methodcode" header="Method Code"></Column>
             <Column field="comments" header="Comments"></Column>
 
-            <Column
-              :exportable="false"
-              style="min-width: 8rem"
-              header="Actions"
-            >
-              <template #body="slotProps">
-                <Button
-                  v-bind:title="edititem"
-                  icon="pi pi-pencil"
-                  class="p-button-rounded p-button-success mr-2"
-                  @click="editItem(slotProps)"
-                />
-                <Button
-                  v-bind:title="deleteitem"
-                  icon="pi pi-trash"
-                  class="p-button-rounded p-button-warning mr-2"
-                  @click="deleteItem(slotProps)"
-                />
-              </template>
-            </Column>
           </DataTable>
         </div>
       </div>
@@ -270,39 +245,18 @@
             <input type="hidden" v-model="form.itemFile" />
             <label for="customFile" class="mg-r-10">Attached CSV</label>
             <div class="custom-file mb-0 mb-lg-2">
+
               <input
-                type="file"
-                class="custom-file-input"
+                type="text"
+                class="form-control"
                 id="customFile"
-                ref="file"
-                name="attached-csv"
-                v-on:change="onFileChange"
-                :disabled="disableUpload"
-                accept=".csv"
-              />
-              <label
-                class="custom-file-label"
-                for="customFile"
-                data-button-label="Browse"
-                >{{ fileLabel }}</label
-              >
+                name="customFile"
+                v-model="form.csvFile"
+                disabled="true"
+              />              
+
             </div>
-            <button
-              type="submit"
-              class="
-                btn btn-primary
-                tx-13
-                btn-uppercase
-                mr-2
-                mb-2
-                ml-lg-1
-                mr-lg-0
-              "
-              :disabled="disableUpload"
-              @click.prevent="uploadItem"
-            >
-              <i data-feather="upload" class="mg-r-5"></i> Upload
-            </button>
+
           </div>
         </div>
       </div>
@@ -314,21 +268,7 @@
           ><i data-feather="arrow-left" class="mg-r-5"></i> Back to Dashboard</a
         >
       </div>
-      <div class="col-lg-6 d-flex justify-content-start justify-content-lg-end">
-        <a
-          :href="dashboard"
-          class="btn btn-white tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
-        >
-          <i data-feather="x-circle" class="mg-r-5"></i> Cancel
-        </a>
-        <button
-          type="submit"
-          class="btn btn-primary tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
-          @click.prevent="saveTransmittal"
-        >
-          <i data-feather="save" class="mg-r-5"></i> Save
-        </button>
-      </div>
+
     </div>
 
     <div class="cms-footer mg-t-50">
@@ -345,16 +285,15 @@
   <ConfirmDialog></ConfirmDialog>
 </template>
 <script>
-import item from "./item";
+
 import { h } from "vue";
 import Button from "primevue/button";
 export default {
   props: ["transmittal"],
   data() {
     return {
-      dashboard: this.$env_Url + "/deptuser/dashboard",
+      dashboard: this.$env_Url + "/deptofficer/dashboard",
       loading: true,
-      disableUpload: true,
       items: [],
       itemFile: null,
       COCitemFile: null,
@@ -362,6 +301,8 @@ export default {
       cocFileLabel: "Choose File",
       form: {
         id: this.transmittal.id,
+        cocFile: this.transmittal.cocFile,
+        csvFile: this.transmittal.csvFile,
         transmittalno: this.transmittal.transmittalno,
         purpose: this.transmittal.purpose,
         datesubmitted: "",
@@ -387,27 +328,15 @@ export default {
     this.cocFileLabel = this.transmittal.cocFile;
   },
   updated() {
-    this.disableUpload = true;
+    
     var transno = this.form.transmittalno;
     if (transno == null) {
       transno = "";
     }
-    if (transno != "") {
-      this.disableUpload = false;
-    }
+
   },
   methods: {
-    onFileChange(e) {
-      this.itemFile = this.$refs.file.files[0];
-      this.fileLabel = this.itemFile.name;
-    },
-    onCoCFileChange(e) {
-      this.COCitemFile = this.$refs.cocFile.files[0];
-      this.cocFileLabel = this.COCitemFile.name;
-    },
-    onTransmittalNoChange() {
-      this.fetchItems();
-    },
+
     async fetchItems() {
       const res = await this.callApiwParam(
         "post",
@@ -416,103 +345,7 @@ export default {
       );
       this.items = res.data;
     },
-    async uploadItem() {
-      this.fileLabel = this.form.transmittalno + "_" + this.fileLabel;
-      let form = new FormData();
-      form.append("itemFile", this.itemFile);
-      _.each(this.form, (value, key) => {
-        form.append(key, value);
-      });
-      const res = await this.submit("post", "/transItem/uploaditems", form, {
-        headers: {
-          "Content-Type":
-            "multipart/form-data; charset=utf-8; boundary=" +
-            Math.random().toString().substr(2),
-        },
-      });
-      if (res.status === 200) {
-        this.smessage();
-        this.fetchItems();
-      } else {
-        this.ermessage(res.data.errors);
-      }
-    },
-    async saveTransmittal() {
-      this.form.date_needed = document.getElementById("date-needed").value;
-      this.form.datesubmitted = document.getElementById("date-submitted").value;
-      this.cocFileLabel = this.form.transmittalno + "_" + this.cocFileLabel;
-      let form = new FormData();
-      form.append("cocFile", this.COCitemFile);
-      _.each(this.form, (value, key) => {
-        form.append(key, value);
-      });
-      const res = await this.submit("post", "/deptuser/update", form, {
-        headers: {
-          "Content-Type":
-            "multipart/form-data; charset=utf-8; boundary=" +
-            Math.random().toString().substr(2),
-        },
-      });
-      if (res.status === 200) {
-        this.updmessage();
-      } else {
-        this.ermessage(res.data.errors);
-      }
-    },
 
-    showDialog(data) {
-      const dialogRef = this.$dialog.open(item, {
-        props: {
-          header: "Transmittal item",
-          style: {
-            width: "50vw",
-          },
-          breakpoints: {
-            "960px": "75vw",
-            "640px": "90vw",
-          },
-          modal: true,
-        },
-        data: {
-          transmittalno: this.form.transmittalno,
-          id: data.id,
-          sampleno: data.sampleno,
-          description: data.description,
-          elements: data.elements,
-          methodcode: data.methodcode,
-          comments: data.comments,
-        },
-        onClose: (options) => {
-          this.fetchItems();
-        },
-      });
-    },
-    deleteItem(data) {
-      let src = data.data.id,
-        alt = data.data.id;
-      this.form.itemID = alt;
-
-      this.$confirm.require({
-        message: "Do you want to delete this item?",
-        header: "Delete Confirmation",
-        icon: "pi pi-info-circle",
-        acceptClass: "p-button-danger",
-        accept: async () => {
-          const res = await this.deleteRecord("post", "/transItem/delete", {
-            id: data.data.id,
-          });
-          if (res.status === 200) {
-            this.rmessage();
-            this.fetchItems();
-          } else {
-            this.ermessage();
-          }
-        },
-      });
-    },
-    editItem(data) {
-      this.showDialog(data.data);
-    },
   },
 };
 </script>
