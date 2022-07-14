@@ -151,4 +151,9 @@ class DeptUserController extends Controller
             return response()->json(['error' => $e->getMessage(), 500]);
         }
     }
+    public function view($id)
+    {
+        $transmittal = DeptuserTrans::where('id', $id)->first();
+        return view('deptuser.view', compact('transmittal'));
+    }
 }

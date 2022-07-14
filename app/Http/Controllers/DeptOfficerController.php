@@ -62,44 +62,16 @@ class DeptOfficerController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'id' => 'required',
-            'transmittalno' => 'required',
-            'purpose' => 'required',
-            'datesubmitted' => 'required',
-            'timesubmitted' => 'required',
-            'date_needed' => 'required',
-            'priority' => 'required',
-            'status' => 'required',
-            'email_address' => 'required|email',
-            'source' => 'required',
+            'id' => 'required'
         ]);
         try {
-            $filenametostore = $request->cocFile;
-            if ($request->hasFile('cocFile')) {
-                $filenamewithextension = $request->file('cocFile')->getClientOriginalName();
-                $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
-                $extension = $request->file('cocFile')->getClientOriginalExtension();
-
-                //filename to store
-                $filenametostore = $filename . '_' . $request->transmittalno .  '.' . $extension;
-
-                $request->file('cocFile')->storeAs(('public/coc files/'), $filenametostore);
-            }
+          
             $deptuserTrans = DeptuserTrans::find($request->id);
 
             $data = [
-                'transmittalno' => $request->transmittalno,
-                'purpose' => $request->purpose,
-                'datesubmitted' =>  $request->datesubmitted,
-                'timesubmitted' =>   $request->timesubmitted,
-                'date_needed'    =>  $request->date_needed,
-                'priority' => $request->priority,
+                'approvedDate' => Carbon::now(),
+                'approver' => auth()->user()->username,
                 'status' =>  $request->status,
-                'email_address' => $request->email_address,
-                'source' =>  $request->source,
-                'cocFile' => $filenametostore,
-                'status' =>  $request->status,
-                'created_by' => auth()->user()->username
             ];
             $deptuserTrans->update($data);
 

@@ -42,7 +42,8 @@
                 class="custom-file-input"
                 id="attached-csv"
                 ref="cocFile"
-                name="attached-csv"                
+                name="attached-csv"      
+                :disabled="true"          
               />
               <label
                 class="custom-file-label"
@@ -79,6 +80,7 @@
                 name="date-submitted"
                 pattern="\d{2}\/\d{2}\/\d{4}"
                 placeholder="mm/dd/yyyy"
+            disabled="true"
               />
             </div>
           </div>
@@ -92,6 +94,7 @@
                 id="time-submitted"
                 name="time-submitted"
                 v-model="form.timesubmitted"
+            disabled="true"
               />
             </div>
           </div>
@@ -105,6 +108,7 @@
             id="email-address"
             name="email-address"
             v-model="form.email_address"
+            disabled="true"
           />
         </div>
       </div>
@@ -118,6 +122,7 @@
             id="purpose"
             name="purpose"
             v-model="form.purpose"
+            disabled="true"
           />
         </div>
 
@@ -132,6 +137,7 @@
                 name="date-needed"
                 pattern="\d{2}\/\d{2}\/\d{4}"
                 placeholder="mm/dd/yyyy"
+            disabled="true"
               />
             </div>
           </div>
@@ -143,6 +149,7 @@
                 class="custom-select tx-base"
                 id="priority"
                 v-model="form.priority"
+            disabled="true"
                 name="priority"
               >
                 <option value="Low">Low</option>
@@ -176,6 +183,7 @@
             id="source"
             name="source"
             v-model="form.source"
+            disabled="true"
           />
         </div>
       </div>
@@ -203,6 +211,7 @@
             v-model:filters="filters"
             filterDisplay="menu"
             rowIndexVar
+            disabled="true"
           >
             <template #empty> No record found. </template>
             <template #loading> Loading data. Please wait. </template>
@@ -249,6 +258,7 @@
                 name="attached-csv"
 
                 accept=".csv"
+            disabled="true"
               />
               <label
                 class="custom-file-label"
@@ -268,6 +278,7 @@
                 ml-lg-1
                 mr-lg-0
               "
+            disabled="true"
 
             >
               <i data-feather="view" class="mg-r-5"></i> View

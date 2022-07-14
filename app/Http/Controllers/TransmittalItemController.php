@@ -126,6 +126,7 @@ class TransmittalItemController extends Controller
                 'comments'    => $request->comments,
                 'transmittalno' => $request->transmittalno,
                 'username' => auth()->user()->username,
+                'samplewtvolume' => $request->samplewtvolume,
             ];
             $item->update($data);
             return response()->json('success');

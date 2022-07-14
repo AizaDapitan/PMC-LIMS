@@ -53,8 +53,8 @@
           <a href="#" class="avatar wd-100"><img src="{{env('APP_URL')}}/assets/img/user.png" class="rounded-circle" alt="" /></a>
         </div>
         <div class="aside-loggedin-user tx-center">
-          <h6 class="tx-semibold mg-b-0">John Doe</h6>
-          <p class="tx-color-03 tx-13 mg-b-0 tx-uppercase">Dept.User</p>
+          <h6 class="tx-semibold mg-b-0">{{ Auth::user()->name }}</h6>
+          <p class="tx-color-03 tx-13 mg-b-0 tx-uppercase">{{ Auth::user()->role }}</p>
         </div>
       </div><!-- aside-loggedin -->
       <ul class="nav nav-aside">
@@ -66,14 +66,14 @@
             <li class="{{ (request()->is('deptuser/create-transmittal')) ? 'active' : '' }}"><a href="{{ route('deptuser.create') }}">Create Transmittal</a></li>
           </ul>
         </li>
-        <li class="nav-item with-sub">
+        <li class="nav-item with-sub {{ (request()->is('deptofficer/*')) ? 'active show' : '' }}">
           <a href="#" class="nav-link"><i data-feather="home"></i> <span>Dept. Requesters(Officer)</span></a>
           <ul>
-            <li class="active"><a href="{{ route('deptofficer.index') }}">Dashboard</a></li>
+            <li class="{{ (request()->is('deptofficer/dashboard*')) ? 'active' : '' }}"><a href="{{ route('deptofficer.index') }}">Dashboard</a></li>
             <li><a href="#">Approval</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a href="dashboard-qa-qc-receiver.html" class="nav-link"><i data-feather="bell"></i> <span>QA/QC Receiving</span></a></li>
+        <li class="nav-item {{ (request()->is('deptofficer/dashboard*')) ? 'active' : '' }}"><a href="{{ route('qaqcreceiver.index') }}" class="nav-link"><i data-feather="bell"></i> <span>QA/QC Receiving</span></a></li>
         <li class="nav-item"><a href="#" class="nav-link"><i data-feather="bell"></i> <span>QA/QC Officer</span></a></li>
         <li class="nav-item with-sub">
           <a href="#" class="nav-link"><i data-feather="bell"></i> <span>QA/QC Assayer</span></a>

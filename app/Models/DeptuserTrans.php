@@ -16,10 +16,12 @@ class DeptuserTrans extends Model //implements AuditableContract
 
     protected $fillable = [
         'transmittalno', 'purpose', 'datesubmitted', 'timesubmitted', 'date_needed', 'priority',
-        'status', 'email_address', 'source', 'cocFile', 'csvFile', 'isdeleted','deleted_at'
+        'status', 'email_address', 'source', 'cocFile', 'csvFile', 'isdeleted','deleted_at','approvedDate','approver',
+        'isReceived','receiver','received_date'
     ];
     protected $auditInclude = [
         'transmittalno', 'purpose', 'datesubmitted', 'timesubmitted', 'date_needed', 'priority',
-        'status', 'email_address', 'source', 'cocFile', 'csvFile', 'isdeleted','deleted_at'
+        'status', 'email_address', 'source', 'cocFile', 'csvFile', 'isdeleted','deleted_at','approvedDate','approver',
+        'isReceived','receiver','received_date'
     ];
 }

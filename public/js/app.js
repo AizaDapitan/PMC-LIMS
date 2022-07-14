@@ -19685,8 +19685,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       deptofficers: [],
       dashboard: this.$env_Url + "deptofficer/dashboard",
       filters: null,
-      viewMsg: "View Department User Transmittal",
-      editMsg: "Edit Department Officer Transmittal"
+      viewMsg: "View Transmittal",
+      editMsg: "Edit Transmittal"
     };
   },
   created: function created() {
@@ -19854,7 +19854,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./item */ "./resources/js/components/deptuser/item.vue");
+/* harmony import */ var _components_item_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/item/item */ "./resources/js/components/item/item.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var primevue_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primevue/button */ "./node_modules/primevue/button/button.esm.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -20034,7 +20034,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     showDialog: function showDialog(data) {
       var _this4 = this;
 
-      var dialogRef = this.$dialog.open(_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      var dialogRef = this.$dialog.open(_components_item_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
         props: {
           header: "Transmittal item",
           style: {
@@ -20053,7 +20053,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           description: data.description,
           elements: data.elements,
           methodcode: data.methodcode,
-          comments: data.comments
+          comments: data.comments,
+          isDeptUser: true,
+          isReceiving: false
         },
         onClose: function onClose(options) {
           _this4.fetchItems();
@@ -20141,7 +20143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./item */ "./resources/js/components/deptuser/item.vue");
+/* harmony import */ var _components_item_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/item/item */ "./resources/js/components/item/item.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var primevue_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primevue/button */ "./node_modules/primevue/button/button.esm.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -20327,7 +20329,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     showDialog: function showDialog(data) {
       var _this4 = this;
 
-      var dialogRef = this.$dialog.open(_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      var dialogRef = this.$dialog.open(_components_item_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
         props: {
           header: "Transmittal item",
           style: {
@@ -20346,7 +20348,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           description: data.description,
           elements: data.elements,
           methodcode: data.methodcode,
-          comments: data.comments
+          comments: data.comments,
+          isDeptUser: true,
+          isReceiving: false
         },
         onClose: function onClose(options) {
           _this4.fetchItems();
@@ -20440,8 +20444,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       deptusers: [],
       dashboard: this.$env_Url + "deptuser/dashboard",
       filters: null,
-      editMsg: "Edit Department User Transmittal",
-      deleteMsg: "Delete Department User Transmittal"
+      editMsg: "Edit Transmittal",
+      viewMsg: "View Transmittal",
+      deleteMsg: "Delete Transmittal"
     };
   },
   created: function created() {
@@ -20491,6 +20496,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var src = data.data.id,
           alt = data.data.id;
       window.location.href = this.$env_Url + "/deptuser/edit-transmittal/" + alt;
+    },
+    viewTransmittal: function viewTransmittal(data) {
+      var src = data.data.id,
+          alt = data.data.id;
+      window.location.href = this.$env_Url + "/deptuser/view-transmittal/" + alt;
     },
     exportCSV: function exportCSV() {
       this.$refs.dt.exportCSV();
@@ -20547,10 +20557,104 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/item.vue?vue&type=script&lang=js":
-/*!*******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/item.vue?vue&type=script&lang=js ***!
-  \*******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/view_deptuser.vue?vue&type=script&lang=js":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/view_deptuser.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var primevue_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primevue/button */ "./node_modules/primevue/button/button.esm.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["transmittal"],
+  data: function data() {
+    return {
+      dashboard: this.$env_Url + "/deptuser/dashboard",
+      loading: true,
+      items: [],
+      itemFile: null,
+      COCitemFile: null,
+      fileLabel: "Choose File",
+      cocFileLabel: "Choose File",
+      form: {
+        id: this.transmittal.id,
+        transmittalno: this.transmittal.transmittalno,
+        purpose: this.transmittal.purpose,
+        datesubmitted: "",
+        timesubmitted: this.transmittal.timesubmitted.replace(":00.0000000", ""),
+        date_needed: "",
+        priority: this.transmittal.priority,
+        status: this.transmittal.status,
+        email_address: this.transmittal.email_address,
+        source: this.transmittal.source
+      }
+    };
+  },
+  created: function created() {
+    this.fetchItems();
+    this.loading = false;
+  },
+  mounted: function mounted() {
+    document.getElementById("date-needed").value = this.transmittal.date_needed;
+    document.getElementById("date-submitted").value = this.transmittal.datesubmitted;
+    this.cocFileLabel = this.transmittal.cocFile;
+  },
+  updated: function updated() {
+    var transno = this.form.transmittalno;
+
+    if (transno == null) {
+      transno = "";
+    }
+  },
+  methods: {
+    fetchItems: function fetchItems() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.callApiwParam("post", "/transItem/getItems", _this.form);
+
+              case 2:
+                res = _context.sent;
+                _this.items = res.data;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/item/item.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/item/item.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -20570,10 +20674,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   inject: ["dialogRef"],
   data: function data() {
     return {
+      isDeptUser: this.dialogRef.data.isDeptUser,
+      isReceiving: this.dialogRef.data.isReceiving,
       form: {
         transmittalno: this.dialogRef.data.transmittalno,
         id: this.dialogRef.data.id,
         sampleno: this.dialogRef.data.sampleno,
+        samplewtvolume: this.dialogRef.data.samplewtvolume,
         description: this.dialogRef.data.description,
         elements: this.dialogRef.data.elements,
         methodcode: this.dialogRef.data.methodcode,
@@ -20581,6 +20688,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
   },
+  created: function created() {},
   methods: {
     closeDialog: function closeDialog() {
       this.dialogRef.close();
@@ -20903,6 +21011,488 @@ __webpack_require__.r(__webpack_exports__);
     },
     exportCSV: function exportCSV() {
       this.$refs.dt.exportCSV();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=script&lang=js":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_item_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/item/item */ "./resources/js/components/item/item.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var primevue_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primevue/button */ "./node_modules/primevue/button/button.esm.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["transmittal"],
+  data: function data() {
+    return {
+      dashboard: this.$env_Url + "/qaqcreceiver/dashboard",
+      loading: true,
+      items: [],
+      itemFile: null,
+      COCitemFile: null,
+      fileLabel: "Choose File",
+      editMsg: "Update Item",
+      cocFileLabel: "Choose File",
+      form: {
+        id: this.transmittal.id,
+        cocFile: this.transmittal.cocFile,
+        csvFile: this.transmittal.csvFile,
+        transmittalno: this.transmittal.transmittalno,
+        purpose: this.transmittal.purpose,
+        datesubmitted: "",
+        timesubmitted: this.transmittal.timesubmitted.replace(":00.0000000", ""),
+        date_needed: "",
+        priority: this.transmittal.priority,
+        status: this.transmittal.status,
+        email_address: this.transmittal.email_address,
+        source: this.transmittal.source
+      }
+    };
+  },
+  created: function created() {
+    this.fetchItems();
+    this.loading = false;
+  },
+  mounted: function mounted() {
+    document.getElementById("date-needed").value = this.transmittal.date_needed;
+    document.getElementById("date-submitted").value = this.transmittal.datesubmitted;
+    this.cocFileLabel = this.transmittal.cocFile;
+  },
+  updated: function updated() {
+    var transno = this.form.transmittalno;
+
+    if (transno == null) {
+      transno = "";
+    }
+  },
+  methods: {
+    fetchItems: function fetchItems() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.callApiwParam("post", "/transItem/getItems", _this.form);
+
+              case 2:
+                res = _context.sent;
+                _this.items = res.data;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    editItem: function editItem(data) {
+      this.showDialog(data.data);
+    },
+    showDialog: function showDialog(data) {
+      var _this2 = this;
+
+      var dialogRef = this.$dialog.open(_components_item_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        props: {
+          header: "Transmittal item",
+          style: {
+            width: "50vw"
+          },
+          breakpoints: {
+            "960px": "75vw",
+            "640px": "90vw"
+          },
+          modal: true
+        },
+        data: {
+          transmittalno: this.form.transmittalno,
+          id: data.id,
+          sampleno: data.sampleno,
+          samplewtvolume: data.samplewtvolume,
+          description: data.description,
+          elements: data.elements,
+          methodcode: data.methodcode,
+          comments: data.comments,
+          isDeptUser: false,
+          isReceiving: true
+        },
+        onClose: function onClose(options) {
+          _this2.fetchItems();
+        }
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=script&lang=js":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=script&lang=js ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var primevue_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primevue/api */ "./node_modules/primevue/api/api.esm.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  // props: ["deptofficers"],
+  data: function data() {
+    return {
+      transmittals: [],
+      dashboard: this.$env_Url + "qaqcreceiver/dashboard",
+      filters: null,
+      viewMsg: "View Transmittal",
+      editMsg: "Edit Transmittal",
+      receiveMsg: "Receive Transmittal"
+    };
+  },
+  created: function created() {
+    this.fetchRecord();
+    this.initFilters();
+  },
+  methods: {
+    fetchRecord: function fetchRecord() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.callApiwParam("post", "/qaqcreceiver/getTransmittal", _this.form);
+
+              case 2:
+                res = _context.sent;
+                _this.transmittals = res.data;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    initFilters: function initFilters() {
+      this.filters = {
+        global: {
+          value: null,
+          matchMode: primevue_api__WEBPACK_IMPORTED_MODULE_0__.FilterMatchMode.CONTAINS
+        }
+      };
+    },
+    clearFilter: function clearFilter() {
+      this.filters["global"].value = null;
+    },
+    viewTransmittal: function viewTransmittal(data) {
+      var src = data.data.id,
+          alt = data.data.id;
+      window.location.href = this.$env_Url + "/qaqcreceiver/view-transmittal/" + alt;
+    },
+    receiveTransmittal: function receiveTransmittal(data) {
+      var src = data.data.id,
+          alt = data.data.id;
+      window.location.href = this.$env_Url + "/qaqcreceiver/receive-transmittal/" + alt;
+    },
+    editTransmittal: function editTransmittal(data) {
+      var src = data.data.id,
+          alt = data.data.id;
+      window.location.href = this.$env_Url + "/qaqcreceiver/edit-transmittal/" + alt;
+    },
+    exportCSV: function exportCSV() {
+      this.$refs.dt.exportCSV();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var primevue_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primevue/button */ "./node_modules/primevue/button/button.esm.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["transmittal"],
+  data: function data() {
+    return {
+      dashboard: this.$env_Url + "/qaqcreceiver/dashboard",
+      loading: true,
+      items: [],
+      itemFile: null,
+      COCitemFile: null,
+      fileLabel: "Choose File",
+      cocFileLabel: "Choose File",
+      form: {
+        id: this.transmittal.id,
+        cocFile: this.transmittal.cocFile,
+        csvFile: this.transmittal.csvFile,
+        transmittalno: this.transmittal.transmittalno,
+        purpose: this.transmittal.purpose,
+        datesubmitted: "",
+        timesubmitted: this.transmittal.timesubmitted.replace(":00.0000000", ""),
+        date_needed: "",
+        priority: this.transmittal.priority,
+        status: this.transmittal.status,
+        email_address: this.transmittal.email_address,
+        source: this.transmittal.source
+      }
+    };
+  },
+  created: function created() {
+    this.fetchItems();
+    this.loading = false;
+  },
+  mounted: function mounted() {
+    document.getElementById("date-needed").value = this.transmittal.date_needed;
+    document.getElementById("date-submitted").value = this.transmittal.datesubmitted;
+    this.cocFileLabel = this.transmittal.cocFile;
+  },
+  updated: function updated() {
+    var transno = this.form.transmittalno;
+
+    if (transno == null) {
+      transno = "";
+    }
+  },
+  methods: {
+    fetchItems: function fetchItems() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.callApiwParam("post", "/transItem/getItems", _this.form);
+
+              case 2:
+                res = _context.sent;
+                _this.items = res.data;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    receiveTransmittal: function receiveTransmittal() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _this2.$confirm.require({
+                  message: "Do you want to receive this transmittal?",
+                  header: "Receive Confirmation",
+                  icon: "pi pi-info-circle",
+                  acceptClass: "p-button-danger",
+                  accept: function () {
+                    var _accept = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+                      var res;
+                      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+                        while (1) {
+                          switch (_context2.prev = _context2.next) {
+                            case 0:
+                              _context2.next = 2;
+                              return _this2.submit("post", "/qaqcreceiver/receiveTransmittal", {
+                                id: _this2.form.id
+                              });
+
+                            case 2:
+                              res = _context2.sent;
+
+                              if (res.status === 200) {
+                                _this2.updmessage();
+
+                                window.location.href = _this2.$env_Url + "/qaqcreceiver/dashboard";
+                              } else {
+                                _this2.ermessage(res.data.errors);
+                              }
+
+                            case 4:
+                            case "end":
+                              return _context2.stop();
+                          }
+                        }
+                      }, _callee2);
+                    }));
+
+                    function accept() {
+                      return _accept.apply(this, arguments);
+                    }
+
+                    return accept;
+                  }()
+                });
+
+              case 1:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=script&lang=js":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var primevue_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primevue/button */ "./node_modules/primevue/button/button.esm.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["transmittal"],
+  data: function data() {
+    return {
+      dashboard: this.$env_Url + "/qaqcreceiver/dashboard",
+      loading: true,
+      items: [],
+      itemFile: null,
+      COCitemFile: null,
+      fileLabel: "Choose File",
+      cocFileLabel: "Choose File",
+      form: {
+        id: this.transmittal.id,
+        cocFile: this.transmittal.cocFile,
+        csvFile: this.transmittal.csvFile,
+        transmittalno: this.transmittal.transmittalno,
+        purpose: this.transmittal.purpose,
+        datesubmitted: "",
+        timesubmitted: this.transmittal.timesubmitted.replace(":00.0000000", ""),
+        date_needed: "",
+        priority: this.transmittal.priority,
+        status: this.transmittal.status,
+        email_address: this.transmittal.email_address,
+        source: this.transmittal.source
+      }
+    };
+  },
+  created: function created() {
+    this.fetchItems();
+    this.loading = false;
+  },
+  mounted: function mounted() {
+    document.getElementById("date-needed").value = this.transmittal.date_needed;
+    document.getElementById("date-submitted").value = this.transmittal.datesubmitted;
+    this.cocFileLabel = this.transmittal.cocFile;
+  },
+  updated: function updated() {
+    var transno = this.form.transmittalno;
+
+    if (transno == null) {
+      transno = "";
+    }
+  },
+  methods: {
+    fetchItems: function fetchItems() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.callApiwParam("post", "/transItem/getItems", _this.form);
+
+              case 2:
+                res = _context.sent;
+                _this.items = res.data;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     }
   }
 });
@@ -21357,7 +21947,8 @@ var _hoisted_17 = {
   "class": "custom-file-input",
   id: "attached-csv",
   ref: "cocFile",
-  name: "attached-csv"
+  name: "attached-csv",
+  disabled: true
 };
 var _hoisted_18 = {
   "class": "custom-file-label",
@@ -21393,7 +21984,8 @@ var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   id: "date-submitted",
   name: "date-submitted",
   pattern: "\\d{2}\\/\\d{2}\\/\\d{4}",
-  placeholder: "mm/dd/yyyy"
+  placeholder: "mm/dd/yyyy",
+  disabled: "true"
 })])], -1
 /* HOISTED */
 );
@@ -21450,7 +22042,8 @@ var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   id: "date-needed",
   name: "date-needed",
   pattern: "\\d{2}\\/\\d{2}\\/\\d{4}",
-  placeholder: "mm/dd/yyyy"
+  placeholder: "mm/dd/yyyy",
+  disabled: "true"
 })])], -1
 /* HOISTED */
 );
@@ -21580,7 +22173,8 @@ var _hoisted_62 = {
   id: "customFile",
   ref: "file",
   name: "attached-csv",
-  accept: ".csv"
+  accept: ".csv",
+  disabled: "true"
 };
 var _hoisted_63 = {
   "class": "custom-file-label",
@@ -21590,7 +22184,8 @@ var _hoisted_63 = {
 
 var _hoisted_64 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   type: "submit",
-  "class": "btn btn-primary tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
+  "class": "btn btn-primary tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0",
+  disabled: "true"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "data-feather": "view",
   "class": "mg-r-5"
@@ -21692,7 +22287,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "time-submitted",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.form.timesubmitted = $event;
-    })
+    }),
+    disabled: "true"
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.timesubmitted]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [_hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -21702,7 +22298,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "email-address",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return $data.form.email_address = $event;
-    })
+    }),
+    disabled: "true"
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.email_address]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -21712,7 +22309,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "purpose",
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.form.purpose = $event;
-    })
+    }),
+    disabled: "true"
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.purpose]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [_hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [_hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
@@ -21721,6 +22319,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $data.form.priority = $event;
     }),
+    disabled: "true",
     name: "priority"
   }, _hoisted_40, 512
   /* NEED_PATCH */
@@ -21740,7 +22339,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "source",
     "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
       return $data.form.source = $event;
-    })
+    }),
+    disabled: "true"
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.source]])])]), _hoisted_49]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_51, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DataTable, {
@@ -21759,7 +22359,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return _ctx.filters = $event;
     }),
     filterDisplay: "menu",
-    rowIndexVar: ""
+    rowIndexVar: "",
+    disabled: "true"
   }, {
     empty: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_53];
@@ -22047,18 +22648,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "class": "p-button-rounded p-button-success mr-2",
             onClick: function onClick($event) {
               return $options.viewDeptOfficer(slotProps);
-            },
-            disabled: slotProps.data.status == 'Approved'
+            }
           }, null, 8
           /* PROPS */
-          , ["title", "onClick", "disabled"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+          , ["title", "onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
             title: $data.editMsg,
             icon: "pi pi-pencil",
             "class": "p-button-rounded p-button-success mr-2",
             onClick: function onClick($event) {
               return $options.editDeptOfficer(slotProps);
             },
-            disabled: slotProps.data.status == 'Approved'
+            disabled: slotProps.data.isReceived
           }, null, 8
           /* PROPS */
           , ["title", "onClick", "disabled"])];
@@ -22350,48 +22950,25 @@ var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_54 = {
-  "class": "row"
-};
-var _hoisted_55 = {
-  "class": "col-lg-12"
-};
-var _hoisted_56 = {
-  "class": "d-lg-flex justify-content-lg-end"
-};
-var _hoisted_57 = {
-  "class": "form-group d-flex flex-column flex-lg-row align-items-lg-center"
-};
-
-var _hoisted_58 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "customFile",
-  "class": "mg-r-10"
-}, "Attached CSV", -1
-/* HOISTED */
-);
-
-var _hoisted_59 = {
-  "class": "custom-file mb-0 mb-lg-2"
-};
-var _hoisted_60 = {
   "class": "row flex-column-reverse flex-lg-row"
 };
-var _hoisted_61 = {
+var _hoisted_55 = {
   "class": "col-lg-6"
 };
-var _hoisted_62 = ["href"];
+var _hoisted_56 = ["href"];
 
-var _hoisted_63 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "data-feather": "arrow-left",
   "class": "mg-r-5"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_64 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Back to Dashboard");
+var _hoisted_58 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Back to Dashboard");
 
-var _hoisted_65 = [_hoisted_63, _hoisted_64];
+var _hoisted_59 = [_hoisted_57, _hoisted_58];
 
-var _hoisted_66 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "cms-footer mg-t-50"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "tx-gray-500 tx-10"
@@ -22565,30 +23142,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["value", "loading", "filters"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" row "), _hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_57, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "hidden",
-    "onUpdate:modelValue": _cache[9] || (_cache[9] = function ($event) {
-      return $data.form.itemFile = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.itemFile]]), _hoisted_58, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_59, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    "class": "form-control",
-    id: "customFile",
-    name: "customFile",
-    "onUpdate:modelValue": _cache[10] || (_cache[10] = function ($event) {
-      return $data.form.csvFile = $event;
-    }),
-    disabled: "true"
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.csvFile]])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_60, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_61, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  , ["value", "loading", "filters"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" row "), _hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: $data.dashboard,
     "class": "btn btn-white tx-13 btn-uppercase"
-  }, _hoisted_65, 8
+  }, _hoisted_59, 8
   /* PROPS */
-  , _hoisted_62)])]), _hoisted_66]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_toast, {
+  , _hoisted_56)])]), _hoisted_60]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_toast, {
     breakpoints: {
       '920px': {
         width: '100%',
@@ -23067,7 +23626,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "status",
     "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
       return $data.form.status = $event;
-    })
+    }),
+    disabled: "true"
   }, _hoisted_45, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.status]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [_hoisted_47, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -23706,7 +24266,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "status",
     "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
       return $data.form.status = $event;
-    })
+    }),
+    disabled: "true"
   }, _hoisted_45, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.status]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [_hoisted_47, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -24078,12 +24639,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
         exportable: false,
         style: {
-          "min-width": "8rem"
+          "min-width": "13rem"
         },
         header: "Actions"
       }, {
         body: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (slotProps) {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+            title: $data.viewMsg,
+            icon: "pi pi-eye",
+            "class": "p-button-rounded p-button-success mr-2",
+            onClick: function onClick($event) {
+              return $options.viewTransmittal(slotProps);
+            }
+          }, null, 8
+          /* PROPS */
+          , ["title", "onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
             title: $data.editMsg,
             icon: "pi pi-pencil",
             "class": "p-button-rounded p-button-success mr-2",
@@ -24130,10 +24700,489 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/item.vue?vue&type=template&id=a8ad8e12":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/item.vue?vue&type=template&id=a8ad8e12 ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/view_deptuser.vue?vue&type=template&id=66cc3394":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/view_deptuser.vue?vue&type=template&id=66cc3394 ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "container-fluid mx-wd-1500 pd-x-0"
+};
+var _hoisted_2 = {
+  "class": "d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30"
+};
+var _hoisted_3 = {
+  "aria-label": "breadcrumb"
+};
+var _hoisted_4 = {
+  "class": "breadcrumb breadcrumb-style1 mg-b-10"
+};
+var _hoisted_5 = {
+  "class": "breadcrumb-item",
+  "aria-current": "page"
+};
+var _hoisted_6 = ["href"];
+var _hoisted_7 = {
+  "class": "breadcrumb-item",
+  "aria-current": "page"
+};
+var _hoisted_8 = ["href"];
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "breadcrumb-item active",
+  "aria-current": "page"
+}, "Edit", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+  "class": "mg-b-0 tx-spacing--1"
+}, "View Transmittal - Dept.User", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  "class": "row"
+};
+var _hoisted_12 = {
+  "class": "col-lg-12"
+};
+var _hoisted_13 = {
+  "class": "d-lg-flex justify-content-lg-end"
+};
+var _hoisted_14 = {
+  "class": "form-group d-flex flex-column flex-lg-row align-items-lg-center"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "customFile",
+  "class": "mg-r-10"
+}, "Attached COC", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = {
+  "class": "custom-file mb-0 mb-lg-2"
+};
+var _hoisted_17 = {
+  type: "file",
+  "class": "custom-file-input",
+  id: "attached-csv",
+  ref: "cocFile",
+  name: "attached-csv",
+  disabled: true
+};
+var _hoisted_18 = {
+  "class": "custom-file-label",
+  "for": "customFile",
+  "data-button-label": "View"
+};
+var _hoisted_19 = {
+  "class": "col-lg-6"
+};
+var _hoisted_20 = {
+  "class": "form-group"
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "transmittal-no"
+}, "Transmittal No.", -1
+/* HOISTED */
+);
+
+var _hoisted_22 = {
+  "class": "row row-sm"
+};
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-6"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-group"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date-submitted"
+}, "Date Submitted"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  "class": "form-control",
+  id: "date-submitted",
+  name: "date-submitted",
+  pattern: "\\d{2}\\/\\d{2}\\/\\d{4}",
+  placeholder: "mm/dd/yyyy",
+  disabled: "true"
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_24 = {
+  "class": "col-lg-6"
+};
+var _hoisted_25 = {
+  "class": "form-group"
+};
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "time-submitted"
+}, "Time Submitted", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = {
+  "class": "form-group"
+};
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "email-address"
+}, "Email Address", -1
+/* HOISTED */
+);
+
+var _hoisted_29 = {
+  "class": "col-lg-6"
+};
+var _hoisted_30 = {
+  "class": "form-group"
+};
+
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "purpose"
+}, "Purpose", -1
+/* HOISTED */
+);
+
+var _hoisted_32 = {
+  "class": "row row-sm"
+};
+
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-group"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date-needed"
+}, "Date Needed"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  "class": "form-control",
+  id: "date-needed",
+  name: "date-needed",
+  pattern: "\\d{2}\\/\\d{2}\\/\\d{4}",
+  placeholder: "mm/dd/yyyy",
+  disabled: "true"
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_34 = {
+  "class": "col-lg-4"
+};
+var _hoisted_35 = {
+  "class": "form-group"
+};
+
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "priority"
+}, "Priority", -1
+/* HOISTED */
+);
+
+var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Low"
+}, "Low", -1
+/* HOISTED */
+);
+
+var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Medium"
+}, "Medium", -1
+/* HOISTED */
+);
+
+var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "High"
+}, "High", -1
+/* HOISTED */
+);
+
+var _hoisted_40 = [_hoisted_37, _hoisted_38, _hoisted_39];
+var _hoisted_41 = {
+  "class": "col-lg-4"
+};
+var _hoisted_42 = {
+  "class": "form-group"
+};
+
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "status"
+}, "Status", -1
+/* HOISTED */
+);
+
+var _hoisted_44 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Pending"
+}, "Pending", -1
+/* HOISTED */
+);
+
+var _hoisted_45 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Approved"
+}, "Approved", -1
+/* HOISTED */
+);
+
+var _hoisted_46 = [_hoisted_44, _hoisted_45];
+var _hoisted_47 = {
+  "class": "form-group"
+};
+
+var _hoisted_48 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "source"
+}, "Source", -1
+/* HOISTED */
+);
+
+var _hoisted_49 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-12"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
+  "class": "mg-t-10 mg-b-30"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_50 = {
+  "class": "row row-xs"
+};
+var _hoisted_51 = {
+  "class": "col-lg-12"
+};
+var _hoisted_52 = {
+  "class": "table-responsive-lg"
+};
+
+var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" No record found. ");
+
+var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Loading data. Please wait. ");
+
+var _hoisted_55 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
+  "class": "mg-t-30 mg-b-30"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_56 = {
+  "class": "row flex-column-reverse flex-lg-row"
+};
+var _hoisted_57 = {
+  "class": "col-lg-6"
+};
+var _hoisted_58 = ["href"];
+
+var _hoisted_59 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "data-feather": "arrow-left",
+  "class": "mg-r-5"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Back to Dashboard");
+
+var _hoisted_61 = [_hoisted_59, _hoisted_60];
+
+var _hoisted_62 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "cms-footer mg-t-50"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "tx-gray-500 tx-10"
+}, " Admin Portal v1.0 • Developed by WebFocus Solutions, Inc. 2022 ")], -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Column = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Column");
+
+  var _component_DataTable = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DataTable");
+
+  var _component_toast = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("toast");
+
+  var _component_DynamicDialog = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DynamicDialog");
+
+  var _component_ConfirmDialog = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ConfirmDialog");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ol", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard
+  }, "LIMS", 8
+  /* PROPS */
+  , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard
+  }, "Dept. Requesters", 8
+  /* PROPS */
+  , _hoisted_8)]), _hoisted_9])]), _hoisted_10])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", _hoisted_17, null, 512
+  /* NEED_PATCH */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.cocFileLabel), 1
+  /* TEXT */
+  )])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "transmittal-no",
+    name: "transmittal-no",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.form.transmittalno = $event;
+    }),
+    disabled: "true"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.transmittalno]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "time",
+    "class": "form-control",
+    id: "time-submitted",
+    name: "time-submitted",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.form.timesubmitted = $event;
+    }),
+    disabled: "true"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.timesubmitted]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [_hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "email",
+    "class": "form-control",
+    id: "email-address",
+    name: "email-address",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.form.email_address = $event;
+    }),
+    disabled: "true"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.email_address]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "purpose",
+    name: "purpose",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.form.purpose = $event;
+    }),
+    disabled: "true"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.purpose]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [_hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [_hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "custom-select tx-base",
+    id: "priority",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.form.priority = $event;
+    }),
+    disabled: "true",
+    name: "priority"
+  }, _hoisted_40, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.priority]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [_hoisted_43, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "custom-select tx-base",
+    id: "status",
+    name: "status",
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+      return $data.form.status = $event;
+    })
+  }, _hoisted_46, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.status]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [_hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "source",
+    name: "source",
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+      return $data.form.source = $event;
+    }),
+    disabled: "true"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.source]])])]), _hoisted_49]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_51, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DataTable, {
+    ref: "dt",
+    value: $data.items,
+    paginator: true,
+    rows: 10,
+    stripedRows: "",
+    paginatorTemplate: "CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown",
+    rowsPerPageOptions: [10, 20, 50],
+    responsiveLayout: "scroll",
+    loading: $data.loading,
+    currentPageReportTemplate: "Showing {first} to {last} of {totalRecords}",
+    filters: _ctx.filters,
+    "onUpdate:filters": _cache[7] || (_cache[7] = function ($event) {
+      return _ctx.filters = $event;
+    }),
+    filterDisplay: "menu",
+    rowIndexVar: ""
+  }, {
+    empty: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_53];
+    }),
+    loading: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_54];
+    }),
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        header: "Item No."
+      }, {
+        body: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (slotProps) {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(slotProps.index + 1), 1
+          /* TEXT */
+          )];
+        }),
+        _: 1
+        /* STABLE */
+
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "id",
+        hidden: "true"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "sampleno",
+        header: "Sample No."
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "description",
+        header: "Description"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "elements",
+        header: "Elements"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "methodcode",
+        header: "Method Code"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "comments",
+        header: "Comments"
+      })];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["value", "loading", "filters"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" row "), _hoisted_55, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_57, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard,
+    "class": "btn btn-white tx-13 btn-uppercase"
+  }, _hoisted_61, 8
+  /* PROPS */
+  , _hoisted_58)])]), _hoisted_62]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_toast, {
+    breakpoints: {
+      '920px': {
+        width: '100%',
+        right: '0',
+        left: '0'
+      }
+    }
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DynamicDialog), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ConfirmDialog)], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/item/item.vue?vue&type=template&id=e2d04158":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/item/item.vue?vue&type=template&id=e2d04158 ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -24180,85 +25229,103 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_10 = {
-  "class": "col-lg-12"
-};
+var _hoisted_10 = ["disabled"];
 var _hoisted_11 = {
   "class": "form-group"
 };
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "sample-no"
+}, "Sample Wt./Volume", -1
+/* HOISTED */
+);
+
+var _hoisted_13 = ["disabled"];
+var _hoisted_14 = {
+  "class": "col-lg-12"
+};
+var _hoisted_15 = {
+  "class": "form-group"
+};
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "drescription"
 }, "Description", -1
 /* HOISTED */
 );
 
-var _hoisted_13 = {
+var _hoisted_17 = ["disabled"];
+var _hoisted_18 = {
   "class": "col-lg-12"
 };
-var _hoisted_14 = {
+var _hoisted_19 = {
   "class": "form-group"
 };
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "elements"
 }, "Elements", -1
 /* HOISTED */
 );
 
-var _hoisted_16 = {
+var _hoisted_21 = ["disabled"];
+var _hoisted_22 = {
   "class": "col-lg-12"
 };
-var _hoisted_17 = {
+var _hoisted_23 = {
   "class": "form-group"
 };
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "method-code"
 }, "Method Code", -1
 /* HOISTED */
 );
 
-var _hoisted_19 = {
+var _hoisted_25 = ["disabled"];
+var _hoisted_26 = {
   "class": "col-lg-12"
 };
-var _hoisted_20 = {
+var _hoisted_27 = {
   "class": "form-group"
 };
 
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "comments"
 }, "Comments", -1
 /* HOISTED */
 );
 
-var _hoisted_22 = {
+var _hoisted_29 = ["disabled"];
+var _hoisted_30 = {
   "class": "modal-footer"
 };
 
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "data-feather": "x-circle",
   "class": "mg-r-5"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Cancel ");
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Cancel ");
 
-var _hoisted_25 = [_hoisted_23, _hoisted_24];
+var _hoisted_33 = [_hoisted_31, _hoisted_32];
 
-var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "data-feather": "save",
   "class": "mg-r-5"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Save ");
+var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Save ");
 
-var _hoisted_28 = [_hoisted_26, _hoisted_27];
+var _hoisted_36 = [_hoisted_34, _hoisted_35];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("form", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  var _component_toast = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("toast");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "number",
     "class": "form-control input-sm",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -24274,60 +25341,83 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "sample-no",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.form.sampleno = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.sampleno]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+    }),
+    disabled: !this.isDeptUser
+  }, null, 8
+  /* PROPS */
+  , _hoisted_10), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.sampleno]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "form-control input-sm",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.form.samplewtvolume = $event;
+    }),
+    disabled: !this.isReceiving
+  }, null, 8
+  /* PROPS */
+  , _hoisted_13), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.samplewtvolume]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     "class": "form-control input-sm",
     id: "drescription",
     name: "drescription",
-    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.form.description = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.description]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    }),
+    disabled: !this.isDeptUser
+  }, null, 8
+  /* PROPS */
+  , _hoisted_17), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.description]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     "class": "form-control input-sm",
     id: "elements",
     name: "elements",
-    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $data.form.elements = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.elements]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    }),
+    disabled: !this.isDeptUser
+  }, null, 8
+  /* PROPS */
+  , _hoisted_21), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.elements]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     "class": "form-control input-sm",
     id: "method-code",
     name: "method-code",
-    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
       return $data.form.methodcode = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.methodcode]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+    }),
+    disabled: !this.isDeptUser
+  }, null, 8
+  /* PROPS */
+  , _hoisted_25), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.methodcode]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [_hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     "class": "form-control input-sm",
     id: "comments",
     name: "comments",
-    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
       return $data.form.comments = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.comments]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    }),
+    disabled: !this.isDeptUser
+  }, null, 8
+  /* PROPS */
+  , _hoisted_29), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.comments]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "reset",
     "class": "btn btn-white tx-13 btn-uppercase",
-    onClick: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+    onClick: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.closeDialog && $options.closeDialog.apply($options, arguments);
     }, ["prevent"]))
-  }, _hoisted_25), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, _hoisted_33), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "submit",
     "class": "btn btn-primary tx-13 btn-uppercase",
-    onClick: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+    onClick: _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.saveItem && $options.saveItem.apply($options, arguments);
     }, ["prevent"]))
-  }, _hoisted_28)])]);
+  }, _hoisted_36)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_toast, {
+    breakpoints: {
+      '920px': {
+        width: '100%',
+        right: '0',
+        left: '0'
+      }
+    }
+  })], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 /***/ }),
@@ -24815,6 +25905,1744 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }
     }
   })], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=template&id=214e1a9a":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=template&id=214e1a9a ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "container-fluid mx-wd-1500 pd-x-0"
+};
+var _hoisted_2 = {
+  "class": "d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30"
+};
+var _hoisted_3 = {
+  "aria-label": "breadcrumb"
+};
+var _hoisted_4 = {
+  "class": "breadcrumb breadcrumb-style1 mg-b-10"
+};
+var _hoisted_5 = {
+  "class": "breadcrumb-item",
+  "aria-current": "page"
+};
+var _hoisted_6 = ["href"];
+var _hoisted_7 = {
+  "class": "breadcrumb-item",
+  "aria-current": "page"
+};
+var _hoisted_8 = ["href"];
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "breadcrumb-item active",
+  "aria-current": "page"
+}, "View", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+  "class": "mg-b-0 tx-spacing--1"
+}, "View Transmittal - QA/QC Receiving", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  "class": "row"
+};
+var _hoisted_12 = {
+  "class": "col-lg-12"
+};
+var _hoisted_13 = {
+  "class": "d-lg-flex justify-content-lg-end"
+};
+var _hoisted_14 = {
+  "class": "form-group d-flex flex-column flex-lg-row align-items-lg-center"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "customFile",
+  "class": "mg-r-10"
+}, "Attached COC", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = {
+  "class": "custom-file mb-0 mb-lg-2"
+};
+var _hoisted_17 = {
+  "class": "col-lg-6"
+};
+var _hoisted_18 = {
+  "class": "form-group"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "transmittal-no"
+}, "Transmittal No.", -1
+/* HOISTED */
+);
+
+var _hoisted_20 = {
+  "class": "row row-sm"
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-6"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-group"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date-submitted"
+}, "Date Submitted"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  "class": "form-control",
+  id: "date-submitted",
+  name: "date-submitted",
+  pattern: "\\d{2}\\/\\d{2}\\/\\d{4}",
+  placeholder: "mm/dd/yyyy",
+  disabled: "true"
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_22 = {
+  "class": "col-lg-6"
+};
+var _hoisted_23 = {
+  "class": "form-group"
+};
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "time-submitted"
+}, "Time Submitted", -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  "class": "form-group"
+};
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "email-address"
+}, "Email Address", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = {
+  "class": "col-lg-6"
+};
+var _hoisted_28 = {
+  "class": "form-group"
+};
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "purpose"
+}, "Purpose", -1
+/* HOISTED */
+);
+
+var _hoisted_30 = {
+  "class": "row row-sm"
+};
+
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-group"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date-needed"
+}, "Date Needed"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  "class": "form-control",
+  id: "date-needed",
+  name: "date-needed",
+  pattern: "\\d{2}\\/\\d{2}\\/\\d{4}",
+  placeholder: "mm/dd/yyyy",
+  disabled: "true"
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_32 = {
+  "class": "col-lg-4"
+};
+var _hoisted_33 = {
+  "class": "form-group"
+};
+
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "priority"
+}, "Priority", -1
+/* HOISTED */
+);
+
+var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Low"
+}, "Low", -1
+/* HOISTED */
+);
+
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Medium"
+}, "Medium", -1
+/* HOISTED */
+);
+
+var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "High"
+}, "High", -1
+/* HOISTED */
+);
+
+var _hoisted_38 = [_hoisted_35, _hoisted_36, _hoisted_37];
+var _hoisted_39 = {
+  "class": "col-lg-4"
+};
+var _hoisted_40 = {
+  "class": "form-group"
+};
+
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "status"
+}, "Status", -1
+/* HOISTED */
+);
+
+var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Pending"
+}, "Pending", -1
+/* HOISTED */
+);
+
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Approved"
+}, "Approved", -1
+/* HOISTED */
+);
+
+var _hoisted_44 = [_hoisted_42, _hoisted_43];
+var _hoisted_45 = {
+  "class": "form-group"
+};
+
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "source"
+}, "Source", -1
+/* HOISTED */
+);
+
+var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-12"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
+  "class": "mg-t-10 mg-b-30"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_48 = {
+  "class": "row row-xs"
+};
+var _hoisted_49 = {
+  "class": "col-lg-12"
+};
+var _hoisted_50 = {
+  "class": "table-responsive-lg"
+};
+
+var _hoisted_51 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" No record found. ");
+
+var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Loading data. Please wait. ");
+
+var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
+  "class": "mg-t-30 mg-b-30"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_54 = {
+  "class": "row flex-column-reverse flex-lg-row"
+};
+var _hoisted_55 = {
+  "class": "col-lg-6"
+};
+var _hoisted_56 = ["href"];
+
+var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "data-feather": "arrow-left",
+  "class": "mg-r-5"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_58 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Back to Dashboard");
+
+var _hoisted_59 = [_hoisted_57, _hoisted_58];
+
+var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "cms-footer mg-t-50"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "tx-gray-500 tx-10"
+}, " Admin Portal v1.0 • Developed by WebFocus Solutions, Inc. 2022 ")], -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Column = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Column");
+
+  var _component_Button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Button");
+
+  var _component_DataTable = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DataTable");
+
+  var _component_toast = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("toast");
+
+  var _component_DynamicDialog = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DynamicDialog");
+
+  var _component_ConfirmDialog = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ConfirmDialog");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ol", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard
+  }, "LIMS", 8
+  /* PROPS */
+  , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard
+  }, "QA/QC Receiving", 8
+  /* PROPS */
+  , _hoisted_8)]), _hoisted_9])]), _hoisted_10])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "attached-csv",
+    name: "attached-csv",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.form.cocFile = $event;
+    }),
+    disabled: "true"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.cocFile]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "transmittal-no",
+    name: "transmittal-no",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.form.transmittalno = $event;
+    }),
+    disabled: "true"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.transmittalno]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "time",
+    "class": "form-control",
+    id: "time-submitted",
+    name: "time-submitted",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.form.timesubmitted = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.timesubmitted]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "email",
+    "class": "form-control",
+    id: "email-address",
+    name: "email-address",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.form.email_address = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.email_address]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "purpose",
+    name: "purpose",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.form.purpose = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.purpose]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [_hoisted_34, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "custom-select tx-base",
+    id: "priority",
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+      return $data.form.priority = $event;
+    }),
+    name: "priority",
+    disabled: "true"
+  }, _hoisted_38, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.priority]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [_hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "custom-select tx-base",
+    id: "status",
+    name: "status",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+      return $data.form.status = $event;
+    })
+  }, _hoisted_44, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.status]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [_hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "source",
+    name: "source",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+      return $data.form.source = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.source]])])]), _hoisted_47]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_49, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DataTable, {
+    ref: "dt",
+    value: $data.items,
+    paginator: true,
+    rows: 10,
+    stripedRows: "",
+    paginatorTemplate: "CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown",
+    rowsPerPageOptions: [10, 20, 50],
+    responsiveLayout: "scroll",
+    loading: $data.loading,
+    currentPageReportTemplate: "Showing {first} to {last} of {totalRecords}",
+    filters: _ctx.filters,
+    "onUpdate:filters": _cache[8] || (_cache[8] = function ($event) {
+      return _ctx.filters = $event;
+    }),
+    filterDisplay: "menu",
+    rowIndexVar: ""
+  }, {
+    empty: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_51];
+    }),
+    loading: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_52];
+    }),
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        header: "Item No."
+      }, {
+        body: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (slotProps) {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(slotProps.index + 1), 1
+          /* TEXT */
+          )];
+        }),
+        _: 1
+        /* STABLE */
+
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "id",
+        hidden: "true"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "sampleno",
+        header: "Sample No."
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "samplewtvolume",
+        header: "Sample Wt./Volume"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "description",
+        header: "Description"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "elements",
+        header: "Elements"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "methodcode",
+        header: "Method Code"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "comments",
+        header: "Comments"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        exportable: false,
+        style: {
+          "min-width": "8rem"
+        },
+        header: "Actions"
+      }, {
+        body: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (slotProps) {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+            title: $data.editMsg,
+            icon: "pi pi-pencil",
+            "class": "p-button-rounded p-button-success mr-2",
+            onClick: function onClick($event) {
+              return $options.editItem(slotProps);
+            }
+          }, null, 8
+          /* PROPS */
+          , ["title", "onClick"])];
+        }),
+        _: 1
+        /* STABLE */
+
+      })];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["value", "loading", "filters"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" row "), _hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard,
+    "class": "btn btn-white tx-13 btn-uppercase"
+  }, _hoisted_59, 8
+  /* PROPS */
+  , _hoisted_56)])]), _hoisted_60]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_toast, {
+    breakpoints: {
+      '920px': {
+        width: '100%',
+        right: '0',
+        left: '0'
+      }
+    }
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DynamicDialog), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ConfirmDialog)], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=template&id=3d669cbe":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=template&id=3d669cbe ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "container pd-x-0"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30\"><div><nav aria-label=\"breadcrumb\"><ol class=\"breadcrumb breadcrumb-style1 mg-b-10\"><li class=\"breadcrumb-item\" aria-current=\"page\">LIMS</li><li class=\"breadcrumb-item\" aria-current=\"page\">QA/QC Receiving</li><li class=\"breadcrumb-item active\" aria-current=\"page\"> Dashboard </li></ol></nav><h4 class=\"mg-b-0 tx-spacing--1\">Home/Dashboard - QA/QC Receiving</h4></div></div>", 1);
+
+var _hoisted_3 = {
+  "class": "row row-sm"
+};
+var _hoisted_4 = {
+  "class": "col-md-12"
+};
+var _hoisted_5 = {
+  "class": "search-form mg-r-10"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "btn filter",
+  id: "btnSearch"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "data-feather": "search"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_7 = {
+  "class": "table-list mg-b-10"
+};
+var _hoisted_8 = {
+  "class": "table-responsive-lg"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" No record found. ");
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Loading data. Please wait. ");
+
+var _hoisted_11 = {
+  key: 0,
+  style: {
+    "color": "red"
+  }
+};
+var _hoisted_12 = {
+  key: 1,
+  style: {
+    "color": "orange"
+  }
+};
+var _hoisted_13 = {
+  key: 2,
+  style: {
+    "color": "green"
+  }
+};
+var _hoisted_14 = {
+  key: 0,
+  style: {
+    "color": "red"
+  }
+};
+var _hoisted_15 = {
+  key: 1,
+  style: {
+    "color": "green"
+  }
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Button");
+
+  var _component_Toolbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Toolbar");
+
+  var _component_Column = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Column");
+
+  var _component_DataTable = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DataTable");
+
+  var _component_toast = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("toast");
+
+  var _component_ConfirmDialog = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ConfirmDialog");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Start Pages "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Toolbar, {
+    "class": "mb-4"
+  }, {
+    start: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+        label: "Export",
+        icon: "pi pi-upload",
+        "class": "p-button-help p-button-sm mr-2",
+        onClick: _cache[0] || (_cache[0] = function ($event) {
+          return $options.exportCSV($event);
+        })
+      })];
+    }),
+    end: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        name: "search",
+        type: "search",
+        id: "search",
+        "class": "form-control",
+        placeholder: "Search",
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+          return $data.filters['global'].value = $event;
+        })
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.filters['global'].value]]), _hoisted_6])];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DataTable, {
+    ref: "dt",
+    value: $data.transmittals,
+    paginator: true,
+    rows: 10,
+    stripedRows: "",
+    removableSort: "",
+    paginatorTemplate: "CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown",
+    rowsPerPageOptions: [10, 20, 50],
+    responsiveLayout: "scroll",
+    loading: _ctx.loading1,
+    currentPageReportTemplate: "Showing {first} to {last} of {totalRecords}",
+    filters: $data.filters,
+    "onUpdate:filters": _cache[2] || (_cache[2] = function ($event) {
+      return $data.filters = $event;
+    }),
+    filterDisplay: "menu",
+    globalFilterFields: ['transmittalno', 'date_time_submitted', 'email_address', 'purpose', 'date_needed', 'priority_status', 'source', 'status']
+  }, {
+    empty: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_9];
+    }),
+    loading: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_10];
+    }),
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "id",
+        hidden: "true"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "transmittalno",
+        header: "Transmittal No",
+        sortable: true
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "datesubmitted",
+        header: "Date Submitted",
+        sortable: true
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "timesubmitted",
+        header: "Time Submitted",
+        sortable: true
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "email_address",
+        header: "Email Address",
+        sortable: true
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "purpose",
+        header: "Purpose",
+        sortable: true
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "date_needed",
+        header: "Date Needed",
+        sortable: true
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "priority",
+        header: "Priority",
+        sortable: true,
+        exportable: false
+      }, {
+        body: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (slotProps) {
+          return [slotProps.data.priority == 'High' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_11, "High")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), slotProps.data.priority == 'Medium' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_12, "Medium")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), slotProps.data.priority == 'Low' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_13, "Low")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+        }),
+        _: 1
+        /* STABLE */
+
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "source",
+        header: "Source",
+        sortable: true
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "status",
+        header: "Status",
+        sortable: true
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "isReceived",
+        header: "Status"
+      }, {
+        body: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (slotProps) {
+          return [slotProps.data.isReceived ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_14, "Received")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_15, "Pending"))];
+        }),
+        _: 1
+        /* STABLE */
+
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        exportable: false,
+        style: {
+          "min-width": "8rem"
+        },
+        header: "Actions"
+      }, {
+        body: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (slotProps) {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+            title: $data.viewMsg,
+            icon: "pi pi-eye",
+            "class": "p-button-rounded p-button-success mr-2",
+            onClick: function onClick($event) {
+              return $options.viewTransmittal(slotProps);
+            }
+          }, null, 8
+          /* PROPS */
+          , ["title", "onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+            title: $data.receiveMsg,
+            icon: "pi pi-arrow-circle-down",
+            "class": "p-button-rounded p-button-success mr-2",
+            onClick: function onClick($event) {
+              return $options.receiveTransmittal(slotProps);
+            },
+            disabled: slotProps.data.isReceived
+          }, null, 8
+          /* PROPS */
+          , ["title", "onClick", "disabled"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+            title: $data.editMsg,
+            icon: "pi pi-pencil",
+            "class": "p-button-rounded p-button-success mr-2",
+            onClick: function onClick($event) {
+              return $options.editTransmittal(slotProps);
+            },
+            disabled: !slotProps.data.isReceived
+          }, null, 8
+          /* PROPS */
+          , ["title", "onClick", "disabled"])];
+        }),
+        _: 1
+        /* STABLE */
+
+      })];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["value", "loading", "filters"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Pages ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_toast, {
+    breakpoints: {
+      '920px': {
+        width: '100%',
+        right: '0',
+        left: '0'
+      }
+    }
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ConfirmDialog)], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=template&id=6cf92620":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=template&id=6cf92620 ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "container-fluid mx-wd-1500 pd-x-0"
+};
+var _hoisted_2 = {
+  "class": "d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30"
+};
+var _hoisted_3 = {
+  "aria-label": "breadcrumb"
+};
+var _hoisted_4 = {
+  "class": "breadcrumb breadcrumb-style1 mg-b-10"
+};
+var _hoisted_5 = {
+  "class": "breadcrumb-item",
+  "aria-current": "page"
+};
+var _hoisted_6 = ["href"];
+var _hoisted_7 = {
+  "class": "breadcrumb-item",
+  "aria-current": "page"
+};
+var _hoisted_8 = ["href"];
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "breadcrumb-item active",
+  "aria-current": "page"
+}, "Receive", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+  "class": "mg-b-0 tx-spacing--1"
+}, " Receive Transmittal - QA/QC Receiving ", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  "class": "row"
+};
+var _hoisted_12 = {
+  "class": "col-lg-12"
+};
+var _hoisted_13 = {
+  "class": "d-lg-flex justify-content-lg-end"
+};
+var _hoisted_14 = {
+  "class": "form-group d-flex flex-column flex-lg-row align-items-lg-center"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "customFile",
+  "class": "mg-r-10"
+}, "Attached COC", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = {
+  "class": "custom-file mb-0 mb-lg-2"
+};
+var _hoisted_17 = {
+  "class": "col-lg-6"
+};
+var _hoisted_18 = {
+  "class": "form-group"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "transmittal-no"
+}, "Transmittal No.", -1
+/* HOISTED */
+);
+
+var _hoisted_20 = {
+  "class": "row row-sm"
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-6"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-group"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date-submitted"
+}, "Date Submitted"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  "class": "form-control",
+  id: "date-submitted",
+  name: "date-submitted",
+  pattern: "\\d{2}\\/\\d{2}\\/\\d{4}",
+  placeholder: "mm/dd/yyyy",
+  disabled: "true"
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_22 = {
+  "class": "col-lg-6"
+};
+var _hoisted_23 = {
+  "class": "form-group"
+};
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "time-submitted"
+}, "Time Submitted", -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  "class": "form-group"
+};
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "email-address"
+}, "Email Address", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = {
+  "class": "col-lg-6"
+};
+var _hoisted_28 = {
+  "class": "form-group"
+};
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "purpose"
+}, "Purpose", -1
+/* HOISTED */
+);
+
+var _hoisted_30 = {
+  "class": "row row-sm"
+};
+
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-group"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date-needed"
+}, "Date Needed"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  "class": "form-control",
+  id: "date-needed",
+  name: "date-needed",
+  pattern: "\\d{2}\\/\\d{2}\\/\\d{4}",
+  placeholder: "mm/dd/yyyy",
+  disabled: "true"
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_32 = {
+  "class": "col-lg-4"
+};
+var _hoisted_33 = {
+  "class": "form-group"
+};
+
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "priority"
+}, "Priority", -1
+/* HOISTED */
+);
+
+var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Low"
+}, "Low", -1
+/* HOISTED */
+);
+
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Medium"
+}, "Medium", -1
+/* HOISTED */
+);
+
+var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "High"
+}, "High", -1
+/* HOISTED */
+);
+
+var _hoisted_38 = [_hoisted_35, _hoisted_36, _hoisted_37];
+var _hoisted_39 = {
+  "class": "col-lg-4"
+};
+var _hoisted_40 = {
+  "class": "form-group"
+};
+
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "status"
+}, "Status", -1
+/* HOISTED */
+);
+
+var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Pending"
+}, "Pending", -1
+/* HOISTED */
+);
+
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Approved"
+}, "Approved", -1
+/* HOISTED */
+);
+
+var _hoisted_44 = [_hoisted_42, _hoisted_43];
+var _hoisted_45 = {
+  "class": "form-group"
+};
+
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "source"
+}, "Source", -1
+/* HOISTED */
+);
+
+var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-12"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
+  "class": "mg-t-10 mg-b-30"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_48 = {
+  "class": "row row-xs"
+};
+var _hoisted_49 = {
+  "class": "col-lg-12"
+};
+var _hoisted_50 = {
+  "class": "table-responsive-lg"
+};
+
+var _hoisted_51 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" No record found. ");
+
+var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Loading data. Please wait. ");
+
+var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
+  "class": "mg-t-30 mg-b-30"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_54 = {
+  "class": "row flex-column-reverse flex-lg-row"
+};
+var _hoisted_55 = {
+  "class": "col-lg-6"
+};
+var _hoisted_56 = ["href"];
+
+var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "data-feather": "arrow-left",
+  "class": "mg-r-5"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_58 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Back to Dashboard");
+
+var _hoisted_59 = [_hoisted_57, _hoisted_58];
+var _hoisted_60 = {
+  "class": "col-lg-6 d-flex justify-content-start justify-content-lg-end"
+};
+
+var _hoisted_61 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "data-feather": "arrow-down-circle",
+  "class": "mg-r-5"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_62 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Receive ");
+
+var _hoisted_63 = [_hoisted_61, _hoisted_62];
+
+var _hoisted_64 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "cms-footer mg-t-50"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "tx-gray-500 tx-10"
+}, " Admin Portal v1.0 • Developed by WebFocus Solutions, Inc. 2022 ")], -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Column = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Column");
+
+  var _component_DataTable = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DataTable");
+
+  var _component_toast = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("toast");
+
+  var _component_DynamicDialog = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DynamicDialog");
+
+  var _component_ConfirmDialog = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ConfirmDialog");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ol", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard
+  }, "LIMS", 8
+  /* PROPS */
+  , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard
+  }, "QA/QC Receiving", 8
+  /* PROPS */
+  , _hoisted_8)]), _hoisted_9])]), _hoisted_10])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "attached-csv",
+    name: "attached-csv",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.form.cocFile = $event;
+    }),
+    disabled: "true"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.cocFile]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "transmittal-no",
+    name: "transmittal-no",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.form.transmittalno = $event;
+    }),
+    disabled: "true"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.transmittalno]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "time",
+    "class": "form-control",
+    id: "time-submitted",
+    name: "time-submitted",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.form.timesubmitted = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.timesubmitted]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "email",
+    "class": "form-control",
+    id: "email-address",
+    name: "email-address",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.form.email_address = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.email_address]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "purpose",
+    name: "purpose",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.form.purpose = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.purpose]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [_hoisted_34, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "custom-select tx-base",
+    id: "priority",
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+      return $data.form.priority = $event;
+    }),
+    name: "priority",
+    disabled: "true"
+  }, _hoisted_38, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.priority]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [_hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "custom-select tx-base",
+    id: "status",
+    name: "status",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+      return $data.form.status = $event;
+    })
+  }, _hoisted_44, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.status]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [_hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "source",
+    name: "source",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+      return $data.form.source = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.source]])])]), _hoisted_47]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_49, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DataTable, {
+    ref: "dt",
+    value: $data.items,
+    paginator: true,
+    rows: 10,
+    stripedRows: "",
+    paginatorTemplate: "CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown",
+    rowsPerPageOptions: [10, 20, 50],
+    responsiveLayout: "scroll",
+    loading: $data.loading,
+    currentPageReportTemplate: "Showing {first} to {last} of {totalRecords}",
+    filters: _ctx.filters,
+    "onUpdate:filters": _cache[8] || (_cache[8] = function ($event) {
+      return _ctx.filters = $event;
+    }),
+    filterDisplay: "menu",
+    rowIndexVar: ""
+  }, {
+    empty: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_51];
+    }),
+    loading: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_52];
+    }),
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        header: "Item No."
+      }, {
+        body: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (slotProps) {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(slotProps.index + 1), 1
+          /* TEXT */
+          )];
+        }),
+        _: 1
+        /* STABLE */
+
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "id",
+        hidden: "true"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "sampleno",
+        header: "Sample No."
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "description",
+        header: "Description"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "elements",
+        header: "Elements"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "methodcode",
+        header: "Method Code"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "comments",
+        header: "Comments"
+      })];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["value", "loading", "filters"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" row "), _hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard,
+    "class": "btn btn-white tx-13 btn-uppercase"
+  }, _hoisted_59, 8
+  /* PROPS */
+  , _hoisted_56)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_60, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "submit",
+    "class": "btn btn-primary tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0",
+    onClick: _cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.receiveTransmittal && $options.receiveTransmittal.apply($options, arguments);
+    }, ["prevent"]))
+  }, _hoisted_63)])]), _hoisted_64]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_toast, {
+    breakpoints: {
+      '920px': {
+        width: '100%',
+        right: '0',
+        left: '0'
+      }
+    }
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DynamicDialog), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ConfirmDialog)], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=template&id=62b68f78":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=template&id=62b68f78 ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "container-fluid mx-wd-1500 pd-x-0"
+};
+var _hoisted_2 = {
+  "class": "d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30"
+};
+var _hoisted_3 = {
+  "aria-label": "breadcrumb"
+};
+var _hoisted_4 = {
+  "class": "breadcrumb breadcrumb-style1 mg-b-10"
+};
+var _hoisted_5 = {
+  "class": "breadcrumb-item",
+  "aria-current": "page"
+};
+var _hoisted_6 = ["href"];
+var _hoisted_7 = {
+  "class": "breadcrumb-item",
+  "aria-current": "page"
+};
+var _hoisted_8 = ["href"];
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "breadcrumb-item active",
+  "aria-current": "page"
+}, "View", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+  "class": "mg-b-0 tx-spacing--1"
+}, "View Transmittal - QA/QC Receiving", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  "class": "row"
+};
+var _hoisted_12 = {
+  "class": "col-lg-12"
+};
+var _hoisted_13 = {
+  "class": "d-lg-flex justify-content-lg-end"
+};
+var _hoisted_14 = {
+  "class": "form-group d-flex flex-column flex-lg-row align-items-lg-center"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "customFile",
+  "class": "mg-r-10"
+}, "Attached COC", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = {
+  "class": "custom-file mb-0 mb-lg-2"
+};
+var _hoisted_17 = {
+  "class": "col-lg-6"
+};
+var _hoisted_18 = {
+  "class": "form-group"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "transmittal-no"
+}, "Transmittal No.", -1
+/* HOISTED */
+);
+
+var _hoisted_20 = {
+  "class": "row row-sm"
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-6"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-group"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date-submitted"
+}, "Date Submitted"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  "class": "form-control",
+  id: "date-submitted",
+  name: "date-submitted",
+  pattern: "\\d{2}\\/\\d{2}\\/\\d{4}",
+  placeholder: "mm/dd/yyyy",
+  disabled: "true"
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_22 = {
+  "class": "col-lg-6"
+};
+var _hoisted_23 = {
+  "class": "form-group"
+};
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "time-submitted"
+}, "Time Submitted", -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  "class": "form-group"
+};
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "email-address"
+}, "Email Address", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = {
+  "class": "col-lg-6"
+};
+var _hoisted_28 = {
+  "class": "form-group"
+};
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "purpose"
+}, "Purpose", -1
+/* HOISTED */
+);
+
+var _hoisted_30 = {
+  "class": "row row-sm"
+};
+
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-group"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date-needed"
+}, "Date Needed"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  "class": "form-control",
+  id: "date-needed",
+  name: "date-needed",
+  pattern: "\\d{2}\\/\\d{2}\\/\\d{4}",
+  placeholder: "mm/dd/yyyy",
+  disabled: "true"
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_32 = {
+  "class": "col-lg-4"
+};
+var _hoisted_33 = {
+  "class": "form-group"
+};
+
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "priority"
+}, "Priority", -1
+/* HOISTED */
+);
+
+var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Low"
+}, "Low", -1
+/* HOISTED */
+);
+
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Medium"
+}, "Medium", -1
+/* HOISTED */
+);
+
+var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "High"
+}, "High", -1
+/* HOISTED */
+);
+
+var _hoisted_38 = [_hoisted_35, _hoisted_36, _hoisted_37];
+var _hoisted_39 = {
+  "class": "col-lg-4"
+};
+var _hoisted_40 = {
+  "class": "form-group"
+};
+
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "status"
+}, "Status", -1
+/* HOISTED */
+);
+
+var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Pending"
+}, "Pending", -1
+/* HOISTED */
+);
+
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Approved"
+}, "Approved", -1
+/* HOISTED */
+);
+
+var _hoisted_44 = [_hoisted_42, _hoisted_43];
+var _hoisted_45 = {
+  "class": "form-group"
+};
+
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "source"
+}, "Source", -1
+/* HOISTED */
+);
+
+var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-lg-12"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
+  "class": "mg-t-10 mg-b-30"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_48 = {
+  "class": "row row-xs"
+};
+var _hoisted_49 = {
+  "class": "col-lg-12"
+};
+var _hoisted_50 = {
+  "class": "table-responsive-lg"
+};
+
+var _hoisted_51 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" No record found. ");
+
+var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Loading data. Please wait. ");
+
+var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
+  "class": "mg-t-30 mg-b-30"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_54 = {
+  "class": "row flex-column-reverse flex-lg-row"
+};
+var _hoisted_55 = {
+  "class": "col-lg-6"
+};
+var _hoisted_56 = ["href"];
+
+var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "data-feather": "arrow-left",
+  "class": "mg-r-5"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_58 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Back to Dashboard");
+
+var _hoisted_59 = [_hoisted_57, _hoisted_58];
+
+var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "cms-footer mg-t-50"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "tx-gray-500 tx-10"
+}, " Admin Portal v1.0 • Developed by WebFocus Solutions, Inc. 2022 ")], -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Column = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Column");
+
+  var _component_DataTable = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DataTable");
+
+  var _component_toast = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("toast");
+
+  var _component_DynamicDialog = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DynamicDialog");
+
+  var _component_ConfirmDialog = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ConfirmDialog");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ol", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard
+  }, "LIMS", 8
+  /* PROPS */
+  , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard
+  }, "QA/QC Receiving", 8
+  /* PROPS */
+  , _hoisted_8)]), _hoisted_9])]), _hoisted_10])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "attached-csv",
+    name: "attached-csv",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.form.cocFile = $event;
+    }),
+    disabled: "true"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.cocFile]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "transmittal-no",
+    name: "transmittal-no",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.form.transmittalno = $event;
+    }),
+    disabled: "true"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.transmittalno]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "time",
+    "class": "form-control",
+    id: "time-submitted",
+    name: "time-submitted",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.form.timesubmitted = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.timesubmitted]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "email",
+    "class": "form-control",
+    id: "email-address",
+    name: "email-address",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.form.email_address = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.email_address]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "purpose",
+    name: "purpose",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.form.purpose = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.purpose]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [_hoisted_34, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "custom-select tx-base",
+    id: "priority",
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+      return $data.form.priority = $event;
+    }),
+    name: "priority",
+    disabled: "true"
+  }, _hoisted_38, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.priority]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [_hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "custom-select tx-base",
+    id: "status",
+    name: "status",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+      return $data.form.status = $event;
+    })
+  }, _hoisted_44, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.status]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [_hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "source",
+    name: "source",
+    disabled: "true",
+    "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+      return $data.form.source = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.source]])])]), _hoisted_47]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_49, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DataTable, {
+    ref: "dt",
+    value: $data.items,
+    paginator: true,
+    rows: 10,
+    stripedRows: "",
+    paginatorTemplate: "CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown",
+    rowsPerPageOptions: [10, 20, 50],
+    responsiveLayout: "scroll",
+    loading: $data.loading,
+    currentPageReportTemplate: "Showing {first} to {last} of {totalRecords}",
+    filters: _ctx.filters,
+    "onUpdate:filters": _cache[8] || (_cache[8] = function ($event) {
+      return _ctx.filters = $event;
+    }),
+    filterDisplay: "menu",
+    rowIndexVar: ""
+  }, {
+    empty: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_51];
+    }),
+    loading: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_52];
+    }),
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        header: "Item No."
+      }, {
+        body: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (slotProps) {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(slotProps.index + 1), 1
+          /* TEXT */
+          )];
+        }),
+        _: 1
+        /* STABLE */
+
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "id",
+        hidden: "true"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "sampleno",
+        header: "Sample No."
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "description",
+        header: "Description"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "elements",
+        header: "Elements"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "methodcode",
+        header: "Method Code"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Column, {
+        field: "comments",
+        header: "Comments"
+      })];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["value", "loading", "filters"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" row "), _hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard,
+    "class": "btn btn-white tx-13 btn-uppercase"
+  }, _hoisted_59, 8
+  /* PROPS */
+  , _hoisted_56)])]), _hoisted_60]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_toast, {
+    breakpoints: {
+      '920px': {
+        width: '100%',
+        right: '0',
+        left: '0'
+      }
+    }
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DynamicDialog), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ConfirmDialog)], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -25435,9 +28263,14 @@ app.component("edit_permission-component", (__webpack_require__(/*! ./components
 app.component("index_deptuser-component", (__webpack_require__(/*! ./components/deptuser/index_deptuser.vue */ "./resources/js/components/deptuser/index_deptuser.vue")["default"]));
 app.component("create_deptuser-component", (__webpack_require__(/*! ./components/deptuser/create_deptuser.vue */ "./resources/js/components/deptuser/create_deptuser.vue")["default"]));
 app.component("edit_deptuser-component", (__webpack_require__(/*! ./components/deptuser/edit_deptuser.vue */ "./resources/js/components/deptuser/edit_deptuser.vue")["default"]));
+app.component("view_deptuser-component", (__webpack_require__(/*! ./components/deptuser/view_deptuser.vue */ "./resources/js/components/deptuser/view_deptuser.vue")["default"]));
 app.component("index_deptofficer-component", (__webpack_require__(/*! ./components/deptofficer/index_deptofficer.vue */ "./resources/js/components/deptofficer/index_deptofficer.vue")["default"]));
 app.component("edit_deptofficer-component", (__webpack_require__(/*! ./components/deptofficer/edit_deptofficer.vue */ "./resources/js/components/deptofficer/edit_deptofficer.vue")["default"]));
 app.component("view_deptofficer-component", (__webpack_require__(/*! ./components/deptofficer/view_deptofficer.vue */ "./resources/js/components/deptofficer/view_deptofficer.vue")["default"]));
+app.component("index_qaqcreceiver-component", (__webpack_require__(/*! ./components/qaqcreceiver/index_qaqcreceiver.vue */ "./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue")["default"]));
+app.component("view_qaqcreceiver-component", (__webpack_require__(/*! ./components/qaqcreceiver/view_qaqcreceiver.vue */ "./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue")["default"]));
+app.component("receive_qaqcreceiver-component", (__webpack_require__(/*! ./components/qaqcreceiver/receive_qaqcreceiver.vue */ "./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue")["default"]));
+app.component("edit_qaqcreceiver-component", (__webpack_require__(/*! ./components/qaqcreceiver/edit_qaqcreceiver.vue */ "./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue")["default"]));
 app.component("DataTable", primevue_datatable__WEBPACK_IMPORTED_MODULE_3__["default"]);
 app.component("Column", primevue_column__WEBPACK_IMPORTED_MODULE_4__["default"]);
 app.component("Toolbar", primevue_toolbar__WEBPACK_IMPORTED_MODULE_6__["default"]);
@@ -26298,7 +29131,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\r\n  --surface-a:#ffffff;\r\n  --surface-b:#f8f9fa;\r\n  --surface-c:#e9ecef;\r\n  --surface-d:#dee2e6;\r\n  --surface-e:#ffffff;\r\n  --surface-f:#ffffff;\r\n  --text-color:#495057;\r\n  --text-color-secondary:#6c757d;\r\n  --primary-color:#2196F3;\r\n  --primary-color-text:#ffffff;\r\n  --font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\r\n  --surface-0: #ffffff;\r\n  --surface-50: #FAFAFA;\r\n  --surface-100: #F5F5F5;\r\n  --surface-200: #EEEEEE;\r\n  --surface-300: #E0E0E0;\r\n  --surface-400: #BDBDBD;\r\n  --surface-500: #9E9E9E;\r\n  --surface-600: #757575;\r\n  --surface-700: #616161;\r\n  --surface-800: #424242;\r\n  --surface-900: #212121;\r\n  --gray-50: #FAFAFA;\r\n  --gray-100: #F5F5F5;\r\n  --gray-200: #EEEEEE;\r\n  --gray-300: #E0E0E0;\r\n  --gray-400: #BDBDBD;\r\n  --gray-500: #9E9E9E;\r\n  --gray-600: #757575;\r\n  --gray-700: #616161;\r\n  --gray-800: #424242;\r\n  --gray-900: #212121;\r\n  --content-padding:1rem;\r\n  --inline-spacing:0.5rem;\r\n  --border-radius:3px;\r\n  --surface-ground:#f8f9fa;\r\n  --surface-section:#ffffff;\r\n  --surface-card:#ffffff;\r\n  --surface-overlay:#ffffff;\r\n  --surface-border:#dee2e6;\r\n  --surface-hover: #e9ecef;\r\n  --focus-ring: 0 0 0 0.2rem #a6d5fa;\r\n  --maskbg: rgba(0, 0, 0, 0.4);\r\n}\r\n\r\n* {\r\n  box-sizing: border-box;\r\n}\r\n\r\n.p-component {\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\r\n  font-size: 1rem;\r\n  font-weight: normal;\r\n}\r\n\r\n.p-component-overlay {\r\n  background-color: rgba(0, 0, 0, 0.4);\r\n  transition-duration: 0.2s;\r\n}\r\n\r\n.p-disabled, .p-component:disabled {\r\n  opacity: 0.6;\r\n}\r\n\r\n.p-error {\r\n  color: #f44336;\r\n}\r\n\r\n.p-text-secondary {\r\n  color: #6c757d;\r\n}\r\n\r\n.pi {\r\n  font-size: 1rem;\r\n}\r\n\r\n.p-link {\r\n  font-size: 1rem;\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\r\n  border-radius: 3px;\r\n}\r\n.p-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n\r\n.p-component-overlay-enter {\r\n  -webkit-animation: p-component-overlay-enter-animation 150ms forwards;\r\n          animation: p-component-overlay-enter-animation 150ms forwards;\r\n}\r\n\r\n.p-component-overlay-leave {\r\n  -webkit-animation: p-component-overlay-leave-animation 150ms forwards;\r\n          animation: p-component-overlay-leave-animation 150ms forwards;\r\n}\r\n\r\n@-webkit-keyframes p-component-overlay-enter-animation {\r\n  from {\r\n    background-color: transparent;\r\n  }\r\n  to {\r\n    background-color: var(--maskbg);\r\n  }\r\n}\r\n\r\n@keyframes p-component-overlay-enter-animation {\r\n  from {\r\n    background-color: transparent;\r\n  }\r\n  to {\r\n    background-color: var(--maskbg);\r\n  }\r\n}\r\n@-webkit-keyframes p-component-overlay-leave-animation {\r\n  from {\r\n    background-color: var(--maskbg);\r\n  }\r\n  to {\r\n    background-color: transparent;\r\n  }\r\n}\r\n@keyframes p-component-overlay-leave-animation {\r\n  from {\r\n    background-color: var(--maskbg);\r\n  }\r\n  to {\r\n    background-color: transparent;\r\n  }\r\n}\r\n\r\n:root {\r\n  --blue-50:#f4fafe;\r\n  --blue-100:#cae6fc;\r\n  --blue-200:#a0d2fa;\r\n  --blue-300:#75bef8;\r\n  --blue-400:#4baaf5;\r\n  --blue-500:#2196f3;\r\n  --blue-600:#1c80cf;\r\n  --blue-700:#1769aa;\r\n  --blue-800:#125386;\r\n  --blue-900:#0d3c61;\r\n  --green-50:#f6fbf6;\r\n  --green-100:#d4ecd5;\r\n  --green-200:#b2ddb4;\r\n  --green-300:#90cd93;\r\n  --green-400:#6ebe71;\r\n  --green-500:#4caf50;\r\n  --green-600:#419544;\r\n  --green-700:#357b38;\r\n  --green-800:#2a602c;\r\n  --green-900:#1e4620;\r\n  --yellow-50:#fffcf5;\r\n  --yellow-100:#fef0cd;\r\n  --yellow-200:#fde4a5;\r\n  --yellow-300:#fdd87d;\r\n  --yellow-400:#fccc55;\r\n  --yellow-500:#fbc02d;\r\n  --yellow-600:#d5a326;\r\n  --yellow-700:#b08620;\r\n  --yellow-800:#8a6a19;\r\n  --yellow-900:#644d12;\r\n  --cyan-50:#f2fcfd;\r\n  --cyan-100:#c2eff5;\r\n  --cyan-200:#91e2ed;\r\n  --cyan-300:#61d5e4;\r\n  --cyan-400:#30c9dc;\r\n  --cyan-500:#00bcd4;\r\n  --cyan-600:#00a0b4;\r\n  --cyan-700:#008494;\r\n  --cyan-800:#006775;\r\n  --cyan-900:#004b55;\r\n  --pink-50:#fef4f7;\r\n  --pink-100:#fac9da;\r\n  --pink-200:#f69ebc;\r\n  --pink-300:#f1749e;\r\n  --pink-400:#ed4981;\r\n  --pink-500:#e91e63;\r\n  --pink-600:#c61a54;\r\n  --pink-700:#a31545;\r\n  --pink-800:#801136;\r\n  --pink-900:#5d0c28;\r\n  --indigo-50:#f5f6fb;\r\n  --indigo-100:#d1d5ed;\r\n  --indigo-200:#acb4df;\r\n  --indigo-300:#8893d1;\r\n  --indigo-400:#6372c3;\r\n  --indigo-500:#3f51b5;\r\n  --indigo-600:#36459a;\r\n  --indigo-700:#2c397f;\r\n  --indigo-800:#232d64;\r\n  --indigo-900:#192048;\r\n  --teal-50:#f2faf9;\r\n  --teal-100:#c2e6e2;\r\n  --teal-200:#91d2cc;\r\n  --teal-300:#61beb5;\r\n  --teal-400:#30aa9f;\r\n  --teal-500:#009688;\r\n  --teal-600:#008074;\r\n  --teal-700:#00695f;\r\n  --teal-800:#00534b;\r\n  --teal-900:#003c36;\r\n  --orange-50:#fff8f2;\r\n  --orange-100:#fde0c2;\r\n  --orange-200:#fbc791;\r\n  --orange-300:#f9ae61;\r\n  --orange-400:#f79530;\r\n  --orange-500:#f57c00;\r\n  --orange-600:#d06900;\r\n  --orange-700:#ac5700;\r\n  --orange-800:#874400;\r\n  --orange-900:#623200;\r\n  --bluegray-50:#f7f9f9;\r\n  --bluegray-100:#d9e0e3;\r\n  --bluegray-200:#bbc7cd;\r\n  --bluegray-300:#9caeb7;\r\n  --bluegray-400:#7e96a1;\r\n  --bluegray-500:#607d8b;\r\n  --bluegray-600:#526a76;\r\n  --bluegray-700:#435861;\r\n  --bluegray-800:#35454c;\r\n  --bluegray-900:#263238;\r\n  --purple-50:#faf4fb;\r\n  --purple-100:#e7cbec;\r\n  --purple-200:#d4a2dd;\r\n  --purple-300:#c279ce;\r\n  --purple-400:#af50bf;\r\n  --purple-500:#9c27b0;\r\n  --purple-600:#852196;\r\n  --purple-700:#6d1b7b;\r\n  --purple-800:#561561;\r\n  --purple-900:#3e1046;\r\n  --red-50:#fff5f5;\r\n  --red-100:#ffd1ce;\r\n  --red-200:#ffada7;\r\n  --red-300:#ff8980;\r\n  --red-400:#ff6459;\r\n  --red-500:#ff4032;\r\n  --red-600:#d9362b;\r\n  --red-700:#b32d23;\r\n  --red-800:#8c231c;\r\n  --red-900:#661a14;\r\n  --primary-50:#f4fafe;\r\n  --primary-100:#cae6fc;\r\n  --primary-200:#a0d2fa;\r\n  --primary-300:#75bef8;\r\n  --primary-400:#4baaf5;\r\n  --primary-500:#2196f3;\r\n  --primary-600:#1c80cf;\r\n  --primary-700:#1769aa;\r\n  --primary-800:#125386;\r\n  --primary-900:#0d3c61;\r\n}\r\n\r\n.p-autocomplete .p-autocomplete-loader {\r\n  right: 0.5rem;\r\n}\r\n.p-autocomplete.p-autocomplete-dd .p-autocomplete-loader {\r\n  right: 2.857rem;\r\n}\r\n.p-autocomplete .p-autocomplete-multiple-container {\r\n  padding: 0.25rem 0.5rem;\r\n}\r\n.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled):hover {\r\n  border-color: #2196F3;\r\n}\r\n.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled).p-focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  border-color: #2196F3;\r\n}\r\n.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token {\r\n  padding: 0.25rem 0;\r\n}\r\n.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input {\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\r\n  font-size: 1rem;\r\n  color: #495057;\r\n  padding: 0;\r\n  margin: 0;\r\n}\r\n.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token {\r\n  padding: 0.25rem 0.5rem;\r\n  margin-right: 0.5rem;\r\n  background: #dee2e6;\r\n  color: #495057;\r\n  border-radius: 16px;\r\n}\r\n.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {\r\n  margin-left: 0.5rem;\r\n}\r\n.p-autocomplete.p-invalid.p-component > .p-inputtext {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-autocomplete-panel {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  border-radius: 3px;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-autocomplete-panel .p-autocomplete-items {\r\n  padding: 0.5rem 0;\r\n}\r\n.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {\r\n  margin: 0;\r\n  padding: 0.5rem 1rem;\r\n  border: 0 none;\r\n  color: #495057;\r\n  background: transparent;\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 0;\r\n}\r\n.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover {\r\n  color: #495057;\r\n  background: #e9ecef;\r\n}\r\n.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item-group {\r\n  margin: 0;\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  background: #ffffff;\r\n  font-weight: 600;\r\n}\r\n\r\n.p-calendar.p-invalid.p-component > .p-inputtext {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-datepicker {\r\n  padding: 0.5rem;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 1px solid #ced4da;\r\n  border-radius: 3px;\r\n}\r\n.p-datepicker:not(.p-datepicker-inline) {\r\n  background: #ffffff;\r\n  border: 0 none;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-datepicker:not(.p-datepicker-inline) .p-datepicker-header {\r\n  background: #ffffff;\r\n}\r\n.p-datepicker .p-datepicker-header {\r\n  padding: 0.5rem;\r\n  color: #495057;\r\n  background: #ffffff;\r\n  font-weight: 600;\r\n  margin: 0;\r\n  border-bottom: 1px solid #dee2e6;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-datepicker .p-datepicker-header .p-datepicker-prev,\r\n.p-datepicker .p-datepicker-header .p-datepicker-next {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-datepicker .p-datepicker-header .p-datepicker-prev:enabled:hover,\r\n.p-datepicker .p-datepicker-header .p-datepicker-next:enabled:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-datepicker .p-datepicker-header .p-datepicker-prev:focus,\r\n.p-datepicker .p-datepicker-header .p-datepicker-next:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-datepicker .p-datepicker-header .p-datepicker-title {\r\n  line-height: 2rem;\r\n}\r\n.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year,\r\n.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {\r\n  color: #495057;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  font-weight: 600;\r\n  padding: 0.5rem;\r\n}\r\n.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year:enabled:hover,\r\n.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month:enabled:hover {\r\n  color: #2196F3;\r\n}\r\n.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-datepicker table {\r\n  font-size: 1rem;\r\n  margin: 0.5rem 0;\r\n}\r\n.p-datepicker table th {\r\n  padding: 0.5rem;\r\n}\r\n.p-datepicker table th > span {\r\n  width: 2.5rem;\r\n  height: 2.5rem;\r\n}\r\n.p-datepicker table td {\r\n  padding: 0.5rem;\r\n}\r\n.p-datepicker table td > span {\r\n  width: 2.5rem;\r\n  height: 2.5rem;\r\n  border-radius: 50%;\r\n  transition: box-shadow 0.2s;\r\n  border: 1px solid transparent;\r\n}\r\n.p-datepicker table td > span.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-datepicker table td > span:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-datepicker table td.p-datepicker-today > span {\r\n  background: #ced4da;\r\n  color: #495057;\r\n  border-color: transparent;\r\n}\r\n.p-datepicker table td.p-datepicker-today > span.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-datepicker .p-datepicker-buttonbar {\r\n  padding: 1rem 0;\r\n  border-top: 1px solid #dee2e6;\r\n}\r\n.p-datepicker .p-datepicker-buttonbar .p-button {\r\n  width: auto;\r\n}\r\n.p-datepicker .p-timepicker {\r\n  border-top: 1px solid #dee2e6;\r\n  padding: 0.5rem;\r\n}\r\n.p-datepicker .p-timepicker button {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-datepicker .p-timepicker button:enabled:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-datepicker .p-timepicker button:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-datepicker .p-timepicker button:last-child {\r\n  margin-top: 0.2em;\r\n}\r\n.p-datepicker .p-timepicker span {\r\n  font-size: 1.25rem;\r\n}\r\n.p-datepicker .p-timepicker > div {\r\n  padding: 0 0.5rem;\r\n}\r\n.p-datepicker.p-datepicker-timeonly .p-timepicker {\r\n  border-top: 0 none;\r\n}\r\n.p-datepicker .p-monthpicker {\r\n  margin: 0.5rem 0;\r\n}\r\n.p-datepicker .p-monthpicker .p-monthpicker-month {\r\n  padding: 0.5rem;\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 3px;\r\n}\r\n.p-datepicker .p-monthpicker .p-monthpicker-month.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-datepicker .p-yearpicker {\r\n  margin: 0.5rem 0;\r\n}\r\n.p-datepicker .p-yearpicker .p-yearpicker-year {\r\n  padding: 0.5rem;\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 3px;\r\n}\r\n.p-datepicker .p-yearpicker .p-yearpicker-year.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-datepicker.p-datepicker-multiple-month .p-datepicker-group {\r\n  border-left: 1px solid #dee2e6;\r\n  padding-right: 0.5rem;\r\n  padding-left: 0.5rem;\r\n  padding-top: 0;\r\n  padding-bottom: 0;\r\n}\r\n.p-datepicker.p-datepicker-multiple-month .p-datepicker-group:first-child {\r\n  padding-left: 0;\r\n  border-left: 0 none;\r\n}\r\n.p-datepicker.p-datepicker-multiple-month .p-datepicker-group:last-child {\r\n  padding-right: 0;\r\n}\r\n.p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n\r\n@media screen and (max-width: 769px) {\r\n  .p-datepicker table th, .p-datepicker table td {\r\n    padding: 0;\r\n  }\r\n}\r\n.p-cascadeselect {\r\n  background: #ffffff;\r\n  border: 1px solid #ced4da;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n  border-radius: 3px;\r\n}\r\n.p-cascadeselect:not(.p-disabled):hover {\r\n  border-color: #2196F3;\r\n}\r\n.p-cascadeselect:not(.p-disabled).p-focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  border-color: #2196F3;\r\n}\r\n.p-cascadeselect .p-cascadeselect-label {\r\n  background: transparent;\r\n  border: 0 none;\r\n  padding: 0.5rem 0.5rem;\r\n}\r\n.p-cascadeselect .p-cascadeselect-label.p-placeholder {\r\n  color: #6c757d;\r\n}\r\n.p-cascadeselect .p-cascadeselect-label:enabled:focus {\r\n  outline: 0 none;\r\n  box-shadow: none;\r\n}\r\n.p-cascadeselect .p-cascadeselect-trigger {\r\n  background: transparent;\r\n  color: #6c757d;\r\n  width: 2.357rem;\r\n  border-top-right-radius: 3px;\r\n  border-bottom-right-radius: 3px;\r\n}\r\n.p-cascadeselect.p-invalid.p-component {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-cascadeselect-panel {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  border-radius: 3px;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-cascadeselect-panel .p-cascadeselect-items {\r\n  padding: 0.5rem 0;\r\n}\r\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item {\r\n  margin: 0;\r\n  border: 0 none;\r\n  color: #495057;\r\n  background: transparent;\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 0;\r\n}\r\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-item-content {\r\n  padding: 0.5rem 1rem;\r\n}\r\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-item-content:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled):hover {\r\n  color: #495057;\r\n  background: #e9ecef;\r\n}\r\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-group-icon {\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.p-input-filled .p-cascadeselect {\r\n  background: #f8f9fa;\r\n}\r\n.p-input-filled .p-cascadeselect:not(.p-disabled):hover {\r\n  background-color: #f8f9fa;\r\n}\r\n.p-input-filled .p-cascadeselect:not(.p-disabled).p-focus {\r\n  background-color: #ffffff;\r\n}\r\n\r\n.p-checkbox {\r\n  width: 20px;\r\n  height: 20px;\r\n}\r\n.p-checkbox .p-checkbox-box {\r\n  border: 2px solid #ced4da;\r\n  background: #ffffff;\r\n  width: 20px;\r\n  height: 20px;\r\n  color: #495057;\r\n  border-radius: 3px;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-checkbox .p-checkbox-box .p-checkbox-icon {\r\n  transition-duration: 0.2s;\r\n  color: #ffffff;\r\n  font-size: 14px;\r\n}\r\n.p-checkbox .p-checkbox-box.p-highlight {\r\n  border-color: #2196F3;\r\n  background: #2196F3;\r\n}\r\n.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {\r\n  border-color: #2196F3;\r\n}\r\n.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  border-color: #2196F3;\r\n}\r\n.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {\r\n  border-color: #0b7ad1;\r\n  background: #0b7ad1;\r\n  color: #ffffff;\r\n}\r\n.p-checkbox.p-invalid > .p-checkbox-box {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-input-filled .p-checkbox .p-checkbox-box {\r\n  background-color: #f8f9fa;\r\n}\r\n.p-input-filled .p-checkbox .p-checkbox-box.p-highlight {\r\n  background: #2196F3;\r\n}\r\n.p-input-filled .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {\r\n  background-color: #f8f9fa;\r\n}\r\n.p-input-filled .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {\r\n  background: #0b7ad1;\r\n}\r\n\r\n.p-chips .p-chips-multiple-container {\r\n  padding: 0.25rem 0.5rem;\r\n}\r\n.p-chips .p-chips-multiple-container:not(.p-disabled):hover {\r\n  border-color: #2196F3;\r\n}\r\n.p-chips .p-chips-multiple-container:not(.p-disabled).p-focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  border-color: #2196F3;\r\n}\r\n.p-chips .p-chips-multiple-container .p-chips-token {\r\n  padding: 0.25rem 0.5rem;\r\n  margin-right: 0.5rem;\r\n  background: #dee2e6;\r\n  color: #495057;\r\n  border-radius: 16px;\r\n}\r\n.p-chips .p-chips-multiple-container .p-chips-token .p-chips-token-icon {\r\n  margin-left: 0.5rem;\r\n}\r\n.p-chips .p-chips-multiple-container .p-chips-input-token {\r\n  padding: 0.25rem 0;\r\n}\r\n.p-chips .p-chips-multiple-container .p-chips-input-token input {\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\r\n  font-size: 1rem;\r\n  color: #495057;\r\n  padding: 0;\r\n  margin: 0;\r\n}\r\n.p-chips.p-invalid.p-component > .p-inputtext {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-colorpicker-preview {\r\n  width: 2rem;\r\n  height: 2rem;\r\n}\r\n\r\n.p-colorpicker-panel {\r\n  background: #323232;\r\n  border: 1px solid #191919;\r\n}\r\n.p-colorpicker-panel .p-colorpicker-color-handle,\r\n.p-colorpicker-panel .p-colorpicker-hue-handle {\r\n  border-color: #ffffff;\r\n}\r\n\r\n.p-colorpicker-overlay-panel {\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n\r\n.p-dropdown {\r\n  background: #ffffff;\r\n  border: 1px solid #ced4da;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n  border-radius: 3px;\r\n}\r\n.p-dropdown:not(.p-disabled):hover {\r\n  border-color: #2196F3;\r\n}\r\n.p-dropdown:not(.p-disabled).p-focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  border-color: #2196F3;\r\n}\r\n.p-dropdown.p-dropdown-clearable .p-dropdown-label {\r\n  padding-right: 1.5rem;\r\n}\r\n.p-dropdown .p-dropdown-label {\r\n  background: transparent;\r\n  border: 0 none;\r\n}\r\n.p-dropdown .p-dropdown-label.p-placeholder {\r\n  color: #6c757d;\r\n}\r\n.p-dropdown .p-dropdown-label:enabled:focus {\r\n  outline: 0 none;\r\n  box-shadow: none;\r\n}\r\n.p-dropdown .p-dropdown-trigger {\r\n  background: transparent;\r\n  color: #6c757d;\r\n  width: 2.357rem;\r\n  border-top-right-radius: 3px;\r\n  border-bottom-right-radius: 3px;\r\n}\r\n.p-dropdown .p-dropdown-clear-icon {\r\n  color: #6c757d;\r\n  right: 2.357rem;\r\n}\r\n.p-dropdown.p-invalid.p-component {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-dropdown-panel {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  border-radius: 3px;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-dropdown-panel .p-dropdown-header {\r\n  padding: 0.5rem 1rem;\r\n  border-bottom: 0 none;\r\n  color: #495057;\r\n  background: #f8f9fa;\r\n  margin: 0;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-dropdown-panel .p-dropdown-header .p-dropdown-filter {\r\n  padding-right: 1.5rem;\r\n  margin-right: -1.5rem;\r\n}\r\n.p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon {\r\n  right: 0.5rem;\r\n  color: #6c757d;\r\n}\r\n.p-dropdown-panel .p-dropdown-items {\r\n  padding: 0.5rem 0;\r\n}\r\n.p-dropdown-panel .p-dropdown-items .p-dropdown-item {\r\n  margin: 0;\r\n  padding: 0.5rem 1rem;\r\n  border: 0 none;\r\n  color: #495057;\r\n  background: transparent;\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 0;\r\n}\r\n.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {\r\n  color: #495057;\r\n  background: #e9ecef;\r\n}\r\n.p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {\r\n  margin: 0;\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  background: #ffffff;\r\n  font-weight: 600;\r\n}\r\n.p-dropdown-panel .p-dropdown-items .p-dropdown-empty-message {\r\n  padding: 0.5rem 1rem;\r\n  color: #495057;\r\n  background: transparent;\r\n}\r\n\r\n.p-input-filled .p-dropdown {\r\n  background: #f8f9fa;\r\n}\r\n.p-input-filled .p-dropdown:not(.p-disabled):hover {\r\n  background-color: #f8f9fa;\r\n}\r\n.p-input-filled .p-dropdown:not(.p-disabled).p-focus {\r\n  background-color: #ffffff;\r\n}\r\n.p-input-filled .p-dropdown:not(.p-disabled).p-focus .p-inputtext {\r\n  background-color: transparent;\r\n}\r\n\r\n.p-editor-container .p-editor-toolbar {\r\n  background: #f8f9fa;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow {\r\n  border: 1px solid #dee2e6;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-stroke {\r\n  stroke: #6c757d;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-fill {\r\n  fill: #6c757d;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label {\r\n  border: 0 none;\r\n  color: #6c757d;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover {\r\n  color: #495057;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover .ql-stroke {\r\n  stroke: #495057;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover .ql-fill {\r\n  fill: #495057;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {\r\n  color: #495057;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {\r\n  stroke: #495057;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {\r\n  fill: #495057;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {\r\n  background: #ffffff;\r\n  border: 0 none;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n  border-radius: 3px;\r\n  padding: 0.5rem 0;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item {\r\n  color: #495057;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item:hover {\r\n  color: #495057;\r\n  background: #e9ecef;\r\n}\r\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded:not(.ql-icon-picker) .ql-picker-item {\r\n  padding: 0.5rem 1rem;\r\n}\r\n.p-editor-container .p-editor-content {\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-editor-container .p-editor-content.ql-snow {\r\n  border: 1px solid #dee2e6;\r\n}\r\n.p-editor-container .p-editor-content .ql-editor {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-editor-container .ql-snow.ql-toolbar button:hover,\r\n.p-editor-container .ql-snow.ql-toolbar button:focus {\r\n  color: #495057;\r\n}\r\n.p-editor-container .ql-snow.ql-toolbar button:hover .ql-stroke,\r\n.p-editor-container .ql-snow.ql-toolbar button:focus .ql-stroke {\r\n  stroke: #495057;\r\n}\r\n.p-editor-container .ql-snow.ql-toolbar button:hover .ql-fill,\r\n.p-editor-container .ql-snow.ql-toolbar button:focus .ql-fill {\r\n  fill: #495057;\r\n}\r\n.p-editor-container .ql-snow.ql-toolbar button.ql-active,\r\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active,\r\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected {\r\n  color: #2196F3;\r\n}\r\n.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke,\r\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,\r\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke {\r\n  stroke: #2196F3;\r\n}\r\n.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-fill,\r\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,\r\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill {\r\n  fill: #2196F3;\r\n}\r\n.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-picker-label,\r\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-picker-label,\r\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-picker-label {\r\n  color: #2196F3;\r\n}\r\n\r\n.p-inputgroup-addon {\r\n  background: #e9ecef;\r\n  color: #6c757d;\r\n  border-top: 1px solid #ced4da;\r\n  border-left: 1px solid #ced4da;\r\n  border-bottom: 1px solid #ced4da;\r\n  padding: 0.5rem 0.5rem;\r\n  min-width: 2.357rem;\r\n}\r\n.p-inputgroup-addon:last-child {\r\n  border-right: 1px solid #ced4da;\r\n}\r\n\r\n.p-inputgroup > .p-component,\r\n.p-inputgroup > .p-inputwrapper > .p-inputtext,\r\n.p-inputgroup > .p-float-label > .p-component {\r\n  border-radius: 0;\r\n  margin: 0;\r\n}\r\n.p-inputgroup > .p-component + .p-inputgroup-addon,\r\n.p-inputgroup > .p-inputwrapper > .p-inputtext + .p-inputgroup-addon,\r\n.p-inputgroup > .p-float-label > .p-component + .p-inputgroup-addon {\r\n  border-left: 0 none;\r\n}\r\n.p-inputgroup > .p-component:focus,\r\n.p-inputgroup > .p-inputwrapper > .p-inputtext:focus,\r\n.p-inputgroup > .p-float-label > .p-component:focus {\r\n  z-index: 1;\r\n}\r\n.p-inputgroup > .p-component:focus ~ label,\r\n.p-inputgroup > .p-inputwrapper > .p-inputtext:focus ~ label,\r\n.p-inputgroup > .p-float-label > .p-component:focus ~ label {\r\n  z-index: 1;\r\n}\r\n\r\n.p-inputgroup-addon:first-child,\r\n.p-inputgroup button:first-child,\r\n.p-inputgroup input:first-child,\r\n.p-inputgroup > .p-inputwrapper:first-child,\r\n.p-inputgroup > .p-inputwrapper:first-child > .p-inputtext {\r\n  border-top-left-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n\r\n.p-inputgroup .p-float-label:first-child input {\r\n  border-top-left-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n\r\n.p-inputgroup-addon:last-child,\r\n.p-inputgroup button:last-child,\r\n.p-inputgroup input:last-child,\r\n.p-inputgroup > .p-inputwrapper:last-child,\r\n.p-inputgroup > .p-inputwrapper:last-child > .p-inputtext {\r\n  border-top-right-radius: 3px;\r\n  border-bottom-right-radius: 3px;\r\n}\r\n\r\n.p-inputgroup .p-float-label:last-child input {\r\n  border-top-right-radius: 3px;\r\n  border-bottom-right-radius: 3px;\r\n}\r\n\r\n.p-fluid .p-inputgroup .p-button {\r\n  width: auto;\r\n}\r\n.p-fluid .p-inputgroup .p-button.p-button-icon-only {\r\n  width: 2.357rem;\r\n}\r\n\r\n.p-inputnumber.p-invalid.p-component > .p-inputtext {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-inputswitch {\r\n  width: 3rem;\r\n  height: 1.75rem;\r\n}\r\n.p-inputswitch .p-inputswitch-slider {\r\n  background: #ced4da;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n  border-radius: 30px;\r\n}\r\n.p-inputswitch .p-inputswitch-slider:before {\r\n  background: #ffffff;\r\n  width: 1.25rem;\r\n  height: 1.25rem;\r\n  left: 0.25rem;\r\n  margin-top: -0.625rem;\r\n  border-radius: 50%;\r\n  transition-duration: 0.2s;\r\n}\r\n.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {\r\n  transform: translateX(1.25rem);\r\n}\r\n.p-inputswitch.p-focus .p-inputswitch-slider {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider {\r\n  background: #b6bfc8;\r\n}\r\n.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {\r\n  background: #2196F3;\r\n}\r\n.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {\r\n  background: #ffffff;\r\n}\r\n.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {\r\n  background: #0d89ec;\r\n}\r\n.p-inputswitch.p-invalid {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-inputtext {\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\r\n  font-size: 1rem;\r\n  color: #495057;\r\n  background: #ffffff;\r\n  padding: 0.5rem 0.5rem;\r\n  border: 1px solid #ced4da;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n  -webkit-appearance: none;\r\n     -moz-appearance: none;\r\n          appearance: none;\r\n  border-radius: 3px;\r\n}\r\n.p-inputtext:enabled:hover {\r\n  border-color: #2196F3;\r\n}\r\n.p-inputtext:enabled:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  border-color: #2196F3;\r\n}\r\n.p-inputtext.p-invalid.p-component {\r\n  border-color: #f44336;\r\n}\r\n.p-inputtext.p-inputtext-sm {\r\n  font-size: 0.875rem;\r\n  padding: 0.4375rem 0.4375rem;\r\n}\r\n.p-inputtext.p-inputtext-lg {\r\n  font-size: 1.25rem;\r\n  padding: 0.625rem 0.625rem;\r\n}\r\n\r\n.p-float-label > label {\r\n  left: 0.5rem;\r\n  color: #6c757d;\r\n  transition-duration: 0.2s;\r\n}\r\n\r\n.p-float-label > .p-invalid + label {\r\n  color: #f44336;\r\n}\r\n\r\n.p-input-icon-left > i:first-of-type {\r\n  left: 0.5rem;\r\n  color: #6c757d;\r\n}\r\n\r\n.p-input-icon-left > .p-inputtext {\r\n  padding-left: 2rem;\r\n}\r\n\r\n.p-input-icon-left.p-float-label > label {\r\n  left: 2rem;\r\n}\r\n\r\n.p-input-icon-right > i:last-of-type {\r\n  right: 0.5rem;\r\n  color: #6c757d;\r\n}\r\n\r\n.p-input-icon-right > .p-inputtext {\r\n  padding-right: 2rem;\r\n}\r\n\r\n::-webkit-input-placeholder {\r\n  color: #6c757d;\r\n}\r\n\r\n:-moz-placeholder {\r\n  color: #6c757d;\r\n}\r\n\r\n::-moz-placeholder {\r\n  color: #6c757d;\r\n}\r\n\r\n:-ms-input-placeholder {\r\n  color: #6c757d;\r\n}\r\n\r\n.p-input-filled .p-inputtext {\r\n  background-color: #f8f9fa;\r\n}\r\n.p-input-filled .p-inputtext:enabled:hover {\r\n  background-color: #f8f9fa;\r\n}\r\n.p-input-filled .p-inputtext:enabled:focus {\r\n  background-color: #ffffff;\r\n}\r\n\r\n.p-inputtext-sm .p-inputtext {\r\n  font-size: 0.875rem;\r\n  padding: 0.4375rem 0.4375rem;\r\n}\r\n\r\n.p-inputtext-lg .p-inputtext {\r\n  font-size: 1.25rem;\r\n  padding: 0.625rem 0.625rem;\r\n}\r\n\r\n.p-listbox {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 1px solid #ced4da;\r\n  border-radius: 3px;\r\n}\r\n.p-listbox .p-listbox-header {\r\n  padding: 0.5rem 1rem;\r\n  border-bottom: 0 none;\r\n  color: #495057;\r\n  background: #f8f9fa;\r\n  margin: 0;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-listbox .p-listbox-header .p-listbox-filter {\r\n  padding-right: 1.5rem;\r\n}\r\n.p-listbox .p-listbox-header .p-listbox-filter-icon {\r\n  right: 0.5rem;\r\n  color: #6c757d;\r\n}\r\n.p-listbox .p-listbox-list {\r\n  padding: 0.5rem 0;\r\n}\r\n.p-listbox .p-listbox-list .p-listbox-item {\r\n  margin: 0;\r\n  padding: 0.5rem 1rem;\r\n  border: 0 none;\r\n  color: #495057;\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 0;\r\n}\r\n.p-listbox .p-listbox-list .p-listbox-item.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-listbox .p-listbox-list .p-listbox-item:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-listbox .p-listbox-list .p-listbox-item-group {\r\n  margin: 0;\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  background: #ffffff;\r\n  font-weight: 600;\r\n}\r\n.p-listbox .p-listbox-list .p-listbox-empty-message {\r\n  padding: 0.5rem 1rem;\r\n  color: #495057;\r\n  background: transparent;\r\n}\r\n.p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {\r\n  color: #495057;\r\n  background: #e9ecef;\r\n}\r\n.p-listbox.p-invalid {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-multiselect {\r\n  background: #ffffff;\r\n  border: 1px solid #ced4da;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n  border-radius: 3px;\r\n}\r\n.p-multiselect:not(.p-disabled):hover {\r\n  border-color: #2196F3;\r\n}\r\n.p-multiselect:not(.p-disabled).p-focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  border-color: #2196F3;\r\n}\r\n.p-multiselect .p-multiselect-label {\r\n  padding: 0.5rem 0.5rem;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-multiselect .p-multiselect-label.p-placeholder {\r\n  color: #6c757d;\r\n}\r\n.p-multiselect.p-multiselect-chip .p-multiselect-token {\r\n  padding: 0.25rem 0.5rem;\r\n  margin-right: 0.5rem;\r\n  background: #dee2e6;\r\n  color: #495057;\r\n  border-radius: 16px;\r\n}\r\n.p-multiselect.p-multiselect-chip .p-multiselect-token .p-multiselect-token-icon {\r\n  margin-left: 0.5rem;\r\n}\r\n.p-multiselect .p-multiselect-trigger {\r\n  background: transparent;\r\n  color: #6c757d;\r\n  width: 2.357rem;\r\n  border-top-right-radius: 3px;\r\n  border-bottom-right-radius: 3px;\r\n}\r\n.p-multiselect.p-invalid.p-component {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-inputwrapper-filled.p-multiselect.p-multiselect-chip .p-multiselect-label {\r\n  padding: 0.25rem 0.5rem;\r\n}\r\n\r\n.p-multiselect-panel {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  border-radius: 3px;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-multiselect-panel .p-multiselect-header {\r\n  padding: 0.5rem 1rem;\r\n  border-bottom: 0 none;\r\n  color: #495057;\r\n  background: #f8f9fa;\r\n  margin: 0;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-inputtext {\r\n  padding-right: 1.5rem;\r\n}\r\n.p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-multiselect-filter-icon {\r\n  right: 0.5rem;\r\n  color: #6c757d;\r\n}\r\n.p-multiselect-panel .p-multiselect-header .p-checkbox {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-multiselect-panel .p-multiselect-header .p-multiselect-close {\r\n  margin-left: 0.5rem;\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-multiselect-panel .p-multiselect-header .p-multiselect-close:enabled:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-multiselect-panel .p-multiselect-header .p-multiselect-close:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-multiselect-panel .p-multiselect-items {\r\n  padding: 0.5rem 0;\r\n}\r\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item {\r\n  margin: 0;\r\n  padding: 0.5rem 1rem;\r\n  border: 0 none;\r\n  color: #495057;\r\n  background: transparent;\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 0;\r\n}\r\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {\r\n  color: #495057;\r\n  background: #e9ecef;\r\n}\r\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item-group {\r\n  margin: 0;\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  background: #ffffff;\r\n  font-weight: 600;\r\n}\r\n.p-multiselect-panel .p-multiselect-items .p-multiselect-empty-message {\r\n  padding: 0.5rem 1rem;\r\n  color: #495057;\r\n  background: transparent;\r\n}\r\n\r\n.p-input-filled .p-multiselect {\r\n  background: #f8f9fa;\r\n}\r\n.p-input-filled .p-multiselect:not(.p-disabled):hover {\r\n  background-color: #f8f9fa;\r\n}\r\n.p-input-filled .p-multiselect:not(.p-disabled).p-focus {\r\n  background-color: #ffffff;\r\n}\r\n\r\n.p-password.p-invalid.p-component > .p-inputtext {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-password-panel {\r\n  padding: 1rem;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n  border-radius: 3px;\r\n}\r\n.p-password-panel .p-password-meter {\r\n  margin-bottom: 0.5rem;\r\n  background: #dee2e6;\r\n}\r\n.p-password-panel .p-password-meter .p-password-strength.weak {\r\n  background: #D32F2F;\r\n}\r\n.p-password-panel .p-password-meter .p-password-strength.medium {\r\n  background: #FBC02D;\r\n}\r\n.p-password-panel .p-password-meter .p-password-strength.strong {\r\n  background: #689F38;\r\n}\r\n\r\n.p-radiobutton {\r\n  width: 20px;\r\n  height: 20px;\r\n}\r\n.p-radiobutton .p-radiobutton-box {\r\n  border: 2px solid #ced4da;\r\n  background: #ffffff;\r\n  width: 20px;\r\n  height: 20px;\r\n  color: #495057;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {\r\n  border-color: #2196F3;\r\n}\r\n.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  border-color: #2196F3;\r\n}\r\n.p-radiobutton .p-radiobutton-box .p-radiobutton-icon {\r\n  width: 12px;\r\n  height: 12px;\r\n  transition-duration: 0.2s;\r\n  background-color: #ffffff;\r\n}\r\n.p-radiobutton .p-radiobutton-box.p-highlight {\r\n  border-color: #2196F3;\r\n  background: #2196F3;\r\n}\r\n.p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {\r\n  border-color: #0b7ad1;\r\n  background: #0b7ad1;\r\n  color: #ffffff;\r\n}\r\n.p-radiobutton.p-invalid > .p-radiobutton-box {\r\n  border-color: #f44336;\r\n}\r\n.p-radiobutton:focus {\r\n  outline: 0 none;\r\n}\r\n\r\n.p-input-filled .p-radiobutton .p-radiobutton-box {\r\n  background-color: #f8f9fa;\r\n}\r\n.p-input-filled .p-radiobutton .p-radiobutton-box:not(.p-disabled):hover {\r\n  background-color: #f8f9fa;\r\n}\r\n.p-input-filled .p-radiobutton .p-radiobutton-box.p-highlight {\r\n  background: #2196F3;\r\n}\r\n.p-input-filled .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {\r\n  background: #0b7ad1;\r\n}\r\n\r\n.p-rating .p-rating-icon {\r\n  color: #495057;\r\n  margin-left: 0.5rem;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n  font-size: 1.143rem;\r\n}\r\n.p-rating .p-rating-icon.p-rating-cancel {\r\n  color: #e74c3c;\r\n}\r\n.p-rating .p-rating-icon:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-rating .p-rating-icon:first-child {\r\n  margin-left: 0;\r\n}\r\n.p-rating .p-rating-icon.pi-star-fill {\r\n  color: #2196F3;\r\n}\r\n.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon:hover {\r\n  color: #2196F3;\r\n}\r\n.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon.p-rating-cancel:hover {\r\n  color: #c0392b;\r\n}\r\n\r\n.p-selectbutton .p-button {\r\n  background: #ffffff;\r\n  border: 1px solid #ced4da;\r\n  color: #495057;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-selectbutton .p-button .p-button-icon-left,\r\n.p-selectbutton .p-button .p-button-icon-right {\r\n  color: #6c757d;\r\n}\r\n.p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  border-color: #ced4da;\r\n  color: #495057;\r\n}\r\n.p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-left,\r\n.p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-right {\r\n  color: #6c757d;\r\n}\r\n.p-selectbutton .p-button.p-highlight {\r\n  background: #2196F3;\r\n  border-color: #2196F3;\r\n  color: #ffffff;\r\n}\r\n.p-selectbutton .p-button.p-highlight .p-button-icon-left,\r\n.p-selectbutton .p-button.p-highlight .p-button-icon-right {\r\n  color: #ffffff;\r\n}\r\n.p-selectbutton .p-button.p-highlight:hover {\r\n  background: #0d89ec;\r\n  border-color: #0d89ec;\r\n  color: #ffffff;\r\n}\r\n.p-selectbutton .p-button.p-highlight:hover .p-button-icon-left,\r\n.p-selectbutton .p-button.p-highlight:hover .p-button-icon-right {\r\n  color: #ffffff;\r\n}\r\n.p-selectbutton.p-invalid > .p-button {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-slider {\r\n  background: #dee2e6;\r\n  border: 0 none;\r\n  border-radius: 3px;\r\n}\r\n.p-slider.p-slider-horizontal {\r\n  height: 0.286rem;\r\n}\r\n.p-slider.p-slider-horizontal .p-slider-handle {\r\n  margin-top: -0.5715rem;\r\n  margin-left: -0.5715rem;\r\n}\r\n.p-slider.p-slider-vertical {\r\n  width: 0.286rem;\r\n}\r\n.p-slider.p-slider-vertical .p-slider-handle {\r\n  margin-left: -0.5715rem;\r\n  margin-bottom: -0.5715rem;\r\n}\r\n.p-slider .p-slider-handle {\r\n  height: 1.143rem;\r\n  width: 1.143rem;\r\n  background: #ffffff;\r\n  border: 2px solid #2196F3;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-slider .p-slider-handle:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-slider .p-slider-range {\r\n  background: #2196F3;\r\n}\r\n.p-slider:not(.p-disabled) .p-slider-handle:hover {\r\n  background: #2196F3;\r\n  border-color: #2196F3;\r\n}\r\n\r\n.p-treeselect {\r\n  background: #ffffff;\r\n  border: 1px solid #ced4da;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n  border-radius: 3px;\r\n}\r\n.p-treeselect:not(.p-disabled):hover {\r\n  border-color: #2196F3;\r\n}\r\n.p-treeselect:not(.p-disabled).p-focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  border-color: #2196F3;\r\n}\r\n.p-treeselect .p-treeselect-label {\r\n  padding: 0.5rem 0.5rem;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-treeselect .p-treeselect-label.p-placeholder {\r\n  color: #6c757d;\r\n}\r\n.p-treeselect.p-treeselect-chip .p-treeselect-token {\r\n  padding: 0.25rem 0.5rem;\r\n  margin-right: 0.5rem;\r\n  background: #dee2e6;\r\n  color: #495057;\r\n  border-radius: 16px;\r\n}\r\n.p-treeselect .p-treeselect-trigger {\r\n  background: transparent;\r\n  color: #6c757d;\r\n  width: 2.357rem;\r\n  border-top-right-radius: 3px;\r\n  border-bottom-right-radius: 3px;\r\n}\r\n.p-treeselect.p-invalid.p-component {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-inputwrapper-filled.p-treeselect.p-treeselect-chip .p-treeselect-label {\r\n  padding: 0.25rem 0.5rem;\r\n}\r\n\r\n.p-treeselect-panel {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  border-radius: 3px;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-treeselect-panel .p-treeselect-items-wrapper .p-tree {\r\n  border: 0 none;\r\n}\r\n.p-treeselect-panel .p-treeselect-items-wrapper .p-treeselect-empty-message {\r\n  padding: 0.5rem 1rem;\r\n  color: #495057;\r\n  background: transparent;\r\n}\r\n\r\n.p-input-filled .p-treeselect {\r\n  background: #f8f9fa;\r\n}\r\n.p-input-filled .p-treeselect:not(.p-disabled):hover {\r\n  background-color: #f8f9fa;\r\n}\r\n.p-input-filled .p-treeselect:not(.p-disabled).p-focus {\r\n  background-color: #ffffff;\r\n}\r\n\r\n.p-togglebutton.p-button {\r\n  background: #ffffff;\r\n  border: 1px solid #ced4da;\r\n  color: #495057;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-togglebutton.p-button .p-button-icon-left,\r\n.p-togglebutton.p-button .p-button-icon-right {\r\n  color: #6c757d;\r\n}\r\n.p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  border-color: #ced4da;\r\n  color: #495057;\r\n}\r\n.p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-left,\r\n.p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-right {\r\n  color: #6c757d;\r\n}\r\n.p-togglebutton.p-button.p-highlight {\r\n  background: #2196F3;\r\n  border-color: #2196F3;\r\n  color: #ffffff;\r\n}\r\n.p-togglebutton.p-button.p-highlight .p-button-icon-left,\r\n.p-togglebutton.p-button.p-highlight .p-button-icon-right {\r\n  color: #ffffff;\r\n}\r\n.p-togglebutton.p-button.p-highlight:hover {\r\n  background: #0d89ec;\r\n  border-color: #0d89ec;\r\n  color: #ffffff;\r\n}\r\n.p-togglebutton.p-button.p-highlight:hover .p-button-icon-left,\r\n.p-togglebutton.p-button.p-highlight:hover .p-button-icon-right {\r\n  color: #ffffff;\r\n}\r\n.p-togglebutton.p-button.p-invalid > .p-button {\r\n  border-color: #f44336;\r\n}\r\n\r\n.p-button {\r\n  color: #ffffff;\r\n  background: #2196F3;\r\n  border: 1px solid #2196F3;\r\n  padding: 0.5rem 1rem;\r\n  font-size: 1rem;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n  border-radius: 3px;\r\n}\r\n.p-button:enabled:hover {\r\n  background: #0d89ec;\r\n  color: #ffffff;\r\n  border-color: #0d89ec;\r\n}\r\n.p-button:enabled:active {\r\n  background: #0b7ad1;\r\n  color: #ffffff;\r\n  border-color: #0b7ad1;\r\n}\r\n.p-button.p-button-outlined {\r\n  background-color: transparent;\r\n  color: #2196F3;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-outlined:enabled:hover {\r\n  background: rgba(33, 150, 243, 0.04);\r\n  color: #2196F3;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-outlined:enabled:active {\r\n  background: rgba(33, 150, 243, 0.16);\r\n  color: #2196F3;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-outlined.p-button-plain {\r\n  color: #6c757d;\r\n  border-color: #6c757d;\r\n}\r\n.p-button.p-button-outlined.p-button-plain:enabled:hover {\r\n  background: #e9ecef;\r\n  color: #6c757d;\r\n}\r\n.p-button.p-button-outlined.p-button-plain:enabled:active {\r\n  background: #dee2e6;\r\n  color: #6c757d;\r\n}\r\n.p-button.p-button-text {\r\n  background-color: transparent;\r\n  color: #2196F3;\r\n  border-color: transparent;\r\n}\r\n.p-button.p-button-text:enabled:hover {\r\n  background: rgba(33, 150, 243, 0.04);\r\n  color: #2196F3;\r\n  border-color: transparent;\r\n}\r\n.p-button.p-button-text:enabled:active {\r\n  background: rgba(33, 150, 243, 0.16);\r\n  color: #2196F3;\r\n  border-color: transparent;\r\n}\r\n.p-button.p-button-text.p-button-plain {\r\n  color: #6c757d;\r\n}\r\n.p-button.p-button-text.p-button-plain:enabled:hover {\r\n  background: #e9ecef;\r\n  color: #6c757d;\r\n}\r\n.p-button.p-button-text.p-button-plain:enabled:active {\r\n  background: #dee2e6;\r\n  color: #6c757d;\r\n}\r\n.p-button:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-button .p-button-icon-left {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-button .p-button-icon-right {\r\n  margin-left: 0.5rem;\r\n}\r\n.p-button .p-button-icon-bottom {\r\n  margin-top: 0.5rem;\r\n}\r\n.p-button .p-button-icon-top {\r\n  margin-bottom: 0.5rem;\r\n}\r\n.p-button .p-badge {\r\n  margin-left: 0.5rem;\r\n  min-width: 1rem;\r\n  height: 1rem;\r\n  line-height: 1rem;\r\n  color: #2196F3;\r\n  background-color: #ffffff;\r\n}\r\n.p-button.p-button-raised {\r\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-button.p-button-rounded {\r\n  border-radius: 2rem;\r\n}\r\n.p-button.p-button-icon-only {\r\n  width: 2.357rem;\r\n  padding: 0.5rem 0;\r\n}\r\n.p-button.p-button-icon-only .p-button-icon-left,\r\n.p-button.p-button-icon-only .p-button-icon-right {\r\n  margin: 0;\r\n}\r\n.p-button.p-button-icon-only.p-button-rounded {\r\n  border-radius: 50%;\r\n  height: 2.357rem;\r\n}\r\n.p-button.p-button-sm {\r\n  font-size: 0.875rem;\r\n  padding: 0.4375rem 0.875rem;\r\n}\r\n.p-button.p-button-sm .p-button-icon {\r\n  font-size: 0.875rem;\r\n}\r\n.p-button.p-button-lg {\r\n  font-size: 1.25rem;\r\n  padding: 0.625rem 1.25rem;\r\n}\r\n.p-button.p-button-lg .p-button-icon {\r\n  font-size: 1.25rem;\r\n}\r\n.p-button.p-button-loading-label-only .p-button-label {\r\n  margin-left: 0.5rem;\r\n}\r\n.p-button.p-button-loading-label-only .p-button-loading-icon {\r\n  margin-right: 0;\r\n}\r\n\r\n.p-fluid .p-button {\r\n  width: 100%;\r\n}\r\n.p-fluid .p-button-icon-only {\r\n  width: 2.357rem;\r\n}\r\n.p-fluid .p-buttonset {\r\n  display: flex;\r\n}\r\n.p-fluid .p-buttonset .p-button {\r\n  flex: 1;\r\n}\r\n\r\n.p-button.p-button-secondary, .p-buttonset.p-button-secondary > .p-button, .p-splitbutton.p-button-secondary > .p-button {\r\n  color: #ffffff;\r\n  background: #607D8B;\r\n  border: 1px solid #607D8B;\r\n}\r\n.p-button.p-button-secondary:enabled:hover, .p-buttonset.p-button-secondary > .p-button:enabled:hover, .p-splitbutton.p-button-secondary > .p-button:enabled:hover {\r\n  background: #56717d;\r\n  color: #ffffff;\r\n  border-color: #56717d;\r\n}\r\n.p-button.p-button-secondary:enabled:focus, .p-buttonset.p-button-secondary > .p-button:enabled:focus, .p-splitbutton.p-button-secondary > .p-button:enabled:focus {\r\n  box-shadow: 0 0 0 0.2rem #beccd2;\r\n}\r\n.p-button.p-button-secondary:enabled:active, .p-buttonset.p-button-secondary > .p-button:enabled:active, .p-splitbutton.p-button-secondary > .p-button:enabled:active {\r\n  background: #4d646f;\r\n  color: #ffffff;\r\n  border-color: #4d646f;\r\n}\r\n.p-button.p-button-secondary.p-button-outlined, .p-buttonset.p-button-secondary > .p-button.p-button-outlined, .p-splitbutton.p-button-secondary > .p-button.p-button-outlined {\r\n  background-color: transparent;\r\n  color: #607D8B;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-secondary.p-button-outlined:enabled:hover, .p-buttonset.p-button-secondary > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-secondary > .p-button.p-button-outlined:enabled:hover {\r\n  background: rgba(96, 125, 139, 0.04);\r\n  color: #607D8B;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-secondary.p-button-outlined:enabled:active, .p-buttonset.p-button-secondary > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-secondary > .p-button.p-button-outlined:enabled:active {\r\n  background: rgba(96, 125, 139, 0.16);\r\n  color: #607D8B;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-secondary.p-button-text, .p-buttonset.p-button-secondary > .p-button.p-button-text, .p-splitbutton.p-button-secondary > .p-button.p-button-text {\r\n  background-color: transparent;\r\n  color: #607D8B;\r\n  border-color: transparent;\r\n}\r\n.p-button.p-button-secondary.p-button-text:enabled:hover, .p-buttonset.p-button-secondary > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-secondary > .p-button.p-button-text:enabled:hover {\r\n  background: rgba(96, 125, 139, 0.04);\r\n  border-color: transparent;\r\n  color: #607D8B;\r\n}\r\n.p-button.p-button-secondary.p-button-text:enabled:active, .p-buttonset.p-button-secondary > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-secondary > .p-button.p-button-text:enabled:active {\r\n  background: rgba(96, 125, 139, 0.16);\r\n  border-color: transparent;\r\n  color: #607D8B;\r\n}\r\n\r\n.p-button.p-button-info, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button {\r\n  color: #ffffff;\r\n  background: #0288D1;\r\n  border: 1px solid #0288D1;\r\n}\r\n.p-button.p-button-info:enabled:hover, .p-buttonset.p-button-info > .p-button:enabled:hover, .p-splitbutton.p-button-info > .p-button:enabled:hover {\r\n  background: #027abc;\r\n  color: #ffffff;\r\n  border-color: #027abc;\r\n}\r\n.p-button.p-button-info:enabled:focus, .p-buttonset.p-button-info > .p-button:enabled:focus, .p-splitbutton.p-button-info > .p-button:enabled:focus {\r\n  box-shadow: 0 0 0 0.2rem #89d4fe;\r\n}\r\n.p-button.p-button-info:enabled:active, .p-buttonset.p-button-info > .p-button:enabled:active, .p-splitbutton.p-button-info > .p-button:enabled:active {\r\n  background: #026da7;\r\n  color: #ffffff;\r\n  border-color: #026da7;\r\n}\r\n.p-button.p-button-info.p-button-outlined, .p-buttonset.p-button-info > .p-button.p-button-outlined, .p-splitbutton.p-button-info > .p-button.p-button-outlined {\r\n  background-color: transparent;\r\n  color: #0288D1;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-info.p-button-outlined:enabled:hover, .p-buttonset.p-button-info > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-info > .p-button.p-button-outlined:enabled:hover {\r\n  background: rgba(2, 136, 209, 0.04);\r\n  color: #0288D1;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-info.p-button-outlined:enabled:active, .p-buttonset.p-button-info > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-info > .p-button.p-button-outlined:enabled:active {\r\n  background: rgba(2, 136, 209, 0.16);\r\n  color: #0288D1;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-info.p-button-text, .p-buttonset.p-button-info > .p-button.p-button-text, .p-splitbutton.p-button-info > .p-button.p-button-text {\r\n  background-color: transparent;\r\n  color: #0288D1;\r\n  border-color: transparent;\r\n}\r\n.p-button.p-button-info.p-button-text:enabled:hover, .p-buttonset.p-button-info > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-info > .p-button.p-button-text:enabled:hover {\r\n  background: rgba(2, 136, 209, 0.04);\r\n  border-color: transparent;\r\n  color: #0288D1;\r\n}\r\n.p-button.p-button-info.p-button-text:enabled:active, .p-buttonset.p-button-info > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-info > .p-button.p-button-text:enabled:active {\r\n  background: rgba(2, 136, 209, 0.16);\r\n  border-color: transparent;\r\n  color: #0288D1;\r\n}\r\n\r\n.p-button.p-button-success, .p-buttonset.p-button-success > .p-button, .p-splitbutton.p-button-success > .p-button {\r\n  color: #ffffff;\r\n  background: #689F38;\r\n  border: 1px solid #689F38;\r\n}\r\n.p-button.p-button-success:enabled:hover, .p-buttonset.p-button-success > .p-button:enabled:hover, .p-splitbutton.p-button-success > .p-button:enabled:hover {\r\n  background: #5e8f32;\r\n  color: #ffffff;\r\n  border-color: #5e8f32;\r\n}\r\n.p-button.p-button-success:enabled:focus, .p-buttonset.p-button-success > .p-button:enabled:focus, .p-splitbutton.p-button-success > .p-button:enabled:focus {\r\n  box-shadow: 0 0 0 0.2rem #c2e0a8;\r\n}\r\n.p-button.p-button-success:enabled:active, .p-buttonset.p-button-success > .p-button:enabled:active, .p-splitbutton.p-button-success > .p-button:enabled:active {\r\n  background: #537f2d;\r\n  color: #ffffff;\r\n  border-color: #537f2d;\r\n}\r\n.p-button.p-button-success.p-button-outlined, .p-buttonset.p-button-success > .p-button.p-button-outlined, .p-splitbutton.p-button-success > .p-button.p-button-outlined {\r\n  background-color: transparent;\r\n  color: #689F38;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-success.p-button-outlined:enabled:hover, .p-buttonset.p-button-success > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-success > .p-button.p-button-outlined:enabled:hover {\r\n  background: rgba(104, 159, 56, 0.04);\r\n  color: #689F38;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-success.p-button-outlined:enabled:active, .p-buttonset.p-button-success > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-success > .p-button.p-button-outlined:enabled:active {\r\n  background: rgba(104, 159, 56, 0.16);\r\n  color: #689F38;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-success.p-button-text, .p-buttonset.p-button-success > .p-button.p-button-text, .p-splitbutton.p-button-success > .p-button.p-button-text {\r\n  background-color: transparent;\r\n  color: #689F38;\r\n  border-color: transparent;\r\n}\r\n.p-button.p-button-success.p-button-text:enabled:hover, .p-buttonset.p-button-success > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-success > .p-button.p-button-text:enabled:hover {\r\n  background: rgba(104, 159, 56, 0.04);\r\n  border-color: transparent;\r\n  color: #689F38;\r\n}\r\n.p-button.p-button-success.p-button-text:enabled:active, .p-buttonset.p-button-success > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-success > .p-button.p-button-text:enabled:active {\r\n  background: rgba(104, 159, 56, 0.16);\r\n  border-color: transparent;\r\n  color: #689F38;\r\n}\r\n\r\n.p-button.p-button-warning, .p-buttonset.p-button-warning > .p-button, .p-splitbutton.p-button-warning > .p-button {\r\n  color: #212529;\r\n  background: #FBC02D;\r\n  border: 1px solid #FBC02D;\r\n}\r\n.p-button.p-button-warning:enabled:hover, .p-buttonset.p-button-warning > .p-button:enabled:hover, .p-splitbutton.p-button-warning > .p-button:enabled:hover {\r\n  background: #fab710;\r\n  color: #212529;\r\n  border-color: #fab710;\r\n}\r\n.p-button.p-button-warning:enabled:focus, .p-buttonset.p-button-warning > .p-button:enabled:focus, .p-splitbutton.p-button-warning > .p-button:enabled:focus {\r\n  box-shadow: 0 0 0 0.2rem #fde6ab;\r\n}\r\n.p-button.p-button-warning:enabled:active, .p-buttonset.p-button-warning > .p-button:enabled:active, .p-splitbutton.p-button-warning > .p-button:enabled:active {\r\n  background: #e8a704;\r\n  color: #212529;\r\n  border-color: #e8a704;\r\n}\r\n.p-button.p-button-warning.p-button-outlined, .p-buttonset.p-button-warning > .p-button.p-button-outlined, .p-splitbutton.p-button-warning > .p-button.p-button-outlined {\r\n  background-color: transparent;\r\n  color: #FBC02D;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-warning.p-button-outlined:enabled:hover, .p-buttonset.p-button-warning > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-warning > .p-button.p-button-outlined:enabled:hover {\r\n  background: rgba(251, 192, 45, 0.04);\r\n  color: #FBC02D;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-warning.p-button-outlined:enabled:active, .p-buttonset.p-button-warning > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-warning > .p-button.p-button-outlined:enabled:active {\r\n  background: rgba(251, 192, 45, 0.16);\r\n  color: #FBC02D;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-warning.p-button-text, .p-buttonset.p-button-warning > .p-button.p-button-text, .p-splitbutton.p-button-warning > .p-button.p-button-text {\r\n  background-color: transparent;\r\n  color: #FBC02D;\r\n  border-color: transparent;\r\n}\r\n.p-button.p-button-warning.p-button-text:enabled:hover, .p-buttonset.p-button-warning > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-warning > .p-button.p-button-text:enabled:hover {\r\n  background: rgba(251, 192, 45, 0.04);\r\n  border-color: transparent;\r\n  color: #FBC02D;\r\n}\r\n.p-button.p-button-warning.p-button-text:enabled:active, .p-buttonset.p-button-warning > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-warning > .p-button.p-button-text:enabled:active {\r\n  background: rgba(251, 192, 45, 0.16);\r\n  border-color: transparent;\r\n  color: #FBC02D;\r\n}\r\n\r\n.p-button.p-button-help, .p-buttonset.p-button-help > .p-button, .p-splitbutton.p-button-help > .p-button {\r\n  color: #ffffff;\r\n  background: #9C27B0;\r\n  border: 1px solid #9C27B0;\r\n}\r\n.p-button.p-button-help:enabled:hover, .p-buttonset.p-button-help > .p-button:enabled:hover, .p-splitbutton.p-button-help > .p-button:enabled:hover {\r\n  background: #8c239e;\r\n  color: #ffffff;\r\n  border-color: #8c239e;\r\n}\r\n.p-button.p-button-help:enabled:focus, .p-buttonset.p-button-help > .p-button:enabled:focus, .p-splitbutton.p-button-help > .p-button:enabled:focus {\r\n  box-shadow: 0 0 0 0.2rem #df9eea;\r\n}\r\n.p-button.p-button-help:enabled:active, .p-buttonset.p-button-help > .p-button:enabled:active, .p-splitbutton.p-button-help > .p-button:enabled:active {\r\n  background: #7d1f8d;\r\n  color: #ffffff;\r\n  border-color: #7d1f8d;\r\n}\r\n.p-button.p-button-help.p-button-outlined, .p-buttonset.p-button-help > .p-button.p-button-outlined, .p-splitbutton.p-button-help > .p-button.p-button-outlined {\r\n  background-color: transparent;\r\n  color: #9C27B0;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-help.p-button-outlined:enabled:hover, .p-buttonset.p-button-help > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-help > .p-button.p-button-outlined:enabled:hover {\r\n  background: rgba(156, 39, 176, 0.04);\r\n  color: #9C27B0;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-help.p-button-outlined:enabled:active, .p-buttonset.p-button-help > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-help > .p-button.p-button-outlined:enabled:active {\r\n  background: rgba(156, 39, 176, 0.16);\r\n  color: #9C27B0;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-help.p-button-text, .p-buttonset.p-button-help > .p-button.p-button-text, .p-splitbutton.p-button-help > .p-button.p-button-text {\r\n  background-color: transparent;\r\n  color: #9C27B0;\r\n  border-color: transparent;\r\n}\r\n.p-button.p-button-help.p-button-text:enabled:hover, .p-buttonset.p-button-help > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-help > .p-button.p-button-text:enabled:hover {\r\n  background: rgba(156, 39, 176, 0.04);\r\n  border-color: transparent;\r\n  color: #9C27B0;\r\n}\r\n.p-button.p-button-help.p-button-text:enabled:active, .p-buttonset.p-button-help > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-help > .p-button.p-button-text:enabled:active {\r\n  background: rgba(156, 39, 176, 0.16);\r\n  border-color: transparent;\r\n  color: #9C27B0;\r\n}\r\n\r\n.p-button.p-button-danger, .p-buttonset.p-button-danger > .p-button, .p-splitbutton.p-button-danger > .p-button {\r\n  color: #ffffff;\r\n  background: #D32F2F;\r\n  border: 1px solid #D32F2F;\r\n}\r\n.p-button.p-button-danger:enabled:hover, .p-buttonset.p-button-danger > .p-button:enabled:hover, .p-splitbutton.p-button-danger > .p-button:enabled:hover {\r\n  background: #c02929;\r\n  color: #ffffff;\r\n  border-color: #c02929;\r\n}\r\n.p-button.p-button-danger:enabled:focus, .p-buttonset.p-button-danger > .p-button:enabled:focus, .p-splitbutton.p-button-danger > .p-button:enabled:focus {\r\n  box-shadow: 0 0 0 0.2rem #edacac;\r\n}\r\n.p-button.p-button-danger:enabled:active, .p-buttonset.p-button-danger > .p-button:enabled:active, .p-splitbutton.p-button-danger > .p-button:enabled:active {\r\n  background: #aa2424;\r\n  color: #ffffff;\r\n  border-color: #aa2424;\r\n}\r\n.p-button.p-button-danger.p-button-outlined, .p-buttonset.p-button-danger > .p-button.p-button-outlined, .p-splitbutton.p-button-danger > .p-button.p-button-outlined {\r\n  background-color: transparent;\r\n  color: #D32F2F;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-danger.p-button-outlined:enabled:hover, .p-buttonset.p-button-danger > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-danger > .p-button.p-button-outlined:enabled:hover {\r\n  background: rgba(211, 47, 47, 0.04);\r\n  color: #D32F2F;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-danger.p-button-outlined:enabled:active, .p-buttonset.p-button-danger > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-danger > .p-button.p-button-outlined:enabled:active {\r\n  background: rgba(211, 47, 47, 0.16);\r\n  color: #D32F2F;\r\n  border: 1px solid;\r\n}\r\n.p-button.p-button-danger.p-button-text, .p-buttonset.p-button-danger > .p-button.p-button-text, .p-splitbutton.p-button-danger > .p-button.p-button-text {\r\n  background-color: transparent;\r\n  color: #D32F2F;\r\n  border-color: transparent;\r\n}\r\n.p-button.p-button-danger.p-button-text:enabled:hover, .p-buttonset.p-button-danger > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-danger > .p-button.p-button-text:enabled:hover {\r\n  background: rgba(211, 47, 47, 0.04);\r\n  border-color: transparent;\r\n  color: #D32F2F;\r\n}\r\n.p-button.p-button-danger.p-button-text:enabled:active, .p-buttonset.p-button-danger > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-danger > .p-button.p-button-text:enabled:active {\r\n  background: rgba(211, 47, 47, 0.16);\r\n  border-color: transparent;\r\n  color: #D32F2F;\r\n}\r\n\r\n.p-button.p-button-link {\r\n  color: #0b7ad1;\r\n  background: transparent;\r\n  border: transparent;\r\n}\r\n.p-button.p-button-link:enabled:hover {\r\n  background: transparent;\r\n  color: #0b7ad1;\r\n  border-color: transparent;\r\n}\r\n.p-button.p-button-link:enabled:hover .p-button-label {\r\n  text-decoration: underline;\r\n}\r\n.p-button.p-button-link:enabled:focus {\r\n  background: transparent;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  border-color: transparent;\r\n}\r\n.p-button.p-button-link:enabled:active {\r\n  background: transparent;\r\n  color: #0b7ad1;\r\n  border-color: transparent;\r\n}\r\n\r\n.p-speeddial-button.p-button.p-button-icon-only {\r\n  width: 4rem;\r\n  height: 4rem;\r\n}\r\n.p-speeddial-button.p-button.p-button-icon-only .p-button-icon {\r\n  font-size: 1.3rem;\r\n}\r\n\r\n.p-speeddial-action {\r\n  width: 3rem;\r\n  height: 3rem;\r\n  background: #495057;\r\n  color: #fff;\r\n}\r\n.p-speeddial-action:hover {\r\n  background: #343a40;\r\n  color: #fff;\r\n}\r\n\r\n.p-speeddial-direction-up .p-speeddial-item {\r\n  margin: 0.25rem 0;\r\n}\r\n.p-speeddial-direction-up .p-speeddial-item:first-child {\r\n  margin-bottom: 0.5rem;\r\n}\r\n\r\n.p-speeddial-direction-down .p-speeddial-item {\r\n  margin: 0.25rem 0;\r\n}\r\n.p-speeddial-direction-down .p-speeddial-item:first-child {\r\n  margin-top: 0.5rem;\r\n}\r\n\r\n.p-speeddial-direction-left .p-speeddial-item {\r\n  margin: 0 0.25rem;\r\n}\r\n.p-speeddial-direction-left .p-speeddial-item:first-child {\r\n  margin-right: 0.5rem;\r\n}\r\n\r\n.p-speeddial-direction-right .p-speeddial-item {\r\n  margin: 0 0.25rem;\r\n}\r\n.p-speeddial-direction-right .p-speeddial-item:first-child {\r\n  margin-left: 0.5rem;\r\n}\r\n\r\n.p-speeddial-circle .p-speeddial-item,\r\n.p-speeddial-semi-circle .p-speeddial-item,\r\n.p-speeddial-quarter-circle .p-speeddial-item {\r\n  margin: 0;\r\n}\r\n.p-speeddial-circle .p-speeddial-item:first-child, .p-speeddial-circle .p-speeddial-item:last-child,\r\n.p-speeddial-semi-circle .p-speeddial-item:first-child,\r\n.p-speeddial-semi-circle .p-speeddial-item:last-child,\r\n.p-speeddial-quarter-circle .p-speeddial-item:first-child,\r\n.p-speeddial-quarter-circle .p-speeddial-item:last-child {\r\n  margin: 0;\r\n}\r\n\r\n.p-speeddial-mask {\r\n  background-color: rgba(0, 0, 0, 0.4);\r\n}\r\n\r\n.p-splitbutton {\r\n  border-radius: 3px;\r\n}\r\n.p-splitbutton.p-button-outlined > .p-button {\r\n  background-color: transparent;\r\n  color: #2196F3;\r\n  border: 1px solid;\r\n}\r\n.p-splitbutton.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(33, 150, 243, 0.04);\r\n  color: #2196F3;\r\n}\r\n.p-splitbutton.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(33, 150, 243, 0.16);\r\n  color: #2196F3;\r\n}\r\n.p-splitbutton.p-button-outlined.p-button-plain > .p-button {\r\n  color: #6c757d;\r\n  border-color: #6c757d;\r\n}\r\n.p-splitbutton.p-button-outlined.p-button-plain > .p-button:enabled:hover, .p-splitbutton.p-button-outlined.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n  color: #6c757d;\r\n}\r\n.p-splitbutton.p-button-outlined.p-button-plain > .p-button:enabled:active, .p-splitbutton.p-button-outlined.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: #dee2e6;\r\n  color: #6c757d;\r\n}\r\n.p-splitbutton.p-button-text > .p-button {\r\n  background-color: transparent;\r\n  color: #2196F3;\r\n  border-color: transparent;\r\n}\r\n.p-splitbutton.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(33, 150, 243, 0.04);\r\n  color: #2196F3;\r\n  border-color: transparent;\r\n}\r\n.p-splitbutton.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(33, 150, 243, 0.16);\r\n  color: #2196F3;\r\n  border-color: transparent;\r\n}\r\n.p-splitbutton.p-button-text.p-button-plain > .p-button {\r\n  color: #6c757d;\r\n}\r\n.p-splitbutton.p-button-text.p-button-plain > .p-button:enabled:hover, .p-splitbutton.p-button-text.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n  color: #6c757d;\r\n}\r\n.p-splitbutton.p-button-text.p-button-plain > .p-button:enabled:active, .p-splitbutton.p-button-text.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: #dee2e6;\r\n  color: #6c757d;\r\n}\r\n.p-splitbutton.p-button-raised {\r\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-splitbutton.p-button-rounded {\r\n  border-radius: 2rem;\r\n}\r\n.p-splitbutton.p-button-rounded > .p-button {\r\n  border-radius: 2rem;\r\n}\r\n.p-splitbutton.p-button-sm > .p-button {\r\n  font-size: 0.875rem;\r\n  padding: 0.4375rem 0.875rem;\r\n}\r\n.p-splitbutton.p-button-sm > .p-button .p-button-icon {\r\n  font-size: 0.875rem;\r\n}\r\n.p-splitbutton.p-button-lg > .p-button {\r\n  font-size: 1.25rem;\r\n  padding: 0.625rem 1.25rem;\r\n}\r\n.p-splitbutton.p-button-lg > .p-button .p-button-icon {\r\n  font-size: 1.25rem;\r\n}\r\n\r\n.p-splitbutton.p-button-secondary.p-button-outlined > .p-button {\r\n  background-color: transparent;\r\n  color: #607D8B;\r\n  border: 1px solid;\r\n}\r\n.p-splitbutton.p-button-secondary.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-secondary.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(96, 125, 139, 0.04);\r\n  color: #607D8B;\r\n}\r\n.p-splitbutton.p-button-secondary.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-secondary.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(96, 125, 139, 0.16);\r\n  color: #607D8B;\r\n}\r\n.p-splitbutton.p-button-secondary.p-button-text > .p-button {\r\n  background-color: transparent;\r\n  color: #607D8B;\r\n  border-color: transparent;\r\n}\r\n.p-splitbutton.p-button-secondary.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-secondary.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(96, 125, 139, 0.04);\r\n  border-color: transparent;\r\n  color: #607D8B;\r\n}\r\n.p-splitbutton.p-button-secondary.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-secondary.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(96, 125, 139, 0.16);\r\n  border-color: transparent;\r\n  color: #607D8B;\r\n}\r\n\r\n.p-splitbutton.p-button-info.p-button-outlined > .p-button {\r\n  background-color: transparent;\r\n  color: #0288D1;\r\n  border: 1px solid;\r\n}\r\n.p-splitbutton.p-button-info.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-info.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(2, 136, 209, 0.04);\r\n  color: #0288D1;\r\n}\r\n.p-splitbutton.p-button-info.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-info.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(2, 136, 209, 0.16);\r\n  color: #0288D1;\r\n}\r\n.p-splitbutton.p-button-info.p-button-text > .p-button {\r\n  background-color: transparent;\r\n  color: #0288D1;\r\n  border-color: transparent;\r\n}\r\n.p-splitbutton.p-button-info.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-info.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(2, 136, 209, 0.04);\r\n  border-color: transparent;\r\n  color: #0288D1;\r\n}\r\n.p-splitbutton.p-button-info.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-info.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(2, 136, 209, 0.16);\r\n  border-color: transparent;\r\n  color: #0288D1;\r\n}\r\n\r\n.p-splitbutton.p-button-success.p-button-outlined > .p-button {\r\n  background-color: transparent;\r\n  color: #689F38;\r\n  border: 1px solid;\r\n}\r\n.p-splitbutton.p-button-success.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-success.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(104, 159, 56, 0.04);\r\n  color: #689F38;\r\n}\r\n.p-splitbutton.p-button-success.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-success.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(104, 159, 56, 0.16);\r\n  color: #689F38;\r\n}\r\n.p-splitbutton.p-button-success.p-button-text > .p-button {\r\n  background-color: transparent;\r\n  color: #689F38;\r\n  border-color: transparent;\r\n}\r\n.p-splitbutton.p-button-success.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-success.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(104, 159, 56, 0.04);\r\n  border-color: transparent;\r\n  color: #689F38;\r\n}\r\n.p-splitbutton.p-button-success.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-success.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(104, 159, 56, 0.16);\r\n  border-color: transparent;\r\n  color: #689F38;\r\n}\r\n\r\n.p-splitbutton.p-button-warning.p-button-outlined > .p-button {\r\n  background-color: transparent;\r\n  color: #FBC02D;\r\n  border: 1px solid;\r\n}\r\n.p-splitbutton.p-button-warning.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-warning.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(251, 192, 45, 0.04);\r\n  color: #FBC02D;\r\n}\r\n.p-splitbutton.p-button-warning.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-warning.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(251, 192, 45, 0.16);\r\n  color: #FBC02D;\r\n}\r\n.p-splitbutton.p-button-warning.p-button-text > .p-button {\r\n  background-color: transparent;\r\n  color: #FBC02D;\r\n  border-color: transparent;\r\n}\r\n.p-splitbutton.p-button-warning.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-warning.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(251, 192, 45, 0.04);\r\n  border-color: transparent;\r\n  color: #FBC02D;\r\n}\r\n.p-splitbutton.p-button-warning.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-warning.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(251, 192, 45, 0.16);\r\n  border-color: transparent;\r\n  color: #FBC02D;\r\n}\r\n\r\n.p-splitbutton.p-button-help.p-button-outlined > .p-button {\r\n  background-color: transparent;\r\n  color: #9C27B0;\r\n  border: 1px solid;\r\n}\r\n.p-splitbutton.p-button-help.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-help.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(156, 39, 176, 0.04);\r\n  color: #9C27B0;\r\n}\r\n.p-splitbutton.p-button-help.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-help.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(156, 39, 176, 0.16);\r\n  color: #9C27B0;\r\n}\r\n.p-splitbutton.p-button-help.p-button-text > .p-button {\r\n  background-color: transparent;\r\n  color: #9C27B0;\r\n  border-color: transparent;\r\n}\r\n.p-splitbutton.p-button-help.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-help.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(156, 39, 176, 0.04);\r\n  border-color: transparent;\r\n  color: #9C27B0;\r\n}\r\n.p-splitbutton.p-button-help.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-help.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(156, 39, 176, 0.16);\r\n  border-color: transparent;\r\n  color: #9C27B0;\r\n}\r\n\r\n.p-splitbutton.p-button-danger.p-button-outlined > .p-button {\r\n  background-color: transparent;\r\n  color: #D32F2F;\r\n  border: 1px solid;\r\n}\r\n.p-splitbutton.p-button-danger.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-danger.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(211, 47, 47, 0.04);\r\n  color: #D32F2F;\r\n}\r\n.p-splitbutton.p-button-danger.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-danger.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(211, 47, 47, 0.16);\r\n  color: #D32F2F;\r\n}\r\n.p-splitbutton.p-button-danger.p-button-text > .p-button {\r\n  background-color: transparent;\r\n  color: #D32F2F;\r\n  border-color: transparent;\r\n}\r\n.p-splitbutton.p-button-danger.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-danger.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\r\n  background: rgba(211, 47, 47, 0.04);\r\n  border-color: transparent;\r\n  color: #D32F2F;\r\n}\r\n.p-splitbutton.p-button-danger.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-danger.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\r\n  background: rgba(211, 47, 47, 0.16);\r\n  border-color: transparent;\r\n  color: #D32F2F;\r\n}\r\n\r\n.p-carousel .p-carousel-content .p-carousel-prev,\r\n.p-carousel .p-carousel-content .p-carousel-next {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  margin: 0.5rem;\r\n}\r\n.p-carousel .p-carousel-content .p-carousel-prev:enabled:hover,\r\n.p-carousel .p-carousel-content .p-carousel-next:enabled:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-carousel .p-carousel-content .p-carousel-prev:focus,\r\n.p-carousel .p-carousel-content .p-carousel-next:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-carousel .p-carousel-indicators {\r\n  padding: 1rem;\r\n}\r\n.p-carousel .p-carousel-indicators .p-carousel-indicator {\r\n  margin-right: 0.5rem;\r\n  margin-bottom: 0.5rem;\r\n}\r\n.p-carousel .p-carousel-indicators .p-carousel-indicator button {\r\n  background-color: #e9ecef;\r\n  width: 2rem;\r\n  height: 0.5rem;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  border-radius: 0;\r\n}\r\n.p-carousel .p-carousel-indicators .p-carousel-indicator button:hover {\r\n  background: #dee2e6;\r\n}\r\n.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {\r\n  background: #E3F2FD;\r\n  color: #495057;\r\n}\r\n\r\n.p-datatable .p-paginator-top {\r\n  border-width: 0 0 1px 0;\r\n  border-radius: 0;\r\n}\r\n.p-datatable .p-paginator-bottom {\r\n  border-width: 0 0 1px 0;\r\n  border-radius: 0;\r\n}\r\n.p-datatable .p-datatable-header {\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 1px 0 1px 0;\r\n  padding: 1rem 1rem;\r\n  font-weight: 600;\r\n}\r\n.p-datatable .p-datatable-footer {\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 0 0 1px 0;\r\n  padding: 1rem 1rem;\r\n  font-weight: 600;\r\n}\r\n.p-datatable .p-datatable-thead > tr > th {\r\n  text-align: left;\r\n  padding: 1rem 1rem;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 0 0 1px 0;\r\n  font-weight: 600;\r\n  color: #495057;\r\n  background: #f8f9fa;\r\n  transition: box-shadow 0.2s;\r\n}\r\n.p-datatable .p-datatable-tfoot > tr > td {\r\n  text-align: left;\r\n  padding: 1rem 1rem;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 0 0 1px 0;\r\n  font-weight: 600;\r\n  color: #495057;\r\n  background: #f8f9fa;\r\n}\r\n.p-datatable .p-sortable-column .p-sortable-column-icon {\r\n  color: #6c757d;\r\n  margin-left: 0.5rem;\r\n}\r\n.p-datatable .p-sortable-column .p-sortable-column-badge {\r\n  border-radius: 50%;\r\n  height: 1.143rem;\r\n  min-width: 1.143rem;\r\n  line-height: 1.143rem;\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n  margin-left: 0.5rem;\r\n}\r\n.p-datatable .p-sortable-column:not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-datatable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {\r\n  color: #6c757d;\r\n}\r\n.p-datatable .p-sortable-column.p-highlight {\r\n  background: #f8f9fa;\r\n  color: #2196F3;\r\n}\r\n.p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {\r\n  color: #2196F3;\r\n}\r\n.p-datatable .p-sortable-column.p-highlight:hover {\r\n  background: #e9ecef;\r\n  color: #2196F3;\r\n}\r\n.p-datatable .p-sortable-column.p-highlight:hover .p-sortable-column-icon {\r\n  color: #2196F3;\r\n}\r\n.p-datatable .p-sortable-column:focus {\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n  outline: 0 none;\r\n}\r\n.p-datatable .p-datatable-tbody > tr {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  transition: box-shadow 0.2s;\r\n}\r\n.p-datatable .p-datatable-tbody > tr > td {\r\n  text-align: left;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 0 0 1px 0;\r\n  padding: 1rem 1rem;\r\n}\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-toggler,\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-init,\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-save,\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-cancel {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-toggler:enabled:hover,\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-init:enabled:hover,\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-save:enabled:hover,\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-cancel:enabled:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-toggler:focus,\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-init:focus,\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-save:focus,\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-cancel:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-save {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-datatable .p-datatable-tbody > tr > td > .p-column-title {\r\n  font-weight: 600;\r\n}\r\n.p-datatable .p-datatable-tbody > tr:focus {\r\n  outline: 0.15rem solid #a6d5fa;\r\n  outline-offset: -0.15rem;\r\n}\r\n.p-datatable .p-datatable-tbody > tr.p-highlight {\r\n  background: #E3F2FD;\r\n  color: #495057;\r\n}\r\n.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {\r\n  box-shadow: inset 0 2px 0 0 #E3F2FD;\r\n}\r\n.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {\r\n  box-shadow: inset 0 -2px 0 0 #E3F2FD;\r\n}\r\n.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-datatable .p-column-resizer-helper {\r\n  background: #2196F3;\r\n}\r\n.p-datatable .p-datatable-scrollable-header,\r\n.p-datatable .p-datatable-scrollable-footer {\r\n  background: #f8f9fa;\r\n}\r\n.p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-thead,\r\n.p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-tfoot {\r\n  background-color: #f8f9fa;\r\n}\r\n.p-datatable .p-datatable-loading-icon {\r\n  font-size: 2rem;\r\n}\r\n.p-datatable.p-datatable-gridlines .p-datatable-header {\r\n  border-width: 1px 1px 0 1px;\r\n}\r\n.p-datatable.p-datatable-gridlines .p-datatable-footer {\r\n  border-width: 0 1px 1px 1px;\r\n}\r\n.p-datatable.p-datatable-gridlines .p-paginator-top {\r\n  border-width: 0 1px 0 1px;\r\n}\r\n.p-datatable.p-datatable-gridlines .p-paginator-bottom {\r\n  border-width: 0 1px 1px 1px;\r\n}\r\n.p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {\r\n  border-width: 1px 1px 1px 1px;\r\n}\r\n.p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td {\r\n  border-width: 1px;\r\n}\r\n.p-datatable.p-datatable-gridlines .p-datatable-tfoot > tr > td {\r\n  border-width: 1px;\r\n}\r\n.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-thead > tr > th + th {\r\n  border-left-width: 0;\r\n}\r\n.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr > td + td {\r\n  border-left-width: 0;\r\n}\r\n.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr + tr > td, .p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr:first-child > td {\r\n  border-top-width: 0;\r\n}\r\n.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tfoot > tr > td + td {\r\n  border-left-width: 0;\r\n}\r\n.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {\r\n  background: #fcfcfc;\r\n}\r\n.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight {\r\n  background: #E3F2FD;\r\n  color: #495057;\r\n}\r\n.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler {\r\n  color: #495057;\r\n}\r\n.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler:hover {\r\n  color: #495057;\r\n}\r\n.p-datatable.p-datatable-sm .p-datatable-header {\r\n  padding: 0.5rem 0.5rem;\r\n}\r\n.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {\r\n  padding: 0.5rem 0.5rem;\r\n}\r\n.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {\r\n  padding: 0.5rem 0.5rem;\r\n}\r\n.p-datatable.p-datatable-sm .p-datatable-tfoot > tr > td {\r\n  padding: 0.5rem 0.5rem;\r\n}\r\n.p-datatable.p-datatable-sm .p-datatable-footer {\r\n  padding: 0.5rem 0.5rem;\r\n}\r\n.p-datatable.p-datatable-lg .p-datatable-header {\r\n  padding: 1.25rem 1.25rem;\r\n}\r\n.p-datatable.p-datatable-lg .p-datatable-thead > tr > th {\r\n  padding: 1.25rem 1.25rem;\r\n}\r\n.p-datatable.p-datatable-lg .p-datatable-tbody > tr > td {\r\n  padding: 1.25rem 1.25rem;\r\n}\r\n.p-datatable.p-datatable-lg .p-datatable-tfoot > tr > td {\r\n  padding: 1.25rem 1.25rem;\r\n}\r\n.p-datatable.p-datatable-lg .p-datatable-footer {\r\n  padding: 1.25rem 1.25rem;\r\n}\r\n\r\n.p-dataview .p-paginator-top {\r\n  border-width: 0 0 1px 0;\r\n  border-radius: 0;\r\n}\r\n.p-dataview .p-paginator-bottom {\r\n  border-width: 0 0 1px 0;\r\n  border-radius: 0;\r\n}\r\n.p-dataview .p-dataview-header {\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 1px 0 1px 0;\r\n  padding: 1rem 1rem;\r\n  font-weight: 600;\r\n}\r\n.p-dataview .p-dataview-content {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  padding: 0;\r\n}\r\n.p-dataview.p-dataview-list .p-dataview-content > .p-grid > div {\r\n  border: solid #e9ecef;\r\n  border-width: 0 0 1px 0;\r\n}\r\n.p-dataview .p-dataview-footer {\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 0 0 1px 0;\r\n  padding: 1rem 1rem;\r\n  font-weight: 600;\r\n  border-bottom-left-radius: 3px;\r\n  border-bottom-right-radius: 3px;\r\n}\r\n\r\n.p-column-filter-row .p-column-filter-menu-button,\r\n.p-column-filter-row .p-column-filter-clear-button {\r\n  margin-left: 0.5rem;\r\n}\r\n\r\n.p-column-filter-menu-button {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-column-filter-menu-button:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-column-filter-menu-button.p-column-filter-menu-button-open, .p-column-filter-menu-button.p-column-filter-menu-button-open:hover {\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-column-filter-menu-button.p-column-filter-menu-button-active, .p-column-filter-menu-button.p-column-filter-menu-button-active:hover {\r\n  background: #E3F2FD;\r\n  color: #495057;\r\n}\r\n.p-column-filter-menu-button:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n\r\n.p-column-filter-clear-button {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-column-filter-clear-button:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-column-filter-clear-button:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n\r\n.p-column-filter-overlay {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  border-radius: 3px;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n  min-width: 12.5rem;\r\n}\r\n.p-column-filter-overlay .p-column-filter-row-items {\r\n  padding: 0.5rem 0;\r\n}\r\n.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item {\r\n  margin: 0;\r\n  padding: 0.5rem 1rem;\r\n  border: 0 none;\r\n  color: #495057;\r\n  background: transparent;\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 0;\r\n}\r\n.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item:not(.p-highlight):not(.p-disabled):hover {\r\n  color: #495057;\r\n  background: #e9ecef;\r\n}\r\n.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-separator {\r\n  border-top: 1px solid #dee2e6;\r\n  margin: 0.25rem 0;\r\n}\r\n\r\n.p-column-filter-overlay-menu .p-column-filter-operator {\r\n  padding: 0.5rem 1rem;\r\n  border-bottom: 0 none;\r\n  color: #495057;\r\n  background: #f8f9fa;\r\n  margin: 0;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-column-filter-overlay-menu .p-column-filter-constraint {\r\n  padding: 1rem;\r\n  border-bottom: 1px solid #dee2e6;\r\n}\r\n.p-column-filter-overlay-menu .p-column-filter-constraint .p-column-filter-matchmode-dropdown {\r\n  margin-bottom: 0.5rem;\r\n}\r\n.p-column-filter-overlay-menu .p-column-filter-constraint .p-column-filter-remove-button {\r\n  margin-top: 0.5rem;\r\n}\r\n.p-column-filter-overlay-menu .p-column-filter-constraint:last-child {\r\n  border-bottom: 0 none;\r\n}\r\n.p-column-filter-overlay-menu .p-column-filter-add-rule {\r\n  padding: 0.5rem 1rem;\r\n}\r\n.p-column-filter-overlay-menu .p-column-filter-buttonbar {\r\n  padding: 1rem;\r\n}\r\n\r\n.fc {\r\n  /* FullCalendar 4 */\r\n  /* FullCalendar 5 */\r\n}\r\n.fc.fc-unthemed .fc-view-container th {\r\n  background: #f8f9fa;\r\n  border: 1px solid #dee2e6;\r\n  color: #495057;\r\n}\r\n.fc.fc-unthemed .fc-view-container td.fc-widget-content {\r\n  border: 1px solid #dee2e6;\r\n  color: #495057;\r\n}\r\n.fc.fc-unthemed .fc-view-container td.fc-head-container {\r\n  border: 1px solid #dee2e6;\r\n}\r\n.fc.fc-unthemed .fc-view-container .fc-view {\r\n  background: #ffffff;\r\n}\r\n.fc.fc-unthemed .fc-view-container .fc-row {\r\n  border-right: 1px solid #dee2e6;\r\n}\r\n.fc.fc-unthemed .fc-view-container .fc-event {\r\n  background: #0d89ec;\r\n  border: 1px solid #0d89ec;\r\n  color: #ffffff;\r\n}\r\n.fc.fc-unthemed .fc-view-container .fc-divider {\r\n  background: #f8f9fa;\r\n  border: 1px solid #dee2e6;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button {\r\n  color: #ffffff;\r\n  background: #2196F3;\r\n  border: 1px solid #2196F3;\r\n  font-size: 1rem;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n  border-radius: 3px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button:enabled:hover {\r\n  background: #0d89ec;\r\n  color: #ffffff;\r\n  border-color: #0d89ec;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button:enabled:active {\r\n  background: #0b7ad1;\r\n  color: #ffffff;\r\n  border-color: #0b7ad1;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button:enabled:active:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button .fc-icon-chevron-left {\r\n  font-family: \"PrimeIcons\" !important;\r\n  text-indent: 0;\r\n  font-size: 1rem;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button .fc-icon-chevron-left:before {\r\n  content: \"\\e900\";\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button .fc-icon-chevron-right {\r\n  font-family: \"PrimeIcons\" !important;\r\n  text-indent: 0;\r\n  font-size: 1rem;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button .fc-icon-chevron-right:before {\r\n  content: \"\\e901\";\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button.fc-dayGridMonth-button, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridWeek-button, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridDay-button {\r\n  background: #ffffff;\r\n  border: 1px solid #ced4da;\r\n  color: #495057;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button.fc-dayGridMonth-button:hover, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridWeek-button:hover, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridDay-button:hover {\r\n  background: #e9ecef;\r\n  border-color: #ced4da;\r\n  color: #495057;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button.fc-dayGridMonth-button.fc-button-active, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridWeek-button.fc-button-active, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridDay-button.fc-button-active {\r\n  background: #2196F3;\r\n  border-color: #2196F3;\r\n  color: #ffffff;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button.fc-dayGridMonth-button.fc-button-active:hover, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridWeek-button.fc-button-active:hover, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridDay-button.fc-button-active:hover {\r\n  background: #0d89ec;\r\n  border-color: #0d89ec;\r\n  color: #ffffff;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button.fc-dayGridMonth-button:focus, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridWeek-button:focus, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridDay-button:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  z-index: 1;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button {\r\n  border-radius: 0;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button:first-child {\r\n  border-top-left-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button:last-child {\r\n  border-top-right-radius: 3px;\r\n  border-bottom-right-radius: 3px;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-scrollgrid {\r\n  border-color: #dee2e6;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness th {\r\n  background: #f8f9fa;\r\n  border-color: #dee2e6;\r\n  color: #495057;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness td {\r\n  color: #495057;\r\n  border-color: #dee2e6;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-view {\r\n  background: #ffffff;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-popover {\r\n  background: none;\r\n  border: 0 none;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header {\r\n  border: 1px solid #dee2e6;\r\n  padding: 1rem;\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close {\r\n  opacity: 1;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  overflow: hidden;\r\n  font-family: \"PrimeIcons\" !important;\r\n  font-size: 1rem;\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close:before {\r\n  content: \"\\e90b\";\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-body {\r\n  padding: 1rem;\r\n  border: 1px solid #dee2e6;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border-top: 0 none;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-event.fc-daygrid-block-event {\r\n  color: #ffffff;\r\n  background: #0d89ec;\r\n  border-color: #0d89ec;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-event.fc-daygrid-block-event .fc-event-main {\r\n  color: #ffffff;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-event.fc-daygrid-dot-event .fc-daygrid-event-dot {\r\n  background: #0d89ec;\r\n  border-color: #0d89ec;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-event.fc-daygrid-dot-event:hover {\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.fc.fc-theme-standard .fc-view-harness .fc-cell-shaded {\r\n  background: #f8f9fa;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button {\r\n  color: #ffffff;\r\n  background: #2196F3;\r\n  border: 1px solid #2196F3;\r\n  font-size: 1rem;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n  border-radius: 3px;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button:enabled:hover {\r\n  background: #0d89ec;\r\n  color: #ffffff;\r\n  border-color: #0d89ec;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button:enabled:active {\r\n  background: #0b7ad1;\r\n  color: #ffffff;\r\n  border-color: #0b7ad1;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button:enabled:active:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button:disabled {\r\n  opacity: 0.6;\r\n  color: #ffffff;\r\n  background: #2196F3;\r\n  border: 1px solid #2196F3;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button .fc-icon-chevron-left {\r\n  font-family: \"PrimeIcons\" !important;\r\n  text-indent: 0;\r\n  font-size: 1rem;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button .fc-icon-chevron-left:before {\r\n  content: \"\\e900\";\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button .fc-icon-chevron-right {\r\n  font-family: \"PrimeIcons\" !important;\r\n  text-indent: 0;\r\n  font-size: 1rem;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button .fc-icon-chevron-right:before {\r\n  content: \"\\e901\";\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button.fc-dayGridMonth-button, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridWeek-button, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridDay-button {\r\n  background: #ffffff;\r\n  border: 1px solid #ced4da;\r\n  color: #495057;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button.fc-dayGridMonth-button:hover, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridWeek-button:hover, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridDay-button:hover {\r\n  background: #e9ecef;\r\n  border-color: #ced4da;\r\n  color: #495057;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button.fc-dayGridMonth-button.fc-button-active, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridWeek-button.fc-button-active, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridDay-button.fc-button-active {\r\n  background: #2196F3;\r\n  border-color: #2196F3;\r\n  color: #ffffff;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button.fc-dayGridMonth-button.fc-button-active:hover, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridWeek-button.fc-button-active:hover, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridDay-button.fc-button-active:hover {\r\n  background: #0d89ec;\r\n  border-color: #0d89ec;\r\n  color: #ffffff;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button.fc-dayGridMonth-button:not(:disabled):focus, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridWeek-button:not(:disabled):focus, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridDay-button:not(:disabled):focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  z-index: 1;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button {\r\n  border-radius: 0;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button:first-child {\r\n  border-top-left-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button:last-child {\r\n  border-top-right-radius: 3px;\r\n  border-bottom-right-radius: 3px;\r\n}\r\n.fc.fc-theme-standard .fc-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n\r\n.p-orderlist .p-orderlist-controls {\r\n  padding: 1rem;\r\n}\r\n.p-orderlist .p-orderlist-controls .p-button {\r\n  margin-bottom: 0.5rem;\r\n}\r\n.p-orderlist .p-orderlist-header {\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n  border: 1px solid #dee2e6;\r\n  padding: 1rem;\r\n  font-weight: 600;\r\n  border-bottom: 0 none;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-orderlist .p-orderlist-list {\r\n  border: 1px solid #dee2e6;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  padding: 0.5rem 0;\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-orderlist .p-orderlist-list .p-orderlist-item {\r\n  padding: 0.5rem 1rem;\r\n  margin: 0;\r\n  border: 0 none;\r\n  color: #495057;\r\n  background: transparent;\r\n  transition: transform 0.2s, box-shadow 0.2s;\r\n}\r\n.p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-orderlist .p-orderlist-list .p-orderlist-item:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even) {\r\n  background: #e9ecef;\r\n}\r\n.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even):hover {\r\n  background: #e9ecef;\r\n}\r\n\r\n.p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-organizationchart .p-organizationchart-node-content.p-highlight {\r\n  background: #E3F2FD;\r\n  color: #495057;\r\n}\r\n.p-organizationchart .p-organizationchart-node-content.p-highlight .p-node-toggler i {\r\n  color: #6cbbf5;\r\n}\r\n.p-organizationchart .p-organizationchart-line-down {\r\n  background: #dee2e6;\r\n}\r\n.p-organizationchart .p-organizationchart-line-left {\r\n  border-right: 1px solid #dee2e6;\r\n  border-color: #dee2e6;\r\n}\r\n.p-organizationchart .p-organizationchart-line-top {\r\n  border-top: 1px solid #dee2e6;\r\n  border-color: #dee2e6;\r\n}\r\n.p-organizationchart .p-organizationchart-node-content {\r\n  border: 1px solid #dee2e6;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  padding: 1rem;\r\n}\r\n.p-organizationchart .p-organizationchart-node-content .p-node-toggler {\r\n  background: inherit;\r\n  color: inherit;\r\n  border-radius: 50%;\r\n}\r\n.p-organizationchart .p-organizationchart-node-content .p-node-toggler:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n\r\n.p-paginator {\r\n  background: #ffffff;\r\n  color: #6c757d;\r\n  border: solid #e9ecef;\r\n  border-width: 0;\r\n  padding: 0.5rem 1rem;\r\n  border-radius: 3px;\r\n}\r\n.p-paginator .p-paginator-first,\r\n.p-paginator .p-paginator-prev,\r\n.p-paginator .p-paginator-next,\r\n.p-paginator .p-paginator-last {\r\n  background-color: transparent;\r\n  border: 0 none;\r\n  color: #6c757d;\r\n  min-width: 2.357rem;\r\n  height: 2.357rem;\r\n  margin: 0.143rem;\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 3px;\r\n}\r\n.p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,\r\n.p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,\r\n.p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,\r\n.p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  border-color: transparent;\r\n  color: #495057;\r\n}\r\n.p-paginator .p-paginator-first {\r\n  border-top-left-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-paginator .p-paginator-last {\r\n  border-top-right-radius: 3px;\r\n  border-bottom-right-radius: 3px;\r\n}\r\n.p-paginator .p-dropdown {\r\n  margin-left: 0.5rem;\r\n  margin-right: 0.5rem;\r\n  height: 2.357rem;\r\n}\r\n.p-paginator .p-dropdown .p-dropdown-label {\r\n  padding-right: 0;\r\n}\r\n.p-paginator .p-paginator-page-input {\r\n  margin-left: 0.5rem;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-paginator .p-paginator-page-input .p-inputtext {\r\n  max-width: 2.357rem;\r\n}\r\n.p-paginator .p-paginator-current {\r\n  background-color: transparent;\r\n  border: 0 none;\r\n  color: #6c757d;\r\n  min-width: 2.357rem;\r\n  height: 2.357rem;\r\n  margin: 0.143rem;\r\n  padding: 0 0.5rem;\r\n}\r\n.p-paginator .p-paginator-pages .p-paginator-page {\r\n  background-color: transparent;\r\n  border: 0 none;\r\n  color: #6c757d;\r\n  min-width: 2.357rem;\r\n  height: 2.357rem;\r\n  margin: 0.143rem;\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 3px;\r\n}\r\n.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {\r\n  background: #E3F2FD;\r\n  border-color: #E3F2FD;\r\n  color: #495057;\r\n}\r\n.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  border-color: transparent;\r\n  color: #495057;\r\n}\r\n\r\n.p-picklist .p-picklist-buttons {\r\n  padding: 1rem;\r\n}\r\n.p-picklist .p-picklist-buttons .p-button {\r\n  margin-bottom: 0.5rem;\r\n}\r\n.p-picklist .p-picklist-header {\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n  border: 1px solid #dee2e6;\r\n  padding: 1rem;\r\n  font-weight: 600;\r\n  border-bottom: 0 none;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-picklist .p-picklist-list {\r\n  border: 1px solid #dee2e6;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  padding: 0.5rem 0;\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-picklist .p-picklist-list .p-picklist-item {\r\n  padding: 0.5rem 1rem;\r\n  margin: 0;\r\n  border: 0 none;\r\n  color: #495057;\r\n  background: transparent;\r\n  transition: transform 0.2s, box-shadow 0.2s;\r\n}\r\n.p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-picklist .p-picklist-list .p-picklist-item:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-picklist .p-picklist-list .p-picklist-item.p-highlight {\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n}\r\n.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even) {\r\n  background: #e9ecef;\r\n}\r\n.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even):hover {\r\n  background: #e9ecef;\r\n}\r\n\r\n.p-timeline .p-timeline-event-marker {\r\n  border: 2px solid #2196F3;\r\n  border-radius: 50%;\r\n  width: 1rem;\r\n  height: 1rem;\r\n  background-color: #ffffff;\r\n}\r\n.p-timeline .p-timeline-event-connector {\r\n  background-color: #dee2e6;\r\n}\r\n.p-timeline.p-timeline-vertical .p-timeline-event-opposite,\r\n.p-timeline.p-timeline-vertical .p-timeline-event-content {\r\n  padding: 0 1rem;\r\n}\r\n.p-timeline.p-timeline-vertical .p-timeline-event-connector {\r\n  width: 2px;\r\n}\r\n.p-timeline.p-timeline-horizontal .p-timeline-event-opposite,\r\n.p-timeline.p-timeline-horizontal .p-timeline-event-content {\r\n  padding: 1rem 0;\r\n}\r\n.p-timeline.p-timeline-horizontal .p-timeline-event-connector {\r\n  height: 2px;\r\n}\r\n\r\n.p-tree {\r\n  border: 1px solid #dee2e6;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  padding: 1rem;\r\n  border-radius: 3px;\r\n}\r\n.p-tree .p-tree-container .p-treenode {\r\n  padding: 0.143rem;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content {\r\n  border-radius: 3px;\r\n  transition: box-shadow 0.2s;\r\n  padding: 0;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {\r\n  margin-right: 0.5rem;\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:enabled:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-treenode-icon {\r\n  margin-right: 0.5rem;\r\n  color: #6c757d;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-checkbox {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-checkbox .p-indeterminate .p-checkbox-icon {\r\n  color: #495057;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {\r\n  background: #E3F2FD;\r\n  color: #495057;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-tree-toggler,\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-treenode-icon {\r\n  color: #495057;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-tree-toggler:hover,\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-treenode-icon:hover {\r\n  color: #495057;\r\n}\r\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-tree .p-tree-filter-container {\r\n  margin-bottom: 0.5rem;\r\n}\r\n.p-tree .p-tree-filter-container .p-tree-filter {\r\n  width: 100%;\r\n  padding-right: 1.5rem;\r\n}\r\n.p-tree .p-tree-filter-container .p-tree-filter-icon {\r\n  right: 0.5rem;\r\n  color: #6c757d;\r\n}\r\n.p-tree .p-treenode-children {\r\n  padding: 0 0 0 1rem;\r\n}\r\n.p-tree .p-tree-loading-icon {\r\n  font-size: 2rem;\r\n}\r\n\r\n.p-treetable .p-paginator-top {\r\n  border-width: 0 0 1px 0;\r\n  border-radius: 0;\r\n}\r\n.p-treetable .p-paginator-bottom {\r\n  border-width: 0 0 1px 0;\r\n  border-radius: 0;\r\n}\r\n.p-treetable .p-treetable-header {\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 1px 0 1px 0;\r\n  padding: 1rem 1rem;\r\n  font-weight: 600;\r\n}\r\n.p-treetable .p-treetable-footer {\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 0 0 1px 0;\r\n  padding: 1rem 1rem;\r\n  font-weight: 600;\r\n}\r\n.p-treetable .p-treetable-thead > tr > th {\r\n  text-align: left;\r\n  padding: 1rem 1rem;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 0 0 1px 0;\r\n  font-weight: 600;\r\n  color: #495057;\r\n  background: #f8f9fa;\r\n  transition: box-shadow 0.2s;\r\n}\r\n.p-treetable .p-treetable-tfoot > tr > td {\r\n  text-align: left;\r\n  padding: 1rem 1rem;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 0 0 1px 0;\r\n  font-weight: 600;\r\n  color: #495057;\r\n  background: #f8f9fa;\r\n}\r\n.p-treetable .p-sortable-column {\r\n  outline-color: #a6d5fa;\r\n}\r\n.p-treetable .p-sortable-column .p-sortable-column-icon {\r\n  color: #6c757d;\r\n  margin-left: 0.5rem;\r\n}\r\n.p-treetable .p-sortable-column .p-sortable-column-badge {\r\n  border-radius: 50%;\r\n  height: 1.143rem;\r\n  min-width: 1.143rem;\r\n  line-height: 1.143rem;\r\n  color: #495057;\r\n  background: #E3F2FD;\r\n  margin-left: 0.5rem;\r\n}\r\n.p-treetable .p-sortable-column:not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-treetable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {\r\n  color: #6c757d;\r\n}\r\n.p-treetable .p-sortable-column.p-highlight {\r\n  background: #f8f9fa;\r\n  color: #2196F3;\r\n}\r\n.p-treetable .p-sortable-column.p-highlight .p-sortable-column-icon {\r\n  color: #2196F3;\r\n}\r\n.p-treetable .p-treetable-tbody > tr {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  transition: box-shadow 0.2s;\r\n}\r\n.p-treetable .p-treetable-tbody > tr > td {\r\n  text-align: left;\r\n  border: 1px solid #e9ecef;\r\n  border-width: 0 0 1px 0;\r\n  padding: 1rem 1rem;\r\n}\r\n.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler:enabled:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox .p-indeterminate .p-checkbox-icon {\r\n  color: #495057;\r\n}\r\n.p-treetable .p-treetable-tbody > tr:focus {\r\n  outline: 0.15rem solid #a6d5fa;\r\n  outline-offset: -0.15rem;\r\n}\r\n.p-treetable .p-treetable-tbody > tr.p-highlight {\r\n  background: #E3F2FD;\r\n  color: #495057;\r\n}\r\n.p-treetable .p-treetable-tbody > tr.p-highlight .p-treetable-toggler {\r\n  color: #495057;\r\n}\r\n.p-treetable .p-treetable-tbody > tr.p-highlight .p-treetable-toggler:hover {\r\n  color: #495057;\r\n}\r\n.p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):hover {\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):hover .p-treetable-toggler {\r\n  color: #495057;\r\n}\r\n.p-treetable .p-column-resizer-helper {\r\n  background: #2196F3;\r\n}\r\n.p-treetable .p-treetable-scrollable-header,\r\n.p-treetable .p-treetable-scrollable-footer {\r\n  background: #f8f9fa;\r\n}\r\n.p-treetable .p-treetable-loading-icon {\r\n  font-size: 2rem;\r\n}\r\n.p-treetable.p-treetable-gridlines .p-datatable-header {\r\n  border-width: 1px 1px 0 1px;\r\n}\r\n.p-treetable.p-treetable-gridlines .p-treetable-footer {\r\n  border-width: 0 1px 1px 1px;\r\n}\r\n.p-treetable.p-treetable-gridlines .p-treetable-top {\r\n  border-width: 0 1px 0 1px;\r\n}\r\n.p-treetable.p-treetable-gridlines .p-treetable-bottom {\r\n  border-width: 0 1px 1px 1px;\r\n}\r\n.p-treetable.p-treetable-gridlines .p-treetable-thead > tr > th {\r\n  border-width: 1px;\r\n}\r\n.p-treetable.p-treetable-gridlines .p-treetable-tbody > tr > td {\r\n  border-width: 1px;\r\n}\r\n.p-treetable.p-treetable-gridlines .p-treetable-tfoot > tr > td {\r\n  border-width: 1px;\r\n}\r\n.p-treetable.p-treetable-sm .p-treetable-header {\r\n  padding: 0.875rem 0.875rem;\r\n}\r\n.p-treetable.p-treetable-sm .p-treetable-thead > tr > th {\r\n  padding: 0.5rem 0.5rem;\r\n}\r\n.p-treetable.p-treetable-sm .p-treetable-tbody > tr > td {\r\n  padding: 0.5rem 0.5rem;\r\n}\r\n.p-treetable.p-treetable-sm .p-treetable-tfoot > tr > td {\r\n  padding: 0.5rem 0.5rem;\r\n}\r\n.p-treetable.p-treetable-sm .p-treetable-footer {\r\n  padding: 0.5rem 0.5rem;\r\n}\r\n.p-treetable.p-treetable-lg .p-treetable-header {\r\n  padding: 1.25rem 1.25rem;\r\n}\r\n.p-treetable.p-treetable-lg .p-treetable-thead > tr > th {\r\n  padding: 1.25rem 1.25rem;\r\n}\r\n.p-treetable.p-treetable-lg .p-treetable-tbody > tr > td {\r\n  padding: 1.25rem 1.25rem;\r\n}\r\n.p-treetable.p-treetable-lg .p-treetable-tfoot > tr > td {\r\n  padding: 1.25rem 1.25rem;\r\n}\r\n.p-treetable.p-treetable-lg .p-treetable-footer {\r\n  padding: 1.25rem 1.25rem;\r\n}\r\n\r\n.p-accordion .p-accordion-header .p-accordion-header-link {\r\n  padding: 1rem;\r\n  border: 1px solid #dee2e6;\r\n  color: #495057;\r\n  background: #f8f9fa;\r\n  font-weight: 600;\r\n  border-radius: 3px;\r\n  transition: box-shadow 0.2s;\r\n}\r\n.p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {\r\n  background: #e9ecef;\r\n  border-color: #dee2e6;\r\n  color: #495057;\r\n}\r\n.p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {\r\n  background: #f8f9fa;\r\n  border-color: #dee2e6;\r\n  color: #495057;\r\n  border-bottom-right-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\n.p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {\r\n  border-color: #dee2e6;\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-accordion .p-accordion-content {\r\n  padding: 1rem;\r\n  border: 1px solid #dee2e6;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border-top: 0;\r\n  border-top-right-radius: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-accordion .p-accordion-tab {\r\n  margin-bottom: 0;\r\n}\r\n.p-accordion .p-accordion-tab .p-accordion-header .p-accordion-header-link {\r\n  border-radius: 0;\r\n}\r\n.p-accordion .p-accordion-tab .p-accordion-content {\r\n  border-bottom-right-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\n.p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header .p-accordion-header-link {\r\n  border-top: 0 none;\r\n}\r\n.p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link, .p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {\r\n  border-top: 0 none;\r\n}\r\n.p-accordion .p-accordion-tab:first-child .p-accordion-header .p-accordion-header-link {\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-accordion .p-accordion-tab:last-child .p-accordion-header:not(.p-highlight) .p-accordion-header-link {\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-accordion .p-accordion-tab:last-child .p-accordion-content {\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n\r\n.p-card {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);\r\n  border-radius: 3px;\r\n}\r\n.p-card .p-card-body {\r\n  padding: 1rem;\r\n}\r\n.p-card .p-card-title {\r\n  font-size: 1.5rem;\r\n  font-weight: 700;\r\n  margin-bottom: 0.5rem;\r\n}\r\n.p-card .p-card-subtitle {\r\n  font-weight: 400;\r\n  margin-bottom: 0.5rem;\r\n  color: #6c757d;\r\n}\r\n.p-card .p-card-content {\r\n  padding: 1rem 0;\r\n}\r\n.p-card .p-card-footer {\r\n  padding: 1rem 0 0 0;\r\n}\r\n\r\n.p-fieldset {\r\n  border: 1px solid #dee2e6;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border-radius: 3px;\r\n}\r\n.p-fieldset .p-fieldset-legend {\r\n  padding: 1rem;\r\n  border: 1px solid #dee2e6;\r\n  color: #495057;\r\n  background: #f8f9fa;\r\n  font-weight: 600;\r\n  border-radius: 3px;\r\n}\r\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend {\r\n  padding: 0;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {\r\n  padding: 1rem;\r\n  color: #495057;\r\n  border-radius: 3px;\r\n  transition: box-shadow 0.2s;\r\n}\r\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a .p-fieldset-toggler {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a:hover {\r\n  color: #495057;\r\n}\r\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend:hover {\r\n  background: #e9ecef;\r\n  border-color: #dee2e6;\r\n  color: #495057;\r\n}\r\n.p-fieldset .p-fieldset-content {\r\n  padding: 1rem;\r\n}\r\n\r\n.p-divider .p-divider-content {\r\n  background-color: #ffffff;\r\n}\r\n.p-divider.p-divider-horizontal {\r\n  margin: 1rem 0;\r\n  padding: 0 1rem;\r\n}\r\n.p-divider.p-divider-horizontal:before {\r\n  border-top: 1px #dee2e6;\r\n}\r\n.p-divider.p-divider-horizontal .p-divider-content {\r\n  padding: 0 0.5rem;\r\n}\r\n.p-divider.p-divider-vertical {\r\n  margin: 0 1rem;\r\n  padding: 1rem 0;\r\n}\r\n.p-divider.p-divider-vertical:before {\r\n  border-left: 1px #dee2e6;\r\n}\r\n.p-divider.p-divider-vertical .p-divider-content {\r\n  padding: 0.5rem 0;\r\n}\r\n\r\n.p-panel .p-panel-header {\r\n  border: 1px solid #dee2e6;\r\n  padding: 1rem;\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-panel .p-panel-header .p-panel-title {\r\n  font-weight: 600;\r\n}\r\n.p-panel .p-panel-header .p-panel-header-icon {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-panel .p-panel-header .p-panel-header-icon:enabled:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-panel .p-panel-header .p-panel-header-icon:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-panel.p-panel-toggleable .p-panel-header {\r\n  padding: 0.5rem 1rem;\r\n}\r\n.p-panel .p-panel-content {\r\n  padding: 1rem;\r\n  border: 1px solid #dee2e6;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n  border-top: 0 none;\r\n}\r\n.p-panel .p-panel-footer {\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #dee2e6;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border-top: 0 none;\r\n}\r\n\r\n.p-scrollpanel .p-scrollpanel-bar {\r\n  background: #f8f9fa;\r\n  border: 0 none;\r\n}\r\n\r\n.p-splitter {\r\n  border: 1px solid #dee2e6;\r\n  background: #ffffff;\r\n  border-radius: 3px;\r\n  color: #495057;\r\n}\r\n.p-splitter .p-splitter-gutter {\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  background: #f8f9fa;\r\n}\r\n.p-splitter .p-splitter-gutter .p-splitter-gutter-handle {\r\n  background: #dee2e6;\r\n}\r\n.p-splitter .p-splitter-gutter-resizing {\r\n  background: #dee2e6;\r\n}\r\n\r\n.p-tabview .p-tabview-nav {\r\n  background: #ffffff;\r\n  border: 1px solid #dee2e6;\r\n  border-width: 0 0 2px 0;\r\n}\r\n.p-tabview .p-tabview-nav li {\r\n  margin-right: 0;\r\n}\r\n.p-tabview .p-tabview-nav li .p-tabview-nav-link {\r\n  border: solid #dee2e6;\r\n  border-width: 0 0 2px 0;\r\n  border-color: transparent transparent #dee2e6 transparent;\r\n  background: #ffffff;\r\n  color: #6c757d;\r\n  padding: 1rem;\r\n  font-weight: 600;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n  transition: box-shadow 0.2s;\r\n  margin: 0 0 -2px 0;\r\n}\r\n.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {\r\n  background: #ffffff;\r\n  border-color: #6c757d;\r\n  color: #6c757d;\r\n}\r\n.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {\r\n  background: #ffffff;\r\n  border-color: #2196F3;\r\n  color: #2196F3;\r\n}\r\n.p-tabview .p-tabview-nav-btn.p-link {\r\n  background: #ffffff;\r\n  color: #2196F3;\r\n  width: 2.357rem;\r\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\r\n  border-radius: 0;\r\n}\r\n.p-tabview .p-tabview-nav-btn.p-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-tabview .p-tabview-panels {\r\n  background: #ffffff;\r\n  padding: 1rem;\r\n  border: 0 none;\r\n  color: #495057;\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n\r\n.p-toolbar {\r\n  background: #f8f9fa;\r\n  border: 1px solid #dee2e6;\r\n  padding: 1rem;\r\n  border-radius: 3px;\r\n}\r\n.p-toolbar .p-toolbar-separator {\r\n  margin: 0 0.5rem;\r\n}\r\n\r\n.p-confirm-popup {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  border-radius: 3px;\r\n  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);\r\n}\r\n.p-confirm-popup .p-confirm-popup-content {\r\n  padding: 1rem;\r\n}\r\n.p-confirm-popup .p-confirm-popup-footer {\r\n  text-align: right;\r\n  padding: 0 1rem 1rem 1rem;\r\n}\r\n.p-confirm-popup .p-confirm-popup-footer button {\r\n  margin: 0 0.5rem 0 0;\r\n  width: auto;\r\n}\r\n.p-confirm-popup .p-confirm-popup-footer button:last-child {\r\n  margin: 0;\r\n}\r\n.p-confirm-popup:after {\r\n  border: solid transparent;\r\n  border-color: rgba(255, 255, 255, 0);\r\n  border-bottom-color: #ffffff;\r\n}\r\n.p-confirm-popup:before {\r\n  border: solid transparent;\r\n  border-color: rgba(255, 255, 255, 0);\r\n  border-bottom-color: #ffffff;\r\n}\r\n.p-confirm-popup.p-confirm-popup-flipped:after {\r\n  border-top-color: #ffffff;\r\n}\r\n.p-confirm-popup.p-confirm-popup-flipped:before {\r\n  border-top-color: #ffffff;\r\n}\r\n.p-confirm-popup .p-confirm-popup-icon {\r\n  font-size: 1.5rem;\r\n}\r\n.p-confirm-popup .p-confirm-popup-message {\r\n  margin-left: 1rem;\r\n}\r\n\r\n.p-dialog {\r\n  border-radius: 3px;\r\n  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);\r\n  border: 0 none;\r\n}\r\n.p-dialog .p-dialog-header {\r\n  border-bottom: 0 none;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  padding: 1.5rem;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-dialog .p-dialog-header .p-dialog-title {\r\n  font-weight: 600;\r\n  font-size: 1.25rem;\r\n}\r\n.p-dialog .p-dialog-header .p-dialog-header-icon {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-dialog .p-dialog-header .p-dialog-header-icon:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-dialog .p-dialog-header .p-dialog-header-icon:last-child {\r\n  margin-right: 0;\r\n}\r\n.p-dialog .p-dialog-content {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  padding: 0 1.5rem 2rem 1.5rem;\r\n}\r\n.p-dialog .p-dialog-content:last-of-type {\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-dialog .p-dialog-footer {\r\n  border-top: 0 none;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  padding: 0 1.5rem 1.5rem 1.5rem;\r\n  text-align: right;\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-dialog .p-dialog-footer button {\r\n  margin: 0 0.5rem 0 0;\r\n  width: auto;\r\n}\r\n.p-dialog.p-confirm-dialog .p-confirm-dialog-icon {\r\n  font-size: 2rem;\r\n}\r\n.p-dialog.p-confirm-dialog .p-confirm-dialog-message {\r\n  margin-left: 1rem;\r\n}\r\n\r\n.p-overlaypanel {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  border-radius: 3px;\r\n  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);\r\n}\r\n.p-overlaypanel .p-overlaypanel-content {\r\n  padding: 1rem;\r\n}\r\n.p-overlaypanel .p-overlaypanel-close {\r\n  background: #2196F3;\r\n  color: #ffffff;\r\n  width: 2rem;\r\n  height: 2rem;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  border-radius: 50%;\r\n  position: absolute;\r\n  top: -1rem;\r\n  right: -1rem;\r\n}\r\n.p-overlaypanel .p-overlaypanel-close:enabled:hover {\r\n  background: #0d89ec;\r\n  color: #ffffff;\r\n}\r\n.p-overlaypanel:after {\r\n  border: solid transparent;\r\n  border-color: rgba(255, 255, 255, 0);\r\n  border-bottom-color: #ffffff;\r\n}\r\n.p-overlaypanel:before {\r\n  border: solid transparent;\r\n  border-color: rgba(255, 255, 255, 0);\r\n  border-bottom-color: #f2f2f2;\r\n}\r\n.p-overlaypanel.p-overlaypanel-flipped:after {\r\n  border-top-color: #ffffff;\r\n}\r\n.p-overlaypanel.p-overlaypanel-flipped:before {\r\n  border-top-color: #ffffff;\r\n}\r\n\r\n.p-sidebar {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);\r\n}\r\n.p-sidebar .p-sidebar-header {\r\n  padding: 1rem;\r\n}\r\n.p-sidebar .p-sidebar-header .p-sidebar-close,\r\n.p-sidebar .p-sidebar-header .p-sidebar-icon {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  color: #6c757d;\r\n  border: 0 none;\r\n  background: transparent;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-sidebar .p-sidebar-header .p-sidebar-close:enabled:hover,\r\n.p-sidebar .p-sidebar-header .p-sidebar-icon:enabled:hover {\r\n  color: #495057;\r\n  border-color: transparent;\r\n  background: #e9ecef;\r\n}\r\n.p-sidebar .p-sidebar-header .p-sidebar-close:focus,\r\n.p-sidebar .p-sidebar-header .p-sidebar-icon:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-sidebar .p-sidebar-header + .p-sidebar-content {\r\n  padding-top: 0;\r\n}\r\n.p-sidebar .p-sidebar-content {\r\n  padding: 1rem;\r\n}\r\n\r\n.p-tooltip .p-tooltip-text {\r\n  background: #495057;\r\n  color: #ffffff;\r\n  padding: 0.5rem 0.5rem;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n  border-radius: 3px;\r\n}\r\n.p-tooltip.p-tooltip-right .p-tooltip-arrow {\r\n  border-right-color: #495057;\r\n}\r\n.p-tooltip.p-tooltip-left .p-tooltip-arrow {\r\n  border-left-color: #495057;\r\n}\r\n.p-tooltip.p-tooltip-top .p-tooltip-arrow {\r\n  border-top-color: #495057;\r\n}\r\n.p-tooltip.p-tooltip-bottom .p-tooltip-arrow {\r\n  border-bottom-color: #495057;\r\n}\r\n\r\n.p-fileupload .p-fileupload-buttonbar {\r\n  background: #f8f9fa;\r\n  padding: 1rem;\r\n  border: 1px solid #dee2e6;\r\n  color: #495057;\r\n  border-bottom: 0 none;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-fileupload .p-fileupload-buttonbar .p-button {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-fileupload .p-fileupload-buttonbar .p-button.p-fileupload-choose.p-focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-fileupload .p-fileupload-content {\r\n  background: #ffffff;\r\n  padding: 2rem 1rem;\r\n  border: 1px solid #dee2e6;\r\n  color: #495057;\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-fileupload .p-progressbar {\r\n  height: 0.25rem;\r\n}\r\n.p-fileupload .p-fileupload-row > div {\r\n  padding: 1rem 1rem;\r\n}\r\n.p-fileupload.p-fileupload-advanced .p-message {\r\n  margin-top: 0;\r\n}\r\n\r\n.p-fileupload-choose:not(.p-disabled):hover {\r\n  background: #0d89ec;\r\n  color: #ffffff;\r\n  border-color: #0d89ec;\r\n}\r\n.p-fileupload-choose:not(.p-disabled):active {\r\n  background: #0b7ad1;\r\n  color: #ffffff;\r\n  border-color: #0b7ad1;\r\n}\r\n\r\n.p-breadcrumb {\r\n  background: #ffffff;\r\n  border: 1px solid #dee2e6;\r\n  border-radius: 3px;\r\n  padding: 1rem;\r\n}\r\n.p-breadcrumb ul li .p-menuitem-link {\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 3px;\r\n}\r\n.p-breadcrumb ul li .p-menuitem-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-breadcrumb ul li .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n.p-breadcrumb ul li.p-breadcrumb-chevron {\r\n  margin: 0 0.5rem 0 0.5rem;\r\n  color: #495057;\r\n}\r\n.p-breadcrumb ul li:last-child .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-breadcrumb ul li:last-child .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n\r\n.p-contextmenu {\r\n  padding: 0.25rem 0;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n  border-radius: 3px;\r\n  width: 12.5rem;\r\n}\r\n.p-contextmenu .p-menuitem-link {\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  border-radius: 0;\r\n  transition: box-shadow 0.2s;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n          user-select: none;\r\n}\r\n.p-contextmenu .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-contextmenu .p-menuitem-link .p-menuitem-icon {\r\n  color: #6c757d;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-contextmenu .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-contextmenu .p-menuitem-link:not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-contextmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-contextmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n.p-contextmenu .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-contextmenu .p-menuitem-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-contextmenu .p-submenu-list {\r\n  padding: 0.25rem 0;\r\n  background: #ffffff;\r\n  border: 0 none;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n  border-radius: 3px;\r\n}\r\n.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n  background: #e9ecef;\r\n}\r\n.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, .p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-contextmenu .p-menu-separator {\r\n  border-top: 1px solid #dee2e6;\r\n  margin: 0.25rem 0;\r\n}\r\n.p-contextmenu .p-submenu-icon {\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.p-dock .p-dock-list-container {\r\n  background: rgba(255, 255, 255, 0.1);\r\n  border: 1px solid rgba(255, 255, 255, 0.2);\r\n  padding: 0.5rem 0.5rem;\r\n  border-radius: 0.5rem;\r\n}\r\n.p-dock .p-dock-item {\r\n  padding: 0.5rem;\r\n}\r\n.p-dock .p-dock-action {\r\n  width: 4rem;\r\n  height: 4rem;\r\n}\r\n.p-dock.p-dock-top .p-dock-item-second-prev,\r\n.p-dock.p-dock-top .p-dock-item-second-next, .p-dock.p-dock-bottom .p-dock-item-second-prev,\r\n.p-dock.p-dock-bottom .p-dock-item-second-next {\r\n  margin: 0 0.9rem;\r\n}\r\n.p-dock.p-dock-top .p-dock-item-prev,\r\n.p-dock.p-dock-top .p-dock-item-next, .p-dock.p-dock-bottom .p-dock-item-prev,\r\n.p-dock.p-dock-bottom .p-dock-item-next {\r\n  margin: 0 1.3rem;\r\n}\r\n.p-dock.p-dock-top .p-dock-item-current, .p-dock.p-dock-bottom .p-dock-item-current {\r\n  margin: 0 1.5rem;\r\n}\r\n.p-dock.p-dock-left .p-dock-item-second-prev,\r\n.p-dock.p-dock-left .p-dock-item-second-next, .p-dock.p-dock-right .p-dock-item-second-prev,\r\n.p-dock.p-dock-right .p-dock-item-second-next {\r\n  margin: 0.9rem 0;\r\n}\r\n.p-dock.p-dock-left .p-dock-item-prev,\r\n.p-dock.p-dock-left .p-dock-item-next, .p-dock.p-dock-right .p-dock-item-prev,\r\n.p-dock.p-dock-right .p-dock-item-next {\r\n  margin: 1.3rem 0;\r\n}\r\n.p-dock.p-dock-left .p-dock-item-current, .p-dock.p-dock-right .p-dock-item-current {\r\n  margin: 1.5rem 0;\r\n}\r\n\r\n@media screen and (max-width: 960px) {\r\n  .p-dock.p-dock-top .p-dock-list-container, .p-dock.p-dock-bottom .p-dock-list-container {\r\n    overflow-x: auto;\r\n    width: 100%;\r\n  }\r\n  .p-dock.p-dock-top .p-dock-list-container .p-dock-list, .p-dock.p-dock-bottom .p-dock-list-container .p-dock-list {\r\n    margin: 0 auto;\r\n  }\r\n  .p-dock.p-dock-left .p-dock-list-container, .p-dock.p-dock-right .p-dock-list-container {\r\n    overflow-y: auto;\r\n    height: 100%;\r\n  }\r\n  .p-dock.p-dock-left .p-dock-list-container .p-dock-list, .p-dock.p-dock-right .p-dock-list-container .p-dock-list {\r\n    margin: auto 0;\r\n  }\r\n  .p-dock .p-dock-list .p-dock-item {\r\n    transform: none;\r\n    margin: 0;\r\n  }\r\n}\r\n.p-megamenu {\r\n  padding: 0.5rem;\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n  border: 1px solid #dee2e6;\r\n  border-radius: 3px;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link {\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  border-radius: 3px;\r\n  transition: box-shadow 0.2s;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n          user-select: none;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {\r\n  color: #6c757d;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n  margin-left: 0.5rem;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link,\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text,\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon,\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon,\r\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-megamenu .p-menuitem-link {\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  border-radius: 0;\r\n  transition: box-shadow 0.2s;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n          user-select: none;\r\n}\r\n.p-megamenu .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-megamenu .p-menuitem-link .p-menuitem-icon {\r\n  color: #6c757d;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-megamenu .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-megamenu .p-menuitem-link:not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-megamenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-megamenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n.p-megamenu .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-megamenu .p-menuitem-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-megamenu .p-megamenu-panel {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 0 none;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-megamenu .p-megamenu-submenu-header {\r\n  margin: 0;\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  background: #ffffff;\r\n  font-weight: 600;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-megamenu .p-megamenu-submenu {\r\n  padding: 0.25rem 0;\r\n  width: 12.5rem;\r\n}\r\n.p-megamenu .p-megamenu-submenu .p-menu-separator {\r\n  border-top: 1px solid #dee2e6;\r\n  margin: 0.25rem 0;\r\n}\r\n.p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n  background: #e9ecef;\r\n}\r\n.p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, .p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-megamenu.p-megamenu-vertical {\r\n  width: 12.5rem;\r\n  padding: 0.25rem 0;\r\n}\r\n\r\n.p-menu {\r\n  padding: 0.25rem 0;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 1px solid #dee2e6;\r\n  border-radius: 3px;\r\n  width: 12.5rem;\r\n}\r\n.p-menu .p-menuitem-link {\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  border-radius: 0;\r\n  transition: box-shadow 0.2s;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n          user-select: none;\r\n}\r\n.p-menu .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-menu .p-menuitem-link .p-menuitem-icon {\r\n  color: #6c757d;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-menu .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-menu .p-menuitem-link:not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n.p-menu .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-menu .p-menuitem-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-menu.p-menu-overlay {\r\n  background: #ffffff;\r\n  border: 0 none;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-menu .p-submenu-header {\r\n  margin: 0;\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  background: #ffffff;\r\n  font-weight: 600;\r\n  border-top-right-radius: 0;\r\n  border-top-left-radius: 0;\r\n}\r\n.p-menu .p-menu-separator {\r\n  border-top: 1px solid #dee2e6;\r\n  margin: 0.25rem 0;\r\n}\r\n\r\n.p-menubar {\r\n  padding: 0.5rem;\r\n  background: #f8f9fa;\r\n  color: #495057;\r\n  border: 1px solid #dee2e6;\r\n  border-radius: 3px;\r\n}\r\n.p-menubar .p-menuitem-link {\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  border-radius: 0;\r\n  transition: box-shadow 0.2s;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n          user-select: none;\r\n}\r\n.p-menubar .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-menubar .p-menuitem-link .p-menuitem-icon {\r\n  color: #6c757d;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-menubar .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-menubar .p-menuitem-link:not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-menubar .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-menubar .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n.p-menubar .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-menubar .p-menuitem-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  border-radius: 3px;\r\n  transition: box-shadow 0.2s;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n          user-select: none;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {\r\n  color: #6c757d;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n  margin-left: 0.5rem;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link,\r\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text,\r\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon,\r\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon,\r\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-menubar .p-submenu-list {\r\n  padding: 0.25rem 0;\r\n  background: #ffffff;\r\n  border: 0 none;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n  width: 12.5rem;\r\n}\r\n.p-menubar .p-submenu-list .p-menu-separator {\r\n  border-top: 1px solid #dee2e6;\r\n  margin: 0.25rem 0;\r\n}\r\n.p-menubar .p-submenu-list .p-submenu-icon {\r\n  font-size: 0.875rem;\r\n}\r\n.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n  background: #e9ecef;\r\n}\r\n.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n\r\n@media screen and (max-width: 960px) {\r\n  .p-menubar {\r\n    position: relative;\r\n  }\r\n  .p-menubar .p-menubar-button {\r\n    display: flex;\r\n    width: 2rem;\r\n    height: 2rem;\r\n    color: #6c757d;\r\n    border-radius: 50%;\r\n    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  }\r\n  .p-menubar .p-menubar-button:hover {\r\n    color: #6c757d;\r\n    background: #e9ecef;\r\n  }\r\n  .p-menubar .p-menubar-button:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n  }\r\n  .p-menubar .p-menubar-root-list {\r\n    position: absolute;\r\n    display: none;\r\n    padding: 0.25rem 0;\r\n    background: #ffffff;\r\n    border: 0 none;\r\n    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n    width: 100%;\r\n  }\r\n  .p-menubar .p-menubar-root-list .p-menu-separator {\r\n    border-top: 1px solid #dee2e6;\r\n    margin: 0.25rem 0;\r\n  }\r\n  .p-menubar .p-menubar-root-list .p-submenu-icon {\r\n    font-size: 0.875rem;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem {\r\n    width: 100%;\r\n    position: static;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {\r\n    padding: 0.75rem 1rem;\r\n    color: #495057;\r\n    border-radius: 0;\r\n    transition: box-shadow 0.2s;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n            user-select: none;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {\r\n    color: #495057;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {\r\n    color: #6c757d;\r\n    margin-right: 0.5rem;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {\r\n    color: #6c757d;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {\r\n    background: #e9ecef;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\r\n    color: #495057;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\r\n    color: #6c757d;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\r\n    color: #6c757d;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus {\r\n    outline: 0 none;\r\n    outline-offset: 0;\r\n    box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {\r\n    margin-left: auto;\r\n    transition: transform 0.2s;\r\n  }\r\n  .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link > .p-submenu-icon {\r\n    transform: rotate(-180deg);\r\n  }\r\n  .p-menubar .p-menubar-root-list .p-submenu-list {\r\n    width: 100%;\r\n    position: static;\r\n    box-shadow: none;\r\n    border: 0 none;\r\n  }\r\n  .p-menubar .p-menubar-root-list .p-submenu-list .p-submenu-icon {\r\n    transition: transform 0.2s;\r\n    transform: rotate(90deg);\r\n  }\r\n  .p-menubar .p-menubar-root-list .p-submenu-list .p-menuitem-active > .p-menuitem-link > .p-submenu-icon {\r\n    transform: rotate(-90deg);\r\n  }\r\n  .p-menubar .p-menubar-root-list .p-menuitem {\r\n    width: 100%;\r\n    position: static;\r\n  }\r\n  .p-menubar .p-menubar-root-list ul li a {\r\n    padding-left: 2.25rem;\r\n  }\r\n  .p-menubar .p-menubar-root-list ul li ul li a {\r\n    padding-left: 3.75rem;\r\n  }\r\n  .p-menubar .p-menubar-root-list ul li ul li ul li a {\r\n    padding-left: 5.25rem;\r\n  }\r\n  .p-menubar .p-menubar-root-list ul li ul li ul li ul li a {\r\n    padding-left: 6.75rem;\r\n  }\r\n  .p-menubar .p-menubar-root-list ul li ul li ul li ul li ul li a {\r\n    padding-left: 8.25rem;\r\n  }\r\n  .p-menubar.p-menubar-mobile-active .p-menubar-root-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    top: 100%;\r\n    left: 0;\r\n    z-index: 1;\r\n  }\r\n}\r\n.p-panelmenu .p-panelmenu-header > a {\r\n  padding: 1rem;\r\n  border: 1px solid #dee2e6;\r\n  color: #495057;\r\n  background: #f8f9fa;\r\n  font-weight: 600;\r\n  border-radius: 3px;\r\n  transition: box-shadow 0.2s;\r\n}\r\n.p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-panelmenu .p-panelmenu-header > a .p-menuitem-icon {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-panelmenu .p-panelmenu-header > a:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-panelmenu .p-panelmenu-header:not(.p-highlight):not(.p-disabled) > a:hover {\r\n  background: #e9ecef;\r\n  border-color: #dee2e6;\r\n  color: #495057;\r\n}\r\n.p-panelmenu .p-panelmenu-header.p-highlight {\r\n  margin-bottom: 0;\r\n}\r\n.p-panelmenu .p-panelmenu-header.p-highlight > a {\r\n  background: #f8f9fa;\r\n  border-color: #dee2e6;\r\n  color: #495057;\r\n  border-bottom-right-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\n.p-panelmenu .p-panelmenu-header.p-highlight:not(.p-disabled) > a:hover {\r\n  border-color: #dee2e6;\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-panelmenu .p-panelmenu-content {\r\n  padding: 0.25rem 0;\r\n  border: 1px solid #dee2e6;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border-top: 0;\r\n  border-top-right-radius: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link {\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  border-radius: 0;\r\n  transition: box-shadow 0.2s;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n          user-select: none;\r\n}\r\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-menuitem-icon {\r\n  color: #6c757d;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-panelmenu-icon {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-panelmenu .p-panelmenu-content .p-submenu-list:not(.p-panelmenu-root-submenu) {\r\n  padding: 0 0 0 1rem;\r\n}\r\n.p-panelmenu .p-panelmenu-panel {\r\n  margin-bottom: 0;\r\n}\r\n.p-panelmenu .p-panelmenu-panel .p-panelmenu-header > a {\r\n  border-radius: 0;\r\n}\r\n.p-panelmenu .p-panelmenu-panel .p-panelmenu-content {\r\n  border-radius: 0;\r\n}\r\n.p-panelmenu .p-panelmenu-panel:not(:first-child) .p-panelmenu-header > a {\r\n  border-top: 0 none;\r\n}\r\n.p-panelmenu .p-panelmenu-panel:not(:first-child) .p-panelmenu-header:not(.p-highlight):not(.p-disabled):hover > a, .p-panelmenu .p-panelmenu-panel:not(:first-child) .p-panelmenu-header:not(.p-disabled).p-highlight:hover > a {\r\n  border-top: 0 none;\r\n}\r\n.p-panelmenu .p-panelmenu-panel:first-child .p-panelmenu-header > a {\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n}\r\n.p-panelmenu .p-panelmenu-panel:last-child .p-panelmenu-header:not(.p-highlight) > a {\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n.p-panelmenu .p-panelmenu-panel:last-child .p-panelmenu-content {\r\n  border-bottom-right-radius: 3px;\r\n  border-bottom-left-radius: 3px;\r\n}\r\n\r\n.p-steps .p-steps-item .p-menuitem-link {\r\n  background: transparent;\r\n  transition: box-shadow 0.2s;\r\n  border-radius: 3px;\r\n  background: #ffffff;\r\n}\r\n.p-steps .p-steps-item .p-menuitem-link .p-steps-number {\r\n  color: #495057;\r\n  border: 1px solid #e9ecef;\r\n  background: #ffffff;\r\n  min-width: 2rem;\r\n  height: 2rem;\r\n  line-height: 2rem;\r\n  font-size: 1.143rem;\r\n  z-index: 1;\r\n  border-radius: 50%;\r\n}\r\n.p-steps .p-steps-item .p-menuitem-link .p-steps-title {\r\n  margin-top: 0.5rem;\r\n  color: #6c757d;\r\n}\r\n.p-steps .p-steps-item .p-menuitem-link:not(.p-disabled):focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-steps .p-steps-item.p-highlight .p-steps-number {\r\n  background: #E3F2FD;\r\n  color: #495057;\r\n}\r\n.p-steps .p-steps-item.p-highlight .p-steps-title {\r\n  font-weight: 600;\r\n  color: #495057;\r\n}\r\n.p-steps .p-steps-item:before {\r\n  content: \" \";\r\n  border-top: 1px solid #dee2e6;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 0;\r\n  display: block;\r\n  position: absolute;\r\n  margin-top: -1rem;\r\n}\r\n\r\n.p-tabmenu .p-tabmenu-nav {\r\n  background: #ffffff;\r\n  border: 1px solid #dee2e6;\r\n  border-width: 0 0 2px 0;\r\n}\r\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem {\r\n  margin-right: 0;\r\n}\r\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {\r\n  border: solid #dee2e6;\r\n  border-width: 0 0 2px 0;\r\n  border-color: transparent transparent #dee2e6 transparent;\r\n  background: #ffffff;\r\n  color: #6c757d;\r\n  padding: 1rem;\r\n  font-weight: 600;\r\n  border-top-right-radius: 3px;\r\n  border-top-left-radius: 3px;\r\n  transition: box-shadow 0.2s;\r\n  margin: 0 0 -2px 0;\r\n}\r\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {\r\n  background: #ffffff;\r\n  border-color: #6c757d;\r\n  color: #6c757d;\r\n}\r\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {\r\n  background: #ffffff;\r\n  border-color: #2196F3;\r\n  color: #2196F3;\r\n}\r\n\r\n.p-tieredmenu {\r\n  padding: 0.25rem 0;\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 1px solid #dee2e6;\r\n  border-radius: 3px;\r\n  width: 12.5rem;\r\n}\r\n.p-tieredmenu .p-menuitem-link {\r\n  padding: 0.75rem 1rem;\r\n  color: #495057;\r\n  border-radius: 0;\r\n  transition: box-shadow 0.2s;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n          user-select: none;\r\n}\r\n.p-tieredmenu .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-tieredmenu .p-menuitem-link .p-menuitem-icon {\r\n  color: #6c757d;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-tieredmenu .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-tieredmenu .p-menuitem-link:not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n}\r\n.p-tieredmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-tieredmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\r\n  color: #6c757d;\r\n}\r\n.p-tieredmenu .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-tieredmenu .p-menuitem-link:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\r\n}\r\n.p-tieredmenu.p-tieredmenu-overlay {\r\n  background: #ffffff;\r\n  border: 0 none;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-tieredmenu .p-submenu-list {\r\n  padding: 0.25rem 0;\r\n  background: #ffffff;\r\n  border: 0 none;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n.p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\r\n  background: #e9ecef;\r\n}\r\n.p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\r\n  color: #495057;\r\n}\r\n.p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\r\n  color: #6c757d;\r\n}\r\n.p-tieredmenu .p-menu-separator {\r\n  border-top: 1px solid #dee2e6;\r\n  margin: 0.25rem 0;\r\n}\r\n.p-tieredmenu .p-submenu-icon {\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.p-inline-message {\r\n  padding: 0.5rem 0.5rem;\r\n  margin: 0;\r\n  border-radius: 3px;\r\n}\r\n.p-inline-message.p-inline-message-info {\r\n  background: #B3E5FC;\r\n  border: solid #0891cf;\r\n  border-width: 0px;\r\n  color: #044868;\r\n}\r\n.p-inline-message.p-inline-message-info .p-inline-message-icon {\r\n  color: #044868;\r\n}\r\n.p-inline-message.p-inline-message-success {\r\n  background: #C8E6C9;\r\n  border: solid #439446;\r\n  border-width: 0px;\r\n  color: #224a23;\r\n}\r\n.p-inline-message.p-inline-message-success .p-inline-message-icon {\r\n  color: #224a23;\r\n}\r\n.p-inline-message.p-inline-message-warn {\r\n  background: #FFECB3;\r\n  border: solid #d9a300;\r\n  border-width: 0px;\r\n  color: #6d5100;\r\n}\r\n.p-inline-message.p-inline-message-warn .p-inline-message-icon {\r\n  color: #6d5100;\r\n}\r\n.p-inline-message.p-inline-message-error {\r\n  background: #FFCDD2;\r\n  border: solid #e60017;\r\n  border-width: 0px;\r\n  color: #73000c;\r\n}\r\n.p-inline-message.p-inline-message-error .p-inline-message-icon {\r\n  color: #73000c;\r\n}\r\n.p-inline-message .p-inline-message-icon {\r\n  font-size: 1rem;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-inline-message .p-inline-message-text {\r\n  font-size: 1rem;\r\n}\r\n.p-inline-message.p-inline-message-icon-only .p-inline-message-icon {\r\n  margin-right: 0;\r\n}\r\n\r\n.p-message {\r\n  margin: 1rem 0;\r\n  border-radius: 3px;\r\n}\r\n.p-message .p-message-wrapper {\r\n  padding: 1rem 1.5rem;\r\n}\r\n.p-message .p-message-close {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  border-radius: 50%;\r\n  background: transparent;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-message .p-message-close:hover {\r\n  background: rgba(255, 255, 255, 0.3);\r\n}\r\n.p-message .p-message-close:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-message.p-message-info {\r\n  background: #B3E5FC;\r\n  border: solid #0891cf;\r\n  border-width: 0 0 0 6px;\r\n  color: #044868;\r\n}\r\n.p-message.p-message-info .p-message-icon {\r\n  color: #044868;\r\n}\r\n.p-message.p-message-info .p-message-close {\r\n  color: #044868;\r\n}\r\n.p-message.p-message-success {\r\n  background: #C8E6C9;\r\n  border: solid #439446;\r\n  border-width: 0 0 0 6px;\r\n  color: #224a23;\r\n}\r\n.p-message.p-message-success .p-message-icon {\r\n  color: #224a23;\r\n}\r\n.p-message.p-message-success .p-message-close {\r\n  color: #224a23;\r\n}\r\n.p-message.p-message-warn {\r\n  background: #FFECB3;\r\n  border: solid #d9a300;\r\n  border-width: 0 0 0 6px;\r\n  color: #6d5100;\r\n}\r\n.p-message.p-message-warn .p-message-icon {\r\n  color: #6d5100;\r\n}\r\n.p-message.p-message-warn .p-message-close {\r\n  color: #6d5100;\r\n}\r\n.p-message.p-message-error {\r\n  background: #FFCDD2;\r\n  border: solid #e60017;\r\n  border-width: 0 0 0 6px;\r\n  color: #73000c;\r\n}\r\n.p-message.p-message-error .p-message-icon {\r\n  color: #73000c;\r\n}\r\n.p-message.p-message-error .p-message-close {\r\n  color: #73000c;\r\n}\r\n.p-message .p-message-text {\r\n  font-size: 1rem;\r\n  font-weight: 500;\r\n}\r\n.p-message .p-message-icon {\r\n  font-size: 1.5rem;\r\n  margin-right: 0.5rem;\r\n}\r\n\r\n.p-toast {\r\n  opacity: 0.9;\r\n}\r\n.p-toast .p-toast-message {\r\n  margin: 0 0 1rem 0;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n  border-radius: 3px;\r\n}\r\n.p-toast .p-toast-message .p-toast-message-content {\r\n  padding: 1rem;\r\n  border-width: 0 0 0 6px;\r\n}\r\n.p-toast .p-toast-message .p-toast-message-content .p-toast-message-text {\r\n  margin: 0 0 0 1rem;\r\n}\r\n.p-toast .p-toast-message .p-toast-message-content .p-toast-message-icon {\r\n  font-size: 2rem;\r\n}\r\n.p-toast .p-toast-message .p-toast-message-content .p-toast-summary {\r\n  font-weight: 700;\r\n}\r\n.p-toast .p-toast-message .p-toast-message-content .p-toast-detail {\r\n  margin: 0.5rem 0 0 0;\r\n}\r\n.p-toast .p-toast-message .p-toast-icon-close {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  border-radius: 50%;\r\n  background: transparent;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-toast .p-toast-message .p-toast-icon-close:hover {\r\n  background: rgba(255, 255, 255, 0.3);\r\n}\r\n.p-toast .p-toast-message .p-toast-icon-close:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n.p-toast .p-toast-message.p-toast-message-info {\r\n  background: #B3E5FC;\r\n  border: solid #0891cf;\r\n  border-width: 0 0 0 6px;\r\n  color: #044868;\r\n}\r\n.p-toast .p-toast-message.p-toast-message-info .p-toast-message-icon,\r\n.p-toast .p-toast-message.p-toast-message-info .p-toast-icon-close {\r\n  color: #044868;\r\n}\r\n.p-toast .p-toast-message.p-toast-message-success {\r\n  background: #C8E6C9;\r\n  border: solid #439446;\r\n  border-width: 0 0 0 6px;\r\n  color: #224a23;\r\n}\r\n.p-toast .p-toast-message.p-toast-message-success .p-toast-message-icon,\r\n.p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {\r\n  color: #224a23;\r\n}\r\n.p-toast .p-toast-message.p-toast-message-warn {\r\n  background: #FFECB3;\r\n  border: solid #d9a300;\r\n  border-width: 0 0 0 6px;\r\n  color: #6d5100;\r\n}\r\n.p-toast .p-toast-message.p-toast-message-warn .p-toast-message-icon,\r\n.p-toast .p-toast-message.p-toast-message-warn .p-toast-icon-close {\r\n  color: #6d5100;\r\n}\r\n.p-toast .p-toast-message.p-toast-message-error {\r\n  background: #FFCDD2;\r\n  border: solid #e60017;\r\n  border-width: 0 0 0 6px;\r\n  color: #73000c;\r\n}\r\n.p-toast .p-toast-message.p-toast-message-error .p-toast-message-icon,\r\n.p-toast .p-toast-message.p-toast-message-error .p-toast-icon-close {\r\n  color: #73000c;\r\n}\r\n\r\n.p-galleria .p-galleria-close {\r\n  margin: 0.5rem;\r\n  background: transparent;\r\n  color: #f8f9fa;\r\n  width: 4rem;\r\n  height: 4rem;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  border-radius: 50%;\r\n}\r\n.p-galleria .p-galleria-close .p-galleria-close-icon {\r\n  font-size: 2rem;\r\n}\r\n.p-galleria .p-galleria-close:hover {\r\n  background: rgba(255, 255, 255, 0.1);\r\n  color: #f8f9fa;\r\n}\r\n.p-galleria .p-galleria-item-nav {\r\n  background: transparent;\r\n  color: #f8f9fa;\r\n  width: 4rem;\r\n  height: 4rem;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  border-radius: 3px;\r\n  margin: 0 0.5rem;\r\n}\r\n.p-galleria .p-galleria-item-nav .p-galleria-item-prev-icon,\r\n.p-galleria .p-galleria-item-nav .p-galleria-item-next-icon {\r\n  font-size: 2rem;\r\n}\r\n.p-galleria .p-galleria-item-nav:not(.p-disabled):hover {\r\n  background: rgba(255, 255, 255, 0.1);\r\n  color: #f8f9fa;\r\n}\r\n.p-galleria .p-galleria-caption {\r\n  background: rgba(0, 0, 0, 0.5);\r\n  color: #f8f9fa;\r\n  padding: 1rem;\r\n}\r\n.p-galleria .p-galleria-indicators {\r\n  padding: 1rem;\r\n}\r\n.p-galleria .p-galleria-indicators .p-galleria-indicator button {\r\n  background-color: #e9ecef;\r\n  width: 1rem;\r\n  height: 1rem;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  border-radius: 50%;\r\n}\r\n.p-galleria .p-galleria-indicators .p-galleria-indicator button:hover {\r\n  background: #dee2e6;\r\n}\r\n.p-galleria .p-galleria-indicators .p-galleria-indicator.p-highlight button {\r\n  background: #E3F2FD;\r\n  color: #495057;\r\n}\r\n.p-galleria.p-galleria-indicators-bottom .p-galleria-indicator, .p-galleria.p-galleria-indicators-top .p-galleria-indicator {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-galleria.p-galleria-indicators-left .p-galleria-indicator, .p-galleria.p-galleria-indicators-right .p-galleria-indicator {\r\n  margin-bottom: 0.5rem;\r\n}\r\n.p-galleria.p-galleria-indicator-onitem .p-galleria-indicators {\r\n  background: rgba(0, 0, 0, 0.5);\r\n}\r\n.p-galleria.p-galleria-indicator-onitem .p-galleria-indicators .p-galleria-indicator button {\r\n  background: rgba(255, 255, 255, 0.4);\r\n}\r\n.p-galleria.p-galleria-indicator-onitem .p-galleria-indicators .p-galleria-indicator button:hover {\r\n  background: rgba(255, 255, 255, 0.6);\r\n}\r\n.p-galleria.p-galleria-indicator-onitem .p-galleria-indicators .p-galleria-indicator.p-highlight button {\r\n  background: #E3F2FD;\r\n  color: #495057;\r\n}\r\n.p-galleria .p-galleria-thumbnail-container {\r\n  background: rgba(0, 0, 0, 0.9);\r\n  padding: 1rem 0.25rem;\r\n}\r\n.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-prev,\r\n.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-next {\r\n  margin: 0.5rem;\r\n  background-color: transparent;\r\n  color: #f8f9fa;\r\n  width: 2rem;\r\n  height: 2rem;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  border-radius: 50%;\r\n}\r\n.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-prev:hover,\r\n.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-next:hover {\r\n  background: rgba(255, 255, 255, 0.1);\r\n  color: #f8f9fa;\r\n}\r\n.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n\r\n.p-galleria-mask {\r\n  --maskbg: rgba(0, 0, 0, 0.9);\r\n}\r\n\r\n.p-image-mask {\r\n  --maskbg: rgba(0, 0, 0, 0.9);\r\n}\r\n\r\n.p-image-preview-indicator {\r\n  background-color: transparent;\r\n  color: #f8f9fa;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n\r\n.p-image-preview-container:hover > .p-image-preview-indicator {\r\n  background-color: rgba(0, 0, 0, 0.5);\r\n}\r\n\r\n.p-image-toolbar {\r\n  padding: 1rem;\r\n}\r\n\r\n.p-image-action.p-link {\r\n  color: #f8f9fa;\r\n  background-color: transparent;\r\n  width: 3rem;\r\n  height: 3rem;\r\n  border-radius: 50%;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-image-action.p-link:last-child {\r\n  margin-right: 0;\r\n}\r\n.p-image-action.p-link:hover {\r\n  color: #f8f9fa;\r\n  background-color: rgba(255, 255, 255, 0.1);\r\n}\r\n.p-image-action.p-link i {\r\n  font-size: 1.5rem;\r\n}\r\n\r\n.p-avatar {\r\n  background-color: #dee2e6;\r\n  border-radius: 3px;\r\n}\r\n.p-avatar.p-avatar-lg {\r\n  width: 3rem;\r\n  height: 3rem;\r\n  font-size: 1.5rem;\r\n}\r\n.p-avatar.p-avatar-lg .p-avatar-icon {\r\n  font-size: 1.5rem;\r\n}\r\n.p-avatar.p-avatar-xl {\r\n  width: 4rem;\r\n  height: 4rem;\r\n  font-size: 2rem;\r\n}\r\n.p-avatar.p-avatar-xl .p-avatar-icon {\r\n  font-size: 2rem;\r\n}\r\n\r\n.p-avatar-group .p-avatar {\r\n  border: 2px solid #ffffff;\r\n}\r\n\r\n.p-badge {\r\n  background: #2196F3;\r\n  color: #ffffff;\r\n  font-size: 0.75rem;\r\n  font-weight: 700;\r\n  min-width: 1.5rem;\r\n  height: 1.5rem;\r\n  line-height: 1.5rem;\r\n}\r\n.p-badge.p-badge-secondary {\r\n  background-color: #607D8B;\r\n  color: #ffffff;\r\n}\r\n.p-badge.p-badge-success {\r\n  background-color: #689F38;\r\n  color: #ffffff;\r\n}\r\n.p-badge.p-badge-info {\r\n  background-color: #0288D1;\r\n  color: #ffffff;\r\n}\r\n.p-badge.p-badge-warning {\r\n  background-color: #FBC02D;\r\n  color: #212529;\r\n}\r\n.p-badge.p-badge-danger {\r\n  background-color: #D32F2F;\r\n  color: #ffffff;\r\n}\r\n.p-badge.p-badge-lg {\r\n  font-size: 1.125rem;\r\n  min-width: 2.25rem;\r\n  height: 2.25rem;\r\n  line-height: 2.25rem;\r\n}\r\n.p-badge.p-badge-xl {\r\n  font-size: 1.5rem;\r\n  min-width: 3rem;\r\n  height: 3rem;\r\n  line-height: 3rem;\r\n}\r\n\r\n.p-chip {\r\n  background-color: #dee2e6;\r\n  color: #495057;\r\n  border-radius: 16px;\r\n  padding: 0 0.5rem;\r\n}\r\n.p-chip .p-chip-text {\r\n  line-height: 1.5;\r\n  margin-top: 0.25rem;\r\n  margin-bottom: 0.25rem;\r\n}\r\n.p-chip .p-chip-icon {\r\n  margin-right: 0.5rem;\r\n}\r\n.p-chip img {\r\n  width: 2rem;\r\n  height: 2rem;\r\n  margin-left: -0.5rem;\r\n  margin-right: 0.5rem;\r\n}\r\n.p-chip .p-chip-remove-icon {\r\n  margin-left: 0.5rem;\r\n  border-radius: 3px;\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-chip .p-chip-remove-icon:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n\r\n.p-inplace .p-inplace-display {\r\n  padding: 0.5rem 0.5rem;\r\n  border-radius: 3px;\r\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-inplace .p-inplace-display:not(.p-disabled):hover {\r\n  background: #e9ecef;\r\n  color: #495057;\r\n}\r\n.p-inplace .p-inplace-display:focus {\r\n  outline: 0 none;\r\n  outline-offset: 0;\r\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\r\n}\r\n\r\n.p-progressbar {\r\n  border: 0 none;\r\n  height: 1.5rem;\r\n  background: #dee2e6;\r\n  border-radius: 3px;\r\n}\r\n.p-progressbar .p-progressbar-value {\r\n  border: 0 none;\r\n  margin: 0;\r\n  background: #2196F3;\r\n}\r\n.p-progressbar .p-progressbar-label {\r\n  color: #ffffff;\r\n  line-height: 1.5rem;\r\n}\r\n\r\n.p-scrolltop {\r\n  width: 3rem;\r\n  height: 3rem;\r\n  border-radius: 50%;\r\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\r\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\r\n}\r\n.p-scrolltop.p-link {\r\n  background: rgba(0, 0, 0, 0.7);\r\n}\r\n.p-scrolltop.p-link:hover {\r\n  background: rgba(0, 0, 0, 0.8);\r\n}\r\n.p-scrolltop .p-scrolltop-icon {\r\n  font-size: 1.5rem;\r\n  color: #f8f9fa;\r\n}\r\n\r\n.p-skeleton {\r\n  background-color: #e9ecef;\r\n  border-radius: 3px;\r\n}\r\n.p-skeleton:after {\r\n  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));\r\n}\r\n\r\n.p-tag {\r\n  background: #2196F3;\r\n  color: #ffffff;\r\n  font-size: 0.75rem;\r\n  font-weight: 700;\r\n  padding: 0.25rem 0.4rem;\r\n  border-radius: 3px;\r\n}\r\n.p-tag.p-tag-success {\r\n  background-color: #689F38;\r\n  color: #ffffff;\r\n}\r\n.p-tag.p-tag-info {\r\n  background-color: #0288D1;\r\n  color: #ffffff;\r\n}\r\n.p-tag.p-tag-warning {\r\n  background-color: #FBC02D;\r\n  color: #212529;\r\n}\r\n.p-tag.p-tag-danger {\r\n  background-color: #D32F2F;\r\n  color: #ffffff;\r\n}\r\n.p-tag .p-tag-icon {\r\n  margin-right: 0.25rem;\r\n  font-size: 0.75rem;\r\n}\r\n\r\n.p-terminal {\r\n  background: #ffffff;\r\n  color: #495057;\r\n  border: 1px solid #dee2e6;\r\n  padding: 1rem;\r\n}\r\n.p-terminal .p-terminal-input {\r\n  font-size: 1rem;\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\r\n}\r\n\r\n/* Customizations to the designer theme should be defined here */\r\n.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {\r\n  background-color: #2196F3;\r\n}\r\n\r\n.p-galleria .p-galleria-indicators .p-galleria-indicator.p-highlight button {\r\n  background-color: #2196F3;\r\n}\r\n\r\n.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {\r\n  box-shadow: inset 0 2px 0 0 #2196F3;\r\n}\r\n.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {\r\n  box-shadow: inset 0 -2px 0 0 #2196F3;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --surface-a:#ffffff;\n  --surface-b:#f8f9fa;\n  --surface-c:#e9ecef;\n  --surface-d:#dee2e6;\n  --surface-e:#ffffff;\n  --surface-f:#ffffff;\n  --text-color:#495057;\n  --text-color-secondary:#6c757d;\n  --primary-color:#2196F3;\n  --primary-color-text:#ffffff;\n  --font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n  --surface-0: #ffffff;\n  --surface-50: #FAFAFA;\n  --surface-100: #F5F5F5;\n  --surface-200: #EEEEEE;\n  --surface-300: #E0E0E0;\n  --surface-400: #BDBDBD;\n  --surface-500: #9E9E9E;\n  --surface-600: #757575;\n  --surface-700: #616161;\n  --surface-800: #424242;\n  --surface-900: #212121;\n  --gray-50: #FAFAFA;\n  --gray-100: #F5F5F5;\n  --gray-200: #EEEEEE;\n  --gray-300: #E0E0E0;\n  --gray-400: #BDBDBD;\n  --gray-500: #9E9E9E;\n  --gray-600: #757575;\n  --gray-700: #616161;\n  --gray-800: #424242;\n  --gray-900: #212121;\n  --content-padding:1rem;\n  --inline-spacing:0.5rem;\n  --border-radius:3px;\n  --surface-ground:#f8f9fa;\n  --surface-section:#ffffff;\n  --surface-card:#ffffff;\n  --surface-overlay:#ffffff;\n  --surface-border:#dee2e6;\n  --surface-hover: #e9ecef;\n  --focus-ring: 0 0 0 0.2rem #a6d5fa;\n  --maskbg: rgba(0, 0, 0, 0.4);\n}\n\n* {\n  box-sizing: border-box;\n}\n\n.p-component {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n  font-size: 1rem;\n  font-weight: normal;\n}\n\n.p-component-overlay {\n  background-color: rgba(0, 0, 0, 0.4);\n  transition-duration: 0.2s;\n}\n\n.p-disabled, .p-component:disabled {\n  opacity: 0.6;\n}\n\n.p-error {\n  color: #f44336;\n}\n\n.p-text-secondary {\n  color: #6c757d;\n}\n\n.pi {\n  font-size: 1rem;\n}\n\n.p-link {\n  font-size: 1rem;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n  border-radius: 3px;\n}\n.p-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n\n.p-component-overlay-enter {\n  -webkit-animation: p-component-overlay-enter-animation 150ms forwards;\n          animation: p-component-overlay-enter-animation 150ms forwards;\n}\n\n.p-component-overlay-leave {\n  -webkit-animation: p-component-overlay-leave-animation 150ms forwards;\n          animation: p-component-overlay-leave-animation 150ms forwards;\n}\n\n@-webkit-keyframes p-component-overlay-enter-animation {\n  from {\n    background-color: transparent;\n  }\n  to {\n    background-color: var(--maskbg);\n  }\n}\n\n@keyframes p-component-overlay-enter-animation {\n  from {\n    background-color: transparent;\n  }\n  to {\n    background-color: var(--maskbg);\n  }\n}\n@-webkit-keyframes p-component-overlay-leave-animation {\n  from {\n    background-color: var(--maskbg);\n  }\n  to {\n    background-color: transparent;\n  }\n}\n@keyframes p-component-overlay-leave-animation {\n  from {\n    background-color: var(--maskbg);\n  }\n  to {\n    background-color: transparent;\n  }\n}\n\n:root {\n  --blue-50:#f4fafe;\n  --blue-100:#cae6fc;\n  --blue-200:#a0d2fa;\n  --blue-300:#75bef8;\n  --blue-400:#4baaf5;\n  --blue-500:#2196f3;\n  --blue-600:#1c80cf;\n  --blue-700:#1769aa;\n  --blue-800:#125386;\n  --blue-900:#0d3c61;\n  --green-50:#f6fbf6;\n  --green-100:#d4ecd5;\n  --green-200:#b2ddb4;\n  --green-300:#90cd93;\n  --green-400:#6ebe71;\n  --green-500:#4caf50;\n  --green-600:#419544;\n  --green-700:#357b38;\n  --green-800:#2a602c;\n  --green-900:#1e4620;\n  --yellow-50:#fffcf5;\n  --yellow-100:#fef0cd;\n  --yellow-200:#fde4a5;\n  --yellow-300:#fdd87d;\n  --yellow-400:#fccc55;\n  --yellow-500:#fbc02d;\n  --yellow-600:#d5a326;\n  --yellow-700:#b08620;\n  --yellow-800:#8a6a19;\n  --yellow-900:#644d12;\n  --cyan-50:#f2fcfd;\n  --cyan-100:#c2eff5;\n  --cyan-200:#91e2ed;\n  --cyan-300:#61d5e4;\n  --cyan-400:#30c9dc;\n  --cyan-500:#00bcd4;\n  --cyan-600:#00a0b4;\n  --cyan-700:#008494;\n  --cyan-800:#006775;\n  --cyan-900:#004b55;\n  --pink-50:#fef4f7;\n  --pink-100:#fac9da;\n  --pink-200:#f69ebc;\n  --pink-300:#f1749e;\n  --pink-400:#ed4981;\n  --pink-500:#e91e63;\n  --pink-600:#c61a54;\n  --pink-700:#a31545;\n  --pink-800:#801136;\n  --pink-900:#5d0c28;\n  --indigo-50:#f5f6fb;\n  --indigo-100:#d1d5ed;\n  --indigo-200:#acb4df;\n  --indigo-300:#8893d1;\n  --indigo-400:#6372c3;\n  --indigo-500:#3f51b5;\n  --indigo-600:#36459a;\n  --indigo-700:#2c397f;\n  --indigo-800:#232d64;\n  --indigo-900:#192048;\n  --teal-50:#f2faf9;\n  --teal-100:#c2e6e2;\n  --teal-200:#91d2cc;\n  --teal-300:#61beb5;\n  --teal-400:#30aa9f;\n  --teal-500:#009688;\n  --teal-600:#008074;\n  --teal-700:#00695f;\n  --teal-800:#00534b;\n  --teal-900:#003c36;\n  --orange-50:#fff8f2;\n  --orange-100:#fde0c2;\n  --orange-200:#fbc791;\n  --orange-300:#f9ae61;\n  --orange-400:#f79530;\n  --orange-500:#f57c00;\n  --orange-600:#d06900;\n  --orange-700:#ac5700;\n  --orange-800:#874400;\n  --orange-900:#623200;\n  --bluegray-50:#f7f9f9;\n  --bluegray-100:#d9e0e3;\n  --bluegray-200:#bbc7cd;\n  --bluegray-300:#9caeb7;\n  --bluegray-400:#7e96a1;\n  --bluegray-500:#607d8b;\n  --bluegray-600:#526a76;\n  --bluegray-700:#435861;\n  --bluegray-800:#35454c;\n  --bluegray-900:#263238;\n  --purple-50:#faf4fb;\n  --purple-100:#e7cbec;\n  --purple-200:#d4a2dd;\n  --purple-300:#c279ce;\n  --purple-400:#af50bf;\n  --purple-500:#9c27b0;\n  --purple-600:#852196;\n  --purple-700:#6d1b7b;\n  --purple-800:#561561;\n  --purple-900:#3e1046;\n  --red-50:#fff5f5;\n  --red-100:#ffd1ce;\n  --red-200:#ffada7;\n  --red-300:#ff8980;\n  --red-400:#ff6459;\n  --red-500:#ff4032;\n  --red-600:#d9362b;\n  --red-700:#b32d23;\n  --red-800:#8c231c;\n  --red-900:#661a14;\n  --primary-50:#f4fafe;\n  --primary-100:#cae6fc;\n  --primary-200:#a0d2fa;\n  --primary-300:#75bef8;\n  --primary-400:#4baaf5;\n  --primary-500:#2196f3;\n  --primary-600:#1c80cf;\n  --primary-700:#1769aa;\n  --primary-800:#125386;\n  --primary-900:#0d3c61;\n}\n\n.p-autocomplete .p-autocomplete-loader {\n  right: 0.5rem;\n}\n.p-autocomplete.p-autocomplete-dd .p-autocomplete-loader {\n  right: 2.857rem;\n}\n.p-autocomplete .p-autocomplete-multiple-container {\n  padding: 0.25rem 0.5rem;\n}\n.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled):hover {\n  border-color: #2196F3;\n}\n.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled).p-focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  border-color: #2196F3;\n}\n.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token {\n  padding: 0.25rem 0;\n}\n.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n  font-size: 1rem;\n  color: #495057;\n  padding: 0;\n  margin: 0;\n}\n.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token {\n  padding: 0.25rem 0.5rem;\n  margin-right: 0.5rem;\n  background: #dee2e6;\n  color: #495057;\n  border-radius: 16px;\n}\n.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token .p-autocomplete-token-icon {\n  margin-left: 0.5rem;\n}\n.p-autocomplete.p-invalid.p-component > .p-inputtext {\n  border-color: #f44336;\n}\n\n.p-autocomplete-panel {\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  border-radius: 3px;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.p-autocomplete-panel .p-autocomplete-items {\n  padding: 0.5rem 0;\n}\n.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {\n  margin: 0;\n  padding: 0.5rem 1rem;\n  border: 0 none;\n  color: #495057;\n  background: transparent;\n  transition: box-shadow 0.2s;\n  border-radius: 0;\n}\n.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover {\n  color: #495057;\n  background: #e9ecef;\n}\n.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item-group {\n  margin: 0;\n  padding: 0.75rem 1rem;\n  color: #495057;\n  background: #ffffff;\n  font-weight: 600;\n}\n\n.p-calendar.p-invalid.p-component > .p-inputtext {\n  border-color: #f44336;\n}\n\n.p-datepicker {\n  padding: 0.5rem;\n  background: #ffffff;\n  color: #495057;\n  border: 1px solid #ced4da;\n  border-radius: 3px;\n}\n.p-datepicker:not(.p-datepicker-inline) {\n  background: #ffffff;\n  border: 0 none;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.p-datepicker:not(.p-datepicker-inline) .p-datepicker-header {\n  background: #ffffff;\n}\n.p-datepicker .p-datepicker-header {\n  padding: 0.5rem;\n  color: #495057;\n  background: #ffffff;\n  font-weight: 600;\n  margin: 0;\n  border-bottom: 1px solid #dee2e6;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-datepicker .p-datepicker-header .p-datepicker-prev,\n.p-datepicker .p-datepicker-header .p-datepicker-next {\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-datepicker .p-datepicker-header .p-datepicker-prev:enabled:hover,\n.p-datepicker .p-datepicker-header .p-datepicker-next:enabled:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-datepicker .p-datepicker-header .p-datepicker-prev:focus,\n.p-datepicker .p-datepicker-header .p-datepicker-next:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-datepicker .p-datepicker-header .p-datepicker-title {\n  line-height: 2rem;\n}\n.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year,\n.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {\n  color: #495057;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  font-weight: 600;\n  padding: 0.5rem;\n}\n.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year:enabled:hover,\n.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month:enabled:hover {\n  color: #2196F3;\n}\n.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {\n  margin-right: 0.5rem;\n}\n.p-datepicker table {\n  font-size: 1rem;\n  margin: 0.5rem 0;\n}\n.p-datepicker table th {\n  padding: 0.5rem;\n}\n.p-datepicker table th > span {\n  width: 2.5rem;\n  height: 2.5rem;\n}\n.p-datepicker table td {\n  padding: 0.5rem;\n}\n.p-datepicker table td > span {\n  width: 2.5rem;\n  height: 2.5rem;\n  border-radius: 50%;\n  transition: box-shadow 0.2s;\n  border: 1px solid transparent;\n}\n.p-datepicker table td > span.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-datepicker table td > span:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-datepicker table td.p-datepicker-today > span {\n  background: #ced4da;\n  color: #495057;\n  border-color: transparent;\n}\n.p-datepicker table td.p-datepicker-today > span.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-datepicker .p-datepicker-buttonbar {\n  padding: 1rem 0;\n  border-top: 1px solid #dee2e6;\n}\n.p-datepicker .p-datepicker-buttonbar .p-button {\n  width: auto;\n}\n.p-datepicker .p-timepicker {\n  border-top: 1px solid #dee2e6;\n  padding: 0.5rem;\n}\n.p-datepicker .p-timepicker button {\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-datepicker .p-timepicker button:enabled:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-datepicker .p-timepicker button:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-datepicker .p-timepicker button:last-child {\n  margin-top: 0.2em;\n}\n.p-datepicker .p-timepicker span {\n  font-size: 1.25rem;\n}\n.p-datepicker .p-timepicker > div {\n  padding: 0 0.5rem;\n}\n.p-datepicker.p-datepicker-timeonly .p-timepicker {\n  border-top: 0 none;\n}\n.p-datepicker .p-monthpicker {\n  margin: 0.5rem 0;\n}\n.p-datepicker .p-monthpicker .p-monthpicker-month {\n  padding: 0.5rem;\n  transition: box-shadow 0.2s;\n  border-radius: 3px;\n}\n.p-datepicker .p-monthpicker .p-monthpicker-month.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-datepicker .p-yearpicker {\n  margin: 0.5rem 0;\n}\n.p-datepicker .p-yearpicker .p-yearpicker-year {\n  padding: 0.5rem;\n  transition: box-shadow 0.2s;\n  border-radius: 3px;\n}\n.p-datepicker .p-yearpicker .p-yearpicker-year.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-datepicker.p-datepicker-multiple-month .p-datepicker-group {\n  border-left: 1px solid #dee2e6;\n  padding-right: 0.5rem;\n  padding-left: 0.5rem;\n  padding-top: 0;\n  padding-bottom: 0;\n}\n.p-datepicker.p-datepicker-multiple-month .p-datepicker-group:first-child {\n  padding-left: 0;\n  border-left: 0 none;\n}\n.p-datepicker.p-datepicker-multiple-month .p-datepicker-group:last-child {\n  padding-right: 0;\n}\n.p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {\n  background: #e9ecef;\n}\n.p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):not(.p-highlight):hover {\n  background: #e9ecef;\n}\n.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):not(.p-highlight):hover {\n  background: #e9ecef;\n}\n.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n\n@media screen and (max-width: 769px) {\n  .p-datepicker table th, .p-datepicker table td {\n    padding: 0;\n  }\n}\n.p-cascadeselect {\n  background: #ffffff;\n  border: 1px solid #ced4da;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n  border-radius: 3px;\n}\n.p-cascadeselect:not(.p-disabled):hover {\n  border-color: #2196F3;\n}\n.p-cascadeselect:not(.p-disabled).p-focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  border-color: #2196F3;\n}\n.p-cascadeselect .p-cascadeselect-label {\n  background: transparent;\n  border: 0 none;\n  padding: 0.5rem 0.5rem;\n}\n.p-cascadeselect .p-cascadeselect-label.p-placeholder {\n  color: #6c757d;\n}\n.p-cascadeselect .p-cascadeselect-label:enabled:focus {\n  outline: 0 none;\n  box-shadow: none;\n}\n.p-cascadeselect .p-cascadeselect-trigger {\n  background: transparent;\n  color: #6c757d;\n  width: 2.357rem;\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n.p-cascadeselect.p-invalid.p-component {\n  border-color: #f44336;\n}\n\n.p-cascadeselect-panel {\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  border-radius: 3px;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.p-cascadeselect-panel .p-cascadeselect-items {\n  padding: 0.5rem 0;\n}\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item {\n  margin: 0;\n  border: 0 none;\n  color: #495057;\n  background: transparent;\n  transition: box-shadow 0.2s;\n  border-radius: 0;\n}\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-item-content {\n  padding: 0.5rem 1rem;\n}\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-item-content:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item:not(.p-highlight):not(.p-disabled):hover {\n  color: #495057;\n  background: #e9ecef;\n}\n.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-group-icon {\n  font-size: 0.875rem;\n}\n\n.p-input-filled .p-cascadeselect {\n  background: #f8f9fa;\n}\n.p-input-filled .p-cascadeselect:not(.p-disabled):hover {\n  background-color: #f8f9fa;\n}\n.p-input-filled .p-cascadeselect:not(.p-disabled).p-focus {\n  background-color: #ffffff;\n}\n\n.p-checkbox {\n  width: 20px;\n  height: 20px;\n}\n.p-checkbox .p-checkbox-box {\n  border: 2px solid #ced4da;\n  background: #ffffff;\n  width: 20px;\n  height: 20px;\n  color: #495057;\n  border-radius: 3px;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n}\n.p-checkbox .p-checkbox-box .p-checkbox-icon {\n  transition-duration: 0.2s;\n  color: #ffffff;\n  font-size: 14px;\n}\n.p-checkbox .p-checkbox-box.p-highlight {\n  border-color: #2196F3;\n  background: #2196F3;\n}\n.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {\n  border-color: #2196F3;\n}\n.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  border-color: #2196F3;\n}\n.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {\n  border-color: #0b7ad1;\n  background: #0b7ad1;\n  color: #ffffff;\n}\n.p-checkbox.p-invalid > .p-checkbox-box {\n  border-color: #f44336;\n}\n\n.p-input-filled .p-checkbox .p-checkbox-box {\n  background-color: #f8f9fa;\n}\n.p-input-filled .p-checkbox .p-checkbox-box.p-highlight {\n  background: #2196F3;\n}\n.p-input-filled .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {\n  background-color: #f8f9fa;\n}\n.p-input-filled .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {\n  background: #0b7ad1;\n}\n\n.p-chips .p-chips-multiple-container {\n  padding: 0.25rem 0.5rem;\n}\n.p-chips .p-chips-multiple-container:not(.p-disabled):hover {\n  border-color: #2196F3;\n}\n.p-chips .p-chips-multiple-container:not(.p-disabled).p-focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  border-color: #2196F3;\n}\n.p-chips .p-chips-multiple-container .p-chips-token {\n  padding: 0.25rem 0.5rem;\n  margin-right: 0.5rem;\n  background: #dee2e6;\n  color: #495057;\n  border-radius: 16px;\n}\n.p-chips .p-chips-multiple-container .p-chips-token .p-chips-token-icon {\n  margin-left: 0.5rem;\n}\n.p-chips .p-chips-multiple-container .p-chips-input-token {\n  padding: 0.25rem 0;\n}\n.p-chips .p-chips-multiple-container .p-chips-input-token input {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n  font-size: 1rem;\n  color: #495057;\n  padding: 0;\n  margin: 0;\n}\n.p-chips.p-invalid.p-component > .p-inputtext {\n  border-color: #f44336;\n}\n\n.p-colorpicker-preview {\n  width: 2rem;\n  height: 2rem;\n}\n\n.p-colorpicker-panel {\n  background: #323232;\n  border: 1px solid #191919;\n}\n.p-colorpicker-panel .p-colorpicker-color-handle,\n.p-colorpicker-panel .p-colorpicker-hue-handle {\n  border-color: #ffffff;\n}\n\n.p-colorpicker-overlay-panel {\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n\n.p-dropdown {\n  background: #ffffff;\n  border: 1px solid #ced4da;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n  border-radius: 3px;\n}\n.p-dropdown:not(.p-disabled):hover {\n  border-color: #2196F3;\n}\n.p-dropdown:not(.p-disabled).p-focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  border-color: #2196F3;\n}\n.p-dropdown.p-dropdown-clearable .p-dropdown-label {\n  padding-right: 1.5rem;\n}\n.p-dropdown .p-dropdown-label {\n  background: transparent;\n  border: 0 none;\n}\n.p-dropdown .p-dropdown-label.p-placeholder {\n  color: #6c757d;\n}\n.p-dropdown .p-dropdown-label:enabled:focus {\n  outline: 0 none;\n  box-shadow: none;\n}\n.p-dropdown .p-dropdown-trigger {\n  background: transparent;\n  color: #6c757d;\n  width: 2.357rem;\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n.p-dropdown .p-dropdown-clear-icon {\n  color: #6c757d;\n  right: 2.357rem;\n}\n.p-dropdown.p-invalid.p-component {\n  border-color: #f44336;\n}\n\n.p-dropdown-panel {\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  border-radius: 3px;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.p-dropdown-panel .p-dropdown-header {\n  padding: 0.5rem 1rem;\n  border-bottom: 0 none;\n  color: #495057;\n  background: #f8f9fa;\n  margin: 0;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-dropdown-panel .p-dropdown-header .p-dropdown-filter {\n  padding-right: 1.5rem;\n  margin-right: -1.5rem;\n}\n.p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon {\n  right: 0.5rem;\n  color: #6c757d;\n}\n.p-dropdown-panel .p-dropdown-items {\n  padding: 0.5rem 0;\n}\n.p-dropdown-panel .p-dropdown-items .p-dropdown-item {\n  margin: 0;\n  padding: 0.5rem 1rem;\n  border: 0 none;\n  color: #495057;\n  background: transparent;\n  transition: box-shadow 0.2s;\n  border-radius: 0;\n}\n.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {\n  color: #495057;\n  background: #e9ecef;\n}\n.p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {\n  margin: 0;\n  padding: 0.75rem 1rem;\n  color: #495057;\n  background: #ffffff;\n  font-weight: 600;\n}\n.p-dropdown-panel .p-dropdown-items .p-dropdown-empty-message {\n  padding: 0.5rem 1rem;\n  color: #495057;\n  background: transparent;\n}\n\n.p-input-filled .p-dropdown {\n  background: #f8f9fa;\n}\n.p-input-filled .p-dropdown:not(.p-disabled):hover {\n  background-color: #f8f9fa;\n}\n.p-input-filled .p-dropdown:not(.p-disabled).p-focus {\n  background-color: #ffffff;\n}\n.p-input-filled .p-dropdown:not(.p-disabled).p-focus .p-inputtext {\n  background-color: transparent;\n}\n\n.p-editor-container .p-editor-toolbar {\n  background: #f8f9fa;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-editor-container .p-editor-toolbar.ql-snow {\n  border: 1px solid #dee2e6;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-stroke {\n  stroke: #6c757d;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-fill {\n  fill: #6c757d;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label {\n  border: 0 none;\n  color: #6c757d;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover {\n  color: #495057;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover .ql-stroke {\n  stroke: #495057;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label:hover .ql-fill {\n  fill: #495057;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {\n  color: #495057;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {\n  stroke: #495057;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {\n  fill: #495057;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {\n  background: #ffffff;\n  border: 0 none;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n  border-radius: 3px;\n  padding: 0.5rem 0;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item {\n  color: #495057;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options .ql-picker-item:hover {\n  color: #495057;\n  background: #e9ecef;\n}\n.p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded:not(.ql-icon-picker) .ql-picker-item {\n  padding: 0.5rem 1rem;\n}\n.p-editor-container .p-editor-content {\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-editor-container .p-editor-content.ql-snow {\n  border: 1px solid #dee2e6;\n}\n.p-editor-container .p-editor-content .ql-editor {\n  background: #ffffff;\n  color: #495057;\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-editor-container .ql-snow.ql-toolbar button:hover,\n.p-editor-container .ql-snow.ql-toolbar button:focus {\n  color: #495057;\n}\n.p-editor-container .ql-snow.ql-toolbar button:hover .ql-stroke,\n.p-editor-container .ql-snow.ql-toolbar button:focus .ql-stroke {\n  stroke: #495057;\n}\n.p-editor-container .ql-snow.ql-toolbar button:hover .ql-fill,\n.p-editor-container .ql-snow.ql-toolbar button:focus .ql-fill {\n  fill: #495057;\n}\n.p-editor-container .ql-snow.ql-toolbar button.ql-active,\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active,\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected {\n  color: #2196F3;\n}\n.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-stroke,\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke {\n  stroke: #2196F3;\n}\n.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-fill,\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill {\n  fill: #2196F3;\n}\n.p-editor-container .ql-snow.ql-toolbar button.ql-active .ql-picker-label,\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-picker-label,\n.p-editor-container .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-picker-label {\n  color: #2196F3;\n}\n\n.p-inputgroup-addon {\n  background: #e9ecef;\n  color: #6c757d;\n  border-top: 1px solid #ced4da;\n  border-left: 1px solid #ced4da;\n  border-bottom: 1px solid #ced4da;\n  padding: 0.5rem 0.5rem;\n  min-width: 2.357rem;\n}\n.p-inputgroup-addon:last-child {\n  border-right: 1px solid #ced4da;\n}\n\n.p-inputgroup > .p-component,\n.p-inputgroup > .p-inputwrapper > .p-inputtext,\n.p-inputgroup > .p-float-label > .p-component {\n  border-radius: 0;\n  margin: 0;\n}\n.p-inputgroup > .p-component + .p-inputgroup-addon,\n.p-inputgroup > .p-inputwrapper > .p-inputtext + .p-inputgroup-addon,\n.p-inputgroup > .p-float-label > .p-component + .p-inputgroup-addon {\n  border-left: 0 none;\n}\n.p-inputgroup > .p-component:focus,\n.p-inputgroup > .p-inputwrapper > .p-inputtext:focus,\n.p-inputgroup > .p-float-label > .p-component:focus {\n  z-index: 1;\n}\n.p-inputgroup > .p-component:focus ~ label,\n.p-inputgroup > .p-inputwrapper > .p-inputtext:focus ~ label,\n.p-inputgroup > .p-float-label > .p-component:focus ~ label {\n  z-index: 1;\n}\n\n.p-inputgroup-addon:first-child,\n.p-inputgroup button:first-child,\n.p-inputgroup input:first-child,\n.p-inputgroup > .p-inputwrapper:first-child,\n.p-inputgroup > .p-inputwrapper:first-child > .p-inputtext {\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n\n.p-inputgroup .p-float-label:first-child input {\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n\n.p-inputgroup-addon:last-child,\n.p-inputgroup button:last-child,\n.p-inputgroup input:last-child,\n.p-inputgroup > .p-inputwrapper:last-child,\n.p-inputgroup > .p-inputwrapper:last-child > .p-inputtext {\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n\n.p-inputgroup .p-float-label:last-child input {\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n\n.p-fluid .p-inputgroup .p-button {\n  width: auto;\n}\n.p-fluid .p-inputgroup .p-button.p-button-icon-only {\n  width: 2.357rem;\n}\n\n.p-inputnumber.p-invalid.p-component > .p-inputtext {\n  border-color: #f44336;\n}\n\n.p-inputswitch {\n  width: 3rem;\n  height: 1.75rem;\n}\n.p-inputswitch .p-inputswitch-slider {\n  background: #ced4da;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n  border-radius: 30px;\n}\n.p-inputswitch .p-inputswitch-slider:before {\n  background: #ffffff;\n  width: 1.25rem;\n  height: 1.25rem;\n  left: 0.25rem;\n  margin-top: -0.625rem;\n  border-radius: 50%;\n  transition-duration: 0.2s;\n}\n.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {\n  transform: translateX(1.25rem);\n}\n.p-inputswitch.p-focus .p-inputswitch-slider {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider {\n  background: #b6bfc8;\n}\n.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {\n  background: #2196F3;\n}\n.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {\n  background: #ffffff;\n}\n.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {\n  background: #0d89ec;\n}\n.p-inputswitch.p-invalid {\n  border-color: #f44336;\n}\n\n.p-inputtext {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n  font-size: 1rem;\n  color: #495057;\n  background: #ffffff;\n  padding: 0.5rem 0.5rem;\n  border: 1px solid #ced4da;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  border-radius: 3px;\n}\n.p-inputtext:enabled:hover {\n  border-color: #2196F3;\n}\n.p-inputtext:enabled:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  border-color: #2196F3;\n}\n.p-inputtext.p-invalid.p-component {\n  border-color: #f44336;\n}\n.p-inputtext.p-inputtext-sm {\n  font-size: 0.875rem;\n  padding: 0.4375rem 0.4375rem;\n}\n.p-inputtext.p-inputtext-lg {\n  font-size: 1.25rem;\n  padding: 0.625rem 0.625rem;\n}\n\n.p-float-label > label {\n  left: 0.5rem;\n  color: #6c757d;\n  transition-duration: 0.2s;\n}\n\n.p-float-label > .p-invalid + label {\n  color: #f44336;\n}\n\n.p-input-icon-left > i:first-of-type {\n  left: 0.5rem;\n  color: #6c757d;\n}\n\n.p-input-icon-left > .p-inputtext {\n  padding-left: 2rem;\n}\n\n.p-input-icon-left.p-float-label > label {\n  left: 2rem;\n}\n\n.p-input-icon-right > i:last-of-type {\n  right: 0.5rem;\n  color: #6c757d;\n}\n\n.p-input-icon-right > .p-inputtext {\n  padding-right: 2rem;\n}\n\n::-webkit-input-placeholder {\n  color: #6c757d;\n}\n\n:-moz-placeholder {\n  color: #6c757d;\n}\n\n::-moz-placeholder {\n  color: #6c757d;\n}\n\n:-ms-input-placeholder {\n  color: #6c757d;\n}\n\n.p-input-filled .p-inputtext {\n  background-color: #f8f9fa;\n}\n.p-input-filled .p-inputtext:enabled:hover {\n  background-color: #f8f9fa;\n}\n.p-input-filled .p-inputtext:enabled:focus {\n  background-color: #ffffff;\n}\n\n.p-inputtext-sm .p-inputtext {\n  font-size: 0.875rem;\n  padding: 0.4375rem 0.4375rem;\n}\n\n.p-inputtext-lg .p-inputtext {\n  font-size: 1.25rem;\n  padding: 0.625rem 0.625rem;\n}\n\n.p-listbox {\n  background: #ffffff;\n  color: #495057;\n  border: 1px solid #ced4da;\n  border-radius: 3px;\n}\n.p-listbox .p-listbox-header {\n  padding: 0.5rem 1rem;\n  border-bottom: 0 none;\n  color: #495057;\n  background: #f8f9fa;\n  margin: 0;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-listbox .p-listbox-header .p-listbox-filter {\n  padding-right: 1.5rem;\n}\n.p-listbox .p-listbox-header .p-listbox-filter-icon {\n  right: 0.5rem;\n  color: #6c757d;\n}\n.p-listbox .p-listbox-list {\n  padding: 0.5rem 0;\n}\n.p-listbox .p-listbox-list .p-listbox-item {\n  margin: 0;\n  padding: 0.5rem 1rem;\n  border: 0 none;\n  color: #495057;\n  transition: box-shadow 0.2s;\n  border-radius: 0;\n}\n.p-listbox .p-listbox-list .p-listbox-item.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-listbox .p-listbox-list .p-listbox-item:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-listbox .p-listbox-list .p-listbox-item-group {\n  margin: 0;\n  padding: 0.75rem 1rem;\n  color: #495057;\n  background: #ffffff;\n  font-weight: 600;\n}\n.p-listbox .p-listbox-list .p-listbox-empty-message {\n  padding: 0.5rem 1rem;\n  color: #495057;\n  background: transparent;\n}\n.p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {\n  color: #495057;\n  background: #e9ecef;\n}\n.p-listbox.p-invalid {\n  border-color: #f44336;\n}\n\n.p-multiselect {\n  background: #ffffff;\n  border: 1px solid #ced4da;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n  border-radius: 3px;\n}\n.p-multiselect:not(.p-disabled):hover {\n  border-color: #2196F3;\n}\n.p-multiselect:not(.p-disabled).p-focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  border-color: #2196F3;\n}\n.p-multiselect .p-multiselect-label {\n  padding: 0.5rem 0.5rem;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n}\n.p-multiselect .p-multiselect-label.p-placeholder {\n  color: #6c757d;\n}\n.p-multiselect.p-multiselect-chip .p-multiselect-token {\n  padding: 0.25rem 0.5rem;\n  margin-right: 0.5rem;\n  background: #dee2e6;\n  color: #495057;\n  border-radius: 16px;\n}\n.p-multiselect.p-multiselect-chip .p-multiselect-token .p-multiselect-token-icon {\n  margin-left: 0.5rem;\n}\n.p-multiselect .p-multiselect-trigger {\n  background: transparent;\n  color: #6c757d;\n  width: 2.357rem;\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n.p-multiselect.p-invalid.p-component {\n  border-color: #f44336;\n}\n\n.p-inputwrapper-filled.p-multiselect.p-multiselect-chip .p-multiselect-label {\n  padding: 0.25rem 0.5rem;\n}\n\n.p-multiselect-panel {\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  border-radius: 3px;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.p-multiselect-panel .p-multiselect-header {\n  padding: 0.5rem 1rem;\n  border-bottom: 0 none;\n  color: #495057;\n  background: #f8f9fa;\n  margin: 0;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-inputtext {\n  padding-right: 1.5rem;\n}\n.p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-multiselect-filter-icon {\n  right: 0.5rem;\n  color: #6c757d;\n}\n.p-multiselect-panel .p-multiselect-header .p-checkbox {\n  margin-right: 0.5rem;\n}\n.p-multiselect-panel .p-multiselect-header .p-multiselect-close {\n  margin-left: 0.5rem;\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-multiselect-panel .p-multiselect-header .p-multiselect-close:enabled:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-multiselect-panel .p-multiselect-header .p-multiselect-close:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-multiselect-panel .p-multiselect-items {\n  padding: 0.5rem 0;\n}\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item {\n  margin: 0;\n  padding: 0.5rem 1rem;\n  border: 0 none;\n  color: #495057;\n  background: transparent;\n  transition: box-shadow 0.2s;\n  border-radius: 0;\n}\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {\n  color: #495057;\n  background: #e9ecef;\n}\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {\n  margin-right: 0.5rem;\n}\n.p-multiselect-panel .p-multiselect-items .p-multiselect-item-group {\n  margin: 0;\n  padding: 0.75rem 1rem;\n  color: #495057;\n  background: #ffffff;\n  font-weight: 600;\n}\n.p-multiselect-panel .p-multiselect-items .p-multiselect-empty-message {\n  padding: 0.5rem 1rem;\n  color: #495057;\n  background: transparent;\n}\n\n.p-input-filled .p-multiselect {\n  background: #f8f9fa;\n}\n.p-input-filled .p-multiselect:not(.p-disabled):hover {\n  background-color: #f8f9fa;\n}\n.p-input-filled .p-multiselect:not(.p-disabled).p-focus {\n  background-color: #ffffff;\n}\n\n.p-password.p-invalid.p-component > .p-inputtext {\n  border-color: #f44336;\n}\n\n.p-password-panel {\n  padding: 1rem;\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n  border-radius: 3px;\n}\n.p-password-panel .p-password-meter {\n  margin-bottom: 0.5rem;\n  background: #dee2e6;\n}\n.p-password-panel .p-password-meter .p-password-strength.weak {\n  background: #D32F2F;\n}\n.p-password-panel .p-password-meter .p-password-strength.medium {\n  background: #FBC02D;\n}\n.p-password-panel .p-password-meter .p-password-strength.strong {\n  background: #689F38;\n}\n\n.p-radiobutton {\n  width: 20px;\n  height: 20px;\n}\n.p-radiobutton .p-radiobutton-box {\n  border: 2px solid #ced4da;\n  background: #ffffff;\n  width: 20px;\n  height: 20px;\n  color: #495057;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n}\n.p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {\n  border-color: #2196F3;\n}\n.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  border-color: #2196F3;\n}\n.p-radiobutton .p-radiobutton-box .p-radiobutton-icon {\n  width: 12px;\n  height: 12px;\n  transition-duration: 0.2s;\n  background-color: #ffffff;\n}\n.p-radiobutton .p-radiobutton-box.p-highlight {\n  border-color: #2196F3;\n  background: #2196F3;\n}\n.p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {\n  border-color: #0b7ad1;\n  background: #0b7ad1;\n  color: #ffffff;\n}\n.p-radiobutton.p-invalid > .p-radiobutton-box {\n  border-color: #f44336;\n}\n.p-radiobutton:focus {\n  outline: 0 none;\n}\n\n.p-input-filled .p-radiobutton .p-radiobutton-box {\n  background-color: #f8f9fa;\n}\n.p-input-filled .p-radiobutton .p-radiobutton-box:not(.p-disabled):hover {\n  background-color: #f8f9fa;\n}\n.p-input-filled .p-radiobutton .p-radiobutton-box.p-highlight {\n  background: #2196F3;\n}\n.p-input-filled .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {\n  background: #0b7ad1;\n}\n\n.p-rating .p-rating-icon {\n  color: #495057;\n  margin-left: 0.5rem;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n  font-size: 1.143rem;\n}\n.p-rating .p-rating-icon.p-rating-cancel {\n  color: #e74c3c;\n}\n.p-rating .p-rating-icon:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-rating .p-rating-icon:first-child {\n  margin-left: 0;\n}\n.p-rating .p-rating-icon.pi-star-fill {\n  color: #2196F3;\n}\n.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon:hover {\n  color: #2196F3;\n}\n.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon.p-rating-cancel:hover {\n  color: #c0392b;\n}\n\n.p-selectbutton .p-button {\n  background: #ffffff;\n  border: 1px solid #ced4da;\n  color: #495057;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n}\n.p-selectbutton .p-button .p-button-icon-left,\n.p-selectbutton .p-button .p-button-icon-right {\n  color: #6c757d;\n}\n.p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {\n  background: #e9ecef;\n  border-color: #ced4da;\n  color: #495057;\n}\n.p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-left,\n.p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-right {\n  color: #6c757d;\n}\n.p-selectbutton .p-button.p-highlight {\n  background: #2196F3;\n  border-color: #2196F3;\n  color: #ffffff;\n}\n.p-selectbutton .p-button.p-highlight .p-button-icon-left,\n.p-selectbutton .p-button.p-highlight .p-button-icon-right {\n  color: #ffffff;\n}\n.p-selectbutton .p-button.p-highlight:hover {\n  background: #0d89ec;\n  border-color: #0d89ec;\n  color: #ffffff;\n}\n.p-selectbutton .p-button.p-highlight:hover .p-button-icon-left,\n.p-selectbutton .p-button.p-highlight:hover .p-button-icon-right {\n  color: #ffffff;\n}\n.p-selectbutton.p-invalid > .p-button {\n  border-color: #f44336;\n}\n\n.p-slider {\n  background: #dee2e6;\n  border: 0 none;\n  border-radius: 3px;\n}\n.p-slider.p-slider-horizontal {\n  height: 0.286rem;\n}\n.p-slider.p-slider-horizontal .p-slider-handle {\n  margin-top: -0.5715rem;\n  margin-left: -0.5715rem;\n}\n.p-slider.p-slider-vertical {\n  width: 0.286rem;\n}\n.p-slider.p-slider-vertical .p-slider-handle {\n  margin-left: -0.5715rem;\n  margin-bottom: -0.5715rem;\n}\n.p-slider .p-slider-handle {\n  height: 1.143rem;\n  width: 1.143rem;\n  background: #ffffff;\n  border: 2px solid #2196F3;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n}\n.p-slider .p-slider-handle:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-slider .p-slider-range {\n  background: #2196F3;\n}\n.p-slider:not(.p-disabled) .p-slider-handle:hover {\n  background: #2196F3;\n  border-color: #2196F3;\n}\n\n.p-treeselect {\n  background: #ffffff;\n  border: 1px solid #ced4da;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n  border-radius: 3px;\n}\n.p-treeselect:not(.p-disabled):hover {\n  border-color: #2196F3;\n}\n.p-treeselect:not(.p-disabled).p-focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  border-color: #2196F3;\n}\n.p-treeselect .p-treeselect-label {\n  padding: 0.5rem 0.5rem;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n}\n.p-treeselect .p-treeselect-label.p-placeholder {\n  color: #6c757d;\n}\n.p-treeselect.p-treeselect-chip .p-treeselect-token {\n  padding: 0.25rem 0.5rem;\n  margin-right: 0.5rem;\n  background: #dee2e6;\n  color: #495057;\n  border-radius: 16px;\n}\n.p-treeselect .p-treeselect-trigger {\n  background: transparent;\n  color: #6c757d;\n  width: 2.357rem;\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n.p-treeselect.p-invalid.p-component {\n  border-color: #f44336;\n}\n\n.p-inputwrapper-filled.p-treeselect.p-treeselect-chip .p-treeselect-label {\n  padding: 0.25rem 0.5rem;\n}\n\n.p-treeselect-panel {\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  border-radius: 3px;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.p-treeselect-panel .p-treeselect-items-wrapper .p-tree {\n  border: 0 none;\n}\n.p-treeselect-panel .p-treeselect-items-wrapper .p-treeselect-empty-message {\n  padding: 0.5rem 1rem;\n  color: #495057;\n  background: transparent;\n}\n\n.p-input-filled .p-treeselect {\n  background: #f8f9fa;\n}\n.p-input-filled .p-treeselect:not(.p-disabled):hover {\n  background-color: #f8f9fa;\n}\n.p-input-filled .p-treeselect:not(.p-disabled).p-focus {\n  background-color: #ffffff;\n}\n\n.p-togglebutton.p-button {\n  background: #ffffff;\n  border: 1px solid #ced4da;\n  color: #495057;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n}\n.p-togglebutton.p-button .p-button-icon-left,\n.p-togglebutton.p-button .p-button-icon-right {\n  color: #6c757d;\n}\n.p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover {\n  background: #e9ecef;\n  border-color: #ced4da;\n  color: #495057;\n}\n.p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-left,\n.p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-right {\n  color: #6c757d;\n}\n.p-togglebutton.p-button.p-highlight {\n  background: #2196F3;\n  border-color: #2196F3;\n  color: #ffffff;\n}\n.p-togglebutton.p-button.p-highlight .p-button-icon-left,\n.p-togglebutton.p-button.p-highlight .p-button-icon-right {\n  color: #ffffff;\n}\n.p-togglebutton.p-button.p-highlight:hover {\n  background: #0d89ec;\n  border-color: #0d89ec;\n  color: #ffffff;\n}\n.p-togglebutton.p-button.p-highlight:hover .p-button-icon-left,\n.p-togglebutton.p-button.p-highlight:hover .p-button-icon-right {\n  color: #ffffff;\n}\n.p-togglebutton.p-button.p-invalid > .p-button {\n  border-color: #f44336;\n}\n\n.p-button {\n  color: #ffffff;\n  background: #2196F3;\n  border: 1px solid #2196F3;\n  padding: 0.5rem 1rem;\n  font-size: 1rem;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n  border-radius: 3px;\n}\n.p-button:enabled:hover {\n  background: #0d89ec;\n  color: #ffffff;\n  border-color: #0d89ec;\n}\n.p-button:enabled:active {\n  background: #0b7ad1;\n  color: #ffffff;\n  border-color: #0b7ad1;\n}\n.p-button.p-button-outlined {\n  background-color: transparent;\n  color: #2196F3;\n  border: 1px solid;\n}\n.p-button.p-button-outlined:enabled:hover {\n  background: rgba(33, 150, 243, 0.04);\n  color: #2196F3;\n  border: 1px solid;\n}\n.p-button.p-button-outlined:enabled:active {\n  background: rgba(33, 150, 243, 0.16);\n  color: #2196F3;\n  border: 1px solid;\n}\n.p-button.p-button-outlined.p-button-plain {\n  color: #6c757d;\n  border-color: #6c757d;\n}\n.p-button.p-button-outlined.p-button-plain:enabled:hover {\n  background: #e9ecef;\n  color: #6c757d;\n}\n.p-button.p-button-outlined.p-button-plain:enabled:active {\n  background: #dee2e6;\n  color: #6c757d;\n}\n.p-button.p-button-text {\n  background-color: transparent;\n  color: #2196F3;\n  border-color: transparent;\n}\n.p-button.p-button-text:enabled:hover {\n  background: rgba(33, 150, 243, 0.04);\n  color: #2196F3;\n  border-color: transparent;\n}\n.p-button.p-button-text:enabled:active {\n  background: rgba(33, 150, 243, 0.16);\n  color: #2196F3;\n  border-color: transparent;\n}\n.p-button.p-button-text.p-button-plain {\n  color: #6c757d;\n}\n.p-button.p-button-text.p-button-plain:enabled:hover {\n  background: #e9ecef;\n  color: #6c757d;\n}\n.p-button.p-button-text.p-button-plain:enabled:active {\n  background: #dee2e6;\n  color: #6c757d;\n}\n.p-button:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-button .p-button-icon-left {\n  margin-right: 0.5rem;\n}\n.p-button .p-button-icon-right {\n  margin-left: 0.5rem;\n}\n.p-button .p-button-icon-bottom {\n  margin-top: 0.5rem;\n}\n.p-button .p-button-icon-top {\n  margin-bottom: 0.5rem;\n}\n.p-button .p-badge {\n  margin-left: 0.5rem;\n  min-width: 1rem;\n  height: 1rem;\n  line-height: 1rem;\n  color: #2196F3;\n  background-color: #ffffff;\n}\n.p-button.p-button-raised {\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n}\n.p-button.p-button-rounded {\n  border-radius: 2rem;\n}\n.p-button.p-button-icon-only {\n  width: 2.357rem;\n  padding: 0.5rem 0;\n}\n.p-button.p-button-icon-only .p-button-icon-left,\n.p-button.p-button-icon-only .p-button-icon-right {\n  margin: 0;\n}\n.p-button.p-button-icon-only.p-button-rounded {\n  border-radius: 50%;\n  height: 2.357rem;\n}\n.p-button.p-button-sm {\n  font-size: 0.875rem;\n  padding: 0.4375rem 0.875rem;\n}\n.p-button.p-button-sm .p-button-icon {\n  font-size: 0.875rem;\n}\n.p-button.p-button-lg {\n  font-size: 1.25rem;\n  padding: 0.625rem 1.25rem;\n}\n.p-button.p-button-lg .p-button-icon {\n  font-size: 1.25rem;\n}\n.p-button.p-button-loading-label-only .p-button-label {\n  margin-left: 0.5rem;\n}\n.p-button.p-button-loading-label-only .p-button-loading-icon {\n  margin-right: 0;\n}\n\n.p-fluid .p-button {\n  width: 100%;\n}\n.p-fluid .p-button-icon-only {\n  width: 2.357rem;\n}\n.p-fluid .p-buttonset {\n  display: flex;\n}\n.p-fluid .p-buttonset .p-button {\n  flex: 1;\n}\n\n.p-button.p-button-secondary, .p-buttonset.p-button-secondary > .p-button, .p-splitbutton.p-button-secondary > .p-button {\n  color: #ffffff;\n  background: #607D8B;\n  border: 1px solid #607D8B;\n}\n.p-button.p-button-secondary:enabled:hover, .p-buttonset.p-button-secondary > .p-button:enabled:hover, .p-splitbutton.p-button-secondary > .p-button:enabled:hover {\n  background: #56717d;\n  color: #ffffff;\n  border-color: #56717d;\n}\n.p-button.p-button-secondary:enabled:focus, .p-buttonset.p-button-secondary > .p-button:enabled:focus, .p-splitbutton.p-button-secondary > .p-button:enabled:focus {\n  box-shadow: 0 0 0 0.2rem #beccd2;\n}\n.p-button.p-button-secondary:enabled:active, .p-buttonset.p-button-secondary > .p-button:enabled:active, .p-splitbutton.p-button-secondary > .p-button:enabled:active {\n  background: #4d646f;\n  color: #ffffff;\n  border-color: #4d646f;\n}\n.p-button.p-button-secondary.p-button-outlined, .p-buttonset.p-button-secondary > .p-button.p-button-outlined, .p-splitbutton.p-button-secondary > .p-button.p-button-outlined {\n  background-color: transparent;\n  color: #607D8B;\n  border: 1px solid;\n}\n.p-button.p-button-secondary.p-button-outlined:enabled:hover, .p-buttonset.p-button-secondary > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-secondary > .p-button.p-button-outlined:enabled:hover {\n  background: rgba(96, 125, 139, 0.04);\n  color: #607D8B;\n  border: 1px solid;\n}\n.p-button.p-button-secondary.p-button-outlined:enabled:active, .p-buttonset.p-button-secondary > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-secondary > .p-button.p-button-outlined:enabled:active {\n  background: rgba(96, 125, 139, 0.16);\n  color: #607D8B;\n  border: 1px solid;\n}\n.p-button.p-button-secondary.p-button-text, .p-buttonset.p-button-secondary > .p-button.p-button-text, .p-splitbutton.p-button-secondary > .p-button.p-button-text {\n  background-color: transparent;\n  color: #607D8B;\n  border-color: transparent;\n}\n.p-button.p-button-secondary.p-button-text:enabled:hover, .p-buttonset.p-button-secondary > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-secondary > .p-button.p-button-text:enabled:hover {\n  background: rgba(96, 125, 139, 0.04);\n  border-color: transparent;\n  color: #607D8B;\n}\n.p-button.p-button-secondary.p-button-text:enabled:active, .p-buttonset.p-button-secondary > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-secondary > .p-button.p-button-text:enabled:active {\n  background: rgba(96, 125, 139, 0.16);\n  border-color: transparent;\n  color: #607D8B;\n}\n\n.p-button.p-button-info, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button {\n  color: #ffffff;\n  background: #0288D1;\n  border: 1px solid #0288D1;\n}\n.p-button.p-button-info:enabled:hover, .p-buttonset.p-button-info > .p-button:enabled:hover, .p-splitbutton.p-button-info > .p-button:enabled:hover {\n  background: #027abc;\n  color: #ffffff;\n  border-color: #027abc;\n}\n.p-button.p-button-info:enabled:focus, .p-buttonset.p-button-info > .p-button:enabled:focus, .p-splitbutton.p-button-info > .p-button:enabled:focus {\n  box-shadow: 0 0 0 0.2rem #89d4fe;\n}\n.p-button.p-button-info:enabled:active, .p-buttonset.p-button-info > .p-button:enabled:active, .p-splitbutton.p-button-info > .p-button:enabled:active {\n  background: #026da7;\n  color: #ffffff;\n  border-color: #026da7;\n}\n.p-button.p-button-info.p-button-outlined, .p-buttonset.p-button-info > .p-button.p-button-outlined, .p-splitbutton.p-button-info > .p-button.p-button-outlined {\n  background-color: transparent;\n  color: #0288D1;\n  border: 1px solid;\n}\n.p-button.p-button-info.p-button-outlined:enabled:hover, .p-buttonset.p-button-info > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-info > .p-button.p-button-outlined:enabled:hover {\n  background: rgba(2, 136, 209, 0.04);\n  color: #0288D1;\n  border: 1px solid;\n}\n.p-button.p-button-info.p-button-outlined:enabled:active, .p-buttonset.p-button-info > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-info > .p-button.p-button-outlined:enabled:active {\n  background: rgba(2, 136, 209, 0.16);\n  color: #0288D1;\n  border: 1px solid;\n}\n.p-button.p-button-info.p-button-text, .p-buttonset.p-button-info > .p-button.p-button-text, .p-splitbutton.p-button-info > .p-button.p-button-text {\n  background-color: transparent;\n  color: #0288D1;\n  border-color: transparent;\n}\n.p-button.p-button-info.p-button-text:enabled:hover, .p-buttonset.p-button-info > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-info > .p-button.p-button-text:enabled:hover {\n  background: rgba(2, 136, 209, 0.04);\n  border-color: transparent;\n  color: #0288D1;\n}\n.p-button.p-button-info.p-button-text:enabled:active, .p-buttonset.p-button-info > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-info > .p-button.p-button-text:enabled:active {\n  background: rgba(2, 136, 209, 0.16);\n  border-color: transparent;\n  color: #0288D1;\n}\n\n.p-button.p-button-success, .p-buttonset.p-button-success > .p-button, .p-splitbutton.p-button-success > .p-button {\n  color: #ffffff;\n  background: #689F38;\n  border: 1px solid #689F38;\n}\n.p-button.p-button-success:enabled:hover, .p-buttonset.p-button-success > .p-button:enabled:hover, .p-splitbutton.p-button-success > .p-button:enabled:hover {\n  background: #5e8f32;\n  color: #ffffff;\n  border-color: #5e8f32;\n}\n.p-button.p-button-success:enabled:focus, .p-buttonset.p-button-success > .p-button:enabled:focus, .p-splitbutton.p-button-success > .p-button:enabled:focus {\n  box-shadow: 0 0 0 0.2rem #c2e0a8;\n}\n.p-button.p-button-success:enabled:active, .p-buttonset.p-button-success > .p-button:enabled:active, .p-splitbutton.p-button-success > .p-button:enabled:active {\n  background: #537f2d;\n  color: #ffffff;\n  border-color: #537f2d;\n}\n.p-button.p-button-success.p-button-outlined, .p-buttonset.p-button-success > .p-button.p-button-outlined, .p-splitbutton.p-button-success > .p-button.p-button-outlined {\n  background-color: transparent;\n  color: #689F38;\n  border: 1px solid;\n}\n.p-button.p-button-success.p-button-outlined:enabled:hover, .p-buttonset.p-button-success > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-success > .p-button.p-button-outlined:enabled:hover {\n  background: rgba(104, 159, 56, 0.04);\n  color: #689F38;\n  border: 1px solid;\n}\n.p-button.p-button-success.p-button-outlined:enabled:active, .p-buttonset.p-button-success > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-success > .p-button.p-button-outlined:enabled:active {\n  background: rgba(104, 159, 56, 0.16);\n  color: #689F38;\n  border: 1px solid;\n}\n.p-button.p-button-success.p-button-text, .p-buttonset.p-button-success > .p-button.p-button-text, .p-splitbutton.p-button-success > .p-button.p-button-text {\n  background-color: transparent;\n  color: #689F38;\n  border-color: transparent;\n}\n.p-button.p-button-success.p-button-text:enabled:hover, .p-buttonset.p-button-success > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-success > .p-button.p-button-text:enabled:hover {\n  background: rgba(104, 159, 56, 0.04);\n  border-color: transparent;\n  color: #689F38;\n}\n.p-button.p-button-success.p-button-text:enabled:active, .p-buttonset.p-button-success > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-success > .p-button.p-button-text:enabled:active {\n  background: rgba(104, 159, 56, 0.16);\n  border-color: transparent;\n  color: #689F38;\n}\n\n.p-button.p-button-warning, .p-buttonset.p-button-warning > .p-button, .p-splitbutton.p-button-warning > .p-button {\n  color: #212529;\n  background: #FBC02D;\n  border: 1px solid #FBC02D;\n}\n.p-button.p-button-warning:enabled:hover, .p-buttonset.p-button-warning > .p-button:enabled:hover, .p-splitbutton.p-button-warning > .p-button:enabled:hover {\n  background: #fab710;\n  color: #212529;\n  border-color: #fab710;\n}\n.p-button.p-button-warning:enabled:focus, .p-buttonset.p-button-warning > .p-button:enabled:focus, .p-splitbutton.p-button-warning > .p-button:enabled:focus {\n  box-shadow: 0 0 0 0.2rem #fde6ab;\n}\n.p-button.p-button-warning:enabled:active, .p-buttonset.p-button-warning > .p-button:enabled:active, .p-splitbutton.p-button-warning > .p-button:enabled:active {\n  background: #e8a704;\n  color: #212529;\n  border-color: #e8a704;\n}\n.p-button.p-button-warning.p-button-outlined, .p-buttonset.p-button-warning > .p-button.p-button-outlined, .p-splitbutton.p-button-warning > .p-button.p-button-outlined {\n  background-color: transparent;\n  color: #FBC02D;\n  border: 1px solid;\n}\n.p-button.p-button-warning.p-button-outlined:enabled:hover, .p-buttonset.p-button-warning > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-warning > .p-button.p-button-outlined:enabled:hover {\n  background: rgba(251, 192, 45, 0.04);\n  color: #FBC02D;\n  border: 1px solid;\n}\n.p-button.p-button-warning.p-button-outlined:enabled:active, .p-buttonset.p-button-warning > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-warning > .p-button.p-button-outlined:enabled:active {\n  background: rgba(251, 192, 45, 0.16);\n  color: #FBC02D;\n  border: 1px solid;\n}\n.p-button.p-button-warning.p-button-text, .p-buttonset.p-button-warning > .p-button.p-button-text, .p-splitbutton.p-button-warning > .p-button.p-button-text {\n  background-color: transparent;\n  color: #FBC02D;\n  border-color: transparent;\n}\n.p-button.p-button-warning.p-button-text:enabled:hover, .p-buttonset.p-button-warning > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-warning > .p-button.p-button-text:enabled:hover {\n  background: rgba(251, 192, 45, 0.04);\n  border-color: transparent;\n  color: #FBC02D;\n}\n.p-button.p-button-warning.p-button-text:enabled:active, .p-buttonset.p-button-warning > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-warning > .p-button.p-button-text:enabled:active {\n  background: rgba(251, 192, 45, 0.16);\n  border-color: transparent;\n  color: #FBC02D;\n}\n\n.p-button.p-button-help, .p-buttonset.p-button-help > .p-button, .p-splitbutton.p-button-help > .p-button {\n  color: #ffffff;\n  background: #9C27B0;\n  border: 1px solid #9C27B0;\n}\n.p-button.p-button-help:enabled:hover, .p-buttonset.p-button-help > .p-button:enabled:hover, .p-splitbutton.p-button-help > .p-button:enabled:hover {\n  background: #8c239e;\n  color: #ffffff;\n  border-color: #8c239e;\n}\n.p-button.p-button-help:enabled:focus, .p-buttonset.p-button-help > .p-button:enabled:focus, .p-splitbutton.p-button-help > .p-button:enabled:focus {\n  box-shadow: 0 0 0 0.2rem #df9eea;\n}\n.p-button.p-button-help:enabled:active, .p-buttonset.p-button-help > .p-button:enabled:active, .p-splitbutton.p-button-help > .p-button:enabled:active {\n  background: #7d1f8d;\n  color: #ffffff;\n  border-color: #7d1f8d;\n}\n.p-button.p-button-help.p-button-outlined, .p-buttonset.p-button-help > .p-button.p-button-outlined, .p-splitbutton.p-button-help > .p-button.p-button-outlined {\n  background-color: transparent;\n  color: #9C27B0;\n  border: 1px solid;\n}\n.p-button.p-button-help.p-button-outlined:enabled:hover, .p-buttonset.p-button-help > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-help > .p-button.p-button-outlined:enabled:hover {\n  background: rgba(156, 39, 176, 0.04);\n  color: #9C27B0;\n  border: 1px solid;\n}\n.p-button.p-button-help.p-button-outlined:enabled:active, .p-buttonset.p-button-help > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-help > .p-button.p-button-outlined:enabled:active {\n  background: rgba(156, 39, 176, 0.16);\n  color: #9C27B0;\n  border: 1px solid;\n}\n.p-button.p-button-help.p-button-text, .p-buttonset.p-button-help > .p-button.p-button-text, .p-splitbutton.p-button-help > .p-button.p-button-text {\n  background-color: transparent;\n  color: #9C27B0;\n  border-color: transparent;\n}\n.p-button.p-button-help.p-button-text:enabled:hover, .p-buttonset.p-button-help > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-help > .p-button.p-button-text:enabled:hover {\n  background: rgba(156, 39, 176, 0.04);\n  border-color: transparent;\n  color: #9C27B0;\n}\n.p-button.p-button-help.p-button-text:enabled:active, .p-buttonset.p-button-help > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-help > .p-button.p-button-text:enabled:active {\n  background: rgba(156, 39, 176, 0.16);\n  border-color: transparent;\n  color: #9C27B0;\n}\n\n.p-button.p-button-danger, .p-buttonset.p-button-danger > .p-button, .p-splitbutton.p-button-danger > .p-button {\n  color: #ffffff;\n  background: #D32F2F;\n  border: 1px solid #D32F2F;\n}\n.p-button.p-button-danger:enabled:hover, .p-buttonset.p-button-danger > .p-button:enabled:hover, .p-splitbutton.p-button-danger > .p-button:enabled:hover {\n  background: #c02929;\n  color: #ffffff;\n  border-color: #c02929;\n}\n.p-button.p-button-danger:enabled:focus, .p-buttonset.p-button-danger > .p-button:enabled:focus, .p-splitbutton.p-button-danger > .p-button:enabled:focus {\n  box-shadow: 0 0 0 0.2rem #edacac;\n}\n.p-button.p-button-danger:enabled:active, .p-buttonset.p-button-danger > .p-button:enabled:active, .p-splitbutton.p-button-danger > .p-button:enabled:active {\n  background: #aa2424;\n  color: #ffffff;\n  border-color: #aa2424;\n}\n.p-button.p-button-danger.p-button-outlined, .p-buttonset.p-button-danger > .p-button.p-button-outlined, .p-splitbutton.p-button-danger > .p-button.p-button-outlined {\n  background-color: transparent;\n  color: #D32F2F;\n  border: 1px solid;\n}\n.p-button.p-button-danger.p-button-outlined:enabled:hover, .p-buttonset.p-button-danger > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-danger > .p-button.p-button-outlined:enabled:hover {\n  background: rgba(211, 47, 47, 0.04);\n  color: #D32F2F;\n  border: 1px solid;\n}\n.p-button.p-button-danger.p-button-outlined:enabled:active, .p-buttonset.p-button-danger > .p-button.p-button-outlined:enabled:active, .p-splitbutton.p-button-danger > .p-button.p-button-outlined:enabled:active {\n  background: rgba(211, 47, 47, 0.16);\n  color: #D32F2F;\n  border: 1px solid;\n}\n.p-button.p-button-danger.p-button-text, .p-buttonset.p-button-danger > .p-button.p-button-text, .p-splitbutton.p-button-danger > .p-button.p-button-text {\n  background-color: transparent;\n  color: #D32F2F;\n  border-color: transparent;\n}\n.p-button.p-button-danger.p-button-text:enabled:hover, .p-buttonset.p-button-danger > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-danger > .p-button.p-button-text:enabled:hover {\n  background: rgba(211, 47, 47, 0.04);\n  border-color: transparent;\n  color: #D32F2F;\n}\n.p-button.p-button-danger.p-button-text:enabled:active, .p-buttonset.p-button-danger > .p-button.p-button-text:enabled:active, .p-splitbutton.p-button-danger > .p-button.p-button-text:enabled:active {\n  background: rgba(211, 47, 47, 0.16);\n  border-color: transparent;\n  color: #D32F2F;\n}\n\n.p-button.p-button-link {\n  color: #0b7ad1;\n  background: transparent;\n  border: transparent;\n}\n.p-button.p-button-link:enabled:hover {\n  background: transparent;\n  color: #0b7ad1;\n  border-color: transparent;\n}\n.p-button.p-button-link:enabled:hover .p-button-label {\n  text-decoration: underline;\n}\n.p-button.p-button-link:enabled:focus {\n  background: transparent;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  border-color: transparent;\n}\n.p-button.p-button-link:enabled:active {\n  background: transparent;\n  color: #0b7ad1;\n  border-color: transparent;\n}\n\n.p-speeddial-button.p-button.p-button-icon-only {\n  width: 4rem;\n  height: 4rem;\n}\n.p-speeddial-button.p-button.p-button-icon-only .p-button-icon {\n  font-size: 1.3rem;\n}\n\n.p-speeddial-action {\n  width: 3rem;\n  height: 3rem;\n  background: #495057;\n  color: #fff;\n}\n.p-speeddial-action:hover {\n  background: #343a40;\n  color: #fff;\n}\n\n.p-speeddial-direction-up .p-speeddial-item {\n  margin: 0.25rem 0;\n}\n.p-speeddial-direction-up .p-speeddial-item:first-child {\n  margin-bottom: 0.5rem;\n}\n\n.p-speeddial-direction-down .p-speeddial-item {\n  margin: 0.25rem 0;\n}\n.p-speeddial-direction-down .p-speeddial-item:first-child {\n  margin-top: 0.5rem;\n}\n\n.p-speeddial-direction-left .p-speeddial-item {\n  margin: 0 0.25rem;\n}\n.p-speeddial-direction-left .p-speeddial-item:first-child {\n  margin-right: 0.5rem;\n}\n\n.p-speeddial-direction-right .p-speeddial-item {\n  margin: 0 0.25rem;\n}\n.p-speeddial-direction-right .p-speeddial-item:first-child {\n  margin-left: 0.5rem;\n}\n\n.p-speeddial-circle .p-speeddial-item,\n.p-speeddial-semi-circle .p-speeddial-item,\n.p-speeddial-quarter-circle .p-speeddial-item {\n  margin: 0;\n}\n.p-speeddial-circle .p-speeddial-item:first-child, .p-speeddial-circle .p-speeddial-item:last-child,\n.p-speeddial-semi-circle .p-speeddial-item:first-child,\n.p-speeddial-semi-circle .p-speeddial-item:last-child,\n.p-speeddial-quarter-circle .p-speeddial-item:first-child,\n.p-speeddial-quarter-circle .p-speeddial-item:last-child {\n  margin: 0;\n}\n\n.p-speeddial-mask {\n  background-color: rgba(0, 0, 0, 0.4);\n}\n\n.p-splitbutton {\n  border-radius: 3px;\n}\n.p-splitbutton.p-button-outlined > .p-button {\n  background-color: transparent;\n  color: #2196F3;\n  border: 1px solid;\n}\n.p-splitbutton.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(33, 150, 243, 0.04);\n  color: #2196F3;\n}\n.p-splitbutton.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(33, 150, 243, 0.16);\n  color: #2196F3;\n}\n.p-splitbutton.p-button-outlined.p-button-plain > .p-button {\n  color: #6c757d;\n  border-color: #6c757d;\n}\n.p-splitbutton.p-button-outlined.p-button-plain > .p-button:enabled:hover, .p-splitbutton.p-button-outlined.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: #e9ecef;\n  color: #6c757d;\n}\n.p-splitbutton.p-button-outlined.p-button-plain > .p-button:enabled:active, .p-splitbutton.p-button-outlined.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: #dee2e6;\n  color: #6c757d;\n}\n.p-splitbutton.p-button-text > .p-button {\n  background-color: transparent;\n  color: #2196F3;\n  border-color: transparent;\n}\n.p-splitbutton.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(33, 150, 243, 0.04);\n  color: #2196F3;\n  border-color: transparent;\n}\n.p-splitbutton.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(33, 150, 243, 0.16);\n  color: #2196F3;\n  border-color: transparent;\n}\n.p-splitbutton.p-button-text.p-button-plain > .p-button {\n  color: #6c757d;\n}\n.p-splitbutton.p-button-text.p-button-plain > .p-button:enabled:hover, .p-splitbutton.p-button-text.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: #e9ecef;\n  color: #6c757d;\n}\n.p-splitbutton.p-button-text.p-button-plain > .p-button:enabled:active, .p-splitbutton.p-button-text.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: #dee2e6;\n  color: #6c757d;\n}\n.p-splitbutton.p-button-raised {\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n}\n.p-splitbutton.p-button-rounded {\n  border-radius: 2rem;\n}\n.p-splitbutton.p-button-rounded > .p-button {\n  border-radius: 2rem;\n}\n.p-splitbutton.p-button-sm > .p-button {\n  font-size: 0.875rem;\n  padding: 0.4375rem 0.875rem;\n}\n.p-splitbutton.p-button-sm > .p-button .p-button-icon {\n  font-size: 0.875rem;\n}\n.p-splitbutton.p-button-lg > .p-button {\n  font-size: 1.25rem;\n  padding: 0.625rem 1.25rem;\n}\n.p-splitbutton.p-button-lg > .p-button .p-button-icon {\n  font-size: 1.25rem;\n}\n\n.p-splitbutton.p-button-secondary.p-button-outlined > .p-button {\n  background-color: transparent;\n  color: #607D8B;\n  border: 1px solid;\n}\n.p-splitbutton.p-button-secondary.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-secondary.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(96, 125, 139, 0.04);\n  color: #607D8B;\n}\n.p-splitbutton.p-button-secondary.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-secondary.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(96, 125, 139, 0.16);\n  color: #607D8B;\n}\n.p-splitbutton.p-button-secondary.p-button-text > .p-button {\n  background-color: transparent;\n  color: #607D8B;\n  border-color: transparent;\n}\n.p-splitbutton.p-button-secondary.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-secondary.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(96, 125, 139, 0.04);\n  border-color: transparent;\n  color: #607D8B;\n}\n.p-splitbutton.p-button-secondary.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-secondary.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(96, 125, 139, 0.16);\n  border-color: transparent;\n  color: #607D8B;\n}\n\n.p-splitbutton.p-button-info.p-button-outlined > .p-button {\n  background-color: transparent;\n  color: #0288D1;\n  border: 1px solid;\n}\n.p-splitbutton.p-button-info.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-info.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(2, 136, 209, 0.04);\n  color: #0288D1;\n}\n.p-splitbutton.p-button-info.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-info.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(2, 136, 209, 0.16);\n  color: #0288D1;\n}\n.p-splitbutton.p-button-info.p-button-text > .p-button {\n  background-color: transparent;\n  color: #0288D1;\n  border-color: transparent;\n}\n.p-splitbutton.p-button-info.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-info.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(2, 136, 209, 0.04);\n  border-color: transparent;\n  color: #0288D1;\n}\n.p-splitbutton.p-button-info.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-info.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(2, 136, 209, 0.16);\n  border-color: transparent;\n  color: #0288D1;\n}\n\n.p-splitbutton.p-button-success.p-button-outlined > .p-button {\n  background-color: transparent;\n  color: #689F38;\n  border: 1px solid;\n}\n.p-splitbutton.p-button-success.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-success.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(104, 159, 56, 0.04);\n  color: #689F38;\n}\n.p-splitbutton.p-button-success.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-success.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(104, 159, 56, 0.16);\n  color: #689F38;\n}\n.p-splitbutton.p-button-success.p-button-text > .p-button {\n  background-color: transparent;\n  color: #689F38;\n  border-color: transparent;\n}\n.p-splitbutton.p-button-success.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-success.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(104, 159, 56, 0.04);\n  border-color: transparent;\n  color: #689F38;\n}\n.p-splitbutton.p-button-success.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-success.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(104, 159, 56, 0.16);\n  border-color: transparent;\n  color: #689F38;\n}\n\n.p-splitbutton.p-button-warning.p-button-outlined > .p-button {\n  background-color: transparent;\n  color: #FBC02D;\n  border: 1px solid;\n}\n.p-splitbutton.p-button-warning.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-warning.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(251, 192, 45, 0.04);\n  color: #FBC02D;\n}\n.p-splitbutton.p-button-warning.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-warning.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(251, 192, 45, 0.16);\n  color: #FBC02D;\n}\n.p-splitbutton.p-button-warning.p-button-text > .p-button {\n  background-color: transparent;\n  color: #FBC02D;\n  border-color: transparent;\n}\n.p-splitbutton.p-button-warning.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-warning.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(251, 192, 45, 0.04);\n  border-color: transparent;\n  color: #FBC02D;\n}\n.p-splitbutton.p-button-warning.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-warning.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(251, 192, 45, 0.16);\n  border-color: transparent;\n  color: #FBC02D;\n}\n\n.p-splitbutton.p-button-help.p-button-outlined > .p-button {\n  background-color: transparent;\n  color: #9C27B0;\n  border: 1px solid;\n}\n.p-splitbutton.p-button-help.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-help.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(156, 39, 176, 0.04);\n  color: #9C27B0;\n}\n.p-splitbutton.p-button-help.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-help.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(156, 39, 176, 0.16);\n  color: #9C27B0;\n}\n.p-splitbutton.p-button-help.p-button-text > .p-button {\n  background-color: transparent;\n  color: #9C27B0;\n  border-color: transparent;\n}\n.p-splitbutton.p-button-help.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-help.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(156, 39, 176, 0.04);\n  border-color: transparent;\n  color: #9C27B0;\n}\n.p-splitbutton.p-button-help.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-help.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(156, 39, 176, 0.16);\n  border-color: transparent;\n  color: #9C27B0;\n}\n\n.p-splitbutton.p-button-danger.p-button-outlined > .p-button {\n  background-color: transparent;\n  color: #D32F2F;\n  border: 1px solid;\n}\n.p-splitbutton.p-button-danger.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-danger.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(211, 47, 47, 0.04);\n  color: #D32F2F;\n}\n.p-splitbutton.p-button-danger.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-danger.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(211, 47, 47, 0.16);\n  color: #D32F2F;\n}\n.p-splitbutton.p-button-danger.p-button-text > .p-button {\n  background-color: transparent;\n  color: #D32F2F;\n  border-color: transparent;\n}\n.p-splitbutton.p-button-danger.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-danger.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {\n  background: rgba(211, 47, 47, 0.04);\n  border-color: transparent;\n  color: #D32F2F;\n}\n.p-splitbutton.p-button-danger.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-danger.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {\n  background: rgba(211, 47, 47, 0.16);\n  border-color: transparent;\n  color: #D32F2F;\n}\n\n.p-carousel .p-carousel-content .p-carousel-prev,\n.p-carousel .p-carousel-content .p-carousel-next {\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  margin: 0.5rem;\n}\n.p-carousel .p-carousel-content .p-carousel-prev:enabled:hover,\n.p-carousel .p-carousel-content .p-carousel-next:enabled:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-carousel .p-carousel-content .p-carousel-prev:focus,\n.p-carousel .p-carousel-content .p-carousel-next:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-carousel .p-carousel-indicators {\n  padding: 1rem;\n}\n.p-carousel .p-carousel-indicators .p-carousel-indicator {\n  margin-right: 0.5rem;\n  margin-bottom: 0.5rem;\n}\n.p-carousel .p-carousel-indicators .p-carousel-indicator button {\n  background-color: #e9ecef;\n  width: 2rem;\n  height: 0.5rem;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  border-radius: 0;\n}\n.p-carousel .p-carousel-indicators .p-carousel-indicator button:hover {\n  background: #dee2e6;\n}\n.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {\n  background: #E3F2FD;\n  color: #495057;\n}\n\n.p-datatable .p-paginator-top {\n  border-width: 0 0 1px 0;\n  border-radius: 0;\n}\n.p-datatable .p-paginator-bottom {\n  border-width: 0 0 1px 0;\n  border-radius: 0;\n}\n.p-datatable .p-datatable-header {\n  background: #f8f9fa;\n  color: #495057;\n  border: 1px solid #e9ecef;\n  border-width: 1px 0 1px 0;\n  padding: 1rem 1rem;\n  font-weight: 600;\n}\n.p-datatable .p-datatable-footer {\n  background: #f8f9fa;\n  color: #495057;\n  border: 1px solid #e9ecef;\n  border-width: 0 0 1px 0;\n  padding: 1rem 1rem;\n  font-weight: 600;\n}\n.p-datatable .p-datatable-thead > tr > th {\n  text-align: left;\n  padding: 1rem 1rem;\n  border: 1px solid #e9ecef;\n  border-width: 0 0 1px 0;\n  font-weight: 600;\n  color: #495057;\n  background: #f8f9fa;\n  transition: box-shadow 0.2s;\n}\n.p-datatable .p-datatable-tfoot > tr > td {\n  text-align: left;\n  padding: 1rem 1rem;\n  border: 1px solid #e9ecef;\n  border-width: 0 0 1px 0;\n  font-weight: 600;\n  color: #495057;\n  background: #f8f9fa;\n}\n.p-datatable .p-sortable-column .p-sortable-column-icon {\n  color: #6c757d;\n  margin-left: 0.5rem;\n}\n.p-datatable .p-sortable-column .p-sortable-column-badge {\n  border-radius: 50%;\n  height: 1.143rem;\n  min-width: 1.143rem;\n  line-height: 1.143rem;\n  color: #495057;\n  background: #E3F2FD;\n  margin-left: 0.5rem;\n}\n.p-datatable .p-sortable-column:not(.p-highlight):hover {\n  background: #e9ecef;\n  color: #495057;\n}\n.p-datatable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {\n  color: #6c757d;\n}\n.p-datatable .p-sortable-column.p-highlight {\n  background: #f8f9fa;\n  color: #2196F3;\n}\n.p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {\n  color: #2196F3;\n}\n.p-datatable .p-sortable-column.p-highlight:hover {\n  background: #e9ecef;\n  color: #2196F3;\n}\n.p-datatable .p-sortable-column.p-highlight:hover .p-sortable-column-icon {\n  color: #2196F3;\n}\n.p-datatable .p-sortable-column:focus {\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n  outline: 0 none;\n}\n.p-datatable .p-datatable-tbody > tr {\n  background: #ffffff;\n  color: #495057;\n  transition: box-shadow 0.2s;\n}\n.p-datatable .p-datatable-tbody > tr > td {\n  text-align: left;\n  border: 1px solid #e9ecef;\n  border-width: 0 0 1px 0;\n  padding: 1rem 1rem;\n}\n.p-datatable .p-datatable-tbody > tr > td .p-row-toggler,\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-init,\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-save,\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-cancel {\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-datatable .p-datatable-tbody > tr > td .p-row-toggler:enabled:hover,\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-init:enabled:hover,\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-save:enabled:hover,\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-cancel:enabled:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-datatable .p-datatable-tbody > tr > td .p-row-toggler:focus,\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-init:focus,\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-save:focus,\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-cancel:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-datatable .p-datatable-tbody > tr > td .p-row-editor-save {\n  margin-right: 0.5rem;\n}\n.p-datatable .p-datatable-tbody > tr > td > .p-column-title {\n  font-weight: 600;\n}\n.p-datatable .p-datatable-tbody > tr:focus {\n  outline: 0.15rem solid #a6d5fa;\n  outline-offset: -0.15rem;\n}\n.p-datatable .p-datatable-tbody > tr.p-highlight {\n  background: #E3F2FD;\n  color: #495057;\n}\n.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {\n  box-shadow: inset 0 2px 0 0 #E3F2FD;\n}\n.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {\n  box-shadow: inset 0 -2px 0 0 #E3F2FD;\n}\n.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {\n  background: #e9ecef;\n  color: #495057;\n}\n.p-datatable .p-column-resizer-helper {\n  background: #2196F3;\n}\n.p-datatable .p-datatable-scrollable-header,\n.p-datatable .p-datatable-scrollable-footer {\n  background: #f8f9fa;\n}\n.p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-thead,\n.p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-tfoot {\n  background-color: #f8f9fa;\n}\n.p-datatable .p-datatable-loading-icon {\n  font-size: 2rem;\n}\n.p-datatable.p-datatable-gridlines .p-datatable-header {\n  border-width: 1px 1px 0 1px;\n}\n.p-datatable.p-datatable-gridlines .p-datatable-footer {\n  border-width: 0 1px 1px 1px;\n}\n.p-datatable.p-datatable-gridlines .p-paginator-top {\n  border-width: 0 1px 0 1px;\n}\n.p-datatable.p-datatable-gridlines .p-paginator-bottom {\n  border-width: 0 1px 1px 1px;\n}\n.p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {\n  border-width: 1px 1px 1px 1px;\n}\n.p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td {\n  border-width: 1px;\n}\n.p-datatable.p-datatable-gridlines .p-datatable-tfoot > tr > td {\n  border-width: 1px;\n}\n.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-thead > tr > th + th {\n  border-left-width: 0;\n}\n.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr > td + td {\n  border-left-width: 0;\n}\n.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr + tr > td, .p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr:first-child > td {\n  border-top-width: 0;\n}\n.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tfoot > tr > td + td {\n  border-left-width: 0;\n}\n.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {\n  background: #fcfcfc;\n}\n.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight {\n  background: #E3F2FD;\n  color: #495057;\n}\n.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler {\n  color: #495057;\n}\n.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even).p-highlight .p-row-toggler:hover {\n  color: #495057;\n}\n.p-datatable.p-datatable-sm .p-datatable-header {\n  padding: 0.5rem 0.5rem;\n}\n.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {\n  padding: 0.5rem 0.5rem;\n}\n.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {\n  padding: 0.5rem 0.5rem;\n}\n.p-datatable.p-datatable-sm .p-datatable-tfoot > tr > td {\n  padding: 0.5rem 0.5rem;\n}\n.p-datatable.p-datatable-sm .p-datatable-footer {\n  padding: 0.5rem 0.5rem;\n}\n.p-datatable.p-datatable-lg .p-datatable-header {\n  padding: 1.25rem 1.25rem;\n}\n.p-datatable.p-datatable-lg .p-datatable-thead > tr > th {\n  padding: 1.25rem 1.25rem;\n}\n.p-datatable.p-datatable-lg .p-datatable-tbody > tr > td {\n  padding: 1.25rem 1.25rem;\n}\n.p-datatable.p-datatable-lg .p-datatable-tfoot > tr > td {\n  padding: 1.25rem 1.25rem;\n}\n.p-datatable.p-datatable-lg .p-datatable-footer {\n  padding: 1.25rem 1.25rem;\n}\n\n.p-dataview .p-paginator-top {\n  border-width: 0 0 1px 0;\n  border-radius: 0;\n}\n.p-dataview .p-paginator-bottom {\n  border-width: 0 0 1px 0;\n  border-radius: 0;\n}\n.p-dataview .p-dataview-header {\n  background: #f8f9fa;\n  color: #495057;\n  border: 1px solid #e9ecef;\n  border-width: 1px 0 1px 0;\n  padding: 1rem 1rem;\n  font-weight: 600;\n}\n.p-dataview .p-dataview-content {\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  padding: 0;\n}\n.p-dataview.p-dataview-list .p-dataview-content > .p-grid > div {\n  border: solid #e9ecef;\n  border-width: 0 0 1px 0;\n}\n.p-dataview .p-dataview-footer {\n  background: #f8f9fa;\n  color: #495057;\n  border: 1px solid #e9ecef;\n  border-width: 0 0 1px 0;\n  padding: 1rem 1rem;\n  font-weight: 600;\n  border-bottom-left-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n\n.p-column-filter-row .p-column-filter-menu-button,\n.p-column-filter-row .p-column-filter-clear-button {\n  margin-left: 0.5rem;\n}\n\n.p-column-filter-menu-button {\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-column-filter-menu-button:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-column-filter-menu-button.p-column-filter-menu-button-open, .p-column-filter-menu-button.p-column-filter-menu-button-open:hover {\n  background: #e9ecef;\n  color: #495057;\n}\n.p-column-filter-menu-button.p-column-filter-menu-button-active, .p-column-filter-menu-button.p-column-filter-menu-button-active:hover {\n  background: #E3F2FD;\n  color: #495057;\n}\n.p-column-filter-menu-button:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n\n.p-column-filter-clear-button {\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-column-filter-clear-button:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-column-filter-clear-button:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n\n.p-column-filter-overlay {\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  border-radius: 3px;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n  min-width: 12.5rem;\n}\n.p-column-filter-overlay .p-column-filter-row-items {\n  padding: 0.5rem 0;\n}\n.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item {\n  margin: 0;\n  padding: 0.5rem 1rem;\n  border: 0 none;\n  color: #495057;\n  background: transparent;\n  transition: box-shadow 0.2s;\n  border-radius: 0;\n}\n.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item:not(.p-highlight):not(.p-disabled):hover {\n  color: #495057;\n  background: #e9ecef;\n}\n.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-column-filter-overlay .p-column-filter-row-items .p-column-filter-separator {\n  border-top: 1px solid #dee2e6;\n  margin: 0.25rem 0;\n}\n\n.p-column-filter-overlay-menu .p-column-filter-operator {\n  padding: 0.5rem 1rem;\n  border-bottom: 0 none;\n  color: #495057;\n  background: #f8f9fa;\n  margin: 0;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-column-filter-overlay-menu .p-column-filter-constraint {\n  padding: 1rem;\n  border-bottom: 1px solid #dee2e6;\n}\n.p-column-filter-overlay-menu .p-column-filter-constraint .p-column-filter-matchmode-dropdown {\n  margin-bottom: 0.5rem;\n}\n.p-column-filter-overlay-menu .p-column-filter-constraint .p-column-filter-remove-button {\n  margin-top: 0.5rem;\n}\n.p-column-filter-overlay-menu .p-column-filter-constraint:last-child {\n  border-bottom: 0 none;\n}\n.p-column-filter-overlay-menu .p-column-filter-add-rule {\n  padding: 0.5rem 1rem;\n}\n.p-column-filter-overlay-menu .p-column-filter-buttonbar {\n  padding: 1rem;\n}\n\n.fc {\n  /* FullCalendar 4 */\n  /* FullCalendar 5 */\n}\n.fc.fc-unthemed .fc-view-container th {\n  background: #f8f9fa;\n  border: 1px solid #dee2e6;\n  color: #495057;\n}\n.fc.fc-unthemed .fc-view-container td.fc-widget-content {\n  border: 1px solid #dee2e6;\n  color: #495057;\n}\n.fc.fc-unthemed .fc-view-container td.fc-head-container {\n  border: 1px solid #dee2e6;\n}\n.fc.fc-unthemed .fc-view-container .fc-view {\n  background: #ffffff;\n}\n.fc.fc-unthemed .fc-view-container .fc-row {\n  border-right: 1px solid #dee2e6;\n}\n.fc.fc-unthemed .fc-view-container .fc-event {\n  background: #0d89ec;\n  border: 1px solid #0d89ec;\n  color: #ffffff;\n}\n.fc.fc-unthemed .fc-view-container .fc-divider {\n  background: #f8f9fa;\n  border: 1px solid #dee2e6;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button {\n  color: #ffffff;\n  background: #2196F3;\n  border: 1px solid #2196F3;\n  font-size: 1rem;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n  border-radius: 3px;\n  display: flex;\n  align-items: center;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button:enabled:hover {\n  background: #0d89ec;\n  color: #ffffff;\n  border-color: #0d89ec;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button:enabled:active {\n  background: #0b7ad1;\n  color: #ffffff;\n  border-color: #0b7ad1;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button:enabled:active:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button .fc-icon-chevron-left {\n  font-family: \"PrimeIcons\" !important;\n  text-indent: 0;\n  font-size: 1rem;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button .fc-icon-chevron-left:before {\n  content: \"\\e900\";\n}\n.fc.fc-unthemed .fc-toolbar .fc-button .fc-icon-chevron-right {\n  font-family: \"PrimeIcons\" !important;\n  text-indent: 0;\n  font-size: 1rem;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button .fc-icon-chevron-right:before {\n  content: \"\\e901\";\n}\n.fc.fc-unthemed .fc-toolbar .fc-button:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button.fc-dayGridMonth-button, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridWeek-button, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridDay-button {\n  background: #ffffff;\n  border: 1px solid #ced4da;\n  color: #495057;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button.fc-dayGridMonth-button:hover, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridWeek-button:hover, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridDay-button:hover {\n  background: #e9ecef;\n  border-color: #ced4da;\n  color: #495057;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button.fc-dayGridMonth-button.fc-button-active, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridWeek-button.fc-button-active, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridDay-button.fc-button-active {\n  background: #2196F3;\n  border-color: #2196F3;\n  color: #ffffff;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button.fc-dayGridMonth-button.fc-button-active:hover, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridWeek-button.fc-button-active:hover, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridDay-button.fc-button-active:hover {\n  background: #0d89ec;\n  border-color: #0d89ec;\n  color: #ffffff;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button.fc-dayGridMonth-button:focus, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridWeek-button:focus, .fc.fc-unthemed .fc-toolbar .fc-button.fc-timeGridDay-button:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  z-index: 1;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button {\n  border-radius: 0;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button:first-child {\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.fc.fc-unthemed .fc-toolbar .fc-button-group .fc-button:last-child {\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-scrollgrid {\n  border-color: #dee2e6;\n}\n.fc.fc-theme-standard .fc-view-harness th {\n  background: #f8f9fa;\n  border-color: #dee2e6;\n  color: #495057;\n}\n.fc.fc-theme-standard .fc-view-harness td {\n  color: #495057;\n  border-color: #dee2e6;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-view {\n  background: #ffffff;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-popover {\n  background: none;\n  border: 0 none;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header {\n  border: 1px solid #dee2e6;\n  padding: 1rem;\n  background: #f8f9fa;\n  color: #495057;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close {\n  opacity: 1;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n  font-family: \"PrimeIcons\" !important;\n  font-size: 1rem;\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close:before {\n  content: \"\\e90b\";\n}\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-body {\n  padding: 1rem;\n  border: 1px solid #dee2e6;\n  background: #ffffff;\n  color: #495057;\n  border-top: 0 none;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-event.fc-daygrid-block-event {\n  color: #ffffff;\n  background: #0d89ec;\n  border-color: #0d89ec;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-event.fc-daygrid-block-event .fc-event-main {\n  color: #ffffff;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-event.fc-daygrid-dot-event .fc-daygrid-event-dot {\n  background: #0d89ec;\n  border-color: #0d89ec;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-event.fc-daygrid-dot-event:hover {\n  background: #e9ecef;\n  color: #495057;\n}\n.fc.fc-theme-standard .fc-view-harness .fc-cell-shaded {\n  background: #f8f9fa;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button {\n  color: #ffffff;\n  background: #2196F3;\n  border: 1px solid #2196F3;\n  font-size: 1rem;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n  border-radius: 3px;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button:enabled:hover {\n  background: #0d89ec;\n  color: #ffffff;\n  border-color: #0d89ec;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button:enabled:active {\n  background: #0b7ad1;\n  color: #ffffff;\n  border-color: #0b7ad1;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button:enabled:active:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button:disabled {\n  opacity: 0.6;\n  color: #ffffff;\n  background: #2196F3;\n  border: 1px solid #2196F3;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button .fc-icon-chevron-left {\n  font-family: \"PrimeIcons\" !important;\n  text-indent: 0;\n  font-size: 1rem;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button .fc-icon-chevron-left:before {\n  content: \"\\e900\";\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button .fc-icon-chevron-right {\n  font-family: \"PrimeIcons\" !important;\n  text-indent: 0;\n  font-size: 1rem;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button .fc-icon-chevron-right:before {\n  content: \"\\e901\";\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button.fc-dayGridMonth-button, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridWeek-button, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridDay-button {\n  background: #ffffff;\n  border: 1px solid #ced4da;\n  color: #495057;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button.fc-dayGridMonth-button:hover, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridWeek-button:hover, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridDay-button:hover {\n  background: #e9ecef;\n  border-color: #ced4da;\n  color: #495057;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button.fc-dayGridMonth-button.fc-button-active, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridWeek-button.fc-button-active, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridDay-button.fc-button-active {\n  background: #2196F3;\n  border-color: #2196F3;\n  color: #ffffff;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button.fc-dayGridMonth-button.fc-button-active:hover, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridWeek-button.fc-button-active:hover, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridDay-button.fc-button-active:hover {\n  background: #0d89ec;\n  border-color: #0d89ec;\n  color: #ffffff;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button.fc-dayGridMonth-button:not(:disabled):focus, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridWeek-button:not(:disabled):focus, .fc.fc-theme-standard .fc-toolbar .fc-button.fc-timeGridDay-button:not(:disabled):focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n  z-index: 1;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button {\n  border-radius: 0;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button:first-child {\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.fc.fc-theme-standard .fc-toolbar .fc-button-group .fc-button:last-child {\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n.fc.fc-theme-standard .fc-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n\n.p-orderlist .p-orderlist-controls {\n  padding: 1rem;\n}\n.p-orderlist .p-orderlist-controls .p-button {\n  margin-bottom: 0.5rem;\n}\n.p-orderlist .p-orderlist-header {\n  background: #f8f9fa;\n  color: #495057;\n  border: 1px solid #dee2e6;\n  padding: 1rem;\n  font-weight: 600;\n  border-bottom: 0 none;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-orderlist .p-orderlist-list {\n  border: 1px solid #dee2e6;\n  background: #ffffff;\n  color: #495057;\n  padding: 0.5rem 0;\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-orderlist .p-orderlist-list .p-orderlist-item {\n  padding: 0.5rem 1rem;\n  margin: 0;\n  border: 0 none;\n  color: #495057;\n  background: transparent;\n  transition: transform 0.2s, box-shadow 0.2s;\n}\n.p-orderlist .p-orderlist-list .p-orderlist-item:not(.p-highlight):hover {\n  background: #e9ecef;\n  color: #495057;\n}\n.p-orderlist .p-orderlist-list .p-orderlist-item:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even) {\n  background: #e9ecef;\n}\n.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even):hover {\n  background: #e9ecef;\n}\n\n.p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {\n  background: #e9ecef;\n  color: #495057;\n}\n.p-organizationchart .p-organizationchart-node-content.p-highlight {\n  background: #E3F2FD;\n  color: #495057;\n}\n.p-organizationchart .p-organizationchart-node-content.p-highlight .p-node-toggler i {\n  color: #6cbbf5;\n}\n.p-organizationchart .p-organizationchart-line-down {\n  background: #dee2e6;\n}\n.p-organizationchart .p-organizationchart-line-left {\n  border-right: 1px solid #dee2e6;\n  border-color: #dee2e6;\n}\n.p-organizationchart .p-organizationchart-line-top {\n  border-top: 1px solid #dee2e6;\n  border-color: #dee2e6;\n}\n.p-organizationchart .p-organizationchart-node-content {\n  border: 1px solid #dee2e6;\n  background: #ffffff;\n  color: #495057;\n  padding: 1rem;\n}\n.p-organizationchart .p-organizationchart-node-content .p-node-toggler {\n  background: inherit;\n  color: inherit;\n  border-radius: 50%;\n}\n.p-organizationchart .p-organizationchart-node-content .p-node-toggler:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n\n.p-paginator {\n  background: #ffffff;\n  color: #6c757d;\n  border: solid #e9ecef;\n  border-width: 0;\n  padding: 0.5rem 1rem;\n  border-radius: 3px;\n}\n.p-paginator .p-paginator-first,\n.p-paginator .p-paginator-prev,\n.p-paginator .p-paginator-next,\n.p-paginator .p-paginator-last {\n  background-color: transparent;\n  border: 0 none;\n  color: #6c757d;\n  min-width: 2.357rem;\n  height: 2.357rem;\n  margin: 0.143rem;\n  transition: box-shadow 0.2s;\n  border-radius: 3px;\n}\n.p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,\n.p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,\n.p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,\n.p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {\n  background: #e9ecef;\n  border-color: transparent;\n  color: #495057;\n}\n.p-paginator .p-paginator-first {\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-paginator .p-paginator-last {\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n.p-paginator .p-dropdown {\n  margin-left: 0.5rem;\n  margin-right: 0.5rem;\n  height: 2.357rem;\n}\n.p-paginator .p-dropdown .p-dropdown-label {\n  padding-right: 0;\n}\n.p-paginator .p-paginator-page-input {\n  margin-left: 0.5rem;\n  margin-right: 0.5rem;\n}\n.p-paginator .p-paginator-page-input .p-inputtext {\n  max-width: 2.357rem;\n}\n.p-paginator .p-paginator-current {\n  background-color: transparent;\n  border: 0 none;\n  color: #6c757d;\n  min-width: 2.357rem;\n  height: 2.357rem;\n  margin: 0.143rem;\n  padding: 0 0.5rem;\n}\n.p-paginator .p-paginator-pages .p-paginator-page {\n  background-color: transparent;\n  border: 0 none;\n  color: #6c757d;\n  min-width: 2.357rem;\n  height: 2.357rem;\n  margin: 0.143rem;\n  transition: box-shadow 0.2s;\n  border-radius: 3px;\n}\n.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {\n  background: #E3F2FD;\n  border-color: #E3F2FD;\n  color: #495057;\n}\n.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {\n  background: #e9ecef;\n  border-color: transparent;\n  color: #495057;\n}\n\n.p-picklist .p-picklist-buttons {\n  padding: 1rem;\n}\n.p-picklist .p-picklist-buttons .p-button {\n  margin-bottom: 0.5rem;\n}\n.p-picklist .p-picklist-header {\n  background: #f8f9fa;\n  color: #495057;\n  border: 1px solid #dee2e6;\n  padding: 1rem;\n  font-weight: 600;\n  border-bottom: 0 none;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-picklist .p-picklist-list {\n  border: 1px solid #dee2e6;\n  background: #ffffff;\n  color: #495057;\n  padding: 0.5rem 0;\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-picklist .p-picklist-list .p-picklist-item {\n  padding: 0.5rem 1rem;\n  margin: 0;\n  border: 0 none;\n  color: #495057;\n  background: transparent;\n  transition: transform 0.2s, box-shadow 0.2s;\n}\n.p-picklist .p-picklist-list .p-picklist-item:not(.p-highlight):hover {\n  background: #e9ecef;\n  color: #495057;\n}\n.p-picklist .p-picklist-list .p-picklist-item:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-picklist .p-picklist-list .p-picklist-item.p-highlight {\n  color: #495057;\n  background: #E3F2FD;\n}\n.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even) {\n  background: #e9ecef;\n}\n.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even):hover {\n  background: #e9ecef;\n}\n\n.p-timeline .p-timeline-event-marker {\n  border: 2px solid #2196F3;\n  border-radius: 50%;\n  width: 1rem;\n  height: 1rem;\n  background-color: #ffffff;\n}\n.p-timeline .p-timeline-event-connector {\n  background-color: #dee2e6;\n}\n.p-timeline.p-timeline-vertical .p-timeline-event-opposite,\n.p-timeline.p-timeline-vertical .p-timeline-event-content {\n  padding: 0 1rem;\n}\n.p-timeline.p-timeline-vertical .p-timeline-event-connector {\n  width: 2px;\n}\n.p-timeline.p-timeline-horizontal .p-timeline-event-opposite,\n.p-timeline.p-timeline-horizontal .p-timeline-event-content {\n  padding: 1rem 0;\n}\n.p-timeline.p-timeline-horizontal .p-timeline-event-connector {\n  height: 2px;\n}\n\n.p-tree {\n  border: 1px solid #dee2e6;\n  background: #ffffff;\n  color: #495057;\n  padding: 1rem;\n  border-radius: 3px;\n}\n.p-tree .p-tree-container .p-treenode {\n  padding: 0.143rem;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content {\n  border-radius: 3px;\n  transition: box-shadow 0.2s;\n  padding: 0;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {\n  margin-right: 0.5rem;\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:enabled:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-treenode-icon {\n  margin-right: 0.5rem;\n  color: #6c757d;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-checkbox {\n  margin-right: 0.5rem;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content .p-checkbox .p-indeterminate .p-checkbox-icon {\n  color: #495057;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {\n  background: #E3F2FD;\n  color: #495057;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-tree-toggler,\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-treenode-icon {\n  color: #495057;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-tree-toggler:hover,\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-treenode-icon:hover {\n  color: #495057;\n}\n.p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {\n  background: #e9ecef;\n  color: #495057;\n}\n.p-tree .p-tree-filter-container {\n  margin-bottom: 0.5rem;\n}\n.p-tree .p-tree-filter-container .p-tree-filter {\n  width: 100%;\n  padding-right: 1.5rem;\n}\n.p-tree .p-tree-filter-container .p-tree-filter-icon {\n  right: 0.5rem;\n  color: #6c757d;\n}\n.p-tree .p-treenode-children {\n  padding: 0 0 0 1rem;\n}\n.p-tree .p-tree-loading-icon {\n  font-size: 2rem;\n}\n\n.p-treetable .p-paginator-top {\n  border-width: 0 0 1px 0;\n  border-radius: 0;\n}\n.p-treetable .p-paginator-bottom {\n  border-width: 0 0 1px 0;\n  border-radius: 0;\n}\n.p-treetable .p-treetable-header {\n  background: #f8f9fa;\n  color: #495057;\n  border: 1px solid #e9ecef;\n  border-width: 1px 0 1px 0;\n  padding: 1rem 1rem;\n  font-weight: 600;\n}\n.p-treetable .p-treetable-footer {\n  background: #f8f9fa;\n  color: #495057;\n  border: 1px solid #e9ecef;\n  border-width: 0 0 1px 0;\n  padding: 1rem 1rem;\n  font-weight: 600;\n}\n.p-treetable .p-treetable-thead > tr > th {\n  text-align: left;\n  padding: 1rem 1rem;\n  border: 1px solid #e9ecef;\n  border-width: 0 0 1px 0;\n  font-weight: 600;\n  color: #495057;\n  background: #f8f9fa;\n  transition: box-shadow 0.2s;\n}\n.p-treetable .p-treetable-tfoot > tr > td {\n  text-align: left;\n  padding: 1rem 1rem;\n  border: 1px solid #e9ecef;\n  border-width: 0 0 1px 0;\n  font-weight: 600;\n  color: #495057;\n  background: #f8f9fa;\n}\n.p-treetable .p-sortable-column {\n  outline-color: #a6d5fa;\n}\n.p-treetable .p-sortable-column .p-sortable-column-icon {\n  color: #6c757d;\n  margin-left: 0.5rem;\n}\n.p-treetable .p-sortable-column .p-sortable-column-badge {\n  border-radius: 50%;\n  height: 1.143rem;\n  min-width: 1.143rem;\n  line-height: 1.143rem;\n  color: #495057;\n  background: #E3F2FD;\n  margin-left: 0.5rem;\n}\n.p-treetable .p-sortable-column:not(.p-highlight):hover {\n  background: #e9ecef;\n  color: #495057;\n}\n.p-treetable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon {\n  color: #6c757d;\n}\n.p-treetable .p-sortable-column.p-highlight {\n  background: #f8f9fa;\n  color: #2196F3;\n}\n.p-treetable .p-sortable-column.p-highlight .p-sortable-column-icon {\n  color: #2196F3;\n}\n.p-treetable .p-treetable-tbody > tr {\n  background: #ffffff;\n  color: #495057;\n  transition: box-shadow 0.2s;\n}\n.p-treetable .p-treetable-tbody > tr > td {\n  text-align: left;\n  border: 1px solid #e9ecef;\n  border-width: 0 0 1px 0;\n  padding: 1rem 1rem;\n}\n.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler {\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  margin-right: 0.5rem;\n}\n.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler:enabled:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox {\n  margin-right: 0.5rem;\n}\n.p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox .p-indeterminate .p-checkbox-icon {\n  color: #495057;\n}\n.p-treetable .p-treetable-tbody > tr:focus {\n  outline: 0.15rem solid #a6d5fa;\n  outline-offset: -0.15rem;\n}\n.p-treetable .p-treetable-tbody > tr.p-highlight {\n  background: #E3F2FD;\n  color: #495057;\n}\n.p-treetable .p-treetable-tbody > tr.p-highlight .p-treetable-toggler {\n  color: #495057;\n}\n.p-treetable .p-treetable-tbody > tr.p-highlight .p-treetable-toggler:hover {\n  color: #495057;\n}\n.p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):hover {\n  background: #e9ecef;\n  color: #495057;\n}\n.p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):hover .p-treetable-toggler {\n  color: #495057;\n}\n.p-treetable .p-column-resizer-helper {\n  background: #2196F3;\n}\n.p-treetable .p-treetable-scrollable-header,\n.p-treetable .p-treetable-scrollable-footer {\n  background: #f8f9fa;\n}\n.p-treetable .p-treetable-loading-icon {\n  font-size: 2rem;\n}\n.p-treetable.p-treetable-gridlines .p-datatable-header {\n  border-width: 1px 1px 0 1px;\n}\n.p-treetable.p-treetable-gridlines .p-treetable-footer {\n  border-width: 0 1px 1px 1px;\n}\n.p-treetable.p-treetable-gridlines .p-treetable-top {\n  border-width: 0 1px 0 1px;\n}\n.p-treetable.p-treetable-gridlines .p-treetable-bottom {\n  border-width: 0 1px 1px 1px;\n}\n.p-treetable.p-treetable-gridlines .p-treetable-thead > tr > th {\n  border-width: 1px;\n}\n.p-treetable.p-treetable-gridlines .p-treetable-tbody > tr > td {\n  border-width: 1px;\n}\n.p-treetable.p-treetable-gridlines .p-treetable-tfoot > tr > td {\n  border-width: 1px;\n}\n.p-treetable.p-treetable-sm .p-treetable-header {\n  padding: 0.875rem 0.875rem;\n}\n.p-treetable.p-treetable-sm .p-treetable-thead > tr > th {\n  padding: 0.5rem 0.5rem;\n}\n.p-treetable.p-treetable-sm .p-treetable-tbody > tr > td {\n  padding: 0.5rem 0.5rem;\n}\n.p-treetable.p-treetable-sm .p-treetable-tfoot > tr > td {\n  padding: 0.5rem 0.5rem;\n}\n.p-treetable.p-treetable-sm .p-treetable-footer {\n  padding: 0.5rem 0.5rem;\n}\n.p-treetable.p-treetable-lg .p-treetable-header {\n  padding: 1.25rem 1.25rem;\n}\n.p-treetable.p-treetable-lg .p-treetable-thead > tr > th {\n  padding: 1.25rem 1.25rem;\n}\n.p-treetable.p-treetable-lg .p-treetable-tbody > tr > td {\n  padding: 1.25rem 1.25rem;\n}\n.p-treetable.p-treetable-lg .p-treetable-tfoot > tr > td {\n  padding: 1.25rem 1.25rem;\n}\n.p-treetable.p-treetable-lg .p-treetable-footer {\n  padding: 1.25rem 1.25rem;\n}\n\n.p-accordion .p-accordion-header .p-accordion-header-link {\n  padding: 1rem;\n  border: 1px solid #dee2e6;\n  color: #495057;\n  background: #f8f9fa;\n  font-weight: 600;\n  border-radius: 3px;\n  transition: box-shadow 0.2s;\n}\n.p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {\n  margin-right: 0.5rem;\n}\n.p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {\n  background: #e9ecef;\n  border-color: #dee2e6;\n  color: #495057;\n}\n.p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {\n  background: #f8f9fa;\n  border-color: #dee2e6;\n  color: #495057;\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {\n  border-color: #dee2e6;\n  background: #e9ecef;\n  color: #495057;\n}\n.p-accordion .p-accordion-content {\n  padding: 1rem;\n  border: 1px solid #dee2e6;\n  background: #ffffff;\n  color: #495057;\n  border-top: 0;\n  border-top-right-radius: 0;\n  border-top-left-radius: 0;\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-accordion .p-accordion-tab {\n  margin-bottom: 0;\n}\n.p-accordion .p-accordion-tab .p-accordion-header .p-accordion-header-link {\n  border-radius: 0;\n}\n.p-accordion .p-accordion-tab .p-accordion-content {\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header .p-accordion-header-link {\n  border-top: 0 none;\n}\n.p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link, .p-accordion .p-accordion-tab:not(:first-child) .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {\n  border-top: 0 none;\n}\n.p-accordion .p-accordion-tab:first-child .p-accordion-header .p-accordion-header-link {\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-accordion .p-accordion-tab:last-child .p-accordion-header:not(.p-highlight) .p-accordion-header-link {\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-accordion .p-accordion-tab:last-child .p-accordion-content {\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n\n.p-card {\n  background: #ffffff;\n  color: #495057;\n  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);\n  border-radius: 3px;\n}\n.p-card .p-card-body {\n  padding: 1rem;\n}\n.p-card .p-card-title {\n  font-size: 1.5rem;\n  font-weight: 700;\n  margin-bottom: 0.5rem;\n}\n.p-card .p-card-subtitle {\n  font-weight: 400;\n  margin-bottom: 0.5rem;\n  color: #6c757d;\n}\n.p-card .p-card-content {\n  padding: 1rem 0;\n}\n.p-card .p-card-footer {\n  padding: 1rem 0 0 0;\n}\n\n.p-fieldset {\n  border: 1px solid #dee2e6;\n  background: #ffffff;\n  color: #495057;\n  border-radius: 3px;\n}\n.p-fieldset .p-fieldset-legend {\n  padding: 1rem;\n  border: 1px solid #dee2e6;\n  color: #495057;\n  background: #f8f9fa;\n  font-weight: 600;\n  border-radius: 3px;\n}\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend {\n  padding: 0;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {\n  padding: 1rem;\n  color: #495057;\n  border-radius: 3px;\n  transition: box-shadow 0.2s;\n}\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a .p-fieldset-toggler {\n  margin-right: 0.5rem;\n}\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a:hover {\n  color: #495057;\n}\n.p-fieldset.p-fieldset-toggleable .p-fieldset-legend:hover {\n  background: #e9ecef;\n  border-color: #dee2e6;\n  color: #495057;\n}\n.p-fieldset .p-fieldset-content {\n  padding: 1rem;\n}\n\n.p-divider .p-divider-content {\n  background-color: #ffffff;\n}\n.p-divider.p-divider-horizontal {\n  margin: 1rem 0;\n  padding: 0 1rem;\n}\n.p-divider.p-divider-horizontal:before {\n  border-top: 1px #dee2e6;\n}\n.p-divider.p-divider-horizontal .p-divider-content {\n  padding: 0 0.5rem;\n}\n.p-divider.p-divider-vertical {\n  margin: 0 1rem;\n  padding: 1rem 0;\n}\n.p-divider.p-divider-vertical:before {\n  border-left: 1px #dee2e6;\n}\n.p-divider.p-divider-vertical .p-divider-content {\n  padding: 0.5rem 0;\n}\n\n.p-panel .p-panel-header {\n  border: 1px solid #dee2e6;\n  padding: 1rem;\n  background: #f8f9fa;\n  color: #495057;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-panel .p-panel-header .p-panel-title {\n  font-weight: 600;\n}\n.p-panel .p-panel-header .p-panel-header-icon {\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-panel .p-panel-header .p-panel-header-icon:enabled:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-panel .p-panel-header .p-panel-header-icon:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-panel.p-panel-toggleable .p-panel-header {\n  padding: 0.5rem 1rem;\n}\n.p-panel .p-panel-content {\n  padding: 1rem;\n  border: 1px solid #dee2e6;\n  background: #ffffff;\n  color: #495057;\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n  border-top: 0 none;\n}\n.p-panel .p-panel-footer {\n  padding: 0.5rem 1rem;\n  border: 1px solid #dee2e6;\n  background: #ffffff;\n  color: #495057;\n  border-top: 0 none;\n}\n\n.p-scrollpanel .p-scrollpanel-bar {\n  background: #f8f9fa;\n  border: 0 none;\n}\n\n.p-splitter {\n  border: 1px solid #dee2e6;\n  background: #ffffff;\n  border-radius: 3px;\n  color: #495057;\n}\n.p-splitter .p-splitter-gutter {\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  background: #f8f9fa;\n}\n.p-splitter .p-splitter-gutter .p-splitter-gutter-handle {\n  background: #dee2e6;\n}\n.p-splitter .p-splitter-gutter-resizing {\n  background: #dee2e6;\n}\n\n.p-tabview .p-tabview-nav {\n  background: #ffffff;\n  border: 1px solid #dee2e6;\n  border-width: 0 0 2px 0;\n}\n.p-tabview .p-tabview-nav li {\n  margin-right: 0;\n}\n.p-tabview .p-tabview-nav li .p-tabview-nav-link {\n  border: solid #dee2e6;\n  border-width: 0 0 2px 0;\n  border-color: transparent transparent #dee2e6 transparent;\n  background: #ffffff;\n  color: #6c757d;\n  padding: 1rem;\n  font-weight: 600;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n  transition: box-shadow 0.2s;\n  margin: 0 0 -2px 0;\n}\n.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.2rem #a6d5fa;\n}\n.p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {\n  background: #ffffff;\n  border-color: #6c757d;\n  color: #6c757d;\n}\n.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {\n  background: #ffffff;\n  border-color: #2196F3;\n  color: #2196F3;\n}\n.p-tabview .p-tabview-nav-btn.p-link {\n  background: #ffffff;\n  color: #2196F3;\n  width: 2.357rem;\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n  border-radius: 0;\n}\n.p-tabview .p-tabview-nav-btn.p-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.2rem #a6d5fa;\n}\n.p-tabview .p-tabview-panels {\n  background: #ffffff;\n  padding: 1rem;\n  border: 0 none;\n  color: #495057;\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n\n.p-toolbar {\n  background: #f8f9fa;\n  border: 1px solid #dee2e6;\n  padding: 1rem;\n  border-radius: 3px;\n}\n.p-toolbar .p-toolbar-separator {\n  margin: 0 0.5rem;\n}\n\n.p-confirm-popup {\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  border-radius: 3px;\n  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);\n}\n.p-confirm-popup .p-confirm-popup-content {\n  padding: 1rem;\n}\n.p-confirm-popup .p-confirm-popup-footer {\n  text-align: right;\n  padding: 0 1rem 1rem 1rem;\n}\n.p-confirm-popup .p-confirm-popup-footer button {\n  margin: 0 0.5rem 0 0;\n  width: auto;\n}\n.p-confirm-popup .p-confirm-popup-footer button:last-child {\n  margin: 0;\n}\n.p-confirm-popup:after {\n  border: solid transparent;\n  border-color: rgba(255, 255, 255, 0);\n  border-bottom-color: #ffffff;\n}\n.p-confirm-popup:before {\n  border: solid transparent;\n  border-color: rgba(255, 255, 255, 0);\n  border-bottom-color: #ffffff;\n}\n.p-confirm-popup.p-confirm-popup-flipped:after {\n  border-top-color: #ffffff;\n}\n.p-confirm-popup.p-confirm-popup-flipped:before {\n  border-top-color: #ffffff;\n}\n.p-confirm-popup .p-confirm-popup-icon {\n  font-size: 1.5rem;\n}\n.p-confirm-popup .p-confirm-popup-message {\n  margin-left: 1rem;\n}\n\n.p-dialog {\n  border-radius: 3px;\n  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);\n  border: 0 none;\n}\n.p-dialog .p-dialog-header {\n  border-bottom: 0 none;\n  background: #ffffff;\n  color: #495057;\n  padding: 1.5rem;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-dialog .p-dialog-header .p-dialog-title {\n  font-weight: 600;\n  font-size: 1.25rem;\n}\n.p-dialog .p-dialog-header .p-dialog-header-icon {\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  margin-right: 0.5rem;\n}\n.p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-dialog .p-dialog-header .p-dialog-header-icon:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-dialog .p-dialog-header .p-dialog-header-icon:last-child {\n  margin-right: 0;\n}\n.p-dialog .p-dialog-content {\n  background: #ffffff;\n  color: #495057;\n  padding: 0 1.5rem 2rem 1.5rem;\n}\n.p-dialog .p-dialog-content:last-of-type {\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-dialog .p-dialog-footer {\n  border-top: 0 none;\n  background: #ffffff;\n  color: #495057;\n  padding: 0 1.5rem 1.5rem 1.5rem;\n  text-align: right;\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-dialog .p-dialog-footer button {\n  margin: 0 0.5rem 0 0;\n  width: auto;\n}\n.p-dialog.p-confirm-dialog .p-confirm-dialog-icon {\n  font-size: 2rem;\n}\n.p-dialog.p-confirm-dialog .p-confirm-dialog-message {\n  margin-left: 1rem;\n}\n\n.p-overlaypanel {\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  border-radius: 3px;\n  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);\n}\n.p-overlaypanel .p-overlaypanel-content {\n  padding: 1rem;\n}\n.p-overlaypanel .p-overlaypanel-close {\n  background: #2196F3;\n  color: #ffffff;\n  width: 2rem;\n  height: 2rem;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  border-radius: 50%;\n  position: absolute;\n  top: -1rem;\n  right: -1rem;\n}\n.p-overlaypanel .p-overlaypanel-close:enabled:hover {\n  background: #0d89ec;\n  color: #ffffff;\n}\n.p-overlaypanel:after {\n  border: solid transparent;\n  border-color: rgba(255, 255, 255, 0);\n  border-bottom-color: #ffffff;\n}\n.p-overlaypanel:before {\n  border: solid transparent;\n  border-color: rgba(255, 255, 255, 0);\n  border-bottom-color: #f2f2f2;\n}\n.p-overlaypanel.p-overlaypanel-flipped:after {\n  border-top-color: #ffffff;\n}\n.p-overlaypanel.p-overlaypanel-flipped:before {\n  border-top-color: #ffffff;\n}\n\n.p-sidebar {\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);\n}\n.p-sidebar .p-sidebar-header {\n  padding: 1rem;\n}\n.p-sidebar .p-sidebar-header .p-sidebar-close,\n.p-sidebar .p-sidebar-header .p-sidebar-icon {\n  width: 2rem;\n  height: 2rem;\n  color: #6c757d;\n  border: 0 none;\n  background: transparent;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-sidebar .p-sidebar-header .p-sidebar-close:enabled:hover,\n.p-sidebar .p-sidebar-header .p-sidebar-icon:enabled:hover {\n  color: #495057;\n  border-color: transparent;\n  background: #e9ecef;\n}\n.p-sidebar .p-sidebar-header .p-sidebar-close:focus,\n.p-sidebar .p-sidebar-header .p-sidebar-icon:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-sidebar .p-sidebar-header + .p-sidebar-content {\n  padding-top: 0;\n}\n.p-sidebar .p-sidebar-content {\n  padding: 1rem;\n}\n\n.p-tooltip .p-tooltip-text {\n  background: #495057;\n  color: #ffffff;\n  padding: 0.5rem 0.5rem;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n  border-radius: 3px;\n}\n.p-tooltip.p-tooltip-right .p-tooltip-arrow {\n  border-right-color: #495057;\n}\n.p-tooltip.p-tooltip-left .p-tooltip-arrow {\n  border-left-color: #495057;\n}\n.p-tooltip.p-tooltip-top .p-tooltip-arrow {\n  border-top-color: #495057;\n}\n.p-tooltip.p-tooltip-bottom .p-tooltip-arrow {\n  border-bottom-color: #495057;\n}\n\n.p-fileupload .p-fileupload-buttonbar {\n  background: #f8f9fa;\n  padding: 1rem;\n  border: 1px solid #dee2e6;\n  color: #495057;\n  border-bottom: 0 none;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-fileupload .p-fileupload-buttonbar .p-button {\n  margin-right: 0.5rem;\n}\n.p-fileupload .p-fileupload-buttonbar .p-button.p-fileupload-choose.p-focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-fileupload .p-fileupload-content {\n  background: #ffffff;\n  padding: 2rem 1rem;\n  border: 1px solid #dee2e6;\n  color: #495057;\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-fileupload .p-progressbar {\n  height: 0.25rem;\n}\n.p-fileupload .p-fileupload-row > div {\n  padding: 1rem 1rem;\n}\n.p-fileupload.p-fileupload-advanced .p-message {\n  margin-top: 0;\n}\n\n.p-fileupload-choose:not(.p-disabled):hover {\n  background: #0d89ec;\n  color: #ffffff;\n  border-color: #0d89ec;\n}\n.p-fileupload-choose:not(.p-disabled):active {\n  background: #0b7ad1;\n  color: #ffffff;\n  border-color: #0b7ad1;\n}\n\n.p-breadcrumb {\n  background: #ffffff;\n  border: 1px solid #dee2e6;\n  border-radius: 3px;\n  padding: 1rem;\n}\n.p-breadcrumb ul li .p-menuitem-link {\n  transition: box-shadow 0.2s;\n  border-radius: 3px;\n}\n.p-breadcrumb ul li .p-menuitem-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-breadcrumb ul li .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {\n  color: #6c757d;\n}\n.p-breadcrumb ul li.p-breadcrumb-chevron {\n  margin: 0 0.5rem 0 0.5rem;\n  color: #495057;\n}\n.p-breadcrumb ul li:last-child .p-menuitem-text {\n  color: #495057;\n}\n.p-breadcrumb ul li:last-child .p-menuitem-icon {\n  color: #6c757d;\n}\n\n.p-contextmenu {\n  padding: 0.25rem 0;\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n  border-radius: 3px;\n  width: 12.5rem;\n}\n.p-contextmenu .p-menuitem-link {\n  padding: 0.75rem 1rem;\n  color: #495057;\n  border-radius: 0;\n  transition: box-shadow 0.2s;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.p-contextmenu .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-contextmenu .p-menuitem-link .p-menuitem-icon {\n  color: #6c757d;\n  margin-right: 0.5rem;\n}\n.p-contextmenu .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n}\n.p-contextmenu .p-menuitem-link:not(.p-disabled):hover {\n  background: #e9ecef;\n}\n.p-contextmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\n  color: #495057;\n}\n.p-contextmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\n  color: #6c757d;\n}\n.p-contextmenu .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\n  color: #6c757d;\n}\n.p-contextmenu .p-menuitem-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-contextmenu .p-submenu-list {\n  padding: 0.25rem 0;\n  background: #ffffff;\n  border: 0 none;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n  border-radius: 3px;\n}\n.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\n  background: #e9ecef;\n}\n.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, .p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n}\n.p-contextmenu .p-menu-separator {\n  border-top: 1px solid #dee2e6;\n  margin: 0.25rem 0;\n}\n.p-contextmenu .p-submenu-icon {\n  font-size: 0.875rem;\n}\n\n.p-dock .p-dock-list-container {\n  background: rgba(255, 255, 255, 0.1);\n  border: 1px solid rgba(255, 255, 255, 0.2);\n  padding: 0.5rem 0.5rem;\n  border-radius: 0.5rem;\n}\n.p-dock .p-dock-item {\n  padding: 0.5rem;\n}\n.p-dock .p-dock-action {\n  width: 4rem;\n  height: 4rem;\n}\n.p-dock.p-dock-top .p-dock-item-second-prev,\n.p-dock.p-dock-top .p-dock-item-second-next, .p-dock.p-dock-bottom .p-dock-item-second-prev,\n.p-dock.p-dock-bottom .p-dock-item-second-next {\n  margin: 0 0.9rem;\n}\n.p-dock.p-dock-top .p-dock-item-prev,\n.p-dock.p-dock-top .p-dock-item-next, .p-dock.p-dock-bottom .p-dock-item-prev,\n.p-dock.p-dock-bottom .p-dock-item-next {\n  margin: 0 1.3rem;\n}\n.p-dock.p-dock-top .p-dock-item-current, .p-dock.p-dock-bottom .p-dock-item-current {\n  margin: 0 1.5rem;\n}\n.p-dock.p-dock-left .p-dock-item-second-prev,\n.p-dock.p-dock-left .p-dock-item-second-next, .p-dock.p-dock-right .p-dock-item-second-prev,\n.p-dock.p-dock-right .p-dock-item-second-next {\n  margin: 0.9rem 0;\n}\n.p-dock.p-dock-left .p-dock-item-prev,\n.p-dock.p-dock-left .p-dock-item-next, .p-dock.p-dock-right .p-dock-item-prev,\n.p-dock.p-dock-right .p-dock-item-next {\n  margin: 1.3rem 0;\n}\n.p-dock.p-dock-left .p-dock-item-current, .p-dock.p-dock-right .p-dock-item-current {\n  margin: 1.5rem 0;\n}\n\n@media screen and (max-width: 960px) {\n  .p-dock.p-dock-top .p-dock-list-container, .p-dock.p-dock-bottom .p-dock-list-container {\n    overflow-x: auto;\n    width: 100%;\n  }\n  .p-dock.p-dock-top .p-dock-list-container .p-dock-list, .p-dock.p-dock-bottom .p-dock-list-container .p-dock-list {\n    margin: 0 auto;\n  }\n  .p-dock.p-dock-left .p-dock-list-container, .p-dock.p-dock-right .p-dock-list-container {\n    overflow-y: auto;\n    height: 100%;\n  }\n  .p-dock.p-dock-left .p-dock-list-container .p-dock-list, .p-dock.p-dock-right .p-dock-list-container .p-dock-list {\n    margin: auto 0;\n  }\n  .p-dock .p-dock-list .p-dock-item {\n    transform: none;\n    margin: 0;\n  }\n}\n.p-megamenu {\n  padding: 0.5rem;\n  background: #f8f9fa;\n  color: #495057;\n  border: 1px solid #dee2e6;\n  border-radius: 3px;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link {\n  padding: 0.75rem 1rem;\n  color: #495057;\n  border-radius: 3px;\n  transition: box-shadow 0.2s;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {\n  color: #6c757d;\n  margin-right: 0.5rem;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n  margin-left: 0.5rem;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {\n  background: #e9ecef;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\n  color: #495057;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\n  color: #6c757d;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\n  color: #6c757d;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link,\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover {\n  background: #e9ecef;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text,\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\n  color: #495057;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon,\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\n  color: #6c757d;\n}\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon,\n.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\n  color: #6c757d;\n}\n.p-megamenu .p-menuitem-link {\n  padding: 0.75rem 1rem;\n  color: #495057;\n  border-radius: 0;\n  transition: box-shadow 0.2s;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.p-megamenu .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-megamenu .p-menuitem-link .p-menuitem-icon {\n  color: #6c757d;\n  margin-right: 0.5rem;\n}\n.p-megamenu .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n}\n.p-megamenu .p-menuitem-link:not(.p-disabled):hover {\n  background: #e9ecef;\n}\n.p-megamenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\n  color: #495057;\n}\n.p-megamenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\n  color: #6c757d;\n}\n.p-megamenu .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\n  color: #6c757d;\n}\n.p-megamenu .p-menuitem-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-megamenu .p-megamenu-panel {\n  background: #ffffff;\n  color: #495057;\n  border: 0 none;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.p-megamenu .p-megamenu-submenu-header {\n  margin: 0;\n  padding: 0.75rem 1rem;\n  color: #495057;\n  background: #ffffff;\n  font-weight: 600;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-megamenu .p-megamenu-submenu {\n  padding: 0.25rem 0;\n  width: 12.5rem;\n}\n.p-megamenu .p-megamenu-submenu .p-menu-separator {\n  border-top: 1px solid #dee2e6;\n  margin: 0.25rem 0;\n}\n.p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\n  background: #e9ecef;\n}\n.p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, .p-megamenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n}\n.p-megamenu.p-megamenu-vertical {\n  width: 12.5rem;\n  padding: 0.25rem 0;\n}\n\n.p-menu {\n  padding: 0.25rem 0;\n  background: #ffffff;\n  color: #495057;\n  border: 1px solid #dee2e6;\n  border-radius: 3px;\n  width: 12.5rem;\n}\n.p-menu .p-menuitem-link {\n  padding: 0.75rem 1rem;\n  color: #495057;\n  border-radius: 0;\n  transition: box-shadow 0.2s;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.p-menu .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-menu .p-menuitem-link .p-menuitem-icon {\n  color: #6c757d;\n  margin-right: 0.5rem;\n}\n.p-menu .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n}\n.p-menu .p-menuitem-link:not(.p-disabled):hover {\n  background: #e9ecef;\n}\n.p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\n  color: #495057;\n}\n.p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\n  color: #6c757d;\n}\n.p-menu .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\n  color: #6c757d;\n}\n.p-menu .p-menuitem-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-menu.p-menu-overlay {\n  background: #ffffff;\n  border: 0 none;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.p-menu .p-submenu-header {\n  margin: 0;\n  padding: 0.75rem 1rem;\n  color: #495057;\n  background: #ffffff;\n  font-weight: 600;\n  border-top-right-radius: 0;\n  border-top-left-radius: 0;\n}\n.p-menu .p-menu-separator {\n  border-top: 1px solid #dee2e6;\n  margin: 0.25rem 0;\n}\n\n.p-menubar {\n  padding: 0.5rem;\n  background: #f8f9fa;\n  color: #495057;\n  border: 1px solid #dee2e6;\n  border-radius: 3px;\n}\n.p-menubar .p-menuitem-link {\n  padding: 0.75rem 1rem;\n  color: #495057;\n  border-radius: 0;\n  transition: box-shadow 0.2s;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.p-menubar .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-menubar .p-menuitem-link .p-menuitem-icon {\n  color: #6c757d;\n  margin-right: 0.5rem;\n}\n.p-menubar .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n}\n.p-menubar .p-menuitem-link:not(.p-disabled):hover {\n  background: #e9ecef;\n}\n.p-menubar .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\n  color: #495057;\n}\n.p-menubar .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\n  color: #6c757d;\n}\n.p-menubar .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\n  color: #6c757d;\n}\n.p-menubar .p-menuitem-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {\n  padding: 0.75rem 1rem;\n  color: #495057;\n  border-radius: 3px;\n  transition: box-shadow 0.2s;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {\n  color: #6c757d;\n  margin-right: 0.5rem;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n  margin-left: 0.5rem;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {\n  background: #e9ecef;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\n  color: #495057;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\n  color: #6c757d;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\n  color: #6c757d;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link,\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover {\n  background: #e9ecef;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text,\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\n  color: #495057;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon,\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\n  color: #6c757d;\n}\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon,\n.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\n  color: #6c757d;\n}\n.p-menubar .p-submenu-list {\n  padding: 0.25rem 0;\n  background: #ffffff;\n  border: 0 none;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n  width: 12.5rem;\n}\n.p-menubar .p-submenu-list .p-menu-separator {\n  border-top: 1px solid #dee2e6;\n  margin: 0.25rem 0;\n}\n.p-menubar .p-submenu-list .p-submenu-icon {\n  font-size: 0.875rem;\n}\n.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link {\n  background: #e9ecef;\n}\n.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n}\n\n@media screen and (max-width: 960px) {\n  .p-menubar {\n    position: relative;\n  }\n  .p-menubar .p-menubar-button {\n    display: flex;\n    width: 2rem;\n    height: 2rem;\n    color: #6c757d;\n    border-radius: 50%;\n    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  }\n  .p-menubar .p-menubar-button:hover {\n    color: #6c757d;\n    background: #e9ecef;\n  }\n  .p-menubar .p-menubar-button:focus {\n    outline: 0 none;\n    outline-offset: 0;\n    box-shadow: 0 0 0 0.2rem #a6d5fa;\n  }\n  .p-menubar .p-menubar-root-list {\n    position: absolute;\n    display: none;\n    padding: 0.25rem 0;\n    background: #ffffff;\n    border: 0 none;\n    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n    width: 100%;\n  }\n  .p-menubar .p-menubar-root-list .p-menu-separator {\n    border-top: 1px solid #dee2e6;\n    margin: 0.25rem 0;\n  }\n  .p-menubar .p-menubar-root-list .p-submenu-icon {\n    font-size: 0.875rem;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem {\n    width: 100%;\n    position: static;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {\n    padding: 0.75rem 1rem;\n    color: #495057;\n    border-radius: 0;\n    transition: box-shadow 0.2s;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n            user-select: none;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {\n    color: #495057;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {\n    color: #6c757d;\n    margin-right: 0.5rem;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {\n    color: #6c757d;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {\n    background: #e9ecef;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\n    color: #495057;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\n    color: #6c757d;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\n    color: #6c757d;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus {\n    outline: 0 none;\n    outline-offset: 0;\n    box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {\n    margin-left: auto;\n    transition: transform 0.2s;\n  }\n  .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link > .p-submenu-icon {\n    transform: rotate(-180deg);\n  }\n  .p-menubar .p-menubar-root-list .p-submenu-list {\n    width: 100%;\n    position: static;\n    box-shadow: none;\n    border: 0 none;\n  }\n  .p-menubar .p-menubar-root-list .p-submenu-list .p-submenu-icon {\n    transition: transform 0.2s;\n    transform: rotate(90deg);\n  }\n  .p-menubar .p-menubar-root-list .p-submenu-list .p-menuitem-active > .p-menuitem-link > .p-submenu-icon {\n    transform: rotate(-90deg);\n  }\n  .p-menubar .p-menubar-root-list .p-menuitem {\n    width: 100%;\n    position: static;\n  }\n  .p-menubar .p-menubar-root-list ul li a {\n    padding-left: 2.25rem;\n  }\n  .p-menubar .p-menubar-root-list ul li ul li a {\n    padding-left: 3.75rem;\n  }\n  .p-menubar .p-menubar-root-list ul li ul li ul li a {\n    padding-left: 5.25rem;\n  }\n  .p-menubar .p-menubar-root-list ul li ul li ul li ul li a {\n    padding-left: 6.75rem;\n  }\n  .p-menubar .p-menubar-root-list ul li ul li ul li ul li ul li a {\n    padding-left: 8.25rem;\n  }\n  .p-menubar.p-menubar-mobile-active .p-menubar-root-list {\n    display: flex;\n    flex-direction: column;\n    top: 100%;\n    left: 0;\n    z-index: 1;\n  }\n}\n.p-panelmenu .p-panelmenu-header > a {\n  padding: 1rem;\n  border: 1px solid #dee2e6;\n  color: #495057;\n  background: #f8f9fa;\n  font-weight: 600;\n  border-radius: 3px;\n  transition: box-shadow 0.2s;\n}\n.p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon {\n  margin-right: 0.5rem;\n}\n.p-panelmenu .p-panelmenu-header > a .p-menuitem-icon {\n  margin-right: 0.5rem;\n}\n.p-panelmenu .p-panelmenu-header > a:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-panelmenu .p-panelmenu-header:not(.p-highlight):not(.p-disabled) > a:hover {\n  background: #e9ecef;\n  border-color: #dee2e6;\n  color: #495057;\n}\n.p-panelmenu .p-panelmenu-header.p-highlight {\n  margin-bottom: 0;\n}\n.p-panelmenu .p-panelmenu-header.p-highlight > a {\n  background: #f8f9fa;\n  border-color: #dee2e6;\n  color: #495057;\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.p-panelmenu .p-panelmenu-header.p-highlight:not(.p-disabled) > a:hover {\n  border-color: #dee2e6;\n  background: #e9ecef;\n  color: #495057;\n}\n.p-panelmenu .p-panelmenu-content {\n  padding: 0.25rem 0;\n  border: 1px solid #dee2e6;\n  background: #ffffff;\n  color: #495057;\n  border-top: 0;\n  border-top-right-radius: 0;\n  border-top-left-radius: 0;\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link {\n  padding: 0.75rem 1rem;\n  color: #495057;\n  border-radius: 0;\n  transition: box-shadow 0.2s;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-menuitem-icon {\n  color: #6c757d;\n  margin-right: 0.5rem;\n}\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n}\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover {\n  background: #e9ecef;\n}\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\n  color: #495057;\n}\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\n  color: #6c757d;\n}\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\n  color: #6c757d;\n}\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link .p-panelmenu-icon {\n  margin-right: 0.5rem;\n}\n.p-panelmenu .p-panelmenu-content .p-submenu-list:not(.p-panelmenu-root-submenu) {\n  padding: 0 0 0 1rem;\n}\n.p-panelmenu .p-panelmenu-panel {\n  margin-bottom: 0;\n}\n.p-panelmenu .p-panelmenu-panel .p-panelmenu-header > a {\n  border-radius: 0;\n}\n.p-panelmenu .p-panelmenu-panel .p-panelmenu-content {\n  border-radius: 0;\n}\n.p-panelmenu .p-panelmenu-panel:not(:first-child) .p-panelmenu-header > a {\n  border-top: 0 none;\n}\n.p-panelmenu .p-panelmenu-panel:not(:first-child) .p-panelmenu-header:not(.p-highlight):not(.p-disabled):hover > a, .p-panelmenu .p-panelmenu-panel:not(:first-child) .p-panelmenu-header:not(.p-disabled).p-highlight:hover > a {\n  border-top: 0 none;\n}\n.p-panelmenu .p-panelmenu-panel:first-child .p-panelmenu-header > a {\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.p-panelmenu .p-panelmenu-panel:last-child .p-panelmenu-header:not(.p-highlight) > a {\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.p-panelmenu .p-panelmenu-panel:last-child .p-panelmenu-content {\n  border-bottom-right-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n\n.p-steps .p-steps-item .p-menuitem-link {\n  background: transparent;\n  transition: box-shadow 0.2s;\n  border-radius: 3px;\n  background: #ffffff;\n}\n.p-steps .p-steps-item .p-menuitem-link .p-steps-number {\n  color: #495057;\n  border: 1px solid #e9ecef;\n  background: #ffffff;\n  min-width: 2rem;\n  height: 2rem;\n  line-height: 2rem;\n  font-size: 1.143rem;\n  z-index: 1;\n  border-radius: 50%;\n}\n.p-steps .p-steps-item .p-menuitem-link .p-steps-title {\n  margin-top: 0.5rem;\n  color: #6c757d;\n}\n.p-steps .p-steps-item .p-menuitem-link:not(.p-disabled):focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-steps .p-steps-item.p-highlight .p-steps-number {\n  background: #E3F2FD;\n  color: #495057;\n}\n.p-steps .p-steps-item.p-highlight .p-steps-title {\n  font-weight: 600;\n  color: #495057;\n}\n.p-steps .p-steps-item:before {\n  content: \" \";\n  border-top: 1px solid #dee2e6;\n  width: 100%;\n  top: 50%;\n  left: 0;\n  display: block;\n  position: absolute;\n  margin-top: -1rem;\n}\n\n.p-tabmenu .p-tabmenu-nav {\n  background: #ffffff;\n  border: 1px solid #dee2e6;\n  border-width: 0 0 2px 0;\n}\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem {\n  margin-right: 0;\n}\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {\n  border: solid #dee2e6;\n  border-width: 0 0 2px 0;\n  border-color: transparent transparent #dee2e6 transparent;\n  background: #ffffff;\n  color: #6c757d;\n  padding: 1rem;\n  font-weight: 600;\n  border-top-right-radius: 3px;\n  border-top-left-radius: 3px;\n  transition: box-shadow 0.2s;\n  margin: 0 0 -2px 0;\n}\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon {\n  margin-right: 0.5rem;\n}\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.2rem #a6d5fa;\n}\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {\n  background: #ffffff;\n  border-color: #6c757d;\n  color: #6c757d;\n}\n.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {\n  background: #ffffff;\n  border-color: #2196F3;\n  color: #2196F3;\n}\n\n.p-tieredmenu {\n  padding: 0.25rem 0;\n  background: #ffffff;\n  color: #495057;\n  border: 1px solid #dee2e6;\n  border-radius: 3px;\n  width: 12.5rem;\n}\n.p-tieredmenu .p-menuitem-link {\n  padding: 0.75rem 1rem;\n  color: #495057;\n  border-radius: 0;\n  transition: box-shadow 0.2s;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.p-tieredmenu .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-tieredmenu .p-menuitem-link .p-menuitem-icon {\n  color: #6c757d;\n  margin-right: 0.5rem;\n}\n.p-tieredmenu .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n}\n.p-tieredmenu .p-menuitem-link:not(.p-disabled):hover {\n  background: #e9ecef;\n}\n.p-tieredmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {\n  color: #495057;\n}\n.p-tieredmenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {\n  color: #6c757d;\n}\n.p-tieredmenu .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {\n  color: #6c757d;\n}\n.p-tieredmenu .p-menuitem-link:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: inset 0 0 0 0.15rem #a6d5fa;\n}\n.p-tieredmenu.p-tieredmenu-overlay {\n  background: #ffffff;\n  border: 0 none;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.p-tieredmenu .p-submenu-list {\n  padding: 0.25rem 0;\n  background: #ffffff;\n  border: 0 none;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link {\n  background: #e9ecef;\n}\n.p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {\n  color: #495057;\n}\n.p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, .p-tieredmenu .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {\n  color: #6c757d;\n}\n.p-tieredmenu .p-menu-separator {\n  border-top: 1px solid #dee2e6;\n  margin: 0.25rem 0;\n}\n.p-tieredmenu .p-submenu-icon {\n  font-size: 0.875rem;\n}\n\n.p-inline-message {\n  padding: 0.5rem 0.5rem;\n  margin: 0;\n  border-radius: 3px;\n}\n.p-inline-message.p-inline-message-info {\n  background: #B3E5FC;\n  border: solid #0891cf;\n  border-width: 0px;\n  color: #044868;\n}\n.p-inline-message.p-inline-message-info .p-inline-message-icon {\n  color: #044868;\n}\n.p-inline-message.p-inline-message-success {\n  background: #C8E6C9;\n  border: solid #439446;\n  border-width: 0px;\n  color: #224a23;\n}\n.p-inline-message.p-inline-message-success .p-inline-message-icon {\n  color: #224a23;\n}\n.p-inline-message.p-inline-message-warn {\n  background: #FFECB3;\n  border: solid #d9a300;\n  border-width: 0px;\n  color: #6d5100;\n}\n.p-inline-message.p-inline-message-warn .p-inline-message-icon {\n  color: #6d5100;\n}\n.p-inline-message.p-inline-message-error {\n  background: #FFCDD2;\n  border: solid #e60017;\n  border-width: 0px;\n  color: #73000c;\n}\n.p-inline-message.p-inline-message-error .p-inline-message-icon {\n  color: #73000c;\n}\n.p-inline-message .p-inline-message-icon {\n  font-size: 1rem;\n  margin-right: 0.5rem;\n}\n.p-inline-message .p-inline-message-text {\n  font-size: 1rem;\n}\n.p-inline-message.p-inline-message-icon-only .p-inline-message-icon {\n  margin-right: 0;\n}\n\n.p-message {\n  margin: 1rem 0;\n  border-radius: 3px;\n}\n.p-message .p-message-wrapper {\n  padding: 1rem 1.5rem;\n}\n.p-message .p-message-close {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 50%;\n  background: transparent;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-message .p-message-close:hover {\n  background: rgba(255, 255, 255, 0.3);\n}\n.p-message .p-message-close:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-message.p-message-info {\n  background: #B3E5FC;\n  border: solid #0891cf;\n  border-width: 0 0 0 6px;\n  color: #044868;\n}\n.p-message.p-message-info .p-message-icon {\n  color: #044868;\n}\n.p-message.p-message-info .p-message-close {\n  color: #044868;\n}\n.p-message.p-message-success {\n  background: #C8E6C9;\n  border: solid #439446;\n  border-width: 0 0 0 6px;\n  color: #224a23;\n}\n.p-message.p-message-success .p-message-icon {\n  color: #224a23;\n}\n.p-message.p-message-success .p-message-close {\n  color: #224a23;\n}\n.p-message.p-message-warn {\n  background: #FFECB3;\n  border: solid #d9a300;\n  border-width: 0 0 0 6px;\n  color: #6d5100;\n}\n.p-message.p-message-warn .p-message-icon {\n  color: #6d5100;\n}\n.p-message.p-message-warn .p-message-close {\n  color: #6d5100;\n}\n.p-message.p-message-error {\n  background: #FFCDD2;\n  border: solid #e60017;\n  border-width: 0 0 0 6px;\n  color: #73000c;\n}\n.p-message.p-message-error .p-message-icon {\n  color: #73000c;\n}\n.p-message.p-message-error .p-message-close {\n  color: #73000c;\n}\n.p-message .p-message-text {\n  font-size: 1rem;\n  font-weight: 500;\n}\n.p-message .p-message-icon {\n  font-size: 1.5rem;\n  margin-right: 0.5rem;\n}\n\n.p-toast {\n  opacity: 0.9;\n}\n.p-toast .p-toast-message {\n  margin: 0 0 1rem 0;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n  border-radius: 3px;\n}\n.p-toast .p-toast-message .p-toast-message-content {\n  padding: 1rem;\n  border-width: 0 0 0 6px;\n}\n.p-toast .p-toast-message .p-toast-message-content .p-toast-message-text {\n  margin: 0 0 0 1rem;\n}\n.p-toast .p-toast-message .p-toast-message-content .p-toast-message-icon {\n  font-size: 2rem;\n}\n.p-toast .p-toast-message .p-toast-message-content .p-toast-summary {\n  font-weight: 700;\n}\n.p-toast .p-toast-message .p-toast-message-content .p-toast-detail {\n  margin: 0.5rem 0 0 0;\n}\n.p-toast .p-toast-message .p-toast-icon-close {\n  width: 2rem;\n  height: 2rem;\n  border-radius: 50%;\n  background: transparent;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-toast .p-toast-message .p-toast-icon-close:hover {\n  background: rgba(255, 255, 255, 0.3);\n}\n.p-toast .p-toast-message .p-toast-icon-close:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n.p-toast .p-toast-message.p-toast-message-info {\n  background: #B3E5FC;\n  border: solid #0891cf;\n  border-width: 0 0 0 6px;\n  color: #044868;\n}\n.p-toast .p-toast-message.p-toast-message-info .p-toast-message-icon,\n.p-toast .p-toast-message.p-toast-message-info .p-toast-icon-close {\n  color: #044868;\n}\n.p-toast .p-toast-message.p-toast-message-success {\n  background: #C8E6C9;\n  border: solid #439446;\n  border-width: 0 0 0 6px;\n  color: #224a23;\n}\n.p-toast .p-toast-message.p-toast-message-success .p-toast-message-icon,\n.p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {\n  color: #224a23;\n}\n.p-toast .p-toast-message.p-toast-message-warn {\n  background: #FFECB3;\n  border: solid #d9a300;\n  border-width: 0 0 0 6px;\n  color: #6d5100;\n}\n.p-toast .p-toast-message.p-toast-message-warn .p-toast-message-icon,\n.p-toast .p-toast-message.p-toast-message-warn .p-toast-icon-close {\n  color: #6d5100;\n}\n.p-toast .p-toast-message.p-toast-message-error {\n  background: #FFCDD2;\n  border: solid #e60017;\n  border-width: 0 0 0 6px;\n  color: #73000c;\n}\n.p-toast .p-toast-message.p-toast-message-error .p-toast-message-icon,\n.p-toast .p-toast-message.p-toast-message-error .p-toast-icon-close {\n  color: #73000c;\n}\n\n.p-galleria .p-galleria-close {\n  margin: 0.5rem;\n  background: transparent;\n  color: #f8f9fa;\n  width: 4rem;\n  height: 4rem;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  border-radius: 50%;\n}\n.p-galleria .p-galleria-close .p-galleria-close-icon {\n  font-size: 2rem;\n}\n.p-galleria .p-galleria-close:hover {\n  background: rgba(255, 255, 255, 0.1);\n  color: #f8f9fa;\n}\n.p-galleria .p-galleria-item-nav {\n  background: transparent;\n  color: #f8f9fa;\n  width: 4rem;\n  height: 4rem;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  border-radius: 3px;\n  margin: 0 0.5rem;\n}\n.p-galleria .p-galleria-item-nav .p-galleria-item-prev-icon,\n.p-galleria .p-galleria-item-nav .p-galleria-item-next-icon {\n  font-size: 2rem;\n}\n.p-galleria .p-galleria-item-nav:not(.p-disabled):hover {\n  background: rgba(255, 255, 255, 0.1);\n  color: #f8f9fa;\n}\n.p-galleria .p-galleria-caption {\n  background: rgba(0, 0, 0, 0.5);\n  color: #f8f9fa;\n  padding: 1rem;\n}\n.p-galleria .p-galleria-indicators {\n  padding: 1rem;\n}\n.p-galleria .p-galleria-indicators .p-galleria-indicator button {\n  background-color: #e9ecef;\n  width: 1rem;\n  height: 1rem;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  border-radius: 50%;\n}\n.p-galleria .p-galleria-indicators .p-galleria-indicator button:hover {\n  background: #dee2e6;\n}\n.p-galleria .p-galleria-indicators .p-galleria-indicator.p-highlight button {\n  background: #E3F2FD;\n  color: #495057;\n}\n.p-galleria.p-galleria-indicators-bottom .p-galleria-indicator, .p-galleria.p-galleria-indicators-top .p-galleria-indicator {\n  margin-right: 0.5rem;\n}\n.p-galleria.p-galleria-indicators-left .p-galleria-indicator, .p-galleria.p-galleria-indicators-right .p-galleria-indicator {\n  margin-bottom: 0.5rem;\n}\n.p-galleria.p-galleria-indicator-onitem .p-galleria-indicators {\n  background: rgba(0, 0, 0, 0.5);\n}\n.p-galleria.p-galleria-indicator-onitem .p-galleria-indicators .p-galleria-indicator button {\n  background: rgba(255, 255, 255, 0.4);\n}\n.p-galleria.p-galleria-indicator-onitem .p-galleria-indicators .p-galleria-indicator button:hover {\n  background: rgba(255, 255, 255, 0.6);\n}\n.p-galleria.p-galleria-indicator-onitem .p-galleria-indicators .p-galleria-indicator.p-highlight button {\n  background: #E3F2FD;\n  color: #495057;\n}\n.p-galleria .p-galleria-thumbnail-container {\n  background: rgba(0, 0, 0, 0.9);\n  padding: 1rem 0.25rem;\n}\n.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-prev,\n.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-next {\n  margin: 0.5rem;\n  background-color: transparent;\n  color: #f8f9fa;\n  width: 2rem;\n  height: 2rem;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  border-radius: 50%;\n}\n.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-prev:hover,\n.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-next:hover {\n  background: rgba(255, 255, 255, 0.1);\n  color: #f8f9fa;\n}\n.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-item-content:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n\n.p-galleria-mask {\n  --maskbg: rgba(0, 0, 0, 0.9);\n}\n\n.p-image-mask {\n  --maskbg: rgba(0, 0, 0, 0.9);\n}\n\n.p-image-preview-indicator {\n  background-color: transparent;\n  color: #f8f9fa;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n\n.p-image-preview-container:hover > .p-image-preview-indicator {\n  background-color: rgba(0, 0, 0, 0.5);\n}\n\n.p-image-toolbar {\n  padding: 1rem;\n}\n\n.p-image-action.p-link {\n  color: #f8f9fa;\n  background-color: transparent;\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n  margin-right: 0.5rem;\n}\n.p-image-action.p-link:last-child {\n  margin-right: 0;\n}\n.p-image-action.p-link:hover {\n  color: #f8f9fa;\n  background-color: rgba(255, 255, 255, 0.1);\n}\n.p-image-action.p-link i {\n  font-size: 1.5rem;\n}\n\n.p-avatar {\n  background-color: #dee2e6;\n  border-radius: 3px;\n}\n.p-avatar.p-avatar-lg {\n  width: 3rem;\n  height: 3rem;\n  font-size: 1.5rem;\n}\n.p-avatar.p-avatar-lg .p-avatar-icon {\n  font-size: 1.5rem;\n}\n.p-avatar.p-avatar-xl {\n  width: 4rem;\n  height: 4rem;\n  font-size: 2rem;\n}\n.p-avatar.p-avatar-xl .p-avatar-icon {\n  font-size: 2rem;\n}\n\n.p-avatar-group .p-avatar {\n  border: 2px solid #ffffff;\n}\n\n.p-badge {\n  background: #2196F3;\n  color: #ffffff;\n  font-size: 0.75rem;\n  font-weight: 700;\n  min-width: 1.5rem;\n  height: 1.5rem;\n  line-height: 1.5rem;\n}\n.p-badge.p-badge-secondary {\n  background-color: #607D8B;\n  color: #ffffff;\n}\n.p-badge.p-badge-success {\n  background-color: #689F38;\n  color: #ffffff;\n}\n.p-badge.p-badge-info {\n  background-color: #0288D1;\n  color: #ffffff;\n}\n.p-badge.p-badge-warning {\n  background-color: #FBC02D;\n  color: #212529;\n}\n.p-badge.p-badge-danger {\n  background-color: #D32F2F;\n  color: #ffffff;\n}\n.p-badge.p-badge-lg {\n  font-size: 1.125rem;\n  min-width: 2.25rem;\n  height: 2.25rem;\n  line-height: 2.25rem;\n}\n.p-badge.p-badge-xl {\n  font-size: 1.5rem;\n  min-width: 3rem;\n  height: 3rem;\n  line-height: 3rem;\n}\n\n.p-chip {\n  background-color: #dee2e6;\n  color: #495057;\n  border-radius: 16px;\n  padding: 0 0.5rem;\n}\n.p-chip .p-chip-text {\n  line-height: 1.5;\n  margin-top: 0.25rem;\n  margin-bottom: 0.25rem;\n}\n.p-chip .p-chip-icon {\n  margin-right: 0.5rem;\n}\n.p-chip img {\n  width: 2rem;\n  height: 2rem;\n  margin-left: -0.5rem;\n  margin-right: 0.5rem;\n}\n.p-chip .p-chip-remove-icon {\n  margin-left: 0.5rem;\n  border-radius: 3px;\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-chip .p-chip-remove-icon:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n\n.p-inplace .p-inplace-display {\n  padding: 0.5rem 0.5rem;\n  border-radius: 3px;\n  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;\n}\n.p-inplace .p-inplace-display:not(.p-disabled):hover {\n  background: #e9ecef;\n  color: #495057;\n}\n.p-inplace .p-inplace-display:focus {\n  outline: 0 none;\n  outline-offset: 0;\n  box-shadow: 0 0 0 0.2rem #a6d5fa;\n}\n\n.p-progressbar {\n  border: 0 none;\n  height: 1.5rem;\n  background: #dee2e6;\n  border-radius: 3px;\n}\n.p-progressbar .p-progressbar-value {\n  border: 0 none;\n  margin: 0;\n  background: #2196F3;\n}\n.p-progressbar .p-progressbar-label {\n  color: #ffffff;\n  line-height: 1.5rem;\n}\n\n.p-scrolltop {\n  width: 3rem;\n  height: 3rem;\n  border-radius: 50%;\n  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);\n  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;\n}\n.p-scrolltop.p-link {\n  background: rgba(0, 0, 0, 0.7);\n}\n.p-scrolltop.p-link:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.p-scrolltop .p-scrolltop-icon {\n  font-size: 1.5rem;\n  color: #f8f9fa;\n}\n\n.p-skeleton {\n  background-color: #e9ecef;\n  border-radius: 3px;\n}\n.p-skeleton:after {\n  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));\n}\n\n.p-tag {\n  background: #2196F3;\n  color: #ffffff;\n  font-size: 0.75rem;\n  font-weight: 700;\n  padding: 0.25rem 0.4rem;\n  border-radius: 3px;\n}\n.p-tag.p-tag-success {\n  background-color: #689F38;\n  color: #ffffff;\n}\n.p-tag.p-tag-info {\n  background-color: #0288D1;\n  color: #ffffff;\n}\n.p-tag.p-tag-warning {\n  background-color: #FBC02D;\n  color: #212529;\n}\n.p-tag.p-tag-danger {\n  background-color: #D32F2F;\n  color: #ffffff;\n}\n.p-tag .p-tag-icon {\n  margin-right: 0.25rem;\n  font-size: 0.75rem;\n}\n\n.p-terminal {\n  background: #ffffff;\n  color: #495057;\n  border: 1px solid #dee2e6;\n  padding: 1rem;\n}\n.p-terminal .p-terminal-input {\n  font-size: 1rem;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n}\n\n/* Customizations to the designer theme should be defined here */\n.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {\n  background-color: #2196F3;\n}\n\n.p-galleria .p-galleria-indicators .p-galleria-indicator.p-highlight button {\n  background-color: #2196F3;\n}\n\n.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {\n  box-shadow: inset 0 2px 0 0 #2196F3;\n}\n.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {\n  box-shadow: inset 0 -2px 0 0 #2196F3;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56392,13 +59225,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _login_vue_vue_type_template_id_6aa0b866__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./login.vue?vue&type=template&id=6aa0b866 */ "./resources/js/components/auth/login.vue?vue&type=template&id=6aa0b866");
 /* harmony import */ var _login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.vue?vue&type=script&lang=js */ "./resources/js/components/auth/login.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_login_vue_vue_type_template_id_6aa0b866__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/auth/login.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_login_vue_vue_type_template_id_6aa0b866__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/auth/login.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56420,13 +59253,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _edit_deptofficer_vue_vue_type_template_id_7012c865__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit_deptofficer.vue?vue&type=template&id=7012c865 */ "./resources/js/components/deptofficer/edit_deptofficer.vue?vue&type=template&id=7012c865");
 /* harmony import */ var _edit_deptofficer_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit_deptofficer.vue?vue&type=script&lang=js */ "./resources/js/components/deptofficer/edit_deptofficer.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_edit_deptofficer_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_edit_deptofficer_vue_vue_type_template_id_7012c865__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptofficer/edit_deptofficer.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_edit_deptofficer_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_edit_deptofficer_vue_vue_type_template_id_7012c865__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptofficer/edit_deptofficer.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56448,13 +59281,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _index_deptofficer_vue_vue_type_template_id_ddee5a2a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index_deptofficer.vue?vue&type=template&id=ddee5a2a */ "./resources/js/components/deptofficer/index_deptofficer.vue?vue&type=template&id=ddee5a2a");
 /* harmony import */ var _index_deptofficer_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index_deptofficer.vue?vue&type=script&lang=js */ "./resources/js/components/deptofficer/index_deptofficer.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_deptofficer_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_deptofficer_vue_vue_type_template_id_ddee5a2a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptofficer/index_deptofficer.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_deptofficer_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_deptofficer_vue_vue_type_template_id_ddee5a2a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptofficer/index_deptofficer.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56476,13 +59309,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _view_deptofficer_vue_vue_type_template_id_94480200__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view_deptofficer.vue?vue&type=template&id=94480200 */ "./resources/js/components/deptofficer/view_deptofficer.vue?vue&type=template&id=94480200");
 /* harmony import */ var _view_deptofficer_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_deptofficer.vue?vue&type=script&lang=js */ "./resources/js/components/deptofficer/view_deptofficer.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_view_deptofficer_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_view_deptofficer_vue_vue_type_template_id_94480200__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptofficer/view_deptofficer.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_view_deptofficer_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_view_deptofficer_vue_vue_type_template_id_94480200__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptofficer/view_deptofficer.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56504,13 +59337,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _create_deptuser_vue_vue_type_template_id_77e52f82__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create_deptuser.vue?vue&type=template&id=77e52f82 */ "./resources/js/components/deptuser/create_deptuser.vue?vue&type=template&id=77e52f82");
 /* harmony import */ var _create_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create_deptuser.vue?vue&type=script&lang=js */ "./resources/js/components/deptuser/create_deptuser.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_create_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_create_deptuser_vue_vue_type_template_id_77e52f82__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptuser/create_deptuser.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_create_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_create_deptuser_vue_vue_type_template_id_77e52f82__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptuser/create_deptuser.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56532,13 +59365,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _edit_deptuser_vue_vue_type_template_id_6965c21e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit_deptuser.vue?vue&type=template&id=6965c21e */ "./resources/js/components/deptuser/edit_deptuser.vue?vue&type=template&id=6965c21e");
 /* harmony import */ var _edit_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit_deptuser.vue?vue&type=script&lang=js */ "./resources/js/components/deptuser/edit_deptuser.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_edit_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_edit_deptuser_vue_vue_type_template_id_6965c21e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptuser/edit_deptuser.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_edit_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_edit_deptuser_vue_vue_type_template_id_6965c21e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptuser/edit_deptuser.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56560,13 +59393,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _index_deptuser_vue_vue_type_template_id_607e8e41__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index_deptuser.vue?vue&type=template&id=607e8e41 */ "./resources/js/components/deptuser/index_deptuser.vue?vue&type=template&id=607e8e41");
 /* harmony import */ var _index_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index_deptuser.vue?vue&type=script&lang=js */ "./resources/js/components/deptuser/index_deptuser.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_deptuser_vue_vue_type_template_id_607e8e41__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptuser/index_deptuser.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_deptuser_vue_vue_type_template_id_607e8e41__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptuser/index_deptuser.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56575,10 +59408,10 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/components/deptuser/item.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/components/deptuser/item.vue ***!
-  \***************************************************/
+/***/ "./resources/js/components/deptuser/view_deptuser.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/deptuser/view_deptuser.vue ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -56586,15 +59419,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _item_vue_vue_type_template_id_a8ad8e12__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./item.vue?vue&type=template&id=a8ad8e12 */ "./resources/js/components/deptuser/item.vue?vue&type=template&id=a8ad8e12");
-/* harmony import */ var _item_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./item.vue?vue&type=script&lang=js */ "./resources/js/components/deptuser/item.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _view_deptuser_vue_vue_type_template_id_66cc3394__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view_deptuser.vue?vue&type=template&id=66cc3394 */ "./resources/js/components/deptuser/view_deptuser.vue?vue&type=template&id=66cc3394");
+/* harmony import */ var _view_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_deptuser.vue?vue&type=script&lang=js */ "./resources/js/components/deptuser/view_deptuser.vue?vue&type=script&lang=js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_item_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_item_vue_vue_type_template_id_a8ad8e12__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptuser/item.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_view_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_view_deptuser_vue_vue_type_template_id_66cc3394__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/deptuser/view_deptuser.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/item/item.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/item/item.vue ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _item_vue_vue_type_template_id_e2d04158__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./item.vue?vue&type=template&id=e2d04158 */ "./resources/js/components/item/item.vue?vue&type=template&id=e2d04158");
+/* harmony import */ var _item_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./item.vue?vue&type=script&lang=js */ "./resources/js/components/item/item.vue?vue&type=script&lang=js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_item_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_item_vue_vue_type_template_id_e2d04158__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/item/item.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56616,13 +59477,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _create_permission_vue_vue_type_template_id_739bcd06__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create_permission.vue?vue&type=template&id=739bcd06 */ "./resources/js/components/permission/create_permission.vue?vue&type=template&id=739bcd06");
 /* harmony import */ var _create_permission_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create_permission.vue?vue&type=script&lang=js */ "./resources/js/components/permission/create_permission.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_create_permission_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_create_permission_vue_vue_type_template_id_739bcd06__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/permission/create_permission.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_create_permission_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_create_permission_vue_vue_type_template_id_739bcd06__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/permission/create_permission.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56644,13 +59505,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _edit_permission_vue_vue_type_template_id_6042ef6f__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit_permission.vue?vue&type=template&id=6042ef6f */ "./resources/js/components/permission/edit_permission.vue?vue&type=template&id=6042ef6f");
 /* harmony import */ var _edit_permission_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit_permission.vue?vue&type=script&lang=js */ "./resources/js/components/permission/edit_permission.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_edit_permission_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_edit_permission_vue_vue_type_template_id_6042ef6f__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/permission/edit_permission.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_edit_permission_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_edit_permission_vue_vue_type_template_id_6042ef6f__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/permission/edit_permission.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56672,13 +59533,125 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _index_permission_vue_vue_type_template_id_2bb6aaa1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index_permission.vue?vue&type=template&id=2bb6aaa1 */ "./resources/js/components/permission/index_permission.vue?vue&type=template&id=2bb6aaa1");
 /* harmony import */ var _index_permission_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index_permission.vue?vue&type=script&lang=js */ "./resources/js/components/permission/index_permission.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_permission_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_permission_vue_vue_type_template_id_2bb6aaa1__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/permission/index_permission.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_permission_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_permission_vue_vue_type_template_id_2bb6aaa1__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/permission/index_permission.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _edit_qaqcreceiver_vue_vue_type_template_id_214e1a9a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit_qaqcreceiver.vue?vue&type=template&id=214e1a9a */ "./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=template&id=214e1a9a");
+/* harmony import */ var _edit_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit_qaqcreceiver.vue?vue&type=script&lang=js */ "./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=script&lang=js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_edit_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_edit_qaqcreceiver_vue_vue_type_template_id_214e1a9a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index_qaqcreceiver_vue_vue_type_template_id_3d669cbe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index_qaqcreceiver.vue?vue&type=template&id=3d669cbe */ "./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=template&id=3d669cbe");
+/* harmony import */ var _index_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index_qaqcreceiver.vue?vue&type=script&lang=js */ "./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=script&lang=js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_qaqcreceiver_vue_vue_type_template_id_3d669cbe__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/qaqcreceiver/index_qaqcreceiver.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _receive_qaqcreceiver_vue_vue_type_template_id_6cf92620__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./receive_qaqcreceiver.vue?vue&type=template&id=6cf92620 */ "./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=template&id=6cf92620");
+/* harmony import */ var _receive_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./receive_qaqcreceiver.vue?vue&type=script&lang=js */ "./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=script&lang=js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_receive_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_receive_qaqcreceiver_vue_vue_type_template_id_6cf92620__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _view_qaqcreceiver_vue_vue_type_template_id_62b68f78__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view_qaqcreceiver.vue?vue&type=template&id=62b68f78 */ "./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=template&id=62b68f78");
+/* harmony import */ var _view_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_qaqcreceiver.vue?vue&type=script&lang=js */ "./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=script&lang=js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_view_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_view_qaqcreceiver_vue_vue_type_template_id_62b68f78__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/qaqcreceiver/view_qaqcreceiver.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56700,13 +59673,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _create_role_vue_vue_type_template_id_4d579fea__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create_role.vue?vue&type=template&id=4d579fea */ "./resources/js/components/role/create_role.vue?vue&type=template&id=4d579fea");
 /* harmony import */ var _create_role_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create_role.vue?vue&type=script&lang=js */ "./resources/js/components/role/create_role.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_create_role_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_create_role_vue_vue_type_template_id_4d579fea__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/role/create_role.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_create_role_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_create_role_vue_vue_type_template_id_4d579fea__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/role/create_role.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56728,13 +59701,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _edit_role_vue_vue_type_template_id_23f9713d__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit_role.vue?vue&type=template&id=23f9713d */ "./resources/js/components/role/edit_role.vue?vue&type=template&id=23f9713d");
 /* harmony import */ var _edit_role_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit_role.vue?vue&type=script&lang=js */ "./resources/js/components/role/edit_role.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_edit_role_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_edit_role_vue_vue_type_template_id_23f9713d__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/role/edit_role.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_edit_role_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_edit_role_vue_vue_type_template_id_23f9713d__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/role/edit_role.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56756,13 +59729,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _index_role_vue_vue_type_template_id_1331b581__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index_role.vue?vue&type=template&id=1331b581 */ "./resources/js/components/role/index_role.vue?vue&type=template&id=1331b581");
 /* harmony import */ var _index_role_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index_role.vue?vue&type=script&lang=js */ "./resources/js/components/role/index_role.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_role_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_role_vue_vue_type_template_id_1331b581__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/role/index_role.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Personal_SC_PMC_lims_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_role_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_role_vue_vue_type_template_id_1331b581__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/role/index_role.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56883,10 +59856,26 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/deptuser/item.vue?vue&type=script&lang=js":
-/*!***************************************************************************!*\
-  !*** ./resources/js/components/deptuser/item.vue?vue&type=script&lang=js ***!
-  \***************************************************************************/
+/***/ "./resources/js/components/deptuser/view_deptuser.vue?vue&type=script&lang=js":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/deptuser/view_deptuser.vue?vue&type=script&lang=js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_view_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_view_deptuser_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./view_deptuser.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/view_deptuser.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/item/item.vue?vue&type=script&lang=js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/item/item.vue?vue&type=script&lang=js ***!
+  \***********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -56894,7 +59883,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_item_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_item_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./item.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/item.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_item_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./item.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/item/item.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -56943,6 +59932,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_permission_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_permission_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./index_permission.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/permission/index_permission.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=script&lang=js":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=script&lang=js ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_edit_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_edit_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./edit_qaqcreceiver.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=script&lang=js":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=script&lang=js ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./index_qaqcreceiver.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_receive_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_receive_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./receive_qaqcreceiver.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=script&lang=js":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=script&lang=js ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_view_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_view_qaqcreceiver_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./view_qaqcreceiver.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -57107,18 +60160,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/deptuser/item.vue?vue&type=template&id=a8ad8e12":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/components/deptuser/item.vue?vue&type=template&id=a8ad8e12 ***!
-  \*********************************************************************************/
+/***/ "./resources/js/components/deptuser/view_deptuser.vue?vue&type=template&id=66cc3394":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/deptuser/view_deptuser.vue?vue&type=template&id=66cc3394 ***!
+  \******************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_item_vue_vue_type_template_id_a8ad8e12__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_view_deptuser_vue_vue_type_template_id_66cc3394__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_item_vue_vue_type_template_id_a8ad8e12__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./item.vue?vue&type=template&id=a8ad8e12 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/item.vue?vue&type=template&id=a8ad8e12");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_view_deptuser_vue_vue_type_template_id_66cc3394__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./view_deptuser.vue?vue&type=template&id=66cc3394 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/deptuser/view_deptuser.vue?vue&type=template&id=66cc3394");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/item/item.vue?vue&type=template&id=e2d04158":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/item/item.vue?vue&type=template&id=e2d04158 ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_item_vue_vue_type_template_id_e2d04158__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_item_vue_vue_type_template_id_e2d04158__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./item.vue?vue&type=template&id=e2d04158 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/item/item.vue?vue&type=template&id=e2d04158");
 
 
 /***/ }),
@@ -57167,6 +60236,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_permission_vue_vue_type_template_id_2bb6aaa1__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_permission_vue_vue_type_template_id_2bb6aaa1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./index_permission.vue?vue&type=template&id=2bb6aaa1 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/permission/index_permission.vue?vue&type=template&id=2bb6aaa1");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=template&id=214e1a9a":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=template&id=214e1a9a ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_edit_qaqcreceiver_vue_vue_type_template_id_214e1a9a__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_edit_qaqcreceiver_vue_vue_type_template_id_214e1a9a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./edit_qaqcreceiver.vue?vue&type=template&id=214e1a9a */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/edit_qaqcreceiver.vue?vue&type=template&id=214e1a9a");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=template&id=3d669cbe":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=template&id=3d669cbe ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_qaqcreceiver_vue_vue_type_template_id_3d669cbe__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_index_qaqcreceiver_vue_vue_type_template_id_3d669cbe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./index_qaqcreceiver.vue?vue&type=template&id=3d669cbe */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/index_qaqcreceiver.vue?vue&type=template&id=3d669cbe");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=template&id=6cf92620":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=template&id=6cf92620 ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_receive_qaqcreceiver_vue_vue_type_template_id_6cf92620__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_receive_qaqcreceiver_vue_vue_type_template_id_6cf92620__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./receive_qaqcreceiver.vue?vue&type=template&id=6cf92620 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/receive_qaqcreceiver.vue?vue&type=template&id=6cf92620");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=template&id=62b68f78":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=template&id=62b68f78 ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_view_qaqcreceiver_vue_vue_type_template_id_62b68f78__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_view_qaqcreceiver_vue_vue_type_template_id_62b68f78__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./view_qaqcreceiver.vue?vue&type=template&id=62b68f78 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/qaqcreceiver/view_qaqcreceiver.vue?vue&type=template&id=62b68f78");
 
 
 /***/ }),

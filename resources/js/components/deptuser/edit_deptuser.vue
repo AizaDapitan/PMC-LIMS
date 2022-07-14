@@ -161,6 +161,7 @@
                 id="status"
                 name="status"
                 v-model="form.status"
+                disabled="true"
               >
                 <option value="Pending">Pending</option>
                 <option value="Approved">Approved</option>
@@ -345,7 +346,7 @@
   <ConfirmDialog></ConfirmDialog>
 </template>
 <script>
-import item from "./item";
+import item from "../../components/item/item";
 import { h } from "vue";
 import Button from "primevue/button";
 export default {
@@ -481,6 +482,8 @@ export default {
           elements: data.elements,
           methodcode: data.methodcode,
           comments: data.comments,
+          isDeptUser: true,
+          isReceiving: false,
         },
         onClose: (options) => {
           this.fetchItems();

@@ -156,7 +156,6 @@
                     icon="pi pi-eye"
                     class="p-button-rounded p-button-success mr-2"
                     @click="viewDeptOfficer(slotProps)"
-                   :disabled="slotProps.data.status == 'Approved'"
                   />
 
                   <Button
@@ -164,7 +163,7 @@
                     icon="pi pi-pencil"
                     class="p-button-rounded p-button-success mr-2"
                     @click="editDeptOfficer(slotProps)"
-                   :disabled="slotProps.data.status == 'Approved'"
+                   :disabled="slotProps.data.isReceived"
                   />
 
                 </template>
@@ -191,8 +190,8 @@ export default {
       deptofficers: [],
       dashboard: this.$env_Url + "deptofficer/dashboard",
       filters: null,
-      viewMsg: "View Department User Transmittal",
-      editMsg: "Edit Department Officer Transmittal",
+      viewMsg: "View Transmittal",
+      editMsg: "Edit Transmittal",
      
 
     };

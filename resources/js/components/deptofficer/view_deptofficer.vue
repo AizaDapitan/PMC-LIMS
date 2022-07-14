@@ -231,37 +231,6 @@
 
     <hr class="mg-t-30 mg-b-30" />
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="d-lg-flex justify-content-lg-end">
-          <div
-            class="
-              form-group
-              d-flex
-              flex-column flex-lg-row
-              align-items-lg-center
-            "
-          >
-            <input type="hidden" v-model="form.itemFile" />
-            <label for="customFile" class="mg-r-10">Attached CSV</label>
-            <div class="custom-file mb-0 mb-lg-2">
-
-              <input
-                type="text"
-                class="form-control"
-                id="customFile"
-                name="customFile"
-                v-model="form.csvFile"
-                disabled="true"
-              />              
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="row flex-column-reverse flex-lg-row">
       <div class="col-lg-6">
         <a :href="dashboard" class="btn btn-white tx-13 btn-uppercase"

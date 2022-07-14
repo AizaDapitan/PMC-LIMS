@@ -6,6 +6,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\DeptUserController;
 use App\Http\Controllers\DeptOfficerController;
+use App\Http\Controllers\QAQCRecieverController;
 use App\Http\Controllers\TransmittalItemController;
 
 /*
@@ -37,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/store', [DeptUserController::class, 'store'])->name("deptuser.store");
             Route::post('/update', [DeptUserController::class, 'update'])->name("deptuser.update");
             Route::post('/delete', [DeptUserController::class, 'delete'])->name("deptuser.delete");
+            Route::get('/view-transmittal/{id}', [DeptUserController::class, 'view'])->name("deptuser.view");
     });
     Route::group(
         ['prefix' => 'transItem'], 
@@ -58,6 +60,18 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/update', [DeptOfficerController::class, 'update'])->name("deptofficer.update");
             Route::get('/view-transmittal/{id}', [DeptOfficerController::class, 'view'])->name("deptofficer.view");
     });  
+       // QA/QC Receiver Controller
+       Route::group(
+        ['prefix' => 'qaqcreceiver'], 
+        function () {
+            Route::get('/dashboard', [QAQCRecieverController::class, 'index'])->name("qaqcreceiver.index");
+            Route::post('/getTransmittal', [QAQCRecieverController::class, 'getTransmittal'])->name("qaqcreceiver.getTransmittal");
+            Route::get('/view-transmittal/{id}', [QAQCRecieverController::class, 'view'])->name("qaqcreceiver.view");
+            Route::get('/receive-transmittal/{id}', [QAQCRecieverController::class, 'receive'])->name("qaqcreceiver.receive");
+            Route::post('/receiveTransmittal', [QAQCRecieverController::class, 'receiveTransmittal'])->name("qaqcreceiver.receiveTransmittal");
+            Route::get('/edit-transmittal/{id}', [QAQCRecieverController::class, 'edit'])->name("qaqcreceiver.edit");
+            // Route::post('/update', [DeptOfficerController::class, 'update'])->name("deptofficer.update");
+    }); 
 
     // Role Controller
     Route::group(

@@ -70,6 +70,10 @@ app.component(
     "edit_deptuser-component",
     require("./components/deptuser/edit_deptuser.vue").default
 );
+app.component(
+    "view_deptuser-component",
+    require("./components/deptuser/view_deptuser.vue").default
+);
 
 app.component(
     "index_deptofficer-component",
@@ -82,6 +86,23 @@ app.component(
 app.component(
     "view_deptofficer-component",
     require("./components/deptofficer/view_deptofficer.vue").default
+);
+
+app.component(
+    "index_qaqcreceiver-component",
+    require("./components/qaqcreceiver/index_qaqcreceiver.vue").default
+);
+app.component(
+    "view_qaqcreceiver-component",
+    require("./components/qaqcreceiver/view_qaqcreceiver.vue").default
+);
+app.component(
+    "receive_qaqcreceiver-component",
+    require("./components/qaqcreceiver/receive_qaqcreceiver.vue").default
+);
+app.component(
+    "edit_qaqcreceiver-component",
+    require("./components/qaqcreceiver/edit_qaqcreceiver.vue").default
 );
 
 

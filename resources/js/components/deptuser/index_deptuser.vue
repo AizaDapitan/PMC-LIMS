@@ -151,23 +151,29 @@
 
               <Column
                 :exportable="false"
-                style="min-width: 8rem"
+                style="min-width: 13rem"
                 header="Actions"
               >
                 <template #body="slotProps">
+                  <Button
+                    v-bind:title="viewMsg"
+                    icon="pi pi-eye"
+                    class="p-button-rounded p-button-success mr-2"
+                    @click="viewTransmittal(slotProps)"
+                  />
                   <Button
                     v-bind:title="editMsg"
                     icon="pi pi-pencil"
                     class="p-button-rounded p-button-success mr-2"
                     @click="editDeptUser(slotProps)"
-                   :disabled="slotProps.data.status == 'Approved'"
+                    :disabled="slotProps.data.status == 'Approved'"
                   />
                   <Button
                     v-bind:title="deleteMsg"
                     icon="pi pi-trash"
                     class="p-button-rounded p-button-warning mr-2"
                     @click="deleteTrans(slotProps)"
-                   :disabled="slotProps.data.status == 'Approved'"
+                    :disabled="slotProps.data.status == 'Approved'"
                   />
                 </template>
               </Column>
@@ -193,8 +199,9 @@ export default {
       deptusers: [],
       dashboard: this.$env_Url + "deptuser/dashboard",
       filters: null,
-      editMsg: "Edit Department User Transmittal",
-      deleteMsg: "Delete Department User Transmittal",
+      editMsg: "Edit Transmittal",
+      viewMsg: "View Transmittal",
+      deleteMsg: "Delete Transmittal",
     };
   },
   created() {
@@ -229,6 +236,12 @@ export default {
         this.$env_Url + "/deptuser/edit-transmittal/" + alt;
     },
 
+    viewTransmittal(data) {
+      let src = data.data.id,
+        alt = data.data.id;
+      window.location.href =
+        this.$env_Url + "/deptuser/view-transmittal/" + alt;
+    },
     exportCSV() {
       this.$refs.dt.exportCSV();
     },
