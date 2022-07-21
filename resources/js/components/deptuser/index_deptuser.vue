@@ -1,5 +1,5 @@
 <template>
-  <div class="container pd-x-0">
+  <div class="container-fluid pd-x-0">
     <div
       class="
         d-sm-flex
@@ -146,9 +146,23 @@
               </Column>
 
               <Column field="source" header="Source" :sortable="true"></Column>
-              <Column field="status" header="Status" :sortable="true"></Column>
-              <Column field="status" header="Status" hidden></Column>
-
+              <Column field="status" header="Status" :sortable="true">
+               <template #body="slotProps">
+                  <span
+                    v-if="slotProps.data.isReceived == 1"
+                    style="color: red"
+                    >Received</span
+                  >
+                  <span
+                    v-else-if="slotProps.data.status == 'Approved'" style="color: green"
+                    >Approved</span
+                  >
+                   <span
+                    v-else
+                    >Pending</span
+                  >
+                </template>
+              </Column>
               <Column
                 :exportable="false"
                 style="min-width: 13rem"

@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid mx-wd-1500 pd-x-0">
+  <div class="container-fluid pd-x-0">
     <div
       class="
         d-sm-flex
@@ -188,14 +188,20 @@
     </div>
 
     <div class="row row-xs">
-      <div class="col-lg-12">
+      <div class="col-lg-6 d-flex justify-content-start">
         <button
-          class="btn btn-primary tx-13 btn-uppercase mg-b-25"
+          class="btn btn-primary tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
           @click="showDialog"
           :disabled="disableUpload"
         >
           <i data-feather="plus" class="mg-r-5"></i> Add Item
         </button>
+        <a
+          :href="this.templatePath + '/template/Item Template.csv'"
+          class="btn btn-success tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
+        >
+          <i data-feather="download" class="mg-r-5"></i> Download Item Template
+        </a>
       </div>
       <div class="col-lg-12">
         <div class="table-responsive-lg">
@@ -361,6 +367,7 @@ export default {
       COCitemFile: null,
       fileLabel: "Choose File",
       cocFileLabel: "Choose File",
+      templatePath: window.location.origin,
       form: {
         id: this.transmittal.id,
         transmittalno: this.transmittal.transmittalno,
@@ -384,7 +391,8 @@ export default {
   },
   mounted() {
     document.getElementById("date-needed").value = this.transmittal.date_needed;
-    document.getElementById("date-submitted").value = this.transmittal.datesubmitted;
+    document.getElementById("date-submitted").value =
+      this.transmittal.datesubmitted;
     this.cocFileLabel = this.transmittal.cocFile;
   },
   updated() {

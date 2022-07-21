@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid mx-wd-1500 pd-x-0">
+  <div class="container-fluid pd-x-0">
     <div
       class="
         d-sm-flex
@@ -37,16 +37,30 @@
           >
             <label for="customFile" class="mg-r-10">Attached COC</label>
             <div class="custom-file mb-0 mb-lg-2">
-            <input
-              type="text"
-              class="form-control"
-              id="attached-csv"
-              name="attached-csv"
-              v-model="form.cocFile"
-              disabled="true"
-            />
-
+              <input
+                type="text"
+                class="form-control"
+                id="transmittal-no"
+                name="transmittal-no"
+                v-model="this.cocFileLabel"
+                disabled="true"
+              />
             </div>
+            <a
+              :href="this.cocPath"
+              target="_blank"
+              class="
+                btn btn-primary
+                tx-13
+                btn-uppercase
+                mr-2
+                mb-2
+                ml-lg-1
+                mr-lg-0
+              "
+            >
+              <i data-feather="zoom-in" class="mg-r-5"></i> View
+            </a>
           </div>
         </div>
       </div>
@@ -190,7 +204,6 @@
     </div>
 
     <div class="row row-xs">
-
       <div class="col-lg-12">
         <div class="table-responsive-lg">
           <DataTable
@@ -222,7 +235,6 @@
             <Column field="elements" header="Elements"></Column>
             <Column field="methodcode" header="Method Code"></Column>
             <Column field="comments" header="Comments"></Column>
-
           </DataTable>
         </div>
       </div>
@@ -237,7 +249,6 @@
           ><i data-feather="arrow-left" class="mg-r-5"></i> Back to Dashboard</a
         >
       </div>
-
     </div>
 
     <div class="cms-footer mg-t-50">
@@ -254,7 +265,6 @@
   <ConfirmDialog></ConfirmDialog>
 </template>
 <script>
-
 import { h } from "vue";
 import Button from "primevue/button";
 export default {
@@ -268,6 +278,7 @@ export default {
       COCitemFile: null,
       fileLabel: "Choose File",
       cocFileLabel: "Choose File",
+      cocPath: this.transmittal.coc_path,
       form: {
         id: this.transmittal.id,
         cocFile: this.transmittal.cocFile,
@@ -293,19 +304,17 @@ export default {
   },
   mounted() {
     document.getElementById("date-needed").value = this.transmittal.date_needed;
-    document.getElementById("date-submitted").value = this.transmittal.datesubmitted;
+    document.getElementById("date-submitted").value =
+      this.transmittal.datesubmitted;
     this.cocFileLabel = this.transmittal.cocFile;
   },
   updated() {
-    
     var transno = this.form.transmittalno;
     if (transno == null) {
       transno = "";
     }
-
   },
   methods: {
-
     async fetchItems() {
       const res = await this.callApiwParam(
         "post",
@@ -314,7 +323,6 @@ export default {
       );
       this.items = res.data;
     },
-
   },
 };
 </script>

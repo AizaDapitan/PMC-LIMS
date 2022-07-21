@@ -1,5 +1,5 @@
 <template>
-  <div class="container pd-x-0">
+<div class="container-fluid pd-x-0">
     <div
       class="
         d-sm-flex
@@ -138,23 +138,28 @@
               </Column>
 
               <Column field="source" header="Source" :sortable="true"></Column>
-              <Column field="status" header="Status" :sortable="true"></Column>
-              <Column field="isReceived" header="Status">
-              <template #body="slotProps">
+              <Column field="status" header="Status" :sortable="true">
+               <template #body="slotProps">
                   <span
-                    v-if="slotProps.data.isReceived"
+                    v-if="slotProps.data.isReceived == 1"
                     style="color: red"
                     >Received</span
                   >
                   <span
-                    v-else style="color: green"
+                    v-else-if="slotProps.data.status == 'Approved'" style="color: green"
+                    >Approved</span
+                  >
+                   <span
+                    v-else
                     >Pending</span
                   >
-                </template></Column>
+                </template>
+              </Column>
+             
 
               <Column
                 :exportable="false"
-                style="min-width: 8rem"
+                style="min-width: 13rem"
                 header="Actions"
               >
                 <template #body="slotProps">
@@ -169,14 +174,14 @@
                     icon="pi pi-arrow-circle-down"
                     class="p-button-rounded p-button-success mr-2"
                     @click="receiveTransmittal(slotProps)"
-                     :disabled="slotProps.data.isReceived"
+                     :disabled="slotProps.data.isReceived == 1"
                   />
                   <Button
                     v-bind:title="editMsg"
                     icon="pi pi-pencil"
                     class="p-button-rounded p-button-success mr-2"
                     @click="editTransmittal(slotProps)"
-                    :disabled="!slotProps.data.isReceived"
+                    :disabled="slotProps.data.isReceived == 0"
                   />
                 </template>
               </Column>

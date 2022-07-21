@@ -22,7 +22,10 @@
                     <input type="text" class="form-control" id="username" name="username" v-model="input.username" placeholder="Enter your username">
                   </div>
                   <div class="form-group">
+                    <div class="d-flex justify-content-between mg-b-5">
                     <label for="password" class="mg-b-0-f">Password</label>
+                    <a href="forgot-password.html" class="tx-secondary">Forgot password?</a>
+                    </div>
                     <input type="password" class="form-control" id="password" name="password" v-model="input.password" placeholder="•••••••">
                   </div>
                   <!-- <div class="form-group">
@@ -31,8 +34,7 @@
                                 <a :href="forgot_password" class="btn btn-info btn-sm">Forgot Password</a>
                                 
                             </div>      -->
-                  <button class="btn btn-primary tx-13 btn-uppercase" type="submit">Login</button>&nbsp;
-                  <a href="forgot-password.html" class="btn btn-white tx-13 btn-uppercase">Forgot Password</a>
+                  <button class="btn btn-primary tx-13 btn-uppercase" type="submit">Login</button>
                 </form>
                 <div class="cms-footer mg-t-50">
                   <hr>

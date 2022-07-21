@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid mx-wd-1500 pd-x-0">
+  <div class="container-fluid pd-x-0">
     <div
       class="
         d-sm-flex
@@ -35,23 +35,32 @@
               align-items-lg-center
             "
           >
-            <label for="customFile" class="mg-r-10">Attached COC</label>
+            <label for="" class="mg-r-10">Attached COC</label>
             <div class="custom-file mb-0 mb-lg-2">
               <input
-                type="file"
-                class="custom-file-input"
-                id="attached-csv"
-                ref="cocFile"
-                name="attached-csv"      
-                :disabled="true"          
+                type="text"
+                class="form-control"
+                id="transmittal-no"
+                name="transmittal-no"
+                v-model="this.cocFileLabel"
+                disabled="true"
               />
-              <label
-                class="custom-file-label"
-                for="customFile"
-                data-button-label="View"
-                >{{ cocFileLabel }}</label
-              >
             </div>
+            <a
+              :href="this.cocPath"
+              target="_blank"
+              class="
+                btn btn-primary
+                tx-13
+                btn-uppercase
+                mr-2
+                mb-2
+                ml-lg-1
+                mr-lg-0
+              "
+            >
+              <i data-feather="zoom-in" class="mg-r-5"></i> View
+            </a>
           </div>
         </div>
       </div>
@@ -80,7 +89,7 @@
                 name="date-submitted"
                 pattern="\d{2}\/\d{2}\/\d{4}"
                 placeholder="mm/dd/yyyy"
-            disabled="true"
+                disabled="true"
               />
             </div>
           </div>
@@ -94,7 +103,7 @@
                 id="time-submitted"
                 name="time-submitted"
                 v-model="form.timesubmitted"
-            disabled="true"
+                disabled="true"
               />
             </div>
           </div>
@@ -137,7 +146,7 @@
                 name="date-needed"
                 pattern="\d{2}\/\d{2}\/\d{4}"
                 placeholder="mm/dd/yyyy"
-            disabled="true"
+                disabled="true"
               />
             </div>
           </div>
@@ -149,7 +158,7 @@
                 class="custom-select tx-base"
                 id="priority"
                 v-model="form.priority"
-            disabled="true"
+                disabled="true"
                 name="priority"
               >
                 <option value="Low">Low</option>
@@ -194,7 +203,6 @@
     </div>
 
     <div class="row row-xs">
-
       <div class="col-lg-12">
         <div class="table-responsive-lg">
           <DataTable
@@ -226,7 +234,6 @@
             <Column field="elements" header="Elements"></Column>
             <Column field="methodcode" header="Method Code"></Column>
             <Column field="comments" header="Comments"></Column>
-
           </DataTable>
         </div>
       </div>
@@ -234,8 +241,6 @@
     <!-- row -->
 
     <hr class="mg-t-30 mg-b-30" />
-
-   
 
     <div class="row flex-column-reverse flex-lg-row">
       <div class="col-lg-6">
@@ -259,7 +264,6 @@
   <ConfirmDialog></ConfirmDialog>
 </template>
 <script>
-
 import { h } from "vue";
 import Button from "primevue/button";
 export default {
@@ -271,6 +275,7 @@ export default {
       items: [],
       itemFile: null,
       COCitemFile: null,
+      cocPath: this.transmittal.coc_path,
       fileLabel: "Choose File",
       cocFileLabel: "Choose File",
       form: {
@@ -296,19 +301,17 @@ export default {
   },
   mounted() {
     document.getElementById("date-needed").value = this.transmittal.date_needed;
-    document.getElementById("date-submitted").value = this.transmittal.datesubmitted;
+    document.getElementById("date-submitted").value =
+      this.transmittal.datesubmitted;
     this.cocFileLabel = this.transmittal.cocFile;
   },
   updated() {
-    
     var transno = this.form.transmittalno;
     if (transno == null) {
       transno = "";
     }
-
   },
   methods: {
-
     async fetchItems() {
       const res = await this.callApiwParam(
         "post",

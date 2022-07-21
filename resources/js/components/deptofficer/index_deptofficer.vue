@@ -1,5 +1,5 @@
 <template>
-  <div class="container pd-x-0">
+  <div class="container-fluid pd-x-0">
     <div
       class="
         d-sm-flex
@@ -20,7 +20,9 @@
             </li>
           </ol>
         </nav>
-        <h4 class="mg-b-0 tx-spacing--1">Home/Dashboard - Department Officer</h4>
+        <h4 class="mg-b-0 tx-spacing--1">
+          Home/Dashboard - Department Officer
+        </h4>
       </div>
     </div>
 
@@ -36,7 +38,6 @@
               class="p-button-help p-button-sm mr-2"
               @click="exportCSV($event)"
             />
-
           </template>
           <template #end>
             <div class="search-form mg-r-10">
@@ -141,16 +142,26 @@
               </Column>
 
               <Column field="source" header="Source" :sortable="true"></Column>
-              <Column field="status" header="Status" :sortable="true"></Column>
-              <Column field="status" header="Status" hidden></Column>
+              <Column field="status" header="Status" :sortable="true">
+                <template #body="slotProps">
+                  <span v-if="slotProps.data.isReceived == 1" style="color: red"
+                    >Received</span
+                  >
+                  <span
+                    v-else-if="slotProps.data.status == 'Approved'"
+                    style="color: green"
+                    >Approved</span
+                  >
+                  <span v-else>Pending</span>
+                </template>
+              </Column>
 
               <Column
                 :exportable="false"
-                style="min-width: 8rem"
+                style="min-width: 13rem"
                 header="Actions"
               >
                 <template #body="slotProps">
-
                   <Button
                     v-bind:title="viewMsg"
                     icon="pi pi-eye"
@@ -163,9 +174,8 @@
                     icon="pi pi-pencil"
                     class="p-button-rounded p-button-success mr-2"
                     @click="editDeptOfficer(slotProps)"
-                   :disabled="slotProps.data.isReceived"
+                    :disabled="slotProps.data.isReceived == 1"
                   />
-
                 </template>
               </Column>
             </DataTable>
@@ -192,8 +202,6 @@ export default {
       filters: null,
       viewMsg: "View Transmittal",
       editMsg: "Edit Transmittal",
-     
-
     };
   },
   created() {
@@ -223,7 +231,7 @@ export default {
         alt = data.data.id;
       window.location.href =
         this.$env_Url + "/deptofficer/view-transmittal/" + alt;
-    },    
+    },
 
     editDeptOfficer(data) {
       let src = data.data.id,
@@ -235,7 +243,6 @@ export default {
     exportCSV() {
       this.$refs.dt.exportCSV();
     },
-
   },
 };
 </script>

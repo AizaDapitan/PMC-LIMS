@@ -1,6 +1,6 @@
 
 <template>
-  <div class="container pd-x-0">
+  <div class="container-fluid pd-x-0">
     <div
       class="
         d-sm-flex

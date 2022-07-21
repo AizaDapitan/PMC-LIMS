@@ -15,6 +15,7 @@ use Exception;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class DeptUserController extends Controller
 {
@@ -46,8 +47,6 @@ class DeptUserController extends Controller
     }
     public function create()
     {
-        // $items = TransmittalItem::where([['username', auth()->user()->username], ['isdeleted', 0]])->get();
-
         return view('deptuser.create');
     }
     public function store(DeptUserTransRequest $request)

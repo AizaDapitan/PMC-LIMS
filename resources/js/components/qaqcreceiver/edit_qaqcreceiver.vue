@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid mx-wd-1500 pd-x-0">
+  <div class="container-fluid pd-x-0">
     <div
       class="
         d-sm-flex
@@ -36,16 +36,31 @@
             "
           >
             <label for="customFile" class="mg-r-10">Attached COC</label>
-            <div class="custom-file mb-0 mb-lg-2">
+           <div class="custom-file mb-0 mb-lg-2">
               <input
                 type="text"
                 class="form-control"
-                id="attached-csv"
-                name="attached-csv"
-                v-model="form.cocFile"
+                id="transmittal-no"
+                name="transmittal-no"
+                v-model="this.cocFileLabel"
                 disabled="true"
               />
             </div>
+            <a
+              :href="this.cocPath"
+              target="_blank"
+              class="
+                btn btn-primary
+                tx-13
+                btn-uppercase
+                mr-2
+                mb-2
+                ml-lg-1
+                mr-lg-0
+              "
+            >
+              <i data-feather="zoom-in" class="mg-r-5"></i> View
+            </a>
           </div>
         </div>
       </div>
@@ -277,6 +292,7 @@ export default {
       items: [],
       itemFile: null,
       COCitemFile: null,
+      cocPath: this.transmittal.coc_path,
       fileLabel: "Choose File",
       editMsg: "Update Item",
       cocFileLabel: "Choose File",
