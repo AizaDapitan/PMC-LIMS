@@ -34,7 +34,7 @@ class DeptOfficerController extends Controller
 
     public function getDeptOfficers()
     {
-        $deptofficers = DeptuserTrans::where('isdeleted', 0)->orderBy('transmittalno', 'asc')->get();
+        $deptofficers = DeptuserTrans::where([['isdeleted', 0],['isSaved',1]])->orderBy('transmittalno', 'asc')->get();
 
         return $deptofficers;
     }

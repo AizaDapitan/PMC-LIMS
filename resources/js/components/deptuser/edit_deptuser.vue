@@ -373,10 +373,7 @@ export default {
         transmittalno: this.transmittal.transmittalno,
         purpose: this.transmittal.purpose,
         datesubmitted: "",
-        timesubmitted: this.transmittal.timesubmitted.replace(
-          ":00.0000000",
-          ""
-        ),
+        timesubmitted: "",
         date_needed: "",
         priority: this.transmittal.priority,
         status: this.transmittal.status,
@@ -394,6 +391,14 @@ export default {
     document.getElementById("date-submitted").value =
       this.transmittal.datesubmitted;
     this.cocFileLabel = this.transmittal.cocFile;
+    if (this.transmittal.timesubmitted != null) {
+      this.form.timesubmitted = this.transmittal.timesubmitted.replace(
+        ":00.0000000",
+        ""
+      );
+    } else {
+      this.form.timesubmitted = this.transmittal.timesubmitted;
+    }
   },
   updated() {
     this.disableUpload = true;

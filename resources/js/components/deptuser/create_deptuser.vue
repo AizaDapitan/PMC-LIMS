@@ -415,8 +415,10 @@ export default {
       cocFileLabel: "Choose File",
       templatePath: window.location.origin,
       errors_exist: false,
+      seconds: 0,
       errors: {},
       form: {
+        id: 0,
         transmittalno: null,
         purpose: "",
         datesubmitted: "",
@@ -433,6 +435,9 @@ export default {
   created() {
     this.fetchItems();
     this.loading = false;
+  },
+  mounted() {
+    this.tempInsert();
   },
   updated() {
     this.disableUpload = true;
@@ -482,7 +487,7 @@ export default {
         this.smessage();
         this.fetchItems();
       } else {
-         this.errors_exist = true;
+        this.errors_exist = true;
         this.errors = res.data.errors;
         // this.ermessage(res.data.errors);
       }
@@ -577,6 +582,52 @@ export default {
     },
     editItem(data) {
       this.showDialog(data.data);
+    },
+    async autosave() {
+      this.seconds = this.seconds + 1;
+      if (this.seconds == 5) {
+        var purpose = this.form.purpose;
+        var email_address = this.form.email_address;
+        var source = this.form.source;
+        if (this.form.transmittalno != null) {
+          if (this.form.purpose == "") {
+            purpose = "temp";
+          }
+          if (this.form.email_address == "") {
+           email_address = "temp@email.com";
+          }
+          if (this.form.source == "") {
+           source = "temp";
+          }
+          this.form.date_needed = document.getElementById("date-needed").value;
+          this.form.datesubmitted =
+            document.getElementById("date-submitted").value;
+          let form = new FormData();
+          form.append("cocFile", this.COCitemFile);
+          form.append("purposeTemp", purpose);
+          form.append("email_addressTemp", email_address);
+          form.append("sourceTemp", source);
+          _.each(this.form, (value, key) => {
+            form.append(key, value);
+          });
+          const res = await this.submit("post", "/deptuser/autosave", form, {
+            headers: {
+              "Content-Type":
+                "multipart/form-data; charset=utf-8; boundary=" +
+                Math.random().toString().substr(2),
+            },
+          });
+          if (res.status === 200) {
+           this.form.id = res.data.id;
+          } 
+        }
+        this.seconds = 0;
+      }
+    },
+    tempInsert: function () {
+      setInterval(() => {
+        this.autosave();
+      }, 1000);
     },
   },
 };

@@ -32,8 +32,11 @@ Route::middleware(['auth'])->group(function () {
         ['prefix' => 'deptuser'], 
         function () {
             Route::get('/dashboard', [DeptUserController::class, 'index'])->name("deptuser.index");
+            Route::get('/unsaved_dashboard', [DeptUserController::class, 'unsavedTrans'])->name("deptuser.unsavedTrans");
+            Route::post('/getUnsavedTrans', [DeptUserController::class, 'getUnsaved'])->name("deptuser.getUnsaved");
             Route::post('/getDeptUsers', [DeptUserController::class, 'getDeptUsers'])->name("deptuser.getDeptUsers");
             Route::get('/create-transmittal', [DeptUserController::class, 'create'])->name("deptuser.create");
+            Route::post('/autosave', [DeptUserController::class, 'autosave'])->name("deptuser.autosave");
             Route::get('/edit-transmittal/{id}', [DeptUserController::class, 'edit'])->name("deptuser.edit");
             Route::post('/store', [DeptUserController::class, 'store'])->name("deptuser.store");
             Route::post('/update', [DeptUserController::class, 'update'])->name("deptuser.update");

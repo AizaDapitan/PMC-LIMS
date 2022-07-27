@@ -60,10 +60,11 @@
       <ul class="nav nav-aside">
         <li class="nav-label">LIMS</li>
         <li class="nav-item with-sub {{ (request()->is('deptuser/*')) ? 'active show' : '' }}">
-          <a href="" class="nav-link"><i data-feather="home"></i> <span>Dept. Requesters(User)</span></a>
+          <a href="" class="nav-link"><i data-feather="home"></i> <span>Dept. Requesters(User)</span><span class="badge badge-danger rounded-circle ml-3">{{ $unsaved}}</span></a>
           <ul>
             <li class="{{ (request()->is('deptuser/dashboard*')) ? 'active' : '' }}"><a href="{{ route('deptuser.index') }}">Dashboard</a></li>
             <li class="{{ (request()->is('deptuser/create-transmittal')) ? 'active' : '' }}"><a href="{{ route('deptuser.create') }}">Create Transmittal</a></li>
+            <li class="{{ (request()->is('deptuser/unsaved-transmittal')) ? 'active' : '' }}"><a href="{{ route('deptuser.unsavedTrans') }}"><span>Unsaved Transmittal</span><span class="badge badge-danger rounded-circle ml-3">{{ $unsaved}}</span></a></li>
           </ul>
         </li>
         <!-- <li class="nav-item with-sub {{ (request()->is('deptofficer/*')) ? 'active show' : '' }}">

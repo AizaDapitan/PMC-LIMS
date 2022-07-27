@@ -15,6 +15,14 @@ class TransmittalItemController extends Controller
         $request->validate(['itemFile' => "required|mimes:csv,txt"]);
 
         try {
+            $item = TransmittalItem::where( 'transmittalno' , $request->transmittalno);
+
+            $data = [
+                'isdeleted' => 1,
+                'deleted_at' => Carbon::now()
+            ];
+            $item->update($data);
+            
             $filenamewithextension = $request->file('itemFile')->getClientOriginalName();
 
             //get filename without extension

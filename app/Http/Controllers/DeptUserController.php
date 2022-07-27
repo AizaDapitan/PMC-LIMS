@@ -35,14 +35,14 @@ class DeptUserController extends Controller
 
     public function getDeptUsers()
     {
-        $deptusers = DeptuserTrans::where('isdeleted', 0)->orderBy('transmittalno', 'asc')->get();
+        $deptusers = DeptuserTrans::where([['isdeleted', 0],['isSaved', 1]])->orderBy('transmittalno', 'asc')->get();
 
         return $deptusers;
     }
 
     public function deptusersList(DeptuserTrans $deptuser)
     {
-        $deptusers = $deptuser->where('active', 1)->get();
+        $deptusers = $deptuser->where([['active', 1],['isSaved', 1]])->get();
         return $deptusers;
     }
     public function create()
@@ -60,23 +60,45 @@ class DeptUserController extends Controller
             $filenametostore = $filename . '_' . $request->transmittalno .  '.' . $extension;
 
             $request->file('cocFile')->storeAs(('public/coc files/'), $filenametostore);
-            DeptuserTrans::create([
-                'transmittalno' => $request->transmittalno,
-                'purpose' => $request->purpose,
-                'datesubmitted' =>  $request->datesubmitted,
-                'timesubmitted' =>   $request->timesubmitted,
-                'date_needed'    =>  $request->date_needed,
-                'priority' => $request->priority,
-                'status' =>  $request->status,
-                'email_address' => $request->email_address,
-                'source' =>  $request->source,
-                'cocFile' => $filenametostore,
-                'status' =>  $request->status,
-                'created_by' => auth()->user()->username
-            ]);
+            $deptuserTrans = DeptuserTrans::find($request->id);
+
+            if ($deptuserTrans) {
+                $data = [
+                    'transmittalno' => $request->transmittalno,
+                    'purpose' => $request->purpose,
+                    'datesubmitted' =>  $request->datesubmitted,
+                    'timesubmitted' =>   $request->timesubmitted,
+                    'date_needed'    =>  $request->date_needed,
+                    'priority' => $request->priority,
+                    'status' =>  $request->status,
+                    'email_address' => $request->email_address,
+                    'source' =>  $request->source,
+                    'cocFile' => $filenametostore,
+                    'status' =>  $request->status,
+                    'created_by' => auth()->user()->username,
+                    'isSaved'   => 1
+                ];
+                $deptuserTrans->update($data);
+            } else {
+                DeptuserTrans::create([
+                    'transmittalno' => $request->transmittalno,
+                    'purpose' => $request->purpose,
+                    'datesubmitted' =>  $request->datesubmitted,
+                    'timesubmitted' =>   $request->timesubmitted,
+                    'date_needed'    =>  $request->date_needed,
+                    'priority' => $request->priority,
+                    'status' =>  $request->status,
+                    'email_address' => $request->email_address,
+                    'source' =>  $request->source,
+                    'cocFile' => $filenametostore,
+                    'status' =>  $request->status,
+                    'created_by' => auth()->user()->username,
+                    'isSaved'   => 1
+                ]);
+            }
             return response()->json('success');
         } catch (Exception $e) {
-            return response()->json(['error' =>  $e->getMessage()], 500);
+            return response()->json(['errors' =>  $e->getMessage()], 500);
         }
     }
     public function edit($id)
@@ -125,7 +147,8 @@ class DeptUserController extends Controller
                 'source' =>  $request->source,
                 'cocFile' => $filenametostore,
                 'status' =>  $request->status,
-                'created_by' => auth()->user()->username
+                'created_by' => auth()->user()->username,
+                'isSaved'   => 1
             ];
             $deptuserTrans->update($data);
 
@@ -147,12 +170,77 @@ class DeptUserController extends Controller
             $item->update($data);
             return response()->json('success');
         } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage(), 500]);
+            return response()->json(['errors' => $e->getMessage(), 500]);
         }
     }
     public function view($id)
     {
         $transmittal = DeptuserTrans::where('id', $id)->first();
         return view('deptuser.view', compact('transmittal'));
+    }
+    public function autosave(Request $request)
+    {
+        try {
+            $filenametostore = "";
+            if ($request->hasFile('cocFile')) {
+                $filenamewithextension = $request->file('cocFile')->getClientOriginalName();
+                $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+                $extension = $request->file('cocFile')->getClientOriginalExtension();
+
+                //filename to store
+                $filenametostore = $filename . '_' . $request->transmittalno .  '.' . $extension;
+
+                $request->file('cocFile')->storeAs(('public/coc files/'), $filenametostore);
+            }
+            $deptuserTrans = DeptuserTrans::find($request->id);
+
+            if ($deptuserTrans) {
+                $data = [
+                    'transmittalno' => $request->transmittalno,
+                    'purpose' => $request->purposeTemp,
+                    'datesubmitted' =>  $request->datesubmitted,
+                    'timesubmitted' =>   $request->timesubmitted,
+                    'date_needed'    =>  $request->date_needed,
+                    'priority' => $request->priority,
+                    'status' =>  $request->status,
+                    'email_address' => $request->email_addressTemp,
+                    'source' =>  $request->sourceTemp,
+                    'cocFile' => $filenametostore,
+                    'status' =>  $request->status,
+                    'created_by' => auth()->user()->username,
+                ];
+                $deptuserTrans->update($data);
+                return response()->json(['id' => $deptuserTrans->id]);
+            } else {
+               $data = [
+                    'transmittalno' => $request->transmittalno,
+                    'purpose' => $request->purposeTemp,
+                    'datesubmitted' =>  $request->datesubmitted,
+                    'timesubmitted' =>   $request->timesubmitted,
+                    'date_needed'    =>  $request->date_needed,
+                    'priority' => $request->priority,
+                    'status' =>  $request->status,
+                    'email_address' => $request->email_addressTemp,
+                    'source' =>  $request->sourceTemp,
+                    'cocFile' => $filenametostore,
+                    'status' =>  $request->status,
+                    'created_by' => auth()->user()->username,
+                ];
+               $transmittal = DeptuserTrans::create($data);
+               return response()->json(['id' => $transmittal->id]);
+            }
+        } catch (Exception $e) {
+            return response()->json(['errors' =>  $e->getMessage()], 500);
+        }
+    }
+    public function unsavedTrans()
+    {
+        return view('deptuser.unsaved');
+    }
+    public function getUnsaved()
+    {
+        $unsavedTrans = DeptuserTrans::where([['isSaved', 0],['created_by',auth()->user()->username],['isdeleted',0]])->orderBy('transmittalno', 'asc')->get();
+
+        return $unsavedTrans;
     }
 }

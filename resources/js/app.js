@@ -13,6 +13,7 @@ import ToastService from "primevue/toastservice";
 import DialogService from 'primevue/dialogservice';
 import ConfirmationService from "primevue/confirmationservice";
 import ConfirmDialog from "primevue/confirmdialog";
+import Dropdown from "primevue/dropdown";
 import DynamicDialog from 'primevue/dynamicdialog';
 
 import "primevue/resources/themes/saga-blue/theme.css";
@@ -74,6 +75,10 @@ app.component(
     "view_deptuser-component",
     require("./components/deptuser/view_deptuser.vue").default
 );
+app.component(
+    "unsaved_deptuser-component",
+    require("./components/deptuser/unsaved_deptuser.vue").default
+);
 
 app.component(
     "index_deptofficer-component",
@@ -114,6 +119,7 @@ app.component("Toast", Toast);
 app.component("ConfirmationService", ConfirmationService);
 app.component("ConfirmDialog", ConfirmDialog);
 app.component("DynamicDialog", DynamicDialog);
+app.component("Dropdown", Dropdown);
 
 app.mount("#app");
 

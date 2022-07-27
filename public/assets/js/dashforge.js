@@ -159,7 +159,6 @@ $(function(){
 	}
 	themeModeChange();
 	let base_url = window.location.origin;
-	console.log(base_url);
 
 	themeMode.addEventListener("click", () => {
 		let setMode = localStorage.getItem("mode");

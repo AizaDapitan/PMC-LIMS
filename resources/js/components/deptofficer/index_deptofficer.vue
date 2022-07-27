@@ -79,7 +79,7 @@
                 'date_needed',
                 'priority_status',
                 'source',
-                'status',
+                'statuses'
               ]"
             >
               <template #empty> No record found. </template>

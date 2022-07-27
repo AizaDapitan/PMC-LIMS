@@ -75,9 +75,9 @@
                 'date_needed',
                 'priority_status',
                 'source',
-                'status',
+                'statuses'
               ]"
-            >
+              >
               <template #empty> No record found. </template>
               <template #loading> Loading data. Please wait. </template>
               <Column field="id" hidden="true"></Column>
@@ -144,7 +144,13 @@
               </Column>
 
               <Column field="source" header="Source" :sortable="true"></Column>
-              <Column field="status" header="Status" :sortable="true">
+              <Column
+                field="status"
+                header="Status"
+                :sortable="true"
+                :showFilterMenu="false"
+                style="min-width: 12rem"
+              >
                 <template #body="slotProps">
                   <span v-if="slotProps.data.isReceived == 1" style="color: red"
                     >Received</span
@@ -211,6 +217,8 @@ export default {
       viewMsg: "View Transmittal",
       editMsg: "Edit Transmittal",
       receiveMsg: "Receive Transmittal",
+      statuses: ["Pending", "Approved", "Received"],
+      
     };
   },
   created() {
