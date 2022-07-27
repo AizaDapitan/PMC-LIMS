@@ -73,8 +73,8 @@
             
           </ul>
         </li> -->
-        <li class="nav-item {{ (request()->is('deptofficer/dashboard*')) ? 'active' : '' }}"><a href="{{ route('deptofficer.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Dept. Requesters(Officer)</span></a></li>
-        <li class="nav-item {{ (request()->is('qaqcreceiver/dashboard*')) ? 'active' : '' }}"><a href="{{ route('qaqcreceiver.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Receiving</span></a></li>
+        <li class="nav-item {{ (request()->is('deptofficer/dashboard*')) ? 'active' : '' }}"><a href="{{ route('deptofficer.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Dept. Requesters(Officer)</span><span class="badge badge-danger rounded-circle ml-3">{{ $forOffApproval}}</span></a></li>
+        <li class="nav-item {{ (request()->is('qaqcreceiver/dashboard*')) ? 'active' : '' }}"><a href="{{ route('qaqcreceiver.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Receiving</span><span class="badge badge-danger rounded-circle ml-3">{{ $forReceive }}</span></a></li>
         <li class="nav-item with-sub">
           <a href="#" class="nav-link"><i data-feather="bell"></i> <span>Assayer</span></a>
           <ul>
@@ -85,7 +85,7 @@
         </li>
         <li class="nav-item"><a href="#" class="nav-link"><i data-feather="bell"></i> <span>Analyst</span></a></li>
         <li class="nav-item"><a href="#" class="nav-link"><i data-feather="bell"></i> <span>Officer</span></a></li>
-        
+
         <li class="nav-label mg-t-25">Maintenance</li>
         <li class="nav-item with-sub">
           <a href="#" class="nav-link"><i data-feather="users"></i> <span>User Maintenance</span></a>
@@ -108,7 +108,7 @@
             <li class="{{ (request()->is('permissions/create')) ? 'active' : '' }}"><a href="{{ route('permissions.create') }}">Add New</a></li>
           </ul>
         </li>
-         <li class="nav-item"><a href="#" class="nav-link"><i data-feather="settings"></i> <span>User Action Monitoring</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i data-feather="settings"></i> <span>User Action Monitoring</span></a></li>
         <li class="nav-item"><a href="#" class="nav-link"><i data-feather="settings"></i> <span>Application Error Logs</span></a></li>
         <li class="nav-item"><a href="#" class="nav-link"><i data-feather="settings"></i> <span>Application Maintenance</span></a></li>
       </ul>
@@ -120,23 +120,27 @@
       <div class="content-search content-company wd-100p-f mx-wd-500-f excerpt-1 pd-r-20">
         <h3 class="tx-15 mg-b-0 text-md-white">Philsaga - Laboratory Information and Management System</h3>
       </div>
+      <div class="position-relative d-flex">
+        <button id="themeMode" type="button" class="btn btn-white rounded-circle theme-mode">
+          <i data-feather="moon"></i>
+        </button>
+        <div class="dropdown dropdown-profile">
+          <a href="" class="dropdown-link" data-toggle="dropdown" data-display="static">
+            <div class="avatar avatar-sm">
+              <img src="{{env('APP_URL')}}/assets/img/user.png" class="rounded-circle" alt="" />
+            </div>
+          </a>
+          <!-- dropdown-link -->
+          <div class="dropdown-menu dropdown-menu-right tx-13">
+            <h6 class="tx-semibold mg-b-5">{{ Auth::user()->name }}</h6>
+            <p class="tx-12 tx-color-03">{{ Auth::user()->role }}</p>
+            <div class="dropdown-divider"></div>
 
-      <div class="dropdown dropdown-profile">
-        <a href="" class="dropdown-link" data-toggle="dropdown" data-display="static">
-          <div class="avatar avatar-sm">
-            <img src="{{env('APP_URL')}}/assets/img/user.png" class="rounded-circle" alt="" />
+            <!-- <a href="account-settings.html" class="dropdown-item"><i data-feather="edit-3"></i> My Account Settings</a> -->
+            <a href="{{ route('logout') }}" class="dropdown-item"><i data-feather="log-out"></i>Log Out</a>
           </div>
-        </a>
-        <!-- dropdown-link -->
-        <div class="dropdown-menu dropdown-menu-right tx-13">
-          <h6 class="tx-semibold mg-b-5">{{ Auth::user()->name }}</h6>
-          <p class="tx-12 tx-color-03">{{ Auth::user()->role }}</p>
-          <div class="dropdown-divider"></div>
-
-          <!-- <a href="account-settings.html" class="dropdown-item"><i data-feather="edit-3"></i> My Account Settings</a> -->
-          <a href="{{ route('logout') }}" class="dropdown-item"><i data-feather="log-out"></i>Log Out</a>
+          <!-- dropdown-menu -->
         </div>
-        <!-- dropdown-menu -->
       </div>
       <!-- dropdown -->
     </div><!-- content-header -->

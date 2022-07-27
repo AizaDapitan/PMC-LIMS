@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ForgotPassworMail;
 use App\Models\AccessedApp;
+use App\Models\DeptuserTrans;
 use App\Models\Role;
 use Illuminate\Validation\ValidationException;
 use Carbon\Carbon;
@@ -51,6 +52,7 @@ class LoginController extends Controller
             'password' => $request->password
         ]);
         if ($checker) {
+           
             return response()->json(['result' => 'Success']);
         } else {
             return response()->json(['result' => 'Failed']);

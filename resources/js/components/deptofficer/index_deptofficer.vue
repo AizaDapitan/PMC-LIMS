@@ -30,7 +30,7 @@
       <!-- Start Pages -->
 
       <div class="col-md-12">
-        <Toolbar class="mb-4">
+        <Toolbar class="mb-4 table-light">
           <template #start>
             <Button
               label="Export"
@@ -99,7 +99,13 @@
                 field="timesubmitted"
                 header="Time Submitted"
                 :sortable="true"
-              ></Column>
+              >
+                <template #body="slotProps">
+                  <span>{{
+                    slotProps.data.timesubmitted.replace(":00.0000000", "")
+                  }}</span>
+                </template></Column
+              >
               <Column
                 field="email_address"
                 header="Email Address"

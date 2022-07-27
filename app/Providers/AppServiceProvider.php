@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\DeptuserTrans;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+       
         //
+        view()->composer(
+            'layouts.app',
+            function ($view) {
+                $forOffApproval = DeptuserTrans::where([['status', 'Pending'],['isdeleted',false]])->count();
+                $forReceive = DeptuserTrans::where([['status', 'Approved'],['isReceived',false]])->count();
+                // dd($forReceive);
+                $view->with(
+                    compact(
+                        'forOffApproval',
+                        'forReceive',
+                    )
+                );
+            }
+        );
     }
 }

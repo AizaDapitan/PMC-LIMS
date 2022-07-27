@@ -24,16 +24,16 @@ class DeptUserTransRequest extends FormRequest
     public function rules()
     {
         return [
-            'transmittalno' => 'required',
-            'purpose' => 'required',
+            'transmittalno' => 'required|max:255',
+            'purpose' => 'required|max:255',
             'datesubmitted' => 'required',
             'timesubmitted' => 'required',
             'date_needed' => 'required',
             'priority' => 'required',
             'status' => 'required',
             'email_address' => 'required|email',
-            'source' => 'required',
-            'cocFile' => 'required|mimes:pdf,png,docx,doc,xlsx,xls,csv',
+            'source' => 'required|max:255',
+            'cocFile' => 'required|mimes:pdf,png,docx,doc,jpg,jpeg,zip|max:5120',
         ];
     }
 }

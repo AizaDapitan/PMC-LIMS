@@ -6,6 +6,7 @@ use App\Models\TransmittalItem;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TransmittalItemController extends Controller
 {
@@ -30,12 +31,52 @@ class TransmittalItemController extends Controller
             $items = [];
 
             $count = 0;
+
+            $requiredHeaders = array('Sample No', 'description', 'elements', 'method code', 'comments'); //headers we expect
+
             if (($open = fopen(storage_path() . "/app/public/items files/" . $filenametostore, "r")) !== FALSE) {
+
+                $firstLine = fgets($open); //get first line of csv file
+
+                $foundHeaders = str_getcsv(trim($firstLine), ',', '"'); //parse to array
+
+                if ($foundHeaders !== $requiredHeaders) {
+                    fclose($open);
+                    $error =   [ 'Uploading Item' => ['Headers do not match: '  . implode(', ', $foundHeaders)]];
+                    return response()->json(['errors' => $error ], 500);                    
+                }
 
                 while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {
                     $count++;
                     if ($count == 1) {
                         continue;
+                    }
+                    $row = $count;
+
+                    $validator = Validator::make(
+                        [
+                            'sampleno' => $data[0],
+                            'description' => $data[1],
+                            'elements' => $data[2],
+                            'methodcode' => $data[3],
+                        ],
+                        [
+                            'sampleno' => 'required',
+                            'description' => 'required',
+                            'elements' => 'required',
+                            'methodcode' => 'required',
+                        ],
+                        [
+                            'sampleno.required' => 'Uploading Item: sampleno is required! Check csv file row # ' . $row,
+                            'description.required' => 'Uploading Item: description is required! Check csv file row # ' . $row,
+                            'elements.required' => 'Uploading Item: elements is required! Check csv file row # ' . $row,
+                            'methodcode.required' => 'Uploading Item: methodcode is required! Check csv file row # ' . $row,
+                        ]
+                    );
+                    // dd($validator->errors());
+                    if ($validator->fails()) {
+                        fclose($open);
+                        return response()->json(['errors' => $validator->errors()], 500);
                     }
                     $items[] = $data;
                 }
@@ -55,7 +96,7 @@ class TransmittalItemController extends Controller
             }
             return response()->json('success');
         } catch (Exception $e) {
-            return response()->json(['error' =>  $e->getMessage()], 500);
+            return response()->json(['errors' =>  $e->getMessage()], 500);
         }
     }
     public function getItems(Request $request)
@@ -79,7 +120,6 @@ class TransmittalItemController extends Controller
                 'description' => $request->description,
                 'elements' => $request->elements,
                 'methodcode' =>  $request->methodcode,
-                'comments'    => $request->comments,
                 'transmittalno' => $request->transmittalno,
                 'username' => auth()->user()->username,
             ]);
@@ -123,7 +163,6 @@ class TransmittalItemController extends Controller
                 'description' => $request->description,
                 'elements' => $request->elements,
                 'methodcode' =>  $request->methodcode,
-                'comments'    => $request->comments,
                 'transmittalno' => $request->transmittalno,
                 'username' => auth()->user()->username,
                 'samplewtvolume' => $request->samplewtvolume,

@@ -1,6 +1,9 @@
 
 <template>
      <div class="content-auth">
+       <button id="themeMode" type="button" class="btn btn-white rounded-circle ht-50-f wd-50-f position-absolute t-20 r-20 z-index-10 theme-mode mr-0">
+          <i data-feather="moon"></i>
+        </button>
         <div class="row no-gutters">
           <div class="col-lg-6">
             <div class="signin-hero" data-hero-dark="url(../assets/img/admin-signin-dark.svg)"></div>

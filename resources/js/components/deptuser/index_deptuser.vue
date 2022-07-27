@@ -28,7 +28,7 @@
       <!-- Start Pages -->
 
       <div class="col-md-12">
-        <Toolbar class="mb-4">
+        <Toolbar class="mb-4 table-light">
           <template #start>
             <Button
               label="Export"
@@ -88,7 +88,8 @@
             >
               <template #empty> No record found. </template>
               <template #loading> Loading data. Please wait. </template>
-              <Column field="id" hidden="true"></Column>
+           
+              <Column  field="id" hidden="true" ></Column>
               <Column
                 field="transmittalno"
                 header="Transmittal No"
@@ -103,7 +104,13 @@
                 field="timesubmitted"
                 header="Time Submitted"
                 :sortable="true"
-              ></Column>
+              >
+                <template #body="slotProps">
+                  <span>{{
+                    slotProps.data.timesubmitted.replace(":00.0000000", "")
+                  }}</span>
+                </template></Column
+              >
               <Column
                 field="email_address"
                 header="Email Address"
@@ -147,20 +154,16 @@
 
               <Column field="source" header="Source" :sortable="true"></Column>
               <Column field="status" header="Status" :sortable="true">
-               <template #body="slotProps">
-                  <span
-                    v-if="slotProps.data.isReceived == 1"
-                    style="color: red"
+                <template #body="slotProps">
+                  <span v-if="slotProps.data.isReceived == 1" style="color: red"
                     >Received</span
                   >
                   <span
-                    v-else-if="slotProps.data.status == 'Approved'" style="color: green"
+                    v-else-if="slotProps.data.status == 'Approved'"
+                    style="color: green"
                     >Approved</span
                   >
-                   <span
-                    v-else
-                    >Pending</span
-                  >
+                  <span v-else>Pending</span>
                 </template>
               </Column>
               <Column
@@ -223,6 +226,9 @@ export default {
     this.initFilters();
   },
   methods: {
+    formatTime(value) {
+      return moment(value).format("MMMM DD YYYY");
+    },
     async fetchRecord() {
       const res = await this.callApiwParam(
         "post",

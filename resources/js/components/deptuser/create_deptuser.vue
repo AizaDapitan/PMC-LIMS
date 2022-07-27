@@ -23,7 +23,14 @@
         <h4 class="mg-b-0 tx-spacing--1">Create Transmittal - Dept.User</h4>
       </div>
     </div>
-
+    <div v-if="errors_exist" class="alert alert-danger" role="alert">
+      Whoops! Something didn't work.
+      <ul>
+        <div v-for="error in errors" :key="error.id">
+          <li>{{ error[0] }}</li>
+        </div>
+      </ul>
+    </div>
     <div class="row">
       <div class="col-lg-12">
         <div class="d-lg-flex justify-content-lg-end">
@@ -35,7 +42,10 @@
               align-items-lg-center
             "
           >
-            <label for="customFile" class="mg-r-10">Attached COC</label>
+            <label for="customFile" class="mg-r-10"
+              >Attached COC
+              <span class="text-danger" aria-required="true"> * </span></label
+            >
             <div class="custom-file mb-0 mb-lg-2">
               <input
                 type="file"
@@ -58,7 +68,11 @@
 
       <div class="col-lg-6">
         <div class="form-group">
-          <label for="transmittal-no">Transmittal No.</label>
+          <label for="transmittal-no"
+            >Transmittal No.<span class="text-danger" aria-required="true">
+              *
+            </span></label
+          >
           <input
             type="text"
             class="form-control"
@@ -72,7 +86,11 @@
         <div class="row row-sm">
           <div class="col-lg-6">
             <div class="form-group">
-              <label for="date-submitted">Date Submitted</label>
+              <label for="date-submitted"
+                >Date Submitted<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
               <input
                 type="text"
                 class="form-control"
@@ -86,7 +104,11 @@
 
           <div class="col-lg-6">
             <div class="form-group">
-              <label for="time-submitted">Time Submitted</label>
+              <label for="time-submitted"
+                >Time Submitted<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
               <input
                 type="time"
                 class="form-control"
@@ -99,7 +121,11 @@
         </div>
 
         <div class="form-group">
-          <label for="email-address">Email Address</label>
+          <label for="email-address"
+            >Email Address<span class="text-danger" aria-required="true">
+              *
+            </span></label
+          >
           <input
             type="email"
             class="form-control"
@@ -112,7 +138,11 @@
 
       <div class="col-lg-6">
         <div class="form-group">
-          <label for="purpose">Purpose</label>
+          <label for="purpose"
+            >Purpose<span class="text-danger" aria-required="true">
+              *
+            </span></label
+          >
           <input
             type="text"
             class="form-control"
@@ -125,7 +155,11 @@
         <div class="row row-sm">
           <div class="col-lg-4">
             <div class="form-group">
-              <label for="date-needed">Date Needed</label>
+              <label for="date-needed"
+                >Date Needed<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
               <input
                 type="text"
                 class="form-control"
@@ -139,7 +173,11 @@
 
           <div class="col-lg-4">
             <div class="form-group">
-              <label for="priority">Priority</label>
+              <label for="priority"
+                >Priority<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
               <select
                 class="custom-select tx-base"
                 id="priority"
@@ -155,7 +193,11 @@
 
           <div class="col-lg-4">
             <div class="form-group">
-              <label for="status">Status</label>
+              <label for="status"
+                >Status<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
               <select
                 class="custom-select tx-base"
                 id="status"
@@ -171,7 +213,11 @@
         </div>
 
         <div class="form-group">
-          <label for="source">Source</label>
+          <label for="source"
+            >Source<span class="text-danger" aria-required="true">
+              *
+            </span></label
+          >
           <input
             type="text"
             class="form-control"
@@ -196,7 +242,8 @@
         >
           <i data-feather="plus" class="mg-r-5"></i> Add Item
         </button>
-        <a :href="this.templatePath + '/template/Item Template.csv'"
+        <a
+          :href="this.templatePath + '/template/Item Template.csv'"
           class="btn btn-success tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
         >
           <i data-feather="download" class="mg-r-5"></i> Download Item Template
@@ -366,7 +413,9 @@ export default {
       COCitemFile: null,
       fileLabel: "Choose File",
       cocFileLabel: "Choose File",
-      templatePath : window.location.origin,
+      templatePath: window.location.origin,
+      errors_exist: false,
+      errors: {},
       form: {
         transmittalno: null,
         purpose: "",
@@ -433,7 +482,9 @@ export default {
         this.smessage();
         this.fetchItems();
       } else {
-        this.ermessage(res.data.errors);
+         this.errors_exist = true;
+        this.errors = res.data.errors;
+        // this.ermessage(res.data.errors);
       }
     },
     async saveTransmittal() {
@@ -455,7 +506,9 @@ export default {
       if (res.status === 200) {
         window.location.href = this.$env_Url + "/deptuser/dashboard";
       } else {
-        this.ermessage(res.data.errors);
+        this.errors_exist = true;
+        this.errors = res.data.errors;
+        // this.ermessage(res.data.errors);
       }
     },
 

@@ -1,4 +1,12 @@
 <template>
+  <div v-if="errors_exist" class="alert alert-danger" role="alert">
+    Whoops! Something didn't work.
+    <ul>
+      <div v-for="error in errors" :key="error.id">
+        <li>{{ error[0] }}</li>
+      </div>
+    </ul>
+  </div>
   <form role="form" method="GET" action="">
     <div class="modal-body">
       <div class="row">
@@ -6,7 +14,6 @@
           <div class="form-group">
             <label for="transmittal-no">Transmittal No.</label>
             <input
-              type="number"
               class="form-control input-sm"
               v-model="form.transmittalno"
               disabled="true"
@@ -15,9 +22,12 @@
         </div>
         <div class="col-lg-12">
           <div class="form-group">
-            <label for="sample-no">Sample No.</label>
+            <label for="sample-no"
+              >Sample No.<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
             <input
-              type="number"
               class="form-control input-sm"
               id="sample-no"
               name="sample-no"
@@ -26,17 +36,26 @@
             />
           </div>
           <div class="form-group">
-            <label for="sample-no">Sample Wt./Volume</label>
+            <label for="sample-no"
+              >Sample Wt./Volume<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
             <input
+              type="number"
               class="form-control input-sm"
-              v-model="form.samplewtvolume"              
+              v-model="form.samplewtvolume"
               :disabled="!this.isReceiving"
             />
           </div>
         </div>
         <div class="col-lg-12">
           <div class="form-group">
-            <label for="drescription">Description</label>
+            <label for="drescription"
+              >Description<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
             <textarea
               class="form-control input-sm"
               id="drescription"
@@ -48,7 +67,11 @@
         </div>
         <div class="col-lg-12">
           <div class="form-group">
-            <label for="elements">Elements</label>
+            <label for="elements"
+              >Elements<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
             <input
               type="text"
               class="form-control input-sm"
@@ -61,7 +84,11 @@
         </div>
         <div class="col-lg-12">
           <div class="form-group">
-            <label for="method-code">Method Code</label>
+            <label for="method-code"
+              >Method Code<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
             <input
               type="text"
               class="form-control input-sm"
@@ -94,7 +121,11 @@
       >
         <i data-feather="x-circle" class="mg-r-5"></i> Cancel
       </button>
-      <button type="submit" class="btn btn-primary tx-13 btn-uppercase" @click.prevent="saveItem">
+      <button
+        type="submit"
+        class="btn btn-primary tx-13 btn-uppercase"
+        @click.prevent="saveItem"
+      >
         <i data-feather="save" class="mg-r-5"></i> Save
       </button>
     </div>
@@ -110,9 +141,11 @@ export default {
     return {
       isDeptUser: this.dialogRef.data.isDeptUser,
       isReceiving: this.dialogRef.data.isReceiving,
+      errors_exist: false,
+      errors: {},
       form: {
         transmittalno: this.dialogRef.data.transmittalno,
-        id:this.dialogRef.data.id,
+        id: this.dialogRef.data.id,
         sampleno: this.dialogRef.data.sampleno,
         samplewtvolume: this.dialogRef.data.samplewtvolume,
         description: this.dialogRef.data.description,
@@ -122,18 +155,16 @@ export default {
       },
     };
   },
-  created(){
-    
-  },
+  created() {},
   methods: {
     closeDialog() {
       this.dialogRef.close();
     },
     async saveItem() {
-    var url = "/transItem/store";
-     if(this.form.id != undefined){
-        url = "/transItem/update"
-     }
+      var url = "/transItem/store";
+      if (this.form.id != undefined) {
+        url = "/transItem/update";
+      }
       const res = await this.submit("post", url, this.form, {
         headers: {
           "Content-Type":
@@ -144,7 +175,9 @@ export default {
       if (res.status === 200) {
         this.dialogRef.close(this.form);
       } else {
-        this.ermessage(res.data.errors);
+         this.errors_exist = true;
+        this.errors = res.data.errors;
+        // this.ermessage(res.data.errors);
       }
     },
   },
