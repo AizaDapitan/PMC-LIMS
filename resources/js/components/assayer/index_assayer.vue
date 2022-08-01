@@ -12,13 +12,13 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb breadcrumb-style1 mg-b-10">
             <li class="breadcrumb-item" aria-current="page">LIMS</li>
-            <li class="breadcrumb-item" aria-current="page">Receiving</li>
+            <li class="breadcrumb-item" aria-current="page">Assayer</li>
             <li class="breadcrumb-item active" aria-current="page">
               Dashboard
             </li>
           </ol>
         </nav>
-        <h4 class="mg-b-0 tx-spacing--1">Home/Dashboard - Receiving</h4>
+        <h4 class="mg-b-0 tx-spacing--1">Home/Dashboard - Assayer</h4>
       </div>
     </div>
 

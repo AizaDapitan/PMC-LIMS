@@ -145,7 +145,7 @@ class DeptUserController extends Controller
                 'status' =>  $request->status,
                 'email_address' => $request->email_address,
                 'source' =>  $request->source,
-                'cocFile' => $filenametostore,
+                'cocFile' => $request->hasFile('cocFile') ? $filenametostore : $deptuserTrans->cocFile,
                 'status' =>  $request->status,
                 'created_by' => auth()->user()->username,
                 'isSaved'   => 1
@@ -197,15 +197,15 @@ class DeptUserController extends Controller
             if ($deptuserTrans) {
                 $data = [
                     'transmittalno' => $request->transmittalno,
-                    'purpose' => $request->purposeTemp,
+                    'purpose' => $request->purpose,
                     'datesubmitted' =>  $request->datesubmitted,
                     'timesubmitted' =>   $request->timesubmitted,
                     'date_needed'    =>  $request->date_needed,
                     'priority' => $request->priority,
                     'status' =>  $request->status,
-                    'email_address' => $request->email_addressTemp,
-                    'source' =>  $request->sourceTemp,
-                    'cocFile' => $filenametostore,
+                    'email_address' => $request->email_address,
+                    'source' =>  $request->source,
+                    'cocFile' => $request->hasFile('cocFile') ? $filenametostore : $deptuserTrans->cocFile,
                     'status' =>  $request->status,
                     'created_by' => auth()->user()->username,
                 ];
@@ -214,14 +214,14 @@ class DeptUserController extends Controller
             } else {
                $data = [
                     'transmittalno' => $request->transmittalno,
-                    'purpose' => $request->purposeTemp,
+                    'purpose' => $request->purpose,
                     'datesubmitted' =>  $request->datesubmitted,
                     'timesubmitted' =>   $request->timesubmitted,
                     'date_needed'    =>  $request->date_needed,
                     'priority' => $request->priority,
                     'status' =>  $request->status,
-                    'email_address' => $request->email_addressTemp,
-                    'source' =>  $request->sourceTemp,
+                    'email_address' => $request->email_address,
+                    'source' =>  $request->source,
                     'cocFile' => $filenametostore,
                     'status' =>  $request->status,
                     'created_by' => auth()->user()->username,

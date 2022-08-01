@@ -367,6 +367,7 @@ export default {
       COCitemFile: null,
       fileLabel: "Choose File",
       cocFileLabel: "Choose File",
+      seconds: 0,
       templatePath: window.location.origin,
       form: {
         id: this.transmittal.id,
@@ -396,9 +397,8 @@ export default {
         ":00.0000000",
         ""
       );
-    } else {
-      this.form.timesubmitted = this.transmittal.timesubmitted;
     }
+    this.tempInsert();
   },
   updated() {
     this.disableUpload = true;
@@ -412,10 +412,12 @@ export default {
   },
   methods: {
     onFileChange(e) {
+      this.fileLabel = "";
       this.itemFile = this.$refs.file.files[0];
       this.fileLabel = this.itemFile.name;
     },
     onCoCFileChange(e) {
+      this.cocFileLabel = "";
       this.COCitemFile = this.$refs.cocFile.files[0];
       this.cocFileLabel = this.COCitemFile.name;
     },
@@ -454,12 +456,17 @@ export default {
     async saveTransmittal() {
       this.form.date_needed = document.getElementById("date-needed").value;
       this.form.datesubmitted = document.getElementById("date-submitted").value;
-      this.cocFileLabel = this.form.transmittalno + "_" + this.cocFileLabel;
+
       let form = new FormData();
-      form.append("cocFile", this.COCitemFile);
+      if (this.COCitemFile != null) {
+        form.append("cocFile", this.COCitemFile);
+
+        this.cocFileLabel = this.form.transmittalno + "_" + this.cocFileLabel;
+      }
       _.each(this.form, (value, key) => {
         form.append(key, value);
       });
+
       const res = await this.submit("post", "/deptuser/update", form, {
         headers: {
           "Content-Type":
@@ -528,6 +535,51 @@ export default {
     },
     editItem(data) {
       this.showDialog(data.data);
+    },
+    async autosave() {
+      this.seconds = this.seconds + 1;
+      if (this.seconds == 30) {
+        var purpose = this.form.purpose;
+        var email_address = this.form.email_address;
+        var source = this.form.source;
+        if (this.form.transmittalno != "" || this.form.transmittalno != null) {
+          if (this.form.purpose == null) {
+            this.form.purpose = "";
+          }
+          if (this.form.email_address == null) {
+            this.form.email_address = "";
+          }
+          if (this.form.source == null) {
+            this.form.source = "";
+          }
+          this.form.date_needed = document.getElementById("date-needed").value;
+          this.form.datesubmitted =
+            document.getElementById("date-submitted").value;
+          let form = new FormData();
+          if (this.COCitemFile != null) {
+            form.append("cocFile", this.COCitemFile);
+          }
+          _.each(this.form, (value, key) => {
+            form.append(key, value);
+          });
+          const res = await this.submit("post", "/deptuser/autosave", form, {
+            headers: {
+              "Content-Type":
+                "multipart/form-data; charset=utf-8; boundary=" +
+                Math.random().toString().substr(2),
+            },
+          });
+          if (res.status === 200) {
+            this.form.id = res.data.id;
+          }
+        }
+        this.seconds = 0;
+      }
+    },
+    tempInsert: function () {
+      setInterval(() => {
+        this.autosave();
+      }, 1000);
     },
   },
 };

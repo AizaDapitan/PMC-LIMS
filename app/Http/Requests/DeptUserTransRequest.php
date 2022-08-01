@@ -36,4 +36,17 @@ class DeptUserTransRequest extends FormRequest
             'cocFile' => 'required|mimes:pdf,png,docx,doc,jpg,jpeg,zip|max:5120',
         ];
     }
+    public function messages()
+    {
+        return [
+            'transmittalno.required' => 'The Transmittal No field is required.',
+            'purpose.required' => 'The Purpose field is required.',
+            'datesubmitted.required' => 'The Date Submitted field is required.',
+            'timesubmitted.required' => 'The Time Submitted field is required.',
+            'priority.required' => 'The Priority field is required.',
+            'status.required' => 'The Status field is required.',
+            'source.required' => 'The Source field is required.',
+            'transmittalno.max' => 'The Transmittal No must not be greater than  255 characters.'
+        ];
+    }
 }

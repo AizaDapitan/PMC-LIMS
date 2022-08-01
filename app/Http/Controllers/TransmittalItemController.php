@@ -119,7 +119,6 @@ class TransmittalItemController extends Controller
             'description' => 'required',
             'elements' => 'required',
             'methodcode' => 'required',
-            'comments' => 'required',
             'transmittalno' => 'required'
         ]);
         try {
@@ -129,6 +128,7 @@ class TransmittalItemController extends Controller
                 'elements' => $request->elements,
                 'methodcode' =>  $request->methodcode,
                 'transmittalno' => $request->transmittalno,
+                'comments' => $request->comments,
                 'username' => auth()->user()->username,
             ]);
             return response()->json('success');
@@ -160,7 +160,6 @@ class TransmittalItemController extends Controller
             'description' => 'required',
             'elements' => 'required',
             'methodcode' => 'required',
-            'comments' => 'required',
             'transmittalno' => 'required'
         ]);
         try {
@@ -170,6 +169,7 @@ class TransmittalItemController extends Controller
                 'sampleno' => $request->sampleno,
                 'description' => $request->description,
                 'elements' => $request->elements,
+                'comments' => $request->comments,
                 'methodcode' =>  $request->methodcode,
                 'transmittalno' => $request->transmittalno,
                 'username' => auth()->user()->username,

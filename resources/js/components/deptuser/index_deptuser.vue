@@ -83,13 +83,13 @@
                 'date_needed',
                 'priority_status',
                 'source',
-                'statuses'
+                'statuses',
               ]"
             >
               <template #empty> No record found. </template>
               <template #loading> Loading data. Please wait. </template>
-           
-              <Column  field="id" hidden="true" ></Column>
+
+              <Column field="id" hidden="true"></Column>
               <Column
                 field="transmittalno"
                 header="Transmittal No"
@@ -136,17 +136,17 @@
                 <template #body="slotProps">
                   <span
                     v-if="slotProps.data.priority == 'High'"
-                    style="color: red"
+                    class="badge badge-danger tx-uppercase"
                     >High</span
                   >
                   <span
                     v-if="slotProps.data.priority == 'Medium'"
-                    style="color: orange"
+                    class="badge badge-warning tx-uppercase"
                     >Medium</span
                   >
                   <span
                     v-if="slotProps.data.priority == 'Low'"
-                    style="color: green"
+                    class="badge badge-success tx-uppercase"
                     >Low</span
                   >
                 </template>
@@ -155,12 +155,14 @@
               <Column field="source" header="Source" :sortable="true"></Column>
               <Column field="status" header="Status" :sortable="true">
                 <template #body="slotProps">
-                  <span v-if="slotProps.data.isReceived == 1" style="color: red"
+                  <span
+                    v-if="slotProps.data.isReceived == 1"
+                    class="badge badge-danger tx-uppercase"
                     >Received</span
                   >
                   <span
                     v-else-if="slotProps.data.status == 'Approved'"
-                    style="color: green"
+                    class="badge badge-success tx-uppercase"
                     >Approved</span
                   >
                   <span v-else>Pending</span>

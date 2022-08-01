@@ -98,6 +98,8 @@
                 name="date-submitted"
                 pattern="\d{2}\/\d{2}\/\d{4}"
                 placeholder="mm/dd/yyyy"
+                disabled="true"
+                v-model="form.datesubmitted"
               />
             </div>
           </div>
@@ -115,6 +117,7 @@
                 id="time-submitted"
                 name="time-submitted"
                 v-model="form.timesubmitted"
+                disabled="true"
               />
             </div>
           </div>
@@ -413,13 +416,13 @@ export default {
       COCitemFile: null,
       fileLabel: "Choose File",
       cocFileLabel: "Choose File",
-      templatePath: window.location.origin,
+      templatePath: this.$env_Url,
       errors_exist: false,
       seconds: 0,
       errors: {},
       form: {
         id: 0,
-        transmittalno: null,
+        transmittalno: "",
         purpose: "",
         datesubmitted: "",
         timesubmitted: "",
@@ -435,6 +438,17 @@ export default {
   created() {
     this.fetchItems();
     this.loading = false;
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var yyyy = today.getFullYear();
+    var hour = String(today.getHours()).padStart(2, "0");
+    var minutes = String(today.getMinutes()).padStart(2, "0");
+    var time = hour + ":" + minutes;
+    today = mm + "/" + dd + "/" + yyyy;
+
+    this.form.datesubmitted = today;
+    this.form.timesubmitted = time;
   },
   mounted() {
     this.tempInsert();
@@ -585,28 +599,22 @@ export default {
     },
     async autosave() {
       this.seconds = this.seconds + 1;
-      if (this.seconds == 5) {
-        var purpose = this.form.purpose;
-        var email_address = this.form.email_address;
-        var source = this.form.source;
-        if (this.form.transmittalno != null) {
-          if (this.form.purpose == "") {
-            purpose = "temp";
+      if (this.seconds == 30) {
+        if (this.form.transmittalno != "" || this.form.transmittalno != null) {
+          if (this.form.purpose == null) {
+            this.form.purpose = "";
           }
-          if (this.form.email_address == "") {
-           email_address = "temp@email.com";
+          if (this.form.email_address == null) {
+            this.form.email_address = "";
           }
-          if (this.form.source == "") {
-           source = "temp";
+          if (this.form.source == null) {
+            this.form.source = "";
           }
           this.form.date_needed = document.getElementById("date-needed").value;
           this.form.datesubmitted =
             document.getElementById("date-submitted").value;
           let form = new FormData();
           form.append("cocFile", this.COCitemFile);
-          form.append("purposeTemp", purpose);
-          form.append("email_addressTemp", email_address);
-          form.append("sourceTemp", source);
           _.each(this.form, (value, key) => {
             form.append(key, value);
           });
@@ -618,8 +626,8 @@ export default {
             },
           });
           if (res.status === 200) {
-           this.form.id = res.data.id;
-          } 
+            this.form.id = res.data.id;
+          }
         }
         this.seconds = 0;
       }

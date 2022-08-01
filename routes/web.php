@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
         ['prefix' => 'deptuser'], 
         function () {
             Route::get('/dashboard', [DeptUserController::class, 'index'])->name("deptuser.index");
-            Route::get('/unsaved_dashboard', [DeptUserController::class, 'unsavedTrans'])->name("deptuser.unsavedTrans");
+            Route::get('/unsaved-transmittal', [DeptUserController::class, 'unsavedTrans'])->name("deptuser.unsavedTrans");
             Route::post('/getUnsavedTrans', [DeptUserController::class, 'getUnsaved'])->name("deptuser.getUnsaved");
             Route::post('/getDeptUsers', [DeptUserController::class, 'getDeptUsers'])->name("deptuser.getDeptUsers");
             Route::get('/create-transmittal', [DeptUserController::class, 'create'])->name("deptuser.create");
