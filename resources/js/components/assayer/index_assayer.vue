@@ -75,12 +75,54 @@
                 'date_needed',
                 'priority_status',
                 'source',
-                'statuses'
+                'statuses',
               ]"
-              >
+              v-model:selection="selectedTrans"
+              :selectAll="selectAll"
+              @select-all-change="onSelectAllChange"
+              @row-select="onRowSelect"
+              @row-unselect="onRowUnselect"
+            >
               <template #empty> No record found. </template>
               <template #loading> Loading data. Please wait. </template>
               <Column field="id" hidden="true"></Column>
+              <Column>
+                <template #header>
+                  <div class="custom-control custom-checkbox">
+                    <input
+                      type="checkbox"
+                      @change="checkAll($event)"
+                      class="custom-control-input"
+                      id="checkboxall"
+                    /><label
+                      class="custom-control-label"
+                      for="checkboxall"
+                    ></label>
+                  </div>
+                </template>
+                <template #body="slotProps">
+                  <div class="custom-control custom-checkbox">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input cb"
+                      @change="checked(slotProps, $event)"
+                      name="chkboxes"
+                      style="opacity: 1"
+                      :id="slotProps.data.transmittalno"
+                      :disabled="!slotProps.data.isupdated"
+                    />
+                    <label
+                      class="custom-control-label"
+                      :for="slotProps.data.transmittalno"
+                    ></label>
+                  </div>
+                </template>
+              </Column>
+              <Column
+                field="transmittalno"
+                header="Transmittal No"
+                :sortable="true"
+              ></Column>
               <Column
                 field="transmittalno"
                 header="Transmittal No"
@@ -118,7 +160,7 @@
                 :sortable="true"
               ></Column>
 
-               <Column
+              <Column
                 field="priority"
                 header="Priority"
                 :sortable="true"
@@ -172,27 +214,41 @@
                     class="p-button-rounded p-button-success mr-2"
                     @click="viewTransmittal(slotProps)"
                   />
-                  <Button
-                    v-bind:title="receiveMsg"
-                    icon="pi pi-arrow-circle-down"
-                    class="p-button-rounded p-button-success mr-2"
-                    @click="receiveTransmittal(slotProps)"
-                    :disabled="slotProps.data.isReceived == 1"
-                  />
-                  <Button
-                    v-bind:title="editMsg"
-                    icon="pi pi-pencil"
-                    class="p-button-rounded p-button-success mr-2"
-                    @click="editTransmittal(slotProps)"
-                    :disabled="slotProps.data.isReceived == 0"
-                  />
                 </template>
               </Column>
             </DataTable>
           </div>
         </div>
+        <div class="row mg-t-25">
+          <div class="col-lg-12">
+            <div class="d-lg-flex justify-content-lg-end">
+              <button
+                class="
+                  btn btn-primary
+                  tx-13
+                  btn-uppercase
+                  mr-2
+                  mb-2
+                  ml-lg-1
+                  mr-lg-0
+                "
+                :disabled="!selectedTrans || !selectedTrans.length"
+                @click="createWorksheet"
+              >
+                <i data-feather="file-plus" class="mg-r-5"></i> Create Worksheet
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
+
       <!-- End Pages -->
+    </div>
+    <div class="cms-footer mg-t-50">
+      <hr />
+      <p class="tx-gray-500 tx-10">
+        Admin Portal v1.0 • Developed by WebFocus Solutions, Inc. 2022
+      </p>
     </div>
   </div>
 
@@ -204,17 +260,20 @@
 <script>
 import { FilterMatchMode, FilterOperator } from "primevue/api";
 export default {
-  // props: ["deptofficers"],
   data() {
     return {
       transmittals: [],
-      dashboard: this.$env_Url + "qaqcreceiver/dashboard",
+      dashboard: this.$env_Url + "/assayer/dashboard",
+      create: this.$env_Url + "/assayer/create-worksheet",
       filters: null,
       viewMsg: "View Transmittal",
       editMsg: "Edit Transmittal",
       receiveMsg: "Receive Transmittal",
       statuses: ["Pending", "Approved", "Received"],
-      
+      selectedTrans: [],
+      selectAll: false,
+      totalRecords: 0,
+      transIds: null,
     };
   },
   created() {
@@ -225,7 +284,7 @@ export default {
     async fetchRecord() {
       const res = await this.callApiwParam(
         "post",
-        "/qaqcreceiver/getTransmittal",
+        "/assayer/getTransmittal",
         this.form
       );
       this.transmittals = res.data;
@@ -242,25 +301,50 @@ export default {
     viewTransmittal(data) {
       let src = data.data.id,
         alt = data.data.id;
-      window.location.href =
-        this.$env_Url + "/qaqcreceiver/view-transmittal/" + alt;
+      window.location.href = this.$env_Url + "/assayer/view-transmittal/" + alt;
     },
-    receiveTransmittal(data) {
-      let src = data.data.id,
-        alt = data.data.id;
-      window.location.href =
-        this.$env_Url + "/qaqcreceiver/receive-transmittal/" + alt;
-    },
-
-    editTransmittal(data) {
-      let src = data.data.id,
-        alt = data.data.id;
-      window.location.href =
-        this.$env_Url + "/qaqcreceiver/edit-transmittal/" + alt;
-    },
-
     exportCSV() {
       this.$refs.dt.exportCSV();
+    },
+
+    checked(transmittal, event) {
+      if (event.target.checked) {
+        this.selectedTrans.push(transmittal.data);
+      } else {
+        _.remove(this.selectedTrans, function (val) {
+          return val === transmittal.data;
+        });
+      }
+    },
+    checkAll(event) {
+      var checkboxes = document.getElementsByName("chkboxes");
+
+      for (var transmittal of this.transmittals) {
+        if (transmittal["isupdated"]) {
+          document.getElementById(transmittal["transmittalno"]).checked =
+            event.target.checked;
+          this.selectedTrans.push(transmittal);
+        }
+      }
+      // this.selectedTrans = this.transmittals;
+      if (!event.target.checked) {
+        this.selectedTrans = [];
+      }
+    },
+    createWorksheet() {
+       if (this.selectedTrans) {
+        var ids = "";
+        this.selectedTrans.forEach(function (element, index) {
+          if (index == 0) {
+            ids = element.transmittalno;
+          } else {
+            ids = ids + "," + element.transmittalno;
+          }
+        });
+        this.transIds = ids;
+      }
+      window.location.href =
+        this.$env_Url + "/assayer/create-worksheet/" + this.transIds;
     },
   },
 };

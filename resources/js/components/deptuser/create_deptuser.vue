@@ -140,21 +140,39 @@
       </div>
 
       <div class="col-lg-6">
-        <div class="form-group">
-          <label for="purpose"
-            >Purpose<span class="text-danger" aria-required="true">
-              *
-            </span></label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="purpose"
-            name="purpose"
-            v-model="form.purpose"
-          />
+        <div class="row row-sm">
+          <div class="col-lg-8">
+            <div class="form-group">
+              <label for="purpose"
+                >Purpose<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="purpose"
+                name="purpose"
+                v-model="form.purpose"
+              />
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="type">Type<span class="text-danger" aria-required="true">
+                  *
+                </span></label>
+              <select class="custom-select tx-base" id="type" name="type" v-model="form.transType">
+                <option value="Rock">Rock</option>
+                <option value="Carbon">Carbon</option>
+                <option value="Solid">Solid</option>
+                <option value="Bulk">Bulk</option>
+                <option value="Cut">Cut</option>
+                <option value="Mine Drill">Mine Drill</option>
+              </select>
+            </div>
+          </div>
         </div>
-
         <div class="row row-sm">
           <div class="col-lg-4">
             <div class="form-group">
@@ -230,12 +248,10 @@
           />
         </div>
       </div>
-
       <div class="col-lg-12">
         <hr class="mg-t-10 mg-b-30" />
       </div>
     </div>
-
     <div class="row row-xs">
       <div class="col-lg-6 d-flex justify-content-start">
         <button
@@ -432,6 +448,7 @@ export default {
         email_address: "",
         source: "",
         itemID: "",
+        transType : "Rock",
       },
     };
   },
@@ -554,6 +571,7 @@ export default {
           comments: data.comments,
           isDeptUser: true,
           isReceiving: false,
+          source: this.form.source
         },
         onClose: (options) => {
           this.fetchItems();

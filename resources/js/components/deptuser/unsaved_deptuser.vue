@@ -102,11 +102,10 @@
                 :sortable="true"
               >
                 <template #body="slotProps">
-                  <span v-if="slotProps.data.timesubmitted != null"
-                    >{{ slotProps.data.timesubmitted.replace(":00.0000000", "")
-                    }}</span>
-                    <span v-else>{{ slotProps.data.timesubmitted
-                    }}</span>
+                  <span v-if="slotProps.data.timesubmitted != null">{{
+                    slotProps.data.timesubmitted.replace(":00.0000000", "")
+                  }}</span>
+                  <span v-else>{{ slotProps.data.timesubmitted }}</span>
                 </template></Column
               >
               <Column
@@ -197,6 +196,12 @@
         </div>
       </div>
       <!-- End Pages -->
+    </div>
+    <div class="cms-footer mg-t-50">
+      <hr />
+      <p class="tx-gray-500 tx-10">
+        Admin Portal v1.0 • Developed by WebFocus Solutions, Inc. 2022
+      </p>
     </div>
   </div>
 

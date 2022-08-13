@@ -123,16 +123,47 @@
       </div>
 
       <div class="col-lg-6">
-        <div class="form-group">
-          <label for="purpose">Purpose</label>
-          <input
-            type="text"
-            class="form-control"
-            id="purpose"
-            name="purpose"
-            disabled="true"
-            v-model="form.purpose"
-          />
+        <div class="row row-sm">
+          <div class="col-lg-8">
+            <div class="form-group">
+              <label for="purpose"
+                >Purpose<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="purpose"
+                name="purpose"
+                disabled="true"
+                v-model="form.purpose"
+              />
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="type"
+                >Type<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
+              <select
+                class="custom-select tx-base"
+                id="type"
+                name="type"
+                disabled="true"
+                v-model="form.transType"
+              >
+                <option value="Rock">Rock</option>
+                <option value="Carbon">Carbon</option>
+                <option value="Solid">Solid</option>
+                <option value="Bulk">Bulk</option>
+                <option value="Cut">Cut</option>
+                <option value="Mine Drill">Mine Drill</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         <div class="row row-sm">
@@ -295,6 +326,7 @@ export default {
         status: this.transmittal.status,
         email_address: this.transmittal.email_address,
         source: this.transmittal.source,
+        transType: this.transmittal.transType,
       },
     };
   },

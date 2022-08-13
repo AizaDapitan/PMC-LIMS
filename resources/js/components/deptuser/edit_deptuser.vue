@@ -23,7 +23,14 @@
         <h4 class="mg-b-0 tx-spacing--1">Edit Transmittal - Dept.User</h4>
       </div>
     </div>
-
+    <div v-if="errors_exist" class="alert alert-danger" role="alert">
+      Whoops! Something didn't work.
+      <ul>
+        <div v-for="error in errors" :key="error.id">
+          <li>{{ error[0] }}</li>
+        </div>
+      </ul>
+    </div>
     <div class="row">
       <div class="col-lg-12">
         <div class="d-lg-flex justify-content-lg-end">
@@ -35,12 +42,15 @@
               align-items-lg-center
             "
           >
-            <label for="customFile" class="mg-r-10">Attached COC</label>
+            <label for="customFile" class="mg-r-10"
+              >Attached COC
+              <span class="text-danger" aria-required="true"> * </span></label
+            >
             <div class="custom-file mb-0 mb-lg-2">
               <input
                 type="file"
                 class="custom-file-input"
-                id="attached-csv"
+                id="customFile"
                 ref="cocFile"
                 name="attached-csv"
                 @change="onCoCFileChange"
@@ -58,21 +68,29 @@
 
       <div class="col-lg-6">
         <div class="form-group">
-          <label for="transmittal-no">Transmittal No.</label>
+          <label for="transmittal-no"
+            >Transmittal No.<span class="text-danger" aria-required="true">
+              *
+            </span></label
+          >
           <input
             type="text"
             class="form-control"
             id="transmittal-no"
             name="transmittal-no"
             v-model="form.transmittalno"
-            disabled="true"
+            @change="onTransmittalNoChange"
           />
         </div>
 
         <div class="row row-sm">
           <div class="col-lg-6">
             <div class="form-group">
-              <label for="date-submitted">Date Submitted</label>
+              <label for="date-submitted"
+                >Date Submitted<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
               <input
                 type="text"
                 class="form-control"
@@ -80,26 +98,36 @@
                 name="date-submitted"
                 pattern="\d{2}\/\d{2}\/\d{4}"
                 placeholder="mm/dd/yyyy"
+                disabled="true"
               />
             </div>
           </div>
 
           <div class="col-lg-6">
             <div class="form-group">
-              <label for="time-submitted">Time Submitted</label>
+              <label for="time-submitted"
+                >Time Submitted<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
               <input
                 type="time"
                 class="form-control"
                 id="time-submitted"
                 name="time-submitted"
                 v-model="form.timesubmitted"
+                disabled="true"
               />
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="email-address">Email Address</label>
+          <label for="email-address"
+            >Email Address<span class="text-danger" aria-required="true">
+              *
+            </span></label
+          >
           <input
             type="email"
             class="form-control"
@@ -111,21 +139,52 @@
       </div>
 
       <div class="col-lg-6">
-        <div class="form-group">
-          <label for="purpose">Purpose</label>
-          <input
-            type="text"
-            class="form-control"
-            id="purpose"
-            name="purpose"
-            v-model="form.purpose"
-          />
+        <div class="row row-sm">
+          <div class="col-lg-8">
+            <div class="form-group">
+              <label for="purpose"
+                >Purpose<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="purpose"
+                name="purpose"
+                v-model="form.purpose"
+              />
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="type">Type<span class="text-danger" aria-required="true">
+                  *
+                </span></label>
+              <select
+                class="custom-select tx-base"
+                id="type"
+                name="type"
+                v-model="form.transType"
+              >
+                <option value="Rock">Rock</option>
+                <option value="Carbon">Carbon</option>
+                <option value="Solid">Solid</option>
+                <option value="Bulk">Bulk</option>
+                <option value="Cut">Cut</option>
+                <option value="Mine Drill">Mine Drill</option>
+              </select>
+            </div>
+          </div>
         </div>
-
         <div class="row row-sm">
           <div class="col-lg-4">
             <div class="form-group">
-              <label for="date-needed">Date Needed</label>
+              <label for="date-needed"
+                >Date Needed<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
               <input
                 type="text"
                 class="form-control"
@@ -139,7 +198,11 @@
 
           <div class="col-lg-4">
             <div class="form-group">
-              <label for="priority">Priority</label>
+              <label for="priority"
+                >Priority<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
               <select
                 class="custom-select tx-base"
                 id="priority"
@@ -155,7 +218,11 @@
 
           <div class="col-lg-4">
             <div class="form-group">
-              <label for="status">Status</label>
+              <label for="status"
+                >Status<span class="text-danger" aria-required="true">
+                  *
+                </span></label
+              >
               <select
                 class="custom-select tx-base"
                 id="status"
@@ -171,7 +238,11 @@
         </div>
 
         <div class="form-group">
-          <label for="source">Source</label>
+          <label for="source"
+            >Source<span class="text-danger" aria-required="true">
+              *
+            </span></label
+          >
           <input
             type="text"
             class="form-control"
@@ -181,7 +252,6 @@
           />
         </div>
       </div>
-
       <div class="col-lg-12">
         <hr class="mg-t-10 mg-b-30" />
       </div>
@@ -367,6 +437,8 @@ export default {
       COCitemFile: null,
       fileLabel: "Choose File",
       cocFileLabel: "Choose File",
+      errors_exist: false,
+      errors: {},
       seconds: 0,
       templatePath: window.location.origin,
       form: {
@@ -380,6 +452,7 @@ export default {
         status: this.transmittal.status,
         email_address: this.transmittal.email_address,
         source: this.transmittal.source,
+        transType : this.transmittal.transType,
       },
     };
   },
@@ -389,8 +462,7 @@ export default {
   },
   mounted() {
     document.getElementById("date-needed").value = this.transmittal.date_needed;
-    document.getElementById("date-submitted").value =
-      this.transmittal.datesubmitted;
+    document.getElementById("date-submitted").value = this.transmittal.datesubmitted;
     this.cocFileLabel = this.transmittal.cocFile;
     if (this.transmittal.timesubmitted != null) {
       this.form.timesubmitted = this.transmittal.timesubmitted.replace(
@@ -398,7 +470,7 @@ export default {
         ""
       );
     }
-    this.tempInsert();
+    // this.tempInsert();
   },
   updated() {
     this.disableUpload = true;
@@ -477,7 +549,8 @@ export default {
       if (res.status === 200) {
         this.updmessage();
       } else {
-        this.ermessage(res.data.errors);
+        this.errors_exist = true;
+        this.errors = res.data.errors;
       }
     },
 
@@ -504,6 +577,7 @@ export default {
           comments: data.comments,
           isDeptUser: true,
           isReceiving: false,
+          source: this.form.source
         },
         onClose: (options) => {
           this.fetchItems();
@@ -536,51 +610,51 @@ export default {
     editItem(data) {
       this.showDialog(data.data);
     },
-    async autosave() {
-      this.seconds = this.seconds + 1;
-      if (this.seconds == 30) {
-        var purpose = this.form.purpose;
-        var email_address = this.form.email_address;
-        var source = this.form.source;
-        if (this.form.transmittalno != "" || this.form.transmittalno != null) {
-          if (this.form.purpose == null) {
-            this.form.purpose = "";
-          }
-          if (this.form.email_address == null) {
-            this.form.email_address = "";
-          }
-          if (this.form.source == null) {
-            this.form.source = "";
-          }
-          this.form.date_needed = document.getElementById("date-needed").value;
-          this.form.datesubmitted =
-            document.getElementById("date-submitted").value;
-          let form = new FormData();
-          if (this.COCitemFile != null) {
-            form.append("cocFile", this.COCitemFile);
-          }
-          _.each(this.form, (value, key) => {
-            form.append(key, value);
-          });
-          const res = await this.submit("post", "/deptuser/autosave", form, {
-            headers: {
-              "Content-Type":
-                "multipart/form-data; charset=utf-8; boundary=" +
-                Math.random().toString().substr(2),
-            },
-          });
-          if (res.status === 200) {
-            this.form.id = res.data.id;
-          }
-        }
-        this.seconds = 0;
-      }
-    },
-    tempInsert: function () {
-      setInterval(() => {
-        this.autosave();
-      }, 1000);
-    },
+    // async autosave() {
+    //   this.seconds = this.seconds + 1;
+    //   if (this.seconds == 30) {
+    //     var purpose = this.form.purpose;
+    //     var email_address = this.form.email_address;
+    //     var source = this.form.source;
+    //     if (this.form.transmittalno != "" || this.form.transmittalno != null) {
+    //       if (this.form.purpose == null) {
+    //         this.form.purpose = "";
+    //       }
+    //       if (this.form.email_address == null) {
+    //         this.form.email_address = "";
+    //       }
+    //       if (this.form.source == null) {
+    //         this.form.source = "";
+    //       }
+    //       this.form.date_needed = document.getElementById("date-needed").value;
+    //       this.form.datesubmitted =
+    //         document.getElementById("date-submitted").value;
+    //       let form = new FormData();
+    //       if (this.COCitemFile != null) {
+    //         form.append("cocFile", this.COCitemFile);
+    //       }
+    //       _.each(this.form, (value, key) => {
+    //         form.append(key, value);
+    //       });
+    //       const res = await this.submit("post", "/deptuser/autosave", form, {
+    //         headers: {
+    //           "Content-Type":
+    //             "multipart/form-data; charset=utf-8; boundary=" +
+    //             Math.random().toString().substr(2),
+    //         },
+    //       });
+    //       if (res.status === 200) {
+    //         this.form.id = res.data.id;
+    //       }
+    //     }
+    //     this.seconds = 0;
+    //   }
+    // },
+    // tempInsert: function () {
+    //   setInterval(() => {
+    //     this.autosave();
+    //   }, 1000);
+    // },
   },
 };
 </script>

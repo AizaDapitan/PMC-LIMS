@@ -76,14 +76,15 @@
         </li> -->
         <li class="nav-item {{ (request()->is('deptofficer/dashboard*')) ? 'active' : '' }}"><a href="{{ route('deptofficer.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Dept. Requesters(Officer)</span><span class="badge badge-danger rounded-circle ml-3">{{ $forOffApproval}}</span></a></li>
         <li class="nav-item {{ (request()->is('qaqcreceiver/dashboard*')) ? 'active' : '' }}"><a href="{{ route('qaqcreceiver.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Receiving</span><span class="badge badge-danger rounded-circle ml-3">{{ $forReceive }}</span></a></li>
-        <li class="nav-item with-sub">
-          <a href="#" class="nav-link"><i data-feather="bell"></i> <span>Assayer</span></a>
+        <li class="nav-item with-sub {{ (request()->is('assayer/*')) ? 'active show' : '' }}">
+          <a href="#" class="nav-link"><i data-feather="bell"></i> <span>Assayer</span><span class="badge badge-danger rounded-circle ml-3">{{ $forAssayer}}</span></a>
           <ul>
-            <li><a href="dashboard-qa-qc-assayer.html">Manage</a></li>
-            <li><a href="#">Add New</a></li>
-            <li><a href="#">Reassay</a></li>
+            <li class="{{ (request()->is('assayer/dashboard*')) ? 'active' : '' }}"><a href="{{ route('assayer.index') }}"><span>Dashboard</span><span class="badge badge-danger rounded-circle ml-3">{{ $forAssayer}}</span></a></li>
+            <li class="{{ (request()->is('assayer/create*')) ? 'active' : '' }}"><a href="{{ route('assayer.create', [' ']) }}">Add New</a></li>
+            <li class="{{ (request()->is('assayer/worksheet*')) ? 'active' : '' }}"><a href="{{ route('assayer.worksheet') }}">Worksheet</a></li>
           </ul>
         </li>
+        <li class="{{ (request()->is('digester/worksheet*')) ? 'active' : '' }}"><a href="{{ route('digester.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Tech/Digester</span></a></li>
         <li class="nav-item"><a href="#" class="nav-link"><i data-feather="bell"></i> <span>Analyst</span></a></li>
         <li class="nav-item"><a href="#" class="nav-link"><i data-feather="bell"></i> <span>Officer</span></a></li>
 

@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\AssayerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\DeptUserController;
 use App\Http\Controllers\DeptOfficerController;
+use App\Http\Controllers\DigesterController;
 use App\Http\Controllers\QAQCRecieverController;
 use App\Http\Controllers\TransmittalItemController;
 
@@ -29,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Dept User Controller
     Route::group(
-        ['prefix' => 'deptuser'], 
+        ['prefix' => 'deptuser'],
         function () {
             Route::get('/dashboard', [DeptUserController::class, 'index'])->name("deptuser.index");
             Route::get('/unsaved-transmittal', [DeptUserController::class, 'unsavedTrans'])->name("deptuser.unsavedTrans");
@@ -42,30 +44,33 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/update', [DeptUserController::class, 'update'])->name("deptuser.update");
             Route::post('/delete', [DeptUserController::class, 'delete'])->name("deptuser.delete");
             Route::get('/view-transmittal/{id}', [DeptUserController::class, 'view'])->name("deptuser.view");
-    });
+        }
+    );
     Route::group(
-        ['prefix' => 'transItem'], 
+        ['prefix' => 'transItem'],
         function () {
             Route::post('/store', [TransmittalItemController::class, 'store'])->name("transItem.store");
             Route::post('/getItems', [TransmittalItemController::class, 'getItems'])->name("transItem.getItems");
             Route::post('/uploaditems', [TransmittalItemController::class, 'uploadItems'])->name("transItem.uploadItems");
             Route::post('/delete', [TransmittalItemController::class, 'delete'])->name("transItem.delete");
             Route::post('/update', [TransmittalItemController::class, 'update'])->name("transItem.update");
-    });
+        }
+    );
 
     // Dept Officer Controller
     Route::group(
-        ['prefix' => 'deptofficer'], 
+        ['prefix' => 'deptofficer'],
         function () {
             Route::get('/dashboard', [DeptOfficerController::class, 'index'])->name("deptofficer.index");
             Route::post('/getDeptOfficers', [DeptOfficerController::class, 'getDeptOfficers'])->name("deptofficer.getDeptOfficers");
             Route::get('/edit-transmittal/{id}', [DeptOfficerController::class, 'edit'])->name("deptofficer.edit");
             Route::post('/update', [DeptOfficerController::class, 'update'])->name("deptofficer.update");
             Route::get('/view-transmittal/{id}', [DeptOfficerController::class, 'view'])->name("deptofficer.view");
-    });  
-       // QA/QC Receiver Controller
-       Route::group(
-        ['prefix' => 'qaqcreceiver'], 
+        }
+    );
+    // QA/QC Receiver Controller
+    Route::group(
+        ['prefix' => 'qaqcreceiver'],
         function () {
             Route::get('/dashboard', [QAQCRecieverController::class, 'index'])->name("qaqcreceiver.index");
             Route::post('/getTransmittal', [QAQCRecieverController::class, 'getTransmittal'])->name("qaqcreceiver.getTransmittal");
@@ -74,7 +79,36 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/receiveTransmittal', [QAQCRecieverController::class, 'receiveTransmittal'])->name("qaqcreceiver.receiveTransmittal");
             Route::get('/edit-transmittal/{id}', [QAQCRecieverController::class, 'edit'])->name("qaqcreceiver.edit");
             // Route::post('/update', [DeptOfficerController::class, 'update'])->name("deptofficer.update");
-    }); 
+        }
+    );
+    // Assayer
+    Route::group(
+        ['prefix' => 'assayer'],
+        function () {
+            Route::get('/dashboard', [AssayerController::class, 'index'])->name("assayer.index");
+            Route::post('/getTransmittal', [AssayerController::class, 'getTransmittal'])->name("assayer.getTransmittal");
+            Route::get('/view-transmittal/{id}', [AssayerController::class, 'view'])->name("assayer.view");
+            Route::get('/create-worksheet/{id}', [AssayerController::class, 'create'])->name("assayer.create");
+            Route::post('/getItems', [AssayerController::class, 'getItems'])->name("assayer.getItems");
+            Route::post('/store', [AssayerController::class, 'store'])->name("assayer.store");
+            Route::get('/worksheet', [AssayerController::class, 'worksheet'])->name("assayer.worksheet");
+            Route::post('/getWorksheet', [AssayerController::class, 'getWorksheet'])->name("assayer.getWorksheet");
+            Route::get('/edit-worksheet/{id}', [AssayerController::class, 'edit'])->name("assayer.edit");
+            Route::post('/update', [AssayerController::class, 'update'])->name("assayer.update");
+            Route::post('/getWorksheetItems', [AssayerController::class, 'getWorksheetItems'])->name("assayer.getWorksheetItems");
+            Route::get('/view-worksheet/{id}', [AssayerController::class, 'viewWorksheet'])->name("assayer.viewWorksheet");
+            Route::post('/delete', [AssayerController::class, 'delete'])->name("assayer.delete");
+        }
+    );
+    // Digester
+    Route::group(
+        ['prefix' => 'digester'],
+        function () {
+            Route::get('/dashboard', [DigesterController::class, 'index'])->name("digester.index");
+            Route::get('/view-worksheet/{id}', [DigesterController::class, 'viewWorksheet'])->name("digester.viewWorksheet");
+            Route::post('/approve', [DigesterController::class, 'approve'])->name("digester.approve");
+        }
+    );
 
     // Role Controller
     Route::group(
@@ -90,8 +124,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/rolesList_selected', [RoleController::class, 'rolesList_selected'])->name("roles.list_selected");
         }
     );
-     // Permission Controller
-     Route::group(
+    // Permission Controller
+    Route::group(
         ['prefix' => 'permissions'],
         function () {
             Route::get('/create', [PermissionController::class, 'create'])->name("permissions.create");
@@ -104,6 +138,4 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/getPermission_selected', [PermissionController::class, 'getPermission_selected'])->name("permissions.getPermission_selected");
         }
     );
-
-
 });

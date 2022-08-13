@@ -20,10 +20,16 @@
             />
           </div>
         </div>
+        <div class="col-lg-12"></div>
         <div class="col-lg-12">
           <div class="form-group">
-            <label for="sample-no"
+            <label for="sample-no" v-if="!this.form.isAssayer"
               >Sample No.<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
+            <label for="sample-no" v-else
+              >Sample Code<span class="text-danger" aria-required="true">
                 *
               </span></label
             >
@@ -32,24 +38,11 @@
               id="sample-no"
               name="sample-no"
               v-model="form.sampleno"
-              :disabled="!this.isDeptUser"
-            />
-          </div>
-          <div class="form-group">
-            <label for="sample-no"
-              >Sample Wt./Volume<span class="text-danger" aria-required="true">
-                *
-              </span></label
-            >
-            <input
-              type="number"
-              class="form-control input-sm"
-              v-model="form.samplewtvolume"
-              :disabled="!this.isReceiving"
+              :disabled="this.isdisabled"
             />
           </div>
         </div>
-        <div class="col-lg-12">
+        <div v-if="!this.form.isAssayer" class="col-lg-12">
           <div class="form-group">
             <label for="drescription"
               >Description<span class="text-danger" aria-required="true">
@@ -64,8 +57,6 @@
               :disabled="!this.isDeptUser"
             ></textarea>
           </div>
-        </div>
-        <div class="col-lg-12">
           <div class="form-group">
             <label for="elements"
               >Elements<span class="text-danger" aria-required="true">
@@ -81,8 +72,6 @@
               :disabled="!this.isDeptUser"
             />
           </div>
-        </div>
-        <div class="col-lg-12">
           <div class="form-group">
             <label for="method-code"
               >Method Code<span class="text-danger" aria-required="true">
@@ -98,8 +87,6 @@
               :disabled="!this.isDeptUser"
             />
           </div>
-        </div>
-        <div class="col-lg-12">
           <div class="form-group">
             <label for="comments">Comments</label>
             <textarea
@@ -109,6 +96,116 @@
               v-model="form.comments"
               :disabled="!this.isDeptUser"
             ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="sample-no"
+              >Sample Wt./Volume<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
+            <input
+              type="number"
+              class="form-control input-sm"
+              v-model="form.samplewtvolume"
+              :disabled="!this.isReceiving"
+            />
+          </div>
+        </div>
+        <div v-if="this.form.isAssayer" class="col-lg-12">
+          <div class="form-group">
+            <label for="source">Source</label>
+            <input
+              class="form-control input-sm"
+              v-model="form.source"
+              disabled="true"
+            />
+          </div>
+          <div class="form-group">
+            <label for="sample-no"
+              >Sample Weight (Grams)<span
+                class="text-danger"
+                aria-required="true"
+              >
+                *
+              </span></label
+            >
+            <input
+              type="number"
+              class="form-control input-sm"
+              v-model="form.samplewtgrams"
+            />
+          </div>
+          <div class="form-group">
+            <label for="sample-no"
+              >Crusible Used<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
+            <input
+              class="form-control input-sm"
+              v-model="form.crusibleused"
+            />
+          </div>
+          <h4>Elements</h4>
+          <div class="form-group">
+            <label for="sample-no"
+              >Flux (Grams)<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
+            <input
+              type="number"
+              class="form-control input-sm"
+              v-model="form.fluxg"
+            />
+          </div>
+          <div class="form-group">
+            <label for="sample-no"
+              >Flour (Grams)<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
+            <input
+              type="number"
+              class="form-control input-sm"
+              v-model="form.flourg"
+            />
+          </div>
+          <div class="form-group">
+            <label for="sample-no"
+              >Niter (Grams)<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
+            <input
+              type="number"
+              class="form-control input-sm"
+              v-model="form.niterg"
+            />
+          </div>
+          <div class="form-group">
+            <label for="sample-no"
+              >Lead (Grams)<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
+            <input
+              type="number"
+              class="form-control input-sm"
+              v-model="form.leadg"
+            />
+          </div>
+          <div class="form-group">
+            <label for="sample-no"
+              >Silican (Grams)<span class="text-danger" aria-required="true">
+                *
+              </span></label
+            >
+            <input
+              type="number"
+              class="form-control input-sm"
+              v-model="form.silicang"
+            />
           </div>
         </div>
       </div>
@@ -143,6 +240,7 @@ export default {
       isReceiving: this.dialogRef.data.isReceiving,
       errors_exist: false,
       errors: {},
+      isdisabled: true,
       form: {
         transmittalno: this.dialogRef.data.transmittalno,
         id: this.dialogRef.data.id,
@@ -152,10 +250,26 @@ export default {
         elements: this.dialogRef.data.elements,
         methodcode: this.dialogRef.data.methodcode,
         comments: this.dialogRef.data.comments,
+        source: this.dialogRef.data.source,
+        receiving: this.dialogRef.data.isReceiving,
+        samplewtgrams: this.dialogRef.data.samplewtgrams,
+        fluxg: this.dialogRef.data.fluxg,
+        flourg: this.dialogRef.data.flourg,
+        niterg: this.dialogRef.data.niterg,
+        leadg: this.dialogRef.data.leadg,
+        silicang: this.dialogRef.data.silicang,
+        crusibleused: this.dialogRef.data.crusibleused,
+        isAssayer: this.dialogRef.data.isAssayer,
+        labbatch :this.dialogRef.data.labbatch,
       },
     };
   },
-  created() {},
+  mounted() {
+    console.log(this.form.labbatch);
+    if (this.dialogRef.data.sampleno == undefined || this.isDeptUser) {
+      this.isdisabled = false;
+    }
+  },
   methods: {
     closeDialog() {
       this.dialogRef.close();
@@ -175,7 +289,7 @@ export default {
       if (res.status === 200) {
         this.dialogRef.close(this.form);
       } else {
-         this.errors_exist = true;
+        this.errors_exist = true;
         this.errors = res.data.errors;
         // this.ermessage(res.data.errors);
       }

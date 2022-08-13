@@ -75,9 +75,9 @@
                 'date_needed',
                 'priority_status',
                 'source',
-                'statuses'
+                'statuses',
               ]"
-              >
+            >
               <template #empty> No record found. </template>
               <template #loading> Loading data. Please wait. </template>
               <Column field="id" hidden="true"></Column>
@@ -118,7 +118,7 @@
                 :sortable="true"
               ></Column>
 
-               <Column
+              <Column
                 field="priority"
                 header="Priority"
                 :sortable="true"
@@ -194,6 +194,12 @@
       </div>
       <!-- End Pages -->
     </div>
+    <div class="cms-footer mg-t-50">
+      <hr />
+      <p class="tx-gray-500 tx-10">
+        Admin Portal v1.0 • Developed by WebFocus Solutions, Inc. 2022
+      </p>
+    </div>
   </div>
 
   <toast
@@ -214,7 +220,6 @@ export default {
       editMsg: "Edit Transmittal",
       receiveMsg: "Receive Transmittal",
       statuses: ["Pending", "Approved", "Received"],
-      
     };
   },
   created() {

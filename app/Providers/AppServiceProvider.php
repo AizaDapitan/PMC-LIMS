@@ -33,12 +33,14 @@ class AppServiceProvider extends ServiceProvider
                 $forOffApproval = DeptuserTrans::where([['status', 'Pending'],['isdeleted',false],['isSaved',1]])->count();
                 $forReceive = DeptuserTrans::where([['status', 'Approved'],['isReceived',false]])->count();
                 $unsaved = DeptuserTrans::where([['isSaved', 0],['created_by',auth()->user()->username],['isdeleted',0]])->count();
+                $forAssayer = DeptuserTrans::where([['isReceived', true],['isupdated',true],['isdeleted',0]])->count();
                 // dd($forReceive);
                 $view->with(
                     compact(
                         'forOffApproval',
                         'forReceive',
-                        'unsaved'
+                        'unsaved',
+                        'forAssayer'
                     )
                 );
             }

@@ -15,14 +15,14 @@ class TransmittalItemController extends Controller
         $request->validate(['itemFile' => "required|mimes:csv,txt"]);
 
         try {
-            $item = TransmittalItem::where( 'transmittalno' , $request->transmittalno);
+            $item = TransmittalItem::where('transmittalno', $request->transmittalno);
 
             $data = [
                 'isdeleted' => 1,
                 'deleted_at' => Carbon::now()
             ];
             $item->update($data);
-            
+
             $filenamewithextension = $request->file('itemFile')->getClientOriginalName();
 
             //get filename without extension
@@ -50,8 +50,8 @@ class TransmittalItemController extends Controller
 
                 if ($foundHeaders !== $requiredHeaders) {
                     fclose($open);
-                    $error =   [ 'Uploading Item' => ['Headers do not match: '  . implode(', ', $foundHeaders)]];
-                    return response()->json(['errors' => $error ], 500);                    
+                    $error =   ['Uploading Item' => ['Headers do not match: '  . implode(', ', $foundHeaders)]];
+                    return response()->json(['errors' => $error], 500);
                 }
 
                 while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {
@@ -114,23 +114,54 @@ class TransmittalItemController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'sampleno' => 'required',
-            'description' => 'required',
-            'elements' => 'required',
-            'methodcode' => 'required',
-            'transmittalno' => 'required'
-        ]);
-        try {
-            TransmittalItem::create([
-                'sampleno' => $request->sampleno,
-                'description' => $request->description,
-                'elements' => $request->elements,
-                'methodcode' =>  $request->methodcode,
-                'transmittalno' => $request->transmittalno,
-                'comments' => $request->comments,
-                'username' => auth()->user()->username,
+        if ($request->isAssayer) {
+            $request->validate([
+                'sampleno' => 'required',
+                'samplewtgrams' => 'required',
+                'fluxg' => 'required',
+                'flourg' => 'required',
+                'niterg' => 'required',
+                'leadg' => 'required',
+                'silicang' => 'required',
+                'crusibleused' => 'required'
             ]);
+        } else {
+            $request->validate([
+                'sampleno' => 'required',
+                'description' => 'required',
+                'elements' => 'required',
+                'methodcode' => 'required',
+                'transmittalno' => 'required'
+            ]);
+        }
+        try {
+            if ($request->isAssayer) {
+                TransmittalItem::create([
+                    'sampleno' => $request->sampleno,
+                    'samplewtgrams' => $request->samplewtgrams,
+                    'fluxg' => $request->fluxg,
+                    'flourg' =>  $request->flourg,
+                    'niterg' => $request->niterg,
+                    'leadg' => $request->leadg,
+                    'silicang' => $request->silicang,
+                    'crusibleused' => $request->crusibleused,
+                    'labbatch' => $request->labbatch,
+                    'assayedby' => auth()->user()->username,
+                    'assayed_at' => Carbon::now(),
+                ]);
+            } else {
+                TransmittalItem::create([
+                    'sampleno' => $request->sampleno,
+                    'description' => $request->description,
+                    'elements' => $request->elements,
+                    'methodcode' =>  $request->methodcode,
+                    'transmittalno' => $request->transmittalno,
+                    'comments' => $request->comments,
+                    'username' => auth()->user()->username,
+                    'source'    => $request->source,
+                ]);
+            }
+
             return response()->json('success');
         } catch (Exception $e) {
             return response()->json(['error' =>  $e->getMessage()], 500);
@@ -144,7 +175,8 @@ class TransmittalItemController extends Controller
 
             $data = [
                 'isdeleted' => 1,
-                'deleted_at' => Carbon::now()
+                'deleted_at' => Carbon::now(),
+                'deletedby' => auth()->user()->username
             ];
             $item->update($data);
             return response()->json('success');
@@ -154,27 +186,63 @@ class TransmittalItemController extends Controller
     }
     public function update(Request $request)
     {
-        $request->validate([
-            'id' => 'required',
-            'sampleno' => 'required',
-            'description' => 'required',
-            'elements' => 'required',
-            'methodcode' => 'required',
-            'transmittalno' => 'required'
-        ]);
+
+        if ($request->isAssayer) {
+            $request->validate([
+                'id' => 'required',
+                'sampleno' => 'required',
+                'samplewtgrams' => 'required',
+                'fluxg' => 'required',
+                'flourg' => 'required',
+                'niterg' => 'required',
+                'leadg' => 'required',
+                'silicang' => 'required',
+                'crusibleused' => 'required'
+            ]);
+        } else {
+            $request->validate([
+                'id' => 'required',
+                'sampleno' => 'required',
+                'description' => 'required',
+                'elements' => 'required',
+                'methodcode' => 'required',
+                'transmittalno' => 'required'
+            ]);
+        }
         try {
             $item = TransmittalItem::find($request->id);
-
-            $data = [
-                'sampleno' => $request->sampleno,
-                'description' => $request->description,
-                'elements' => $request->elements,
-                'comments' => $request->comments,
-                'methodcode' =>  $request->methodcode,
-                'transmittalno' => $request->transmittalno,
-                'username' => auth()->user()->username,
-                'samplewtvolume' => $request->samplewtvolume,
-            ];
+            $receiver = "";
+            if ($request->receiving) {
+                $receiver = auth()->user()->username;
+            }
+            if ($request->isAssayer) {
+                $data = [
+                    'sampleno' => $request->sampleno,
+                    'samplewtgrams' => $request->samplewtgrams,
+                    'fluxg' => $request->fluxg,
+                    'flourg' => $request->flourg,
+                    'niterg' =>  $request->niterg,
+                    'leadg' => $request->leadg,
+                    'silicang' => $request->silicang,
+                    'crusibleused'    => $request->crusibleused,
+                    'updatedby' => auth()->user()->username,
+                    'assayedby'  =>  auth()->user()->username,
+                    'assayed_at' => Carbon::now(),
+                ];
+            } else {
+                $data = [
+                    'sampleno' => $request->sampleno,
+                    'description' => $request->description,
+                    'elements' => $request->elements,
+                    'comments' => $request->comments,
+                    'methodcode' =>  $request->methodcode,
+                    'transmittalno' => $request->transmittalno,
+                    'samplewtvolume' => $request->samplewtvolume,
+                    'source'    => $request->source,
+                    'updatedby' => auth()->user()->username,
+                    'receiveby'  => $receiver
+                ];
+            }
             $item->update($data);
             return response()->json('success');
         } catch (Exception $e) {

@@ -35,14 +35,14 @@ class DeptUserController extends Controller
 
     public function getDeptUsers()
     {
-        $deptusers = DeptuserTrans::where([['isdeleted', 0],['isSaved', 1]])->orderBy('transmittalno', 'asc')->get();
+        $deptusers = DeptuserTrans::where([['isdeleted', 0], ['isSaved', 1]])->orderBy('transmittalno', 'asc')->get();
 
         return $deptusers;
     }
 
     public function deptusersList(DeptuserTrans $deptuser)
     {
-        $deptusers = $deptuser->where([['active', 1],['isSaved', 1]])->get();
+        $deptusers = $deptuser->where([['active', 1], ['isSaved', 1]])->get();
         return $deptusers;
     }
     public function create()
@@ -76,7 +76,8 @@ class DeptUserController extends Controller
                     'cocFile' => $filenametostore,
                     'status' =>  $request->status,
                     'created_by' => auth()->user()->username,
-                    'isSaved'   => 1
+                    'isSaved'   => 1,
+                    'transType' => $request->transType,
                 ];
                 $deptuserTrans->update($data);
             } else {
@@ -93,9 +94,11 @@ class DeptUserController extends Controller
                     'cocFile' => $filenametostore,
                     'status' =>  $request->status,
                     'created_by' => auth()->user()->username,
-                    'isSaved'   => 1
+                    'isSaved'   => 1,
+                    'transType' => $request->transType,
                 ]);
             }
+           TransmittalItem::where('transmittalno', $request->transmittalno)->update(['source' => $request->source]);
             return response()->json('success');
         } catch (Exception $e) {
             return response()->json(['errors' =>  $e->getMessage()], 500);
@@ -120,6 +123,7 @@ class DeptUserController extends Controller
             'status' => 'required',
             'email_address' => 'required|email',
             'source' => 'required',
+            'transType' => 'required',
         ]);
         try {
             $filenametostore = $request->cocFile;
@@ -148,9 +152,11 @@ class DeptUserController extends Controller
                 'cocFile' => $request->hasFile('cocFile') ? $filenametostore : $deptuserTrans->cocFile,
                 'status' =>  $request->status,
                 'created_by' => auth()->user()->username,
-                'isSaved'   => 1
+                'isSaved'   => 1,
+                'transType' => $request->transType,
             ];
             $deptuserTrans->update($data);
+            TransmittalItem::where('transmittalno', $request->transmittalno)->update(['source' => $request->source]);
 
             return response()->json('success');
         } catch (Exception $e) {
@@ -207,12 +213,13 @@ class DeptUserController extends Controller
                     'source' =>  $request->source,
                     'cocFile' => $request->hasFile('cocFile') ? $filenametostore : $deptuserTrans->cocFile,
                     'status' =>  $request->status,
+                    'transType' => $request->transType,
                     'created_by' => auth()->user()->username,
                 ];
                 $deptuserTrans->update($data);
                 return response()->json(['id' => $deptuserTrans->id]);
             } else {
-               $data = [
+                $data = [
                     'transmittalno' => $request->transmittalno,
                     'purpose' => $request->purpose,
                     'datesubmitted' =>  $request->datesubmitted,
@@ -224,10 +231,11 @@ class DeptUserController extends Controller
                     'source' =>  $request->source,
                     'cocFile' => $filenametostore,
                     'status' =>  $request->status,
+                    'transType' => $request->transType,
                     'created_by' => auth()->user()->username,
                 ];
-               $transmittal = DeptuserTrans::create($data);
-               return response()->json(['id' => $transmittal->id]);
+                $transmittal = DeptuserTrans::create($data);
+                return response()->json(['id' => $transmittal->id]);
             }
         } catch (Exception $e) {
             return response()->json(['errors' =>  $e->getMessage()], 500);
@@ -239,7 +247,7 @@ class DeptUserController extends Controller
     }
     public function getUnsaved()
     {
-        $unsavedTrans = DeptuserTrans::where([['isSaved', 0],['created_by',auth()->user()->username],['isdeleted',0]])->orderBy('transmittalno', 'asc')->get();
+        $unsavedTrans = DeptuserTrans::where([['isSaved', 0], ['created_by', auth()->user()->username], ['isdeleted', 0]])->orderBy('transmittalno', 'asc')->get();
 
         return $unsavedTrans;
     }

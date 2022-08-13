@@ -109,7 +109,39 @@ app.component(
     "edit_qaqcreceiver-component",
     require("./components/qaqcreceiver/edit_qaqcreceiver.vue").default
 );
+app.component(
+    "index_assayer-component",
+    require("./components/assayer/index_assayer.vue").default
+);
+app.component(
+    "view_assayer-component",
+    require("./components/assayer/view_assayer.vue").default
+);
+app.component(
+    "create_worksheet_assayer-component",
+    require("./components/assayer/create_worksheet_assayer.vue").default
+);
+app.component(
+    "index_worksheet_assayer-component",
+    require("./components/assayer/index_worksheet_assayer.vue").default
+);
+app.component(
+    "edit_worksheet_assayer-component",
+    require("./components/assayer/edit_worksheet_assayer.vue").default
+);
+app.component(
+    "view_worksheet_assayer-component",
+    require("./components/assayer/view_worksheet_assayer.vue").default
+);
 
+app.component(
+    "index_digester-component",
+    require("./components/digester/index_digester.vue").default
+);
+app.component(
+    "view_digester-component",
+    require("./components/digester/view_digester.vue").default
+);
 
 app.component("DataTable", DataTable);
 app.component("Column", Column);
