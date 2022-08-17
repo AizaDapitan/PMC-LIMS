@@ -20799,6 +20799,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       errors_exist: false,
       seconds: 0,
       errors: {},
+      transNoExists: false,
       form: {
         id: 0,
         transmittalno: "",
@@ -20855,25 +20856,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.cocFileLabel = this.COCitemFile.name;
     },
     onTransmittalNoChange: function onTransmittalNoChange() {
-      this.fetchItems();
+      this.checkTransno();
+
+      if (!this.transNoExists) {
+        this.fetchItems();
+      }
     },
-    fetchItems: function fetchItems() {
+    checkTransno: function checkTransno() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var res;
+        var res, status;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return _this.callApiwParam("post", "/transItem/getItems", _this.form);
-
-              case 2:
-                res = _context.sent;
-                _this.items = res.data;
+                _this.errors = {};
+                _this.errors_exist = false;
+                _context.next = 4;
+                return _this.callApiwParam("post", "/deptuser/checkTransNo", _this.form);
 
               case 4:
+                res = _context.sent;
+
+                if (res.data.length > 0) {
+                  status = 'Active';
+
+                  if (res.data[0]['isdeleted'] == 1) {
+                    status = 'Deleted';
+                  }
+
+                  _this.transNoExists = true;
+                  _this.errors = {
+                    error: ["Transmittal No already exists! : " + _this.form.transmittalno + " | Status : " + status]
+                  };
+                  _this.errors_exist = true;
+                  _this.form.transmittalno = "";
+                }
+
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -20881,43 +20902,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    uploadItem: function uploadItem() {
+    fetchItems: function fetchItems() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var form, res;
+        var res;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _this2.fileLabel = _this2.form.transmittalno + "_" + _this2.fileLabel;
-                form = new FormData();
-                form.append("itemFile", _this2.itemFile);
+                _context2.next = 2;
+                return _this2.callApiwParam("post", "/transItem/getItems", _this2.form);
 
-                _.each(_this2.form, function (value, key) {
-                  form.append(key, value);
-                });
-
-                _context2.next = 6;
-                return _this2.submit("post", "/transItem/uploaditems", form, {
-                  headers: {
-                    "Content-Type": "multipart/form-data; charset=utf-8; boundary=" + Math.random().toString().substr(2)
-                  }
-                });
-
-              case 6:
+              case 2:
                 res = _context2.sent;
+                _this2.items = res.data;
 
-                if (res.status === 200) {
-                  _this2.smessage();
-
-                  _this2.fetchItems();
-                } else {
-                  _this2.errors_exist = true;
-                  _this2.errors = res.data.errors; // this.ermessage(res.data.errors);
-                }
-
-              case 8:
+              case 4:
               case "end":
                 return _context2.stop();
             }
@@ -20925,7 +20926,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
-    saveTransmittal: function saveTransmittal() {
+    uploadItem: function uploadItem() {
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
@@ -20934,34 +20935,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _this3.form.date_needed = document.getElementById("date-needed").value;
-                _this3.form.datesubmitted = document.getElementById("date-submitted").value;
-                _this3.cocFileLabel = _this3.form.transmittalno + "_" + _this3.cocFileLabel;
+                _this3.fileLabel = _this3.form.transmittalno + "_" + _this3.fileLabel;
                 form = new FormData();
-                form.append("cocFile", _this3.COCitemFile);
+                form.append("itemFile", _this3.itemFile);
 
                 _.each(_this3.form, function (value, key) {
                   form.append(key, value);
                 });
 
-                _context3.next = 8;
-                return _this3.submit("post", "/deptuser/store", form, {
+                _context3.next = 6;
+                return _this3.submit("post", "/transItem/uploaditems", form, {
                   headers: {
                     "Content-Type": "multipart/form-data; charset=utf-8; boundary=" + Math.random().toString().substr(2)
                   }
                 });
 
-              case 8:
+              case 6:
                 res = _context3.sent;
 
                 if (res.status === 200) {
-                  window.location.href = _this3.$env_Url + "/deptuser/dashboard";
+                  _this3.smessage();
+
+                  _this3.fetchItems();
                 } else {
                   _this3.errors_exist = true;
                   _this3.errors = res.data.errors; // this.ermessage(res.data.errors);
                 }
 
-              case 10:
+              case 8:
               case "end":
                 return _context3.stop();
             }
@@ -20969,8 +20970,52 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee3);
       }))();
     },
-    showDialog: function showDialog(data) {
+    saveTransmittal: function saveTransmittal() {
       var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+        var form, res;
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _this4.form.date_needed = document.getElementById("date-needed").value;
+                _this4.form.datesubmitted = document.getElementById("date-submitted").value;
+                _this4.cocFileLabel = _this4.form.transmittalno + "_" + _this4.cocFileLabel;
+                form = new FormData();
+                form.append("cocFile", _this4.COCitemFile);
+
+                _.each(_this4.form, function (value, key) {
+                  form.append(key, value);
+                });
+
+                _context4.next = 8;
+                return _this4.submit("post", "/deptuser/store", form, {
+                  headers: {
+                    "Content-Type": "multipart/form-data; charset=utf-8; boundary=" + Math.random().toString().substr(2)
+                  }
+                });
+
+              case 8:
+                res = _context4.sent;
+
+                if (res.status === 200) {
+                  window.location.href = _this4.$env_Url + "/deptuser/dashboard";
+                } else {
+                  _this4.errors_exist = true;
+                  _this4.errors = res.data.errors; // this.ermessage(res.data.errors);
+                }
+
+              case 10:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    showDialog: function showDialog(data) {
+      var _this5 = this;
 
       var dialogRef = this.$dialog.open(_components_item_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
         props: {
@@ -20997,7 +21042,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           source: this.form.source
         },
         onClose: function onClose(options) {
-          _this4.fetchItems();
+          _this5.fetchItems();
         }
       });
     },
@@ -21013,7 +21058,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form.source = "";
     },
     deleteItem: function deleteItem(data) {
-      var _this5 = this;
+      var _this6 = this;
 
       var src = data.data.id,
           alt = data.data.id;
@@ -21025,34 +21070,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         icon: "pi pi-info-circle",
         acceptClass: "p-button-danger",
         accept: function () {
-          var _accept = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+          var _accept = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
             var res;
-            return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+            return _regeneratorRuntime().wrap(function _callee5$(_context5) {
               while (1) {
-                switch (_context4.prev = _context4.next) {
+                switch (_context5.prev = _context5.next) {
                   case 0:
-                    _context4.next = 2;
-                    return _this5.deleteRecord("post", "/transItem/delete", {
+                    _context5.next = 2;
+                    return _this6.deleteRecord("post", "/transItem/delete", {
                       id: data.data.id
                     });
 
                   case 2:
-                    res = _context4.sent;
+                    res = _context5.sent;
 
                     if (res.status === 200) {
-                      _this5.rmessage();
+                      _this6.rmessage();
 
-                      _this5.fetchItems();
+                      _this6.fetchItems();
                     } else {
-                      _this5.ermessage();
+                      _this6.ermessage();
                     }
 
                   case 4:
                   case "end":
-                    return _context4.stop();
+                    return _context5.stop();
                 }
               }
-            }, _callee4);
+            }, _callee5);
           }));
 
           function accept() {
@@ -21067,77 +21112,77 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.showDialog(data.data);
     },
     autosave: function autosave() {
-      var _this6 = this;
+      var _this7 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
         var form, res;
-        return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+        return _regeneratorRuntime().wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
-                _this6.seconds = _this6.seconds + 1;
+                _this7.seconds = _this7.seconds + 1;
 
-                if (!(_this6.seconds == 30)) {
-                  _context5.next = 16;
+                if (!(_this7.seconds == 300)) {
+                  _context6.next = 16;
                   break;
                 }
 
-                if (!(_this6.form.transmittalno != "" || _this6.form.transmittalno != null)) {
-                  _context5.next = 15;
+                if (!(_this7.form.transmittalno != "" || _this7.form.transmittalno != null)) {
+                  _context6.next = 15;
                   break;
                 }
 
-                if (_this6.form.purpose == null) {
-                  _this6.form.purpose = "";
+                if (_this7.form.purpose == null) {
+                  _this7.form.purpose = "";
                 }
 
-                if (_this6.form.email_address == null) {
-                  _this6.form.email_address = "";
+                if (_this7.form.email_address == null) {
+                  _this7.form.email_address = "";
                 }
 
-                if (_this6.form.source == null) {
-                  _this6.form.source = "";
+                if (_this7.form.source == null) {
+                  _this7.form.source = "";
                 }
 
-                _this6.form.date_needed = document.getElementById("date-needed").value;
-                _this6.form.datesubmitted = document.getElementById("date-submitted").value;
+                _this7.form.date_needed = document.getElementById("date-needed").value;
+                _this7.form.datesubmitted = document.getElementById("date-submitted").value;
                 form = new FormData();
-                form.append("cocFile", _this6.COCitemFile);
+                form.append("cocFile", _this7.COCitemFile);
 
-                _.each(_this6.form, function (value, key) {
+                _.each(_this7.form, function (value, key) {
                   form.append(key, value);
                 });
 
-                _context5.next = 13;
-                return _this6.submit("post", "/deptuser/autosave", form, {
+                _context6.next = 13;
+                return _this7.submit("post", "/deptuser/autosave", form, {
                   headers: {
                     "Content-Type": "multipart/form-data; charset=utf-8; boundary=" + Math.random().toString().substr(2)
                   }
                 });
 
               case 13:
-                res = _context5.sent;
+                res = _context6.sent;
 
                 if (res.status === 200) {
-                  _this6.form.id = res.data.id;
+                  _this7.form.id = res.data.id;
                 }
 
               case 15:
-                _this6.seconds = 0;
+                _this7.seconds = 0;
 
               case 16:
               case "end":
-                return _context5.stop();
+                return _context6.stop();
             }
           }
-        }, _callee5);
+        }, _callee6);
       }))();
     },
     tempInsert: function tempInsert() {
-      var _this7 = this;
+      var _this8 = this;
 
       setInterval(function () {
-        _this7.autosave();
+        _this8.autosave();
       }, 1000);
     }
   }
@@ -23449,8 +23494,8 @@ var _hoisted_61 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_62 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "nolan dornila"
-}, "Nolan Dornila", -1
+  value: "fire assayer"
+}, "Fire Assayer User", -1
 /* HOISTED */
 );
 
@@ -24206,29 +24251,31 @@ var _hoisted_80 = [_hoisted_78, _hoisted_79];
 var _hoisted_81 = {
   "class": "col-lg-6 d-flex justify-content-start justify-content-lg-end"
 };
+var _hoisted_82 = ["href"];
 
-var _hoisted_82 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "dashboard-dept-user.html",
-  "class": "btn btn-white tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_83 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "data-feather": "x-circle",
   "class": "mg-r-5"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Cancel")], -1
+}, null, -1
 /* HOISTED */
 );
 
-var _hoisted_83 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_84 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Cancel");
+
+var _hoisted_85 = [_hoisted_83, _hoisted_84];
+
+var _hoisted_86 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "data-feather": "save",
   "class": "mg-r-5"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_84 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Save ");
+var _hoisted_87 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Save ");
 
-var _hoisted_85 = [_hoisted_83, _hoisted_84];
+var _hoisted_88 = [_hoisted_86, _hoisted_87];
 
-var _hoisted_86 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_89 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "cms-footer mg-t-50"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "tx-gray-500 tx-10"
@@ -24357,7 +24404,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "MM-00381",
     "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
       return $data.form.labbatch = $event;
-    })
+    }),
+    disabled: "true"
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.labbatch]])])]), _hoisted_49])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_51, [_hoisted_52, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -24525,13 +24573,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "btn btn-white tx-13 btn-uppercase"
   }, _hoisted_80, 8
   /* PROPS */
-  , _hoisted_77)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_81, [_hoisted_82, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  , _hoisted_77)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_81, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.dashboard,
+    "class": "btn btn-white tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
+  }, _hoisted_85, 8
+  /* PROPS */
+  , _hoisted_82), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "submit",
     "class": "btn btn-primary tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0",
     onClick: _cache[16] || (_cache[16] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.saveWorksheet && $options.saveWorksheet.apply($options, arguments);
     }, ["prevent"]))
-  }, _hoisted_85)])]), _hoisted_86]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_toast, {
+  }, _hoisted_88)])]), _hoisted_89]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_toast, {
     breakpoints: {
       '920px': {
         width: '100%',
@@ -25119,7 +25172,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             onClick: function onClick($event) {
               return $options.editWorksheet(slotProps);
             },
-            disabled: slotProps.data.isApproved
+            disabled: slotProps.data.isApproved == 1
           }, null, 8
           /* PROPS */
           , ["title", "onClick", "disabled"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
@@ -25129,7 +25182,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             onClick: function onClick($event) {
               return $options.deleteWorksheet(slotProps);
             },
-            disabled: slotProps.data.isApproved
+            disabled: slotProps.data.isApproved == 1
           }, null, 8
           /* PROPS */
           , ["title", "onClick", "disabled"])];
@@ -29071,7 +29124,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     onChange: _cache[2] || (_cache[2] = function () {
       return $options.onTransmittalNoChange && $options.onTransmittalNoChange.apply($options, arguments);
-    })
+    }),
+    disabled: "true"
   }, null, 544
   /* HYDRATE_EVENTS, NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.transmittalno]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -31317,7 +31371,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[15] || (_cache[15] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.approve && $options.approve.apply($options, arguments);
     }, ["prevent"])),
-    disabled: this.isApproved
+    disabled: this.isApproved == 1
   }, _hoisted_85, 8
   /* PROPS */
   , _hoisted_82)])]), _hoisted_86]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_toast, {

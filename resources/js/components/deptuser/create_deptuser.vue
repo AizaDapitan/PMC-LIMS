@@ -159,10 +159,17 @@
           </div>
           <div class="col-lg-4">
             <div class="form-group">
-              <label for="type">Type<span class="text-danger" aria-required="true">
+              <label for="type"
+                >Type<span class="text-danger" aria-required="true">
                   *
-                </span></label>
-              <select class="custom-select tx-base" id="type" name="type" v-model="form.transType">
+                </span></label
+              >
+              <select
+                class="custom-select tx-base"
+                id="type"
+                name="type"
+                v-model="form.transType"
+              >
                 <option value="Rock">Rock</option>
                 <option value="Carbon">Carbon</option>
                 <option value="Solid">Solid</option>
@@ -436,6 +443,7 @@ export default {
       errors_exist: false,
       seconds: 0,
       errors: {},
+      transNoExists: false,
       form: {
         id: 0,
         transmittalno: "",
@@ -448,7 +456,7 @@ export default {
         email_address: "",
         source: "",
         itemID: "",
-        transType : "Rock",
+        transType: "Rock",
       },
     };
   },
@@ -490,7 +498,31 @@ export default {
       this.cocFileLabel = this.COCitemFile.name;
     },
     onTransmittalNoChange() {
-      this.fetchItems();
+      this.checkTransno();
+      if (!this.transNoExists) {
+        this.fetchItems();
+      }
+    },
+    async checkTransno() {
+      this.errors = {};
+      this.errors_exist = false;
+      const res = await this.callApiwParam(
+        "post",
+        "/deptuser/checkTransNo",
+        this.form
+      );
+      
+      if (res.data.length > 0) {
+        var status = 'Active';
+        if(res.data[0]['isdeleted'] == 1)
+        {
+          status = 'Deleted'
+        }
+        this.transNoExists = true;
+        this.errors = { error: ["Transmittal No already exists! : " + this.form.transmittalno + " | Status : " + status] };
+        this.errors_exist = true;
+        this.form.transmittalno = "";
+      }
     },
     async fetchItems() {
       const res = await this.callApiwParam(
@@ -571,7 +603,7 @@ export default {
           comments: data.comments,
           isDeptUser: true,
           isReceiving: false,
-          source: this.form.source
+          source: this.form.source,
         },
         onClose: (options) => {
           this.fetchItems();
@@ -617,7 +649,7 @@ export default {
     },
     async autosave() {
       this.seconds = this.seconds + 1;
-      if (this.seconds == 30) {
+      if (this.seconds == 300) {
         if (this.form.transmittalno != "" || this.form.transmittalno != null) {
           if (this.form.purpose == null) {
             this.form.purpose = "";

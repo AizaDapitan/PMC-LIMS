@@ -98,7 +98,7 @@ class DeptUserController extends Controller
                     'transType' => $request->transType,
                 ]);
             }
-           TransmittalItem::where('transmittalno', $request->transmittalno)->update(['source' => $request->source]);
+            TransmittalItem::where('transmittalno', $request->transmittalno)->update(['source' => $request->source]);
             return response()->json('success');
         } catch (Exception $e) {
             return response()->json(['errors' =>  $e->getMessage()], 500);
@@ -250,5 +250,14 @@ class DeptUserController extends Controller
         $unsavedTrans = DeptuserTrans::where([['isSaved', 0], ['created_by', auth()->user()->username], ['isdeleted', 0]])->orderBy('transmittalno', 'asc')->get();
 
         return $unsavedTrans;
+    }
+    public function checkTransNo(Request $request)
+    {
+        $transmittal = DeptuserTrans::where('transmittalno', $request->transmittalno)->get();
+        // $exists = false;
+        // if (count($transmittal) > 0) {
+        //     $exists = true;
+        // }
+        return $transmittal;
     }
 }

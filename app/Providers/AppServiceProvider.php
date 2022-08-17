@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\DeptuserTrans;
+use App\Models\TransmittalItem;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,16 +26,31 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       
+
         //
         view()->composer(
             'layouts.app',
             function ($view) {
-                $forOffApproval = DeptuserTrans::where([['status', 'Pending'],['isdeleted',false],['isSaved',1]])->count();
-                $forReceive = DeptuserTrans::where([['status', 'Approved'],['isReceived',false]])->count();
-                $unsaved = DeptuserTrans::where([['isSaved', 0],['created_by',auth()->user()->username],['isdeleted',0]])->count();
-                $forAssayer = DeptuserTrans::where([['isReceived', true],['isupdated',true],['isdeleted',0]])->count();
-                // dd($forReceive);
+                $forOffApproval = DeptuserTrans::where([['status', 'Pending'], ['isdeleted', false], ['isSaved', 1]])->count();
+                $forReceive = DeptuserTrans::where([['status', 'Approved'], ['isReceived', false]])->count();
+                $unsaved = DeptuserTrans::where([['isSaved', 0], ['created_by', auth()->user()->username], ['isdeleted', 0]])->count();
+                $usertrans = DeptuserTrans::where([['isReceived', true], ['isdeleted', 0]])->get();
+                $trans_nos = DeptuserTrans::where([['isReceived', true], ['isdeleted', 0], ['isAssayed', 0]])->get('transmittalno')->toArray();
+                $forAssayer = 0;
+                foreach ($trans_nos as $trans_no) {
+                    $items = TransmittalItem::where('transmittalno', $trans_no['transmittalno'])->get();
+                    if (count($items) > 0) {
+                        $count = 0;
+                        foreach ($items as $item) {
+                            if ($item->samplewtvolume == null || $item->samplewtvolume == '') {
+                                $count += 1;
+                            }
+                        }
+                        if ($count == 0) {
+                            $forAssayer += 1;
+                        }
+                    }
+                }
                 $view->with(
                     compact(
                         'forOffApproval',

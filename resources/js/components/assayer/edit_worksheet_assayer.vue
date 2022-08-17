@@ -163,6 +163,7 @@
                 name="lab-batch"
                 placeholder="MM-00381"
                 v-model="form.labbatch"
+                disabled="true"
               />
             </div>
           </div>
@@ -331,7 +332,7 @@
       </div>
       <div class="col-lg-6 d-flex justify-content-start justify-content-lg-end">
         <a
-          href="dashboard-dept-user.html"
+          :href="dashboard"
           class="btn btn-white tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
           ><i data-feather="x-circle" class="mg-r-5"></i> Cancel</a
         >

@@ -24,7 +24,7 @@ class DeptUserTransRequest extends FormRequest
     public function rules()
     {
         return [
-            'transmittalno' => 'required|max:255',
+            'transmittalno' => 'required|max:255|unique:deptuser_trans,transmittalno',
             'purpose' => 'required|max:255',
             'datesubmitted' => 'required',
             'timesubmitted' => 'required',
@@ -40,6 +40,7 @@ class DeptUserTransRequest extends FormRequest
     {
         return [
             'transmittalno.required' => 'The Transmittal No field is required.',
+            'transmittalno.unique' => 'The Transmittal No must be unique',
             'purpose.required' => 'The Purpose field is required.',
             'datesubmitted.required' => 'The Date Submitted field is required.',
             'timesubmitted.required' => 'The Time Submitted field is required.',

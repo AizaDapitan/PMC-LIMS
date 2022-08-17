@@ -335,7 +335,7 @@
           type="submit"
           class="btn btn-primary tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
           @click.prevent="approve"
-          :disabled="this.isApproved"
+          :disabled="this.isApproved == 1"
         >
           <i data-feather="check-circle" class="mg-r-5"></i> Approve
         </button>
@@ -367,7 +367,7 @@ export default {
       items: [],
       errors_exist: false,
       errors: {},
-      isApproved : this.worksheet.isApproved,
+      isApproved :this.worksheet.isApproved,
       form: {
         id: this.worksheet.id,
         ids: this.transids,

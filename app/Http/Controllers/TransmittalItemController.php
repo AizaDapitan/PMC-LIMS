@@ -109,7 +109,7 @@ class TransmittalItemController extends Controller
     }
     public function getItems(Request $request)
     {
-        $items = TransmittalItem::where([['username', auth()->user()->username], ['isdeleted', 0], ['transmittalno', $request->transmittalno]])->get();
+        $items = TransmittalItem::where([['isdeleted', 0], ['transmittalno', $request->transmittalno]])->get();
         return  $items;
     }
     public function store(Request $request)

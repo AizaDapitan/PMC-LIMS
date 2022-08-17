@@ -80,6 +80,7 @@
             name="transmittal-no"
             v-model="form.transmittalno"
             @change="onTransmittalNoChange"
+            disabled="true"
           />
         </div>
 

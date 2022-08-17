@@ -44,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/update', [DeptUserController::class, 'update'])->name("deptuser.update");
             Route::post('/delete', [DeptUserController::class, 'delete'])->name("deptuser.delete");
             Route::get('/view-transmittal/{id}', [DeptUserController::class, 'view'])->name("deptuser.view");
+            Route::post('/checkTransNo', [DeptUserController::class, 'checkTransNo'])->name("deptuser.checkTransNo");
         }
     );
     Route::group(

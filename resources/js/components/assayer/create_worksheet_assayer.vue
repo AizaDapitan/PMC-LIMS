@@ -242,7 +242,7 @@
             v-model="form.fireassayer"
           >
             <option value="">--Select--</option>
-            <option value="nolan dornila">Nolan Dornila</option>
+            <option value="fire assayer">Fire Assayer User</option>
           </select>
         </div>
       </div>
