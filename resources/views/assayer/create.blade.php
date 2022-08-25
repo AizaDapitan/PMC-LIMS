@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<create_worksheet_assayer-component :transids = "'{{ $transids }}'"></create_worksheet_assayer-component>
+<create_worksheet_assayer-component :transids = "'{{ $transids }}'" :transmittal = "{{ $transmittal }}"></create_worksheet_assayer-component>
 @endsection
 @section('pagejs')
 <script>

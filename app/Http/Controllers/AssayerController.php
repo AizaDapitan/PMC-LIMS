@@ -18,8 +18,20 @@ class AssayerController extends Controller
     }
     public function getTransmittal()
     {
-        $transmittal = DeptuserTrans::where([['isdeleted', 0], ['isReceived', 1], ['isAssayed', 0]])->orderBy('created_at', 'asc')->get();
-        return $transmittal;
+        $transmittals = DeptuserTrans::where([['isdeleted', 0], ['isReceived', 1]])->orderBy('created_at', 'asc')->get();
+        $transnos = [];
+        foreach ($transmittals as $transmittal) {
+            $count = 0;
+            $count = TransmittalItem::where([['isdeleted', 0], ['transmittalno', $transmittal->transmittalno], ['isAssayed', 0]])->count();
+
+            if ($count > 0) {
+                $transno = $transmittal->transmittalno;
+                array_push($transnos, $transmittal->transmittalno);
+            }
+        }
+        $transmittals = $transmittals->whereIn('transmittalno', $transnos)->values();
+
+        return $transmittals;
     }
     public function view($id)
     {
@@ -29,7 +41,9 @@ class AssayerController extends Controller
     public function create($id)
     {
         $transids = $id;
-        return view('assayer.create', compact('transids'));
+        $ids = explode(',', $transids);
+        $transmittal = DeptuserTrans::whereIn('transmittalno', $ids)->first();
+        return view('assayer.create', compact('transids', 'transmittal'));
     }
     public function store(Request $request)
     {
@@ -48,6 +62,7 @@ class AssayerController extends Controller
             'temperature' => 'required',
             'moldused' => 'required',
             'fireassayer' => 'required',
+            'transType' => 'required'
         ]);
         try {
             $data = [
@@ -65,16 +80,22 @@ class AssayerController extends Controller
                 'temperature' => $request->temperature,
                 'moldused' => $request->moldused,
                 'fireassayer' => $request->fireassayer,
+                'transType' => $request->transType,
                 'createdby' => auth()->user()->username
             ];
 
             Worksheet::create($data);
             $transids = explode(',', $request->ids);
-            $itemsId = TransmittalItem::whereIn('transmittalno', $transids)->where('reassayed', 0)->get('id')->toArray();
-            // dd($itemsId);
-            TransmittalItem::whereIn('id', $itemsId)->update(['labbatch' => $request->labbatch]);
-            DeptuserTrans::whereIn('transmittalno', $transids)->update(['isAssayed' => 1, 'assayedby' =>  auth()->user()->username]);
-            // dd($itemsId);
+            // $itemsId = TransmittalItem::whereIn('transmittalno', $transids)->where('reassayed', 0)->get('id')->toArray();
+            $itemdata = [
+                'labbatch' => $request->labbatch,
+                'isAssayed' => 1,
+                'assayedby' => auth()->user()->username,
+                'assayed_at' => Carbon::now(),
+            ];
+            $itemIds = explode(",", $request->itemIds);
+            TransmittalItem::whereIn('id', $itemIds)->update($itemdata);
+            // DeptuserTrans::whereIn('transmittalno', $transids)->update(['isAssayed' => 1, 'assayedby' =>  auth()->user()->username]);
             return response()->json('success');
         } catch (Exception $e) {
             return response()->json(['errors' =>  $e->getMessage()], 500);
@@ -88,7 +109,7 @@ class AssayerController extends Controller
         }
 
         $transids = explode(',', $request->ids);
-        $items = TransmittalItem::whereIn('transmittalno', $transids)->Orwhere('labbatch', $labbatch)->get();
+        $items = TransmittalItem::whereIn('transmittalno', $transids)->where('isAssayed', 0)->Orwhere('labbatch', $labbatch)->get();
         return  $items;
     }
     public function worksheet()
@@ -129,6 +150,7 @@ class AssayerController extends Controller
             'temperature' => 'required',
             'moldused' => 'required',
             'fireassayer' => 'required',
+            'transType' => 'required',
         ]);
         try {
             $worksheet = Worksheet::find($request->id);
@@ -147,6 +169,7 @@ class AssayerController extends Controller
                 'temperature' => $request->temperature,
                 'moldused' => $request->moldused,
                 'fireassayer' => $request->fireassayer,
+                'transType' => $request->transType,
                 'createdby' => auth()->user()->username
             ];
 
@@ -173,6 +196,64 @@ class AssayerController extends Controller
                 'deleteby' => auth()->user()->username,
             ];
             $worksheet->update($data);
+            return response()->json('success');
+        } catch (Exception $e) {
+            return response()->json(['errors' => $e->getMessage(), 500]);
+        }
+    }
+    public function checkBatchNo(Request $request)
+    {
+        $worksheet = Worksheet::where('labbatch', $request->labbatch)->get();
+        return $worksheet;
+    }
+    public function getItemList(Request $request)
+    {
+        $trans_nos = DeptuserTrans::where([['isReceived', true], ['isdeleted', 0]])->get('transmittalno')->toArray();
+        $forAssayer = 0;
+        $transids = [];
+        foreach ($trans_nos as $trans_no) {
+            $items = TransmittalItem::where([['transmittalno', $trans_no['transmittalno']], ['isAssayed', 0]])->get();
+            if (count($items) > 0) {
+                $count = 0;
+                foreach ($items as $item) {
+                    if ($item->samplewtvolume == null || $item->samplewtvolume == '') {
+                        $count += 1;
+                    }
+                }
+                if ($count == 0) {
+                    // dd($trans_no["transmittalno"]);
+                    array_push($transids, $trans_no["transmittalno"]);
+                }
+            }
+        }
+        $labbatch = $request->labbatch;
+        $itemsList = TransmittalItem::whereIn('transmittalno', $transids)->where('isAssayed', 0)->get();
+        $itemsList = $itemsList->WhereNull('labbatch')->values();
+        return  $itemsList;
+    }
+    public function addSample(Request $request)
+    {
+        $itemdata = [
+            'labbatch' => $request->labbatch,
+            'isAssayed' => 1,
+            'assayedby' => auth()->user()->username,
+            'assayed_at' => Carbon::now(),
+        ];
+        $itemIds = explode(",", $request->itemIds);
+        TransmittalItem::whereIn('id', $itemIds)->update($itemdata);
+        return response()->json('success');
+    }
+    public function excludeSample(Request $request)
+    {
+        $request->validate(['id' => 'required']);
+        try {
+            $item = TransmittalItem::find($request->id);
+            $data = [
+                'labbatch' => NULL,
+                'isAssayed' => 0,
+                'assayedby' => NULL,
+            ];
+            $item->update($data);
             return response()->json('success');
         } catch (Exception $e) {
             return response()->json(['errors' => $e->getMessage(), 500]);

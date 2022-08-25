@@ -166,13 +166,6 @@
                     @click="editWorksheet(slotProps)"
                     :disabled="slotProps.data.isApproved == 1"
                   />
-                  <Button
-                    v-bind:title="deleteMsg"
-                    icon="pi pi-trash"
-                    class="p-button-rounded p-button-warning mr-2"
-                    @click="deleteWorksheet(slotProps)"
-                    :disabled="slotProps.data.isApproved == 1"
-                  />
                 </template>
               </Column>
             </DataTable>

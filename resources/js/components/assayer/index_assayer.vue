@@ -21,7 +21,14 @@
         <h4 class="mg-b-0 tx-spacing--1">Home/Dashboard - Assayer</h4>
       </div>
     </div>
-
+    <div v-if="errors_exist" class="alert alert-danger" role="alert">
+      Whoops! Something didn't work.
+      <ul>
+        <div v-for="error in errors" :key="error.id">
+          <li>{{ error[0] }}</li>
+        </div>
+      </ul>
+    </div>
     <div class="row row-sm">
       <!-- Start Pages -->
 
@@ -36,6 +43,22 @@
             />
           </template>
           <template #end>
+            <div class="col-lg-6">
+              <select
+                class="custom-select tx-base"
+                id="type"
+                name="type"
+                v-model="filters['transType'].value"
+              >
+                <option value="" selected>Select Transmittal Type</option>
+                <option value="Rock">Rock</option>
+                <option value="Carbon">Carbon</option>
+                <option value="Solid">Solid</option>
+                <option value="Bulk">Bulk</option>
+                <option value="Cut">Cut</option>
+                <option value="Mine Drill">Mine Drill</option>
+              </select>
+            </div>
             <div class="search-form mg-r-10">
               <input
                 name="search"
@@ -124,8 +147,8 @@
                 :sortable="true"
               ></Column>
               <Column
-                field="transmittalno"
-                header="Transmittal No"
+                field="transType"
+                header="Transmittal Type"
                 :sortable="true"
               ></Column>
               <Column
@@ -274,6 +297,8 @@ export default {
       selectAll: false,
       totalRecords: 0,
       transIds: null,
+      errors: {},
+      errors_exist: false,
     };
   },
   created() {
@@ -292,6 +317,7 @@ export default {
     initFilters() {
       this.filters = {
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+        transType: { value: "", matchMode: FilterMatchMode.EQUALS },
       };
     },
     clearFilter() {
@@ -318,21 +344,32 @@ export default {
     },
     checkAll(event) {
       var checkboxes = document.getElementsByName("chkboxes");
-
+      this.selectedTrans = [];
+      this.errors_exist = false;
+      this.errors = {};
+      if (this.filters["transType"].value == "") {
+        this.errors = {
+          error: ["Must select Transmittal Type first!"],
+        };
+        this.errors_exist = true;
+      }
       for (var transmittal of this.transmittals) {
-        if (transmittal["isupdated"]) {
+        if (
+          transmittal["isupdated"] &&
+          transmittal["transType"] == this.filters["transType"].value
+        ) {
           document.getElementById(transmittal["transmittalno"]).checked =
             event.target.checked;
-          this.selectedTrans.push(transmittal);
+
+          if (event.target.checked) {
+            this.selectedTrans.push(transmittal);
+          }
         }
       }
-      // this.selectedTrans = this.transmittals;
-      if (!event.target.checked) {
-        this.selectedTrans = [];
-      }
+      console.log(this.selectedTrans);
     },
     createWorksheet() {
-       if (this.selectedTrans) {
+      if (this.selectedTrans) {
         var ids = "";
         this.selectedTrans.forEach(function (element, index) {
           if (index == 0) {

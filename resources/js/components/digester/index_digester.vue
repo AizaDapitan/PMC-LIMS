@@ -125,12 +125,6 @@
                 style="min-width: 13rem"
               ></Column>
               <Column
-                field="fireassayer"
-                header="Fire Assayer"
-                :sortable="true"
-                style="min-width: 13rem"
-              ></Column>
-              <Column
                 field="temperature"
                 header="Temperature"
                 :sortable="true"
@@ -146,6 +140,12 @@
                 field="moldused"
                 header="Mold Used"
                 :sortable="true"
+              ></Column>
+               <Column
+                field="fireassayer"
+                header="Fire Assayer"
+                :sortable="true"
+                style="min-width: 13rem"
               ></Column>
                <Column field="status" header="Status" :sortable="true">
                 <template #body="slotProps">
@@ -211,7 +211,7 @@ export default {
     async fetchRecord() {
       const res = await this.callApiwParam(
         "post",
-        "/assayer/getWorksheet",
+        "/digester/getWorksheet",
         this.form
       );
       this.worksheets = res.data;

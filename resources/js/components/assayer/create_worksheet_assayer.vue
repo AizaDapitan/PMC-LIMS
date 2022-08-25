@@ -170,15 +170,14 @@
           <div class="col-lg-6">
             <div class="form-group">
               <label for="type">Type</label>
-              <select class="custom-select tx-base" id="type" name="type">
-                <option value="">--Select--</option>
-                <option value="Rock" selected>Rock</option>
-                <option value="Carbon">Carbon</option>
-                <option value="Solid">Solid</option>
-                <option value="Bulk">Bulk</option>
-                <option value="Cut">Cut</option>
-                <option value="Mine Drill">Mine Drill</option>
-              </select>
+              <input
+                type="text"
+                class="form-control"
+                id="transType"
+                name="transType"
+                v-model="form.transType"
+                disabled="true"
+              />
             </div>
           </div>
         </div>
@@ -260,7 +259,7 @@
           data-toggle="modal"
           :disabled="this.disableAdd"
         >
-          <i data-feather="plus" class="mg-r-5"></i> Add Sample
+          <i data-feather="plus" class="mg-r-5"></i> Add Insertion
         </button>
       </div>
       <div class="col-lg-12">
@@ -282,7 +281,37 @@
           >
             <template #empty> No record found. </template>
             <template #loading> Loading data. Please wait. </template>
-
+            <Column>
+              <template #header>
+                <div class="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    @change="checkAll($event)"
+                    class="custom-control-input"
+                    id="checkboxall"
+                  /><label
+                    class="custom-control-label"
+                    for="checkboxall"
+                  ></label>
+                </div>
+              </template>
+              <template #body="slotProps">
+                <div class="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input cb"
+                    @change="checked(slotProps, $event)"
+                    name="chkboxes"
+                    style="opacity: 1"
+                    :id="slotProps.data.id"
+                  />
+                  <label
+                    class="custom-control-label"
+                    :for="slotProps.data.id"
+                  ></label>
+                </div>
+              </template>
+            </Column>
             <Column header="Sample No.">
               <template #body="slotProps">
                 {{ slotProps.index + 1 }}
@@ -314,6 +343,9 @@
                   icon="pi pi-pencil"
                   class="p-button-rounded p-button-success mr-2"
                   @click="editItem(slotProps)"
+                  :id="'btn' + slotProps.data.id"
+                  name="btnedit"
+                  disabled
                 />
               </template>
             </Column>
@@ -365,7 +397,7 @@ import item from "../../components/item/item";
 import { h } from "vue";
 import Button from "primevue/button";
 export default {
-  props: ["transids"],
+  props: ["transids", "transmittal"],
   data() {
     return {
       dashboard: this.$env_Url + "/assayer/dashboard",
@@ -376,6 +408,9 @@ export default {
       errors_exist: false,
       errors: {},
       disableAdd: true,
+      disableEdit: true,
+      labbatchExists: false,
+      selectedItemsId: [],
       form: {
         labbatch: "",
         dateshift: "",
@@ -392,6 +427,8 @@ export default {
         moldused: "",
         fireassayer: "",
         ids: this.transids,
+        transType: this.transmittal.transType,
+        itemIds: "",
       },
     };
   },
@@ -427,6 +464,39 @@ export default {
     }
   },
   methods: {
+    onLabbatchChange() {
+      this.checkBatchNo();
+    },
+    async checkBatchNo() {
+      this.errors_exist = false;
+      this.errors = {};
+      const res = await this.callApiwParam(
+        "post",
+        "/assayer/checkBatchNo",
+        this.form
+      );
+
+      if (res.data.length > 0) {
+        var status = "Active";
+        if (res.data[0]["isdeleted"] == 1) {
+          status = "Deleted";
+        }
+        this.labbatchExists = true;
+        if (!this.labbatchExists) {
+          this.fetchItems();
+        }
+        this.errors = {
+          error: [
+            "Lab Batch No already exists! : " +
+              this.form.labbatch +
+              " | Status : " +
+              status,
+          ],
+        };
+        this.errors_exist = true;
+        this.form.labbatch = "";
+      }
+    },
     async fetchItems() {
       const res = await this.callApiwParam(
         "post",
@@ -434,9 +504,6 @@ export default {
         this.form
       );
       this.items = res.data;
-    },
-    onLabbatchChange() {
-      this.fetchItems();
     },
     editItem(data) {
       this.showDialog(data.data);
@@ -482,18 +549,61 @@ export default {
       });
     },
     async saveWorksheet() {
-      const res = await this.submit("post", "/assayer/store", this.form, {
-        headers: {
-          "Content-Type":
-            "multipart/form-data; charset=utf-8; boundary=" +
-            Math.random().toString().substr(2),
-        },
-      });
-      if (res.status === 200) {
-        window.location.href = this.$env_Url + "/assayer/dashboard";
+      if (this.selectedItemsId.length > 0) {
+        var ids = "";
+        this.selectedItemsId.forEach(function (element, index) {
+          if (index == 0) {
+            ids = element.id;
+          } else {
+            ids = ids + "," + element.id;
+          }
+        });
+        this.form.itemIds = ids;
+        const res = await this.submit("post", "/assayer/store", this.form, {
+          headers: {
+            "Content-Type":
+              "multipart/form-data; charset=utf-8; boundary=" +
+              Math.random().toString().substr(2),
+          },
+        });
+        if (res.status === 200) {
+          window.location.href = this.$env_Url + "/assayer/dashboard";
+        } else {
+          this.errors_exist = true;
+          this.errors = res.data.errors;
+        }
       } else {
+        this.errors = {
+          error: ["Select atleast 1 sample!"],
+        };
         this.errors_exist = true;
-        this.errors = res.data.errors;
+      }
+    },
+    checked(sample, event) {
+      if (event.target.checked) {
+        this.selectedItemsId.push(sample.data);
+        document.getElementById("btn" + sample.data.id).disabled = false;
+      } else {
+        document.getElementById("btn" + sample.data.id).disabled = true;
+        _.remove(this.selectedItemsId, function (val) {
+          return val === sample.data;
+        });
+      }
+    },
+    checkAll(event) {
+      var checkboxes = document.getElementsByName("chkboxes");
+      var btnEdits = document.getElementsByName("btnedit");
+      for (var chkbox of checkboxes) {
+        chkbox.checked = event.target.checked;
+      }
+      for (var btnEdit of btnEdits) {
+        btnEdit.disabled = !event.target.checked;
+      }
+      this.selectedItemsId = [];
+      if (event.target.checked) {
+        for (var item of this.items) {
+          this.selectedItemsId.push(item);
+        }
       }
     },
   },

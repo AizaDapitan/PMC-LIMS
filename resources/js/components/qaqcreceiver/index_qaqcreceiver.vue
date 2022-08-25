@@ -184,7 +184,7 @@
                     icon="pi pi-pencil"
                     class="p-button-rounded p-button-success mr-2"
                     @click="editTransmittal(slotProps)"
-                    :disabled="slotProps.data.isReceived == 0"
+                    :disabled="slotProps.data.isEditable == 0"
                   />
                 </template>
               </Column>

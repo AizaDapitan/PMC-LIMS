@@ -265,7 +265,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.form.labbatch);
     if (this.dialogRef.data.sampleno == undefined || this.isDeptUser) {
       this.isdisabled = false;
     }

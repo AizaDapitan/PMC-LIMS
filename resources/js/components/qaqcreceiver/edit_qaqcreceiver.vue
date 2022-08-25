@@ -367,7 +367,7 @@ export default {
     async fetchItems() {
       const res = await this.callApiwParam(
         "post",
-        "/transItem/getItems",
+        "/qaqcreceiver/getItems",
         this.form
       );
       this.items = res.data;

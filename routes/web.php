@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalystController;
 use App\Http\Controllers\AssayerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -54,6 +55,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/getItems', [TransmittalItemController::class, 'getItems'])->name("transItem.getItems");
             Route::post('/uploaditems', [TransmittalItemController::class, 'uploadItems'])->name("transItem.uploadItems");
             Route::post('/delete', [TransmittalItemController::class, 'delete'])->name("transItem.delete");
+            Route::post('/getWorksheetItems', [TransmittalItemController::class, 'getWorksheetItems'])->name("transItem.getWorksheetItems");
             Route::post('/update', [TransmittalItemController::class, 'update'])->name("transItem.update");
         }
     );
@@ -79,6 +81,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/receive-transmittal/{id}', [QAQCRecieverController::class, 'receive'])->name("qaqcreceiver.receive");
             Route::post('/receiveTransmittal', [QAQCRecieverController::class, 'receiveTransmittal'])->name("qaqcreceiver.receiveTransmittal");
             Route::get('/edit-transmittal/{id}', [QAQCRecieverController::class, 'edit'])->name("qaqcreceiver.edit");
+            Route::post('/getItems', [QAQCRecieverController::class, 'getItems'])->name("qaqcreceiver.getItems");
             // Route::post('/update', [DeptOfficerController::class, 'update'])->name("deptofficer.update");
         }
     );
@@ -91,6 +94,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/view-transmittal/{id}', [AssayerController::class, 'view'])->name("assayer.view");
             Route::get('/create-worksheet/{id}', [AssayerController::class, 'create'])->name("assayer.create");
             Route::post('/getItems', [AssayerController::class, 'getItems'])->name("assayer.getItems");
+            Route::post('/getItemList', [AssayerController::class, 'getItemList'])->name("assayer.getItemList");
             Route::post('/store', [AssayerController::class, 'store'])->name("assayer.store");
             Route::get('/worksheet', [AssayerController::class, 'worksheet'])->name("assayer.worksheet");
             Route::post('/getWorksheet', [AssayerController::class, 'getWorksheet'])->name("assayer.getWorksheet");
@@ -99,6 +103,9 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/getWorksheetItems', [AssayerController::class, 'getWorksheetItems'])->name("assayer.getWorksheetItems");
             Route::get('/view-worksheet/{id}', [AssayerController::class, 'viewWorksheet'])->name("assayer.viewWorksheet");
             Route::post('/delete', [AssayerController::class, 'delete'])->name("assayer.delete");
+            Route::post('/checkBatchNo', [AssayerController::class, 'checkBatchNo'])->name("deptuser.checkBatchNo");
+            Route::post('/addSample', [AssayerController::class, 'addSample'])->name("assayer.addSample");
+            Route::post('/excludeSample', [AssayerController::class, 'excludeSample'])->name("assayer.excludeSample");
         }
     );
     // Digester
@@ -106,6 +113,16 @@ Route::middleware(['auth'])->group(function () {
         ['prefix' => 'digester'],
         function () {
             Route::get('/dashboard', [DigesterController::class, 'index'])->name("digester.index");
+            Route::get('/view-worksheet/{id}', [DigesterController::class, 'viewWorksheet'])->name("digester.viewWorksheet");
+            Route::post('/getWorksheet', [DigesterController::class, 'getWorksheet'])->name("digester.getWorksheet");
+            Route::post('/approve', [DigesterController::class, 'approve'])->name("digester.approve");
+        }
+    );
+    // Analyst
+    Route::group(
+        ['prefix' => 'analyst'],
+        function () {
+            Route::get('/dashboard', [AnalystController::class, 'index'])->name("analyst.index");
             Route::get('/view-worksheet/{id}', [DigesterController::class, 'viewWorksheet'])->name("digester.viewWorksheet");
             Route::post('/approve', [DigesterController::class, 'approve'])->name("digester.approve");
         }

@@ -504,8 +504,8 @@ export default {
       }
     },
     async checkTransno() {
-      this.errors = {};
       this.errors_exist = false;
+      this.errors = {};
       const res = await this.callApiwParam(
         "post",
         "/deptuser/checkTransNo",

@@ -12,12 +12,12 @@ class Worksheet extends Model
     protected $fillable = [
         'labbatch', 'dateshift', 'timeshift', 'fusionfurno', 'fusiontimefrom', 'fusiontimeto',
         'fusion', 'cupellationfurno', 'cupellationtimefrom', 'cupellationtimeto', 'cupellation', 'temperature', 'moldused', 'fireassayer', 'createdby',
-        'isdeleted', 'deleted_at', 'updatedby', 'deleteby','isApproved','approvedby','approved_at'
+        'isdeleted', 'deleted_at', 'updatedby', 'deleteby','isApproved','approvedby','approved_at','transType'
     ];
     protected $auditInclude = [
         'labbatch', 'dateshift', 'timeshift', 'fusionfurno', 'fusiontimefrom', 'fusiontimeto',
         'fusion', 'cupellationfurno', 'cupellationtimefrom', 'cupellationtimeto', 'cupellation', 'temperature', 'moldused', 'fireassayer', 'createdby',
-        'isdeleted', 'deleted_at', 'updatedby', 'deleteby','isApproved','approvedby','approved_at'
+        'isdeleted', 'deleted_at', 'updatedby', 'deleteby','isApproved','approvedby','approved_at','transType'
     ];
     protected $appends = ['fusion_furnace','cupellation_furnace','statuses'];
 

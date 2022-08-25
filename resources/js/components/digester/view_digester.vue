@@ -15,14 +15,14 @@
               <a :href="dashboard">LIMS</a>
             </li>
             <li class="breadcrumb-item" aria-current="page">
-              <a :href="dashboard">Assayer</a>
+              <a :href="dashboard">Tech/Digester</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
               View Worksheet
             </li>
           </ol>
         </nav>
-        <h4 class="mg-b-0 tx-spacing--1">View Worksheet - Assayer</h4>
+        <h4 class="mg-b-0 tx-spacing--1">View Worksheet - Tech/Digester</h4>
       </div>
     </div>
     <div v-if="errors_exist" class="alert alert-danger" role="alert">
@@ -260,7 +260,7 @@
             disabled="true"
           >
             <option value="">--Select--</option>
-            <option value="nolan dornila">Nolan Dornila</option>
+            <option value="Fire Assayer User">Fire Assayer User</option>
           </select>
         </div>
       </div>
@@ -370,6 +370,20 @@ export default {
       isApproved :this.worksheet.isApproved,
       form: {
         id: this.worksheet.id,
+        labbatch: this.worksheet.labbatch,
+        dateshift: this.worksheet.dateshift,
+        timeshift: this.worksheet.timeshift,
+        fusionfurno: this.worksheet.fusionfurno,
+        fusiontimefrom: this.worksheet.fusiontimefrom,
+        fusiontimeto: this.worksheet.fusiontimeto,
+        fusion: this.worksheet.fusion,
+        cupellationfurno: this.worksheet.cupellationfurno,
+        cupellationtimefrom: this.worksheet.cupellationtimefrom,
+        cupellationtimeto: this.worksheet.cupellationtimeto,
+        cupellation: this.worksheet.cupellation,
+        temperature: this.worksheet.temperature,
+        moldused: this.worksheet.moldused,
+        fireassayer: this.worksheet.fireassayer,
         ids: this.transids,
       },
     };
@@ -401,7 +415,7 @@ export default {
     async fetchItems() {
       const res = await this.callApiwParam(
         "post",
-        "/assayer/getWorksheetItems",
+        "/transItem/getWorksheetItems",
         this.form
       );
       this.items = res.data;

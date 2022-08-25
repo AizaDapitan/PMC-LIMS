@@ -84,8 +84,8 @@
             <li class="{{ (request()->is('assayer/worksheet*')) ? 'active' : '' }}"><a href="{{ route('assayer.worksheet') }}">Worksheet</a></li>
           </ul>
         </li>
-        <li class="{{ (request()->is('digester/worksheet*')) ? 'active' : '' }}"><a href="{{ route('digester.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Tech/Digester</span></a></li>
-        <li class="nav-item"><a href="#" class="nav-link"><i data-feather="bell"></i> <span>Analyst</span></a></li>
+        <li class="{{ (request()->is('digester/worksheet*')) ? 'active' : '' }}"><a href="{{ route('digester.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Tech/Digester</span><span class="badge badge-danger rounded-circle ml-3">{{ $forDigester}}</span></a></li>
+        <li class="{{ (request()->is('digester/worksheet*')) ? 'active' : '' }}"><a href="{{ route('analyst.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Analyst</span></a></li>
         <li class="nav-item"><a href="#" class="nav-link"><i data-feather="bell"></i> <span>Officer</span></a></li>
 
         <li class="nav-label mg-t-25">Maintenance</li>

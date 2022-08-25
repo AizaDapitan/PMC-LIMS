@@ -35,4 +35,9 @@ class DigesterController extends Controller
             return response()->json(['errors' => $e->getMessage(), 500]);
         }
     }
+    public function getWorksheet()
+    {
+        $worksheet = Worksheet::where('isdeleted', 0)->orderBy('created_at', 'desc')->get();
+        return $worksheet;
+    }
 }

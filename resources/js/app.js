@@ -143,6 +143,11 @@ app.component(
     require("./components/digester/view_digester.vue").default
 );
 
+app.component(
+    "index_analyst-component",
+    require("./components/analyst/index_analyst.vue").default
+);
+
 app.component("DataTable", DataTable);
 app.component("Column", Column);
 app.component("Toolbar", Toolbar);

@@ -249,4 +249,9 @@ class TransmittalItemController extends Controller
             return response()->json(['error' =>  $e->getMessage()], 500);
         }
     }
+    public function getWorksheetItems(Request $request)
+    {
+        $items = TransmittalItem::where('labbatch', $request->labbatch)->get();
+        return  $items;
+    }
 }

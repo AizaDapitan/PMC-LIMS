@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DeptuserTrans;
+use App\Models\TransmittalItem;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
@@ -54,5 +55,10 @@ class QAQCRecieverController extends Controller
     {
         $transmittal = DeptuserTrans::where('id', $id)->first();
         return view('qaqcreceiver.edit', compact('transmittal'));
+    }
+    public function getItems(Request $request)
+    {
+        $items = TransmittalItem::where([['isdeleted', 0], ['transmittalno', $request->transmittalno],['isAssayed',0]])->get();
+        return  $items;
     }
 }

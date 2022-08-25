@@ -18,11 +18,11 @@
               <a :href="dashboard">Assayer</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-              Create Worksheet
+              Edit Worksheet
             </li>
           </ol>
         </nav>
-        <h4 class="mg-b-0 tx-spacing--1">Create Worksheet - Assayer</h4>
+        <h4 class="mg-b-0 tx-spacing--1">Edit Worksheet - Assayer</h4>
       </div>
     </div>
     <div v-if="errors_exist" class="alert alert-danger" role="alert">
@@ -170,15 +170,14 @@
           <div class="col-lg-6">
             <div class="form-group">
               <label for="type">Type</label>
-              <select class="custom-select tx-base" id="type" name="type">
-                <option value="">--Select--</option>
-                <option value="Rock" selected>Rock</option>
-                <option value="Carbon">Carbon</option>
-                <option value="Solid">Solid</option>
-                <option value="Bulk">Bulk</option>
-                <option value="Cut">Cut</option>
-                <option value="Mine Drill">Mine Drill</option>
-              </select>
+              <input
+                type="text"
+                class="form-control"
+                id="transType"
+                name="transType"
+                v-model="form.transType"
+                disabled="true"
+              />
             </div>
           </div>
         </div>
@@ -242,7 +241,7 @@
             v-model="form.fireassayer"
           >
             <option value="">--Select--</option>
-            <option value="nolan dornila">Nolan Dornila</option>
+            <option value="fire assayer">Fire Assayer User</option>
           </select>
         </div>
       </div>
@@ -257,6 +256,13 @@
         <button
           @click="showDialog"
           class="btn btn-primary tx-13 btn-uppercase mg-b-25"
+          data-toggle="modal"
+        >
+          <i data-feather="plus" class="mg-r-5"></i> Add Insertion
+        </button>
+        <button
+          @click="showItemslist"
+          class="btn btn-primary tx-13 btn-uppercase mg-b-25 ml-lg-1"
           data-toggle="modal"
         >
           <i data-feather="plus" class="mg-r-5"></i> Add Sample
@@ -294,7 +300,7 @@
               header="Source"
               style="min-width: 8rem"
             ></Column>
-            <Column field="samplewtvolume" header="Sample Wt.(Grams)"></Column>
+            <Column field="samplewtgrams" header="Sample Wt.(Grams)"></Column>
             <Column field="crusibleused" header="Crusible Used"></Column>
             <Column field="transmittalno" header="Transmittal No."></Column>
             <Column field="fluxg" header="Flux (Grams)"></Column>
@@ -313,6 +319,13 @@
                   icon="pi pi-pencil"
                   class="p-button-rounded p-button-success mr-2"
                   @click="editItem(slotProps)"
+                />
+                <Button
+                  v-bind:title="deleteMsg"
+                  icon="pi pi-times"
+                  class="p-button-rounded p-button-warning mr-2"
+                  @click="excludeSample(slotProps)"
+                  :disabled="slotProps.data.isApproved == 1"
                 />
               </template>
             </Column>
@@ -361,6 +374,7 @@
 </template>
 <script>
 import item from "../../components/item/item";
+import itemlist from "../../components/item/itemlist";
 import { h } from "vue";
 import Button from "primevue/button";
 export default {
@@ -371,7 +385,9 @@ export default {
       loading: true,
       cocPath: "",
       editMsg: "Update Sample",
+      deleteMsg: "Exclude Sample",
       items: [],
+      itemsList: [],
       errors_exist: false,
       errors: {},
       form: {
@@ -391,6 +407,7 @@ export default {
         moldused: this.worksheet.moldused,
         fireassayer: this.worksheet.fireassayer,
         ids: this.transids,
+        transType: this.worksheet.transType,
       },
     };
   },
@@ -422,10 +439,19 @@ export default {
     async fetchItems() {
       const res = await this.callApiwParam(
         "post",
-        "/assayer/getWorksheetItems",
+        "/transItem/getWorksheetItems",
         this.form
       );
       this.items = res.data;
+    },
+    async fetchItemsList() {
+      const res = await this.callApiwParam(
+        "post",
+        "/assayer/getItemList",
+        this.form
+      );
+      this.itemsList = res.data;
+      this.showItemsDialog();
     },
     editItem(data) {
       this.showDialog(data.data);
@@ -470,6 +496,32 @@ export default {
         },
       });
     },
+
+    showItemslist() {
+      this.fetchItemsList();
+    },
+    showItemsDialog() {
+      const dialogRef = this.$dialog.open(itemlist, {
+        props: {
+          header: "Samples List",
+          style: {
+            width: "95vw",
+          },
+          breakpoints: {
+            "960px": "75vw",
+            "640px": "90vw",
+          },
+          modal: true,
+        },
+        data: {
+          labbatch: this.form.labbatch,
+          itemsList: this.itemsList,
+        },
+        onClose: (options) => {
+          this.fetchItems();
+        },
+      });
+    },
     async saveWorksheet() {
       const res = await this.submit("post", "/assayer/update", this.form, {
         headers: {
@@ -484,6 +536,30 @@ export default {
         this.errors_exist = true;
         this.errors = res.data.errors;
       }
+    },
+     excludeSample(data) {
+      this.$confirm.require({
+        message: "Do you want to exclude sample "  + data.data.sampleno + "?",
+        header: "Confirmation",
+        icon: "pi pi-info-circle",
+        acceptClass: "p-button-danger",
+        accept: async () => {
+          const res = await this.deleteRecord("post", "/assayer/excludeSample", {
+            id: data.data.id,
+          });
+          if (res.status === 200) {
+            this.$toast.add({
+                severity: "warn",
+                summary: "Confirmed",
+                detail: "Sample Code " + data.data.sampleno + " Excluded!",
+                life: 3000,
+            });
+            this.fetchItems();
+          } else {
+            this.ermessage();
+          }
+        },
+      });
     },
   },
 };
