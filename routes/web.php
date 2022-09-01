@@ -113,9 +113,16 @@ Route::middleware(['auth'])->group(function () {
         ['prefix' => 'digester'],
         function () {
             Route::get('/dashboard', [DigesterController::class, 'index'])->name("digester.index");
+            Route::get('/transmittal', [DigesterController::class, 'transmittal'])->name("digester.transmittal");
             Route::get('/view-worksheet/{id}', [DigesterController::class, 'viewWorksheet'])->name("digester.viewWorksheet");
             Route::post('/getWorksheet', [DigesterController::class, 'getWorksheet'])->name("digester.getWorksheet");
             Route::post('/approve', [DigesterController::class, 'approve'])->name("digester.approve");
+            Route::post('/getTransmittal', [DigesterController::class, 'getTransmittal'])->name("digester.getTransmittal");
+            Route::get('/edit-transmittal/{id}', [DigesterController::class, 'edit'])->name("digester.edit");
+            Route::post('/getItems', [DigesterController::class, 'getItems'])->name("digester.getItems");
+            Route::get('/view-transmittal/{id}', [DigesterController::class, 'view'])->name("digester.view");
+            Route::get('/receive-transmittal/{id}', [DigesterController::class, 'receive'])->name("digester.receive");
+            Route::post('/receiveTransmittal', [DigesterController::class, 'receiveTransmittal'])->name("digester.receiveTransmittal");
         }
     );
     // Analyst
@@ -123,8 +130,8 @@ Route::middleware(['auth'])->group(function () {
         ['prefix' => 'analyst'],
         function () {
             Route::get('/dashboard', [AnalystController::class, 'index'])->name("analyst.index");
-            Route::get('/view-worksheet/{id}', [DigesterController::class, 'viewWorksheet'])->name("digester.viewWorksheet");
-            Route::post('/approve', [DigesterController::class, 'approve'])->name("digester.approve");
+            Route::get('/view/{id}', [AnalystController::class, 'view'])->name("analyst.view");
+            Route::get('/edit/{id}', [AnalystController::class, 'edit'])->name("analyst.edit");
         }
     );
 

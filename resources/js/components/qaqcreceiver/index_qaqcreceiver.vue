@@ -232,7 +232,7 @@ export default {
         "post",
         "/qaqcreceiver/getTransmittal",
         this.form
-      );
+      );  
       this.transmittals = res.data;
     },
     initFilters() {

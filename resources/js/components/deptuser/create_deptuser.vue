@@ -172,10 +172,11 @@
               >
                 <option value="Rock">Rock</option>
                 <option value="Carbon">Carbon</option>
-                <option value="Solid">Solid</option>
                 <option value="Bulk">Bulk</option>
                 <option value="Cut">Cut</option>
                 <option value="Mine Drill">Mine Drill</option>
+                <option value="Solids">Solids</option>
+                <option value="Solutions">Solutions</option>
               </select>
             </div>
           </div>
@@ -461,7 +462,7 @@ export default {
     };
   },
   created() {
-    this.fetchItems();
+    // this.fetchItems();
     this.loading = false;
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
@@ -498,9 +499,11 @@ export default {
       this.cocFileLabel = this.COCitemFile.name;
     },
     onTransmittalNoChange() {
-      this.checkTransno();
-      if (!this.transNoExists) {
-        this.fetchItems();
+      if (this.form.transmittalno != "") {
+        this.checkTransno();
+        if (!this.transNoExists) {
+          this.fetchItems();
+        }
       }
     },
     async checkTransno() {
@@ -511,15 +514,21 @@ export default {
         "/deptuser/checkTransNo",
         this.form
       );
-      
+
       if (res.data.length > 0) {
-        var status = 'Active';
-        if(res.data[0]['isdeleted'] == 1)
-        {
-          status = 'Deleted'
+        var status = "Active";
+        if (res.data[0]["isdeleted"] == 1) {
+          status = "Deleted";
         }
         this.transNoExists = true;
-        this.errors = { error: ["Transmittal No already exists! : " + this.form.transmittalno + " | Status : " + status] };
+        this.errors = {
+          error: [
+            "Transmittal No already exists! : " +
+              this.form.transmittalno +
+              " | Status : " +
+              status,
+          ],
+        };
         this.errors_exist = true;
         this.form.transmittalno = "";
       }

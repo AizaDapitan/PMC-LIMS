@@ -17,10 +17,10 @@
             <li class="breadcrumb-item" aria-current="page">
               <a :href="dashboard">Receiving</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">View</li>
+            <li class="breadcrumb-item active" aria-current="page">Edit</li>
           </ol>
         </nav>
-        <h4 class="mg-b-0 tx-spacing--1">View Transmittal - Receiving</h4>
+        <h4 class="mg-b-0 tx-spacing--1">Edit Transmittal - Receiving</h4>
       </div>
     </div>
 
@@ -367,7 +367,7 @@ export default {
     async fetchItems() {
       const res = await this.callApiwParam(
         "post",
-        "/qaqcreceiver/getItems",
+        "/transItem/getItems",
         this.form
       );
       this.items = res.data;

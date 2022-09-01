@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeptuserTrans;
+use App\Models\TransmittalItem;
 use App\Models\Worksheet;
 use Carbon\Carbon;
 use Exception;
@@ -16,7 +18,15 @@ class DigesterController extends Controller
     public function viewWorksheet($id)
     {
         $worksheet = Worksheet::where('id', $id)->first();
-        return view('digester.view', compact('worksheet'));
+        $isReadyforApproval = true;
+        // dd( TransmittalItem::where('labbatch', $worksheet->labbatch)->whereNull(['samplewtgrams','fluxg','flourg','niterg','leadg','silicang','crusibleused'])
+        // ->toSql());
+        $items = TransmittalItem::where('labbatch', $worksheet->labbatch)->whereNull(
+            ['samplewtgrams','fluxg','flourg','niterg','leadg','silicang','crusibleused'])->get();
+        if(count($items) > 0){
+            $isReadyforApproval = false;
+        }
+        return view('digester.view', compact('worksheet','isReadyforApproval'));
     }
     public function approve(Request $request)
     {
@@ -39,5 +49,60 @@ class DigesterController extends Controller
     {
         $worksheet = Worksheet::where('isdeleted', 0)->orderBy('created_at', 'desc')->get();
         return $worksheet;
+    }
+    public function transmittal()
+    {
+       return view('digester.transmittal');
+    }
+    public function getTransmittal()
+    {
+        // dd(DeptuserTrans::where([['isdeleted', 0],['status','Approved'],['transcode',1],['transType','Solid']])
+        // ->orderBy('transmittalno', 'asc')->toSql());
+        $transmittal = DeptuserTrans::where([['isdeleted', 0],['status','Approved'],['transcode',1],['transType','Solids']])
+        ->orderBy('transmittalno', 'asc')->get();
+
+        return $transmittal;
+    }
+    public function edit($id)
+    {
+        $transmittal = DeptuserTrans::where('id', $id)->first();
+        return view('digester.edit', compact('transmittal'));
+    }
+    public function getItems(Request $request)
+    {
+        $items = TransmittalItem::where([['isdeleted', 0], ['transmittalno', $request->transmittalno],['isAssayed',0]])->get();
+        return  $items;
+    }
+    
+    public function view($id)
+    {
+        $transmittal = DeptuserTrans::where('id', $id)->first();
+        return view('digester.view_transmittal', compact('transmittal'));
+    }
+    public function receive($id)
+    {
+        $transmittal = DeptuserTrans::where('id', $id)->first();
+        return view('digester.receive', compact('transmittal'));
+    }
+    public function receiveTransmittal(Request $request)
+    {
+        $request->validate([
+            'id' => 'required'
+        ]);
+        try {
+          
+            $deptuserTrans = DeptuserTrans::find($request->id);
+
+            $data = [
+                'received_date' => Carbon::now(),
+                'receiver' => auth()->user()->username,
+                'isReceived' =>  true,
+            ];
+            $deptuserTrans->update($data);
+
+            return response()->json('success');
+        } catch (Exception $e) {
+            return response()->json(['error' =>  $e->getMessage()], 500);
+        }
     }
 }

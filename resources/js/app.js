@@ -142,10 +142,34 @@ app.component(
     "view_digester-component",
     require("./components/digester/view_digester.vue").default
 );
+app.component(
+    "transmittal_digester-component",
+    require("./components/digester/transmittal_digester.vue").default
+);
+app.component(
+    "edit_digester-component",
+    require("./components/digester/edit_digester.vue").default
+);
+app.component(
+    "view_transmittal_digester-component",
+    require("./components/digester/view_transmittal_digester.vue").default
+);
+app.component(
+    "receive_digester-component",
+    require("./components/digester/receive_digester.vue").default
+);
 
 app.component(
     "index_analyst-component",
     require("./components/analyst/index_analyst.vue").default
+);
+app.component(
+    "view_analyst-component",
+    require("./components/analyst/view_analyst.vue").default
+);
+app.component(
+    "edit_analyst-component",
+    require("./components/analyst/edit_analyst.vue").default
 );
 
 app.component("DataTable", DataTable);

@@ -78,6 +78,7 @@ class DeptUserController extends Controller
                     'created_by' => auth()->user()->username,
                     'isSaved'   => 1,
                     'transType' => $request->transType,
+                    'transcode' => 1
                 ];
                 $deptuserTrans->update($data);
             } else {
@@ -96,6 +97,7 @@ class DeptUserController extends Controller
                     'created_by' => auth()->user()->username,
                     'isSaved'   => 1,
                     'transType' => $request->transType,
+                    'transcode' => 1
                 ]);
             }
             TransmittalItem::where('transmittalno', $request->transmittalno)->update(['source' => $request->source]);
@@ -233,6 +235,7 @@ class DeptUserController extends Controller
                     'status' =>  $request->status,
                     'transType' => $request->transType,
                     'created_by' => auth()->user()->username,
+                    'transcode' => 1
                 ];
                 $transmittal = DeptuserTrans::create($data);
                 return response()->json(['id' => $transmittal->id]);

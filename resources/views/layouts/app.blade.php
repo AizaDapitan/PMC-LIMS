@@ -84,9 +84,21 @@
             <li class="{{ (request()->is('assayer/worksheet*')) ? 'active' : '' }}"><a href="{{ route('assayer.worksheet') }}">Worksheet</a></li>
           </ul>
         </li>
-        <li class="{{ (request()->is('digester/worksheet*')) ? 'active' : '' }}"><a href="{{ route('digester.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Tech/Digester</span><span class="badge badge-danger rounded-circle ml-3">{{ $forDigester}}</span></a></li>
-        <li class="{{ (request()->is('digester/worksheet*')) ? 'active' : '' }}"><a href="{{ route('analyst.index') }}" class="nav-link"><i data-feather="bell"></i> <span>Analyst</span></a></li>
-        <li class="nav-item"><a href="#" class="nav-link"><i data-feather="bell"></i> <span>Officer</span></a></li>
+        <li class="nav-item with-sub {{ (request()->is('digester/*')) ? 'active show' : '' }}">
+          <a href="#" class="nav-link"><i data-feather="bell"></i> <span>Tech/Digester</span><span class="badge badge-danger rounded-circle ml-3">{{ $forDigester}}</span></a>
+          <ul>
+            <li class="{{ (request()->is('digester/worksheet*')) ? 'active' : '' }}"><a href="{{ route('digester.index') }}"><span>Dashboard</span><span class="badge badge-danger rounded-circle ml-3">{{ $forDigesterWorksheet}}</span></a></li>
+            <li class="{{ (request()->is('digester/transmittal*')) ? 'active' : '' }}"><a href="{{ route('digester.transmittal', [' ']) }}"><span>Transmittal</span><span class="badge badge-danger rounded-circle ml-3">{{ $forDigesterTrans}}</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item with-sub {{ (request()->is('analyst/*')) ? 'active show' : '' }}">
+          <a href="#" class="nav-link"><i data-feather="bell"></i> <span>Analyst</span><span class="badge badge-danger rounded-circle ml-3">{{ $forDigester}}</span></a>
+          <ul>
+            <li class="{{ (request()->is('analyst/dashboard*')) ? 'active' : '' }}"><a href="{{ route('analyst.index') }}"><span>Dashboard</span><span class="badge badge-danger rounded-circle ml-3">{{ $forDigesterWorksheet}}</span></a></li>
+            <li class="{{ (request()->is('digester/transmittal*')) ? 'active' : '' }}"><a href="{{ route('digester.transmittal', [' ']) }}"><span>Transmittal</span><span class="badge badge-danger rounded-circle ml-3">{{ $forDigesterTrans}}</span></a></li>
+          </ul>
+        </li>
+         <li class="nav-item"><a href="#" class="nav-link"><i data-feather="bell"></i> <span>Officer</span></a></li>
 
         <li class="nav-label mg-t-25">Maintenance</li>
         <li class="nav-item with-sub">

@@ -19,14 +19,14 @@ class DeptuserTrans extends Model //implements AuditableContract
     protected $fillable = [
         'transmittalno', 'purpose', 'datesubmitted', 'timesubmitted', 'date_needed', 'priority',
         'status', 'email_address', 'source', 'cocFile', 'csvFile', 'isdeleted', 'deleted_at', 'approvedDate', 'approver',
-        'isReceived', 'receiver', 'received_date', 'isSaved', 'created_by', 'transType','assayedby'
+        'isReceived', 'receiver', 'received_date', 'isSaved', 'created_by', 'transType', 'assayedby', 'transcode'
     ];
     protected $auditInclude = [
         'transmittalno', 'purpose', 'datesubmitted', 'timesubmitted', 'date_needed', 'priority',
         'status', 'email_address', 'source', 'cocFile', 'csvFile', 'isdeleted', 'deleted_at', 'approvedDate', 'approver',
-        'isReceived', 'receiver', 'received_date', 'isSaved', 'created_by', 'transType','assayedby'
+        'isReceived', 'receiver', 'received_date', 'isSaved', 'created_by', 'transType', 'assayedby', 'transcode'
     ];
-    protected $appends = ['coc_path', 'statuses', 'isupdated','isEditable'];
+    protected $appends = ['coc_path', 'statuses', 'isupdated', 'isEditable'];
 
     public function getCocPathAttribute()
     {
@@ -57,7 +57,7 @@ class DeptuserTrans extends Model //implements AuditableContract
                 }
             }
             if ($count > 0) {
-               return false;
+                return false;
             }
             return true;
         }
@@ -65,19 +65,22 @@ class DeptuserTrans extends Model //implements AuditableContract
     }
     public function getIsEditableAttribute()
     {
-        $items = TransmittalItem::where('transmittalno', $this->transmittalno)->get();
-        if (count($items) > 0) {
-            $count = 0;
-            foreach ($items as $item) {
-                if ($item->isAssayed == 0) {
-                    $count += 1;
+        if ($this->isReceived) {
+            $items = TransmittalItem::where('transmittalno', $this->transmittalno)->get();
+            if (count($items) > 0) {
+                $count = 0;
+                foreach ($items as $item) {
+                    if ($item->isAssayed == 0) {
+                        $count += 1;
+                    }
                 }
+                if ($count > 0) {
+                    return true;
+                }
+                return false;
             }
-            if ($count > 0) {
-               return true;
-            }
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }

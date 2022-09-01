@@ -169,6 +169,13 @@
                     class="p-button-rounded p-button-success mr-2"
                     @click="viewWorksheet(slotProps)"
                   />
+                  <Button
+                    v-bind:title="editMsg"
+                    icon="pi pi-pencil"
+                    class="p-button-rounded p-button-success mr-2"
+                    @click="editWorksheet(slotProps)"
+                    :disabled="slotProps.data.isApproved == 0"
+                  />
                 </template>
               </Column>
             </DataTable>
@@ -228,10 +235,15 @@ export default {
     viewWorksheet(data) {
       let src = data.data.id,
         alt = data.data.id;
-      window.location.href = this.$env_Url + "/digester/view-worksheet/" + alt;
+      window.location.href = this.$env_Url + "/analyst/view/" + alt;
     },
     exportCSV() {
       this.$refs.dt.exportCSV();
+    },
+    editWorksheet(data) {
+      let src = data.data.id,
+        alt = data.data.id;
+      window.location.href = this.$env_Url + "/analyst/edit/" + alt;
     },
   },
 };

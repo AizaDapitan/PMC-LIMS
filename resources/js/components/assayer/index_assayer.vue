@@ -50,13 +50,13 @@
                 name="type"
                 v-model="filters['transType'].value"
               >
-                <option value="" selected>Select Transmittal Type</option>
                 <option value="Rock">Rock</option>
                 <option value="Carbon">Carbon</option>
-                <option value="Solid">Solid</option>
                 <option value="Bulk">Bulk</option>
                 <option value="Cut">Cut</option>
                 <option value="Mine Drill">Mine Drill</option>
+                <option value="Solids">Solids</option>
+                <option value="Solutions">Solutions</option>
               </select>
             </div>
             <div class="search-form mg-r-10">
@@ -317,7 +317,7 @@ export default {
     initFilters() {
       this.filters = {
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-        transType: { value: "", matchMode: FilterMatchMode.EQUALS },
+        transType: { value: "Rock", matchMode: FilterMatchMode.EQUALS },
       };
     },
     clearFilter() {
@@ -366,7 +366,6 @@ export default {
           }
         }
       }
-      console.log(this.selectedTrans);
     },
     createWorksheet() {
       if (this.selectedTrans) {

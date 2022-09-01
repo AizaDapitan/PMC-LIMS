@@ -178,20 +178,14 @@
           <div class="col-lg-6">
             <div class="form-group">
               <label for="type">Type</label>
-              <select
-                class="custom-select tx-base"
-                id="type"
-                name="type"
+              <input
+                type="text"
+                class="form-control"
+                id="transType"
+                name="transType"
+                v-model="form.transType"
                 disabled="true"
-              >
-                <option value="">--Select--</option>
-                <option value="Rock" selected>Rock</option>
-                <option value="Carbon">Carbon</option>
-                <option value="Solid">Solid</option>
-                <option value="Bulk">Bulk</option>
-                <option value="Cut">Cut</option>
-                <option value="Mine Drill">Mine Drill</option>
-              </select>
+              />
             </div>
           </div>
         </div>
@@ -335,7 +329,7 @@
           type="submit"
           class="btn btn-primary tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
           @click.prevent="approve"
-          :disabled="this.isApproved == 1"
+          :disabled="!this.isforApproval"
         >
           <i data-feather="check-circle" class="mg-r-5"></i> Approve
         </button>
@@ -359,7 +353,7 @@ import item from "../../components/item/item";
 import { h } from "vue";
 import Button from "primevue/button";
 export default {
-  props: ["worksheet"],
+  props: ["worksheet","isReadyforApproval"],
   data() {
     return {
       dashboard: this.$env_Url + "/digester/dashboard",
@@ -368,6 +362,8 @@ export default {
       errors_exist: false,
       errors: {},
       isApproved :this.worksheet.isApproved,
+      isforApproval : false,
+      isReady : this.isReadyforApproval,
       form: {
         id: this.worksheet.id,
         labbatch: this.worksheet.labbatch,
@@ -384,6 +380,7 @@ export default {
         temperature: this.worksheet.temperature,
         moldused: this.worksheet.moldused,
         fireassayer: this.worksheet.fireassayer,
+        transType: this.worksheet.transType,
         ids: this.transids,
       },
     };
@@ -391,6 +388,11 @@ export default {
   created() {
     this.fetchItems();
     this.loading = false;
+    console.log(this.isReady);
+    if(this.isReadyforApproval || this.isApproved == 0){
+      this.isforApproval = true;
+    }
+    console.log(this.isforApproval);
   },
   mounted() {
     this.form.timeshift = this.worksheet.timeshift.replace(":00.0000000", "");

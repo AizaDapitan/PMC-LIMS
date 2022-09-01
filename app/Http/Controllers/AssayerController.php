@@ -208,7 +208,7 @@ class AssayerController extends Controller
     }
     public function getItemList(Request $request)
     {
-        $trans_nos = DeptuserTrans::where([['isReceived', true], ['isdeleted', 0]])->get('transmittalno')->toArray();
+        $trans_nos = DeptuserTrans::where([['isReceived', true], ['isdeleted', 0],['transType',$request->transType]])->get('transmittalno')->toArray();
         $forAssayer = 0;
         $transids = [];
         foreach ($trans_nos as $trans_no) {
