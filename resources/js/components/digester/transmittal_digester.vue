@@ -14,11 +14,11 @@
             <li class="breadcrumb-item" aria-current="page">LIMS</li>
             <li class="breadcrumb-item" aria-current="page">Digester</li>
             <li class="breadcrumb-item active" aria-current="page">
-              Dashboard
+              Transmittal Dashboard
             </li>
           </ol>
         </nav>
-        <h4 class="mg-b-0 tx-spacing--1">Home/Dashboard - Digester</h4>
+        <h4 class="mg-b-0 tx-spacing--1">Home/Transmittal Dashboard - Digester</h4>
       </div>
     </div>
 
@@ -214,7 +214,7 @@ export default {
   data() {
     return {
       transmittals: [],
-      dashboard: this.$env_Url + "qaqcreceiver/dashboard",
+      dashboard: this.$env_Url + "digester/dashboard",
       filters: null,
       viewMsg: "View Transmittal",
       editMsg: "Edit Transmittal",
@@ -234,7 +234,6 @@ export default {
         this.form
       );  
       this.transmittals = res.data;
-      console.log(this.transmittals);
     },
     initFilters() {
       this.filters = {

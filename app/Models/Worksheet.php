@@ -12,12 +12,14 @@ class Worksheet extends Model
     protected $fillable = [
         'labbatch', 'dateshift', 'timeshift', 'fusionfurno', 'fusiontimefrom', 'fusiontimeto',
         'fusion', 'cupellationfurno', 'cupellationtimefrom', 'cupellationtimeto', 'cupellation', 'temperature', 'moldused', 'fireassayer', 'createdby',
-        'isdeleted', 'deleted_at', 'updatedby', 'deleteby','isApproved','approvedby','approved_at','transType'
+        'isdeleted', 'deleted_at', 'updatedby', 'deleteby','isApproved','approvedby','approved_at','transType','dateweighed','shiftweighed','micnocheckweights',
+        'measuredby','analyzedby','isAnalyzed'
     ];
     protected $auditInclude = [
         'labbatch', 'dateshift', 'timeshift', 'fusionfurno', 'fusiontimefrom', 'fusiontimeto',
         'fusion', 'cupellationfurno', 'cupellationtimefrom', 'cupellationtimeto', 'cupellation', 'temperature', 'moldused', 'fireassayer', 'createdby',
-        'isdeleted', 'deleted_at', 'updatedby', 'deleteby','isApproved','approvedby','approved_at','transType'
+        'isdeleted', 'deleted_at', 'updatedby', 'deleteby','isApproved','approvedby','approved_at','transType','dateweighed','shiftweighed','micnocheckweights',
+        'measuredby','analyzedby','isAnalyzed'
     ];
     protected $appends = ['fusion_furnace','cupellation_furnace','statuses'];
 

@@ -33,13 +33,13 @@ class AppServiceProvider extends ServiceProvider
             'layouts.app',
             function ($view) {
                 $forOffApproval = DeptuserTrans::where([['status', 'Pending'], ['isdeleted', false], ['isSaved', 1]])->count();
-                $forReceive = DeptuserTrans::where([['status', 'Approved'], ['isReceived', false],['transcode',1]])->WhereNotIn('transType',['Solids','Solutions'])->count();
+                $forReceive = DeptuserTrans::where([['status', 'Approved'], ['isReceived', false], ['transcode', 1]])->WhereNotIn('transType', ['Solids', 'Solutions'])->count();
                 $unsaved = DeptuserTrans::where([['isSaved', 0], ['created_by', auth()->user()->username], ['isdeleted', 0]])->count();
                 $usertrans = DeptuserTrans::where([['isReceived', true], ['isdeleted', 0]])->get();
                 $trans_nos = DeptuserTrans::where([['isReceived', true], ['isdeleted', 0]])->get('transmittalno')->toArray();
                 $forAssayer = 0;
                 foreach ($trans_nos as $trans_no) {
-                    $items = TransmittalItem::where([['transmittalno', $trans_no['transmittalno']],['isAssayed',0]])->get();
+                    $items = TransmittalItem::where([['transmittalno', $trans_no['transmittalno']], ['isAssayed', 0]])->get();
                     if (count($items) > 0) {
                         $count = 0;
                         foreach ($items as $item) {
@@ -52,9 +52,12 @@ class AppServiceProvider extends ServiceProvider
                         }
                     }
                 }
-                $forDigesterTrans = DeptuserTrans::where([['status', 'Approved'], ['isReceived', false],['transcode',1],['transType','Solids']])->count();
-                $forDigesterWorksheet = Worksheet::where([['isdeleted', 0],['isApproved',0]])->orderBy('created_at', 'desc')->count();
+                $forDigesterTrans = DeptuserTrans::where([['status', 'Approved'], ['isReceived', false], ['transcode', 1], ['transType', 'Solids']])->count();
+                $forDigesterWorksheet = Worksheet::where([['isdeleted', 0], ['isApproved', 0]])->orderBy('created_at', 'desc')->count();
                 $forDigester = $forDigesterTrans + $forDigesterWorksheet;
+                $forAnalystWorksheet = Worksheet::where([['isdeleted', 0], ['isApproved', 1]])->orderBy('created_at', 'desc')->count();
+                $forAnalystTrans = DeptuserTrans::where([['status', 'Approved'], ['isReceived', false], ['transcode', 1], ['transType', 'Solutions']])->count();
+                $forAnalyst = $forAnalystWorksheet + $forAnalystTrans;
                 $view->with(
                     compact(
                         'forOffApproval',
@@ -63,7 +66,10 @@ class AppServiceProvider extends ServiceProvider
                         'forAssayer',
                         'forDigester',
                         'forDigesterWorksheet',
-                        'forDigesterTrans'
+                        'forDigesterTrans',
+                        'forAnalystWorksheet',
+                        'forAnalystTrans',
+                        'forAnalyst'
                     )
                 );
             }

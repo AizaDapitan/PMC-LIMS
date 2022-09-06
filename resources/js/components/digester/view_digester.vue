@@ -254,7 +254,7 @@
             disabled="true"
           >
             <option value="">--Select--</option>
-            <option value="Fire Assayer User">Fire Assayer User</option>
+            <option value="fire assayer">Fire Assayer User</option>
           </select>
         </div>
       </div>
@@ -329,7 +329,7 @@
           type="submit"
           class="btn btn-primary tx-13 btn-uppercase mr-2 mb-2 ml-lg-1 mr-lg-0"
           @click.prevent="approve"
-          :disabled="!this.isforApproval"
+          :disabled="!this.isReadyforApproval"
         >
           <i data-feather="check-circle" class="mg-r-5"></i> Approve
         </button>
@@ -353,7 +353,7 @@ import item from "../../components/item/item";
 import { h } from "vue";
 import Button from "primevue/button";
 export default {
-  props: ["worksheet","isReadyforApproval"],
+  props: ['forapproval','worksheet'],
   data() {
     return {
       dashboard: this.$env_Url + "/digester/dashboard",
@@ -362,8 +362,7 @@ export default {
       errors_exist: false,
       errors: {},
       isApproved :this.worksheet.isApproved,
-      isforApproval : false,
-      isReady : this.isReadyforApproval,
+      isReadyforApproval : false,
       form: {
         id: this.worksheet.id,
         labbatch: this.worksheet.labbatch,
@@ -388,11 +387,11 @@ export default {
   created() {
     this.fetchItems();
     this.loading = false;
-    console.log(this.isReady);
-    if(this.isReadyforApproval || this.isApproved == 0){
-      this.isforApproval = true;
+    console.log(this.forapproval);
+    if(this.forapproval == 1 && this.isApproved == 0){
+      this.isReadyforApproval = true;
     }
-    console.log(this.isforApproval);
+    console.log(this.isReadyforApproval);
   },
   mounted() {
     this.form.timeshift = this.worksheet.timeshift.replace(":00.0000000", "");

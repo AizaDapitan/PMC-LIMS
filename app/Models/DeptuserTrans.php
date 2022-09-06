@@ -47,21 +47,25 @@ class DeptuserTrans extends Model //implements AuditableContract
     }
     public function getIsupdatedAttribute()
     {
+        if ($this->transType != 'Solutions') {
+            $items = TransmittalItem::where('transmittalno', $this->transmittalno)->get();
+            if (count($items) > 0) {
+                $count = 0;
+                foreach ($items as $item) {
 
-        $items = TransmittalItem::where('transmittalno', $this->transmittalno)->get();
-        if (count($items) > 0) {
-            $count = 0;
-            foreach ($items as $item) {
-                if ($item->samplewtvolume == null || $item->samplewtvolume == '') {
-                    $count += 1;
+                    if ($item->samplewtvolume == null || $item->samplewtvolume == '') {
+                        $count += 1;
+                    }
                 }
+                if ($count > 0) {
+                    return false;
+                }
+                return true;
             }
-            if ($count > 0) {
-                return false;
-            }
+            return false;
+        } else {
             return true;
         }
-        return false;
     }
     public function getIsEditableAttribute()
     {

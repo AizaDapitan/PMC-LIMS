@@ -13,20 +13,35 @@ class DigesterController extends Controller
 {
     public function index()
     {
-       return view('digester.index');
+        return view('digester.index');
     }
     public function viewWorksheet($id)
     {
         $worksheet = Worksheet::where('id', $id)->first();
-        $isReadyforApproval = true;
-        // dd( TransmittalItem::where('labbatch', $worksheet->labbatch)->whereNull(['samplewtgrams','fluxg','flourg','niterg','leadg','silicang','crusibleused'])
-        // ->toSql());
-        $items = TransmittalItem::where('labbatch', $worksheet->labbatch)->whereNull(
-            ['samplewtgrams','fluxg','flourg','niterg','leadg','silicang','crusibleused'])->get();
-        if(count($items) > 0){
-            $isReadyforApproval = false;
+        $forapproval = 1;
+        // dd(TransmittalItem::where('labbatch', $worksheet->labbatch)->where(function ($q) {
+        //     return $q->orWhereNull('samplewtgrams')
+        //         ->orWhereNull('fluxg')
+        //         ->orWhereNull('flourg')
+        //         ->orWhereNull('niterg')
+        //         ->orWhereNull('leadg')
+        //         ->orWhereNull('silicang')
+        //         ->orWhereNull('crusibleused');
+        // })->toSql());
+        $items = TransmittalItem::where('labbatch', $worksheet->labbatch)->where(function ($q) {
+            return $q->orWhereNull('samplewtgrams')
+                ->orWhereNull('fluxg')
+                ->orWhereNull('flourg')
+                ->orWhereNull('niterg')
+                ->orWhereNull('leadg')
+                ->orWhereNull('silicang')
+                ->orWhereNull('crusibleused');
+        })->get();
+        if (count($items) > 0) {
+            $forapproval = 0;
         }
-        return view('digester.view', compact('worksheet','isReadyforApproval'));
+
+        return view('digester.view', compact('forapproval', 'worksheet'));
     }
     public function approve(Request $request)
     {
@@ -52,14 +67,14 @@ class DigesterController extends Controller
     }
     public function transmittal()
     {
-       return view('digester.transmittal');
+        return view('digester.transmittal');
     }
     public function getTransmittal()
     {
         // dd(DeptuserTrans::where([['isdeleted', 0],['status','Approved'],['transcode',1],['transType','Solid']])
         // ->orderBy('transmittalno', 'asc')->toSql());
-        $transmittal = DeptuserTrans::where([['isdeleted', 0],['status','Approved'],['transcode',1],['transType','Solids']])
-        ->orderBy('transmittalno', 'asc')->get();
+        $transmittal = DeptuserTrans::where([['isdeleted', 0], ['status', 'Approved'], ['transcode', 1], ['transType', 'Solids']])
+            ->orderBy('transmittalno', 'asc')->get();
 
         return $transmittal;
     }
@@ -70,10 +85,10 @@ class DigesterController extends Controller
     }
     public function getItems(Request $request)
     {
-        $items = TransmittalItem::where([['isdeleted', 0], ['transmittalno', $request->transmittalno],['isAssayed',0]])->get();
+        $items = TransmittalItem::where([['isdeleted', 0], ['transmittalno', $request->transmittalno], ['isAssayed', 0]])->get();
         return  $items;
     }
-    
+
     public function view($id)
     {
         $transmittal = DeptuserTrans::where('id', $id)->first();
@@ -90,7 +105,7 @@ class DigesterController extends Controller
             'id' => 'required'
         ]);
         try {
-          
+
             $deptuserTrans = DeptuserTrans::find($request->id);
 
             $data = [
