@@ -138,7 +138,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/receive-transmittal/{id}', [AnalystController::class, 'receive'])->name("analyst.receive");
             Route::post('/receiveTransmittal', [AnalystController::class, 'receiveTransmittal'])->name("analyst.receiveTransmittal");
             Route::get('/edit-transmittal/{id}', [AnalystController::class, 'editTransmittal'])->name("analyst.editTransmittal");
-            Route::post('/getItems', [DigesterController::class, 'getItems'])->name("digester.getItems");
+            Route::post('/getItems', [DigesterController::class, 'getItems'])->name("analyst.getItems");
         }
     );
 
